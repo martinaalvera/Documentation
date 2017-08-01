@@ -35,34 +35,40 @@ For more information on the Galaxy Project, please visit the https://galaxyproje
    :maxdepth: 2
    :caption: Features
 
-   galaxy_custom
-   galaxy_production_environment
-   instance_isolation
-   galaxy_tools
-   reference_data
-   cluster_support
-   authentication
-   validation
+   feat_galaxy_custom
+   feat_galaxy_prod_env
+   feat_instance_isolation
+   feat_galaxy_tools
+   feat_reference_data
+   feat_cluster_support
+   feat_authentication
+   feat_validation
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Galaxy admin
+
+   admin_scripts
 
 
 .. toctree::
    :maxdepth: 2
    :caption: Development
 
-   ansible_roles
-   tosca_templates
-   build_cvmfs_server
+   dev_ansible_roles
+   dev_tosca_templates
+   dev_build_cvmfs_server
 
 
 .. toctree::
    :maxdepth: 2
    :caption: Included INDIGO-DataCloud components
 
-   orchestrator
-   im
-   fgw
-   onedata
-   clues
+   indigo_orchestrator
+   indigo_im
+   indigo_fgw
+   indigo_onedata
+   indigo_clues
 
 Tutorials
 ---------
