@@ -22,7 +22,7 @@ Introduction
    intro_overview
    intro_architecture
    intro_indigo
-   intro_elixir_it
+   intro_elixir-it
 
 Quickstarts
 -----------
