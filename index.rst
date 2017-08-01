@@ -12,34 +12,28 @@ Galaxy is a workflow manager adopted in many life science research environments 
 
 For more information on the Galaxy Project, please visit the https://galaxyproject.org
 
-
-Introduction
-------------
-
 .. toctree::
    :maxdepth: 2
+   :caption: Introduction
 
    intro_overview
    intro_architecture
    intro_elixir-it
    intro_indigo
 
-Quickstarts
------------
 
 .. toctree::
    :maxdepth: 2
+   :caption: Quickstarts
 
-   get_galaxy
-   isolate_your_galaxy
-   get_galaxy_cluster
+   qs_get_galaxy
+   qs_isolate_your_galaxy
+   qs_get_galaxy_cluster
 
-
-Features
---------
 
 .. toctree::
    :maxdepth: 2
+   :caption: Features
 
    galaxy_custom
    galaxy_production_environment
@@ -51,22 +45,18 @@ Features
    validation
 
 
-Development
------------
-
 .. toctree::
    :maxdepth: 2
+   :caption: Development
 
    ansible_roles
    tosca_templates
    build_cvmfs_server
 
 
-Included INDIGO-DataCloud components
-------------------------------------
-
 .. toctree::
    :maxdepth: 2
+   :caption: Included INDIGO-DataCloud components
 
    orchestrator
    im
@@ -76,11 +66,11 @@ Included INDIGO-DataCloud components
 
 Tutorials
 ---------
+
 Galaxy For Developers: https://crs4.github.io/Galaxy4Developers/
 
-
-Support
--------
+Supports
+--------
 
 
 Articles
@@ -89,6 +79,7 @@ Articles
 
 Cite
 ----
+
 
 Indices and tables
 ------------------
