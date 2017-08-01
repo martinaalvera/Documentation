@@ -12,3 +12,4 @@ Data privacy is granted through LUKS file system encryption: users will be requi
    :maxdepth: 2
 
    FS_encryption
+   FS_encryption_procedure
