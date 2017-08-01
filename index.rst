@@ -20,6 +20,7 @@ Introduction
    :maxdepth: 2
 
    overview
+   architecture
    indigo
    elixir_italy
 
@@ -33,15 +34,6 @@ Quickstarts
    isolate_your_galaxy
    get_galaxy_cluster
 
-Development
------------
-
-.. toctree::
-   :maxdepth: 2
-
-   ansible_roles
-   tosca_templates
-   build_cvmfs_server
 
 Features
 --------
@@ -58,9 +50,16 @@ Features
    authentication
    validation
 
-Tutorials
----------
-Galaxy For Developers: https://crs4.github.io/Galaxy4Developers/
+
+Development
+-----------
+
+.. toctree::
+   :maxdepth: 2
+
+   ansible_roles
+   tosca_templates
+   build_cvmfs_server
 
 
 Included INDIGO-DataCloud components
@@ -75,13 +74,21 @@ Included INDIGO-DataCloud components
    onedata
    clues
 
+Tutorials
+---------
+Galaxy For Developers: https://crs4.github.io/Galaxy4Developers/
+
+
 Support
-------
+-------
 
 
 Articles
 --------
 
+
+Cite
+----
 
 Indices and tables
 ------------------
