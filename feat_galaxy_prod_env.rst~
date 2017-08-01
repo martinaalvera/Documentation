@@ -1,0 +1,13 @@
+Galaxy production environment
+=============================
+
+
+
+.. toctree::
+   :maxdepth: 2
+
+   OS
+   postgresql
+   NGINX
+   uWSGI
+   proftpd
