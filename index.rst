@@ -1,19 +1,90 @@
-.. GalaxyCloud documentation master file, created by
-   sphinx-quickstart on Mon Jul 31 15:31:21 2017.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+GalaxyCloud documentation
+=========================
 
-Welcome to GalaxyCloud's documentation!
-=======================================
+.. _fig_updateprocess:
+
+.. figure:: _static/elixir_italy_logo.png
+   :scale: 10 %
+   :align: center
+   :alt: elixir-italy logo
+
+Galaxy is a workflow manager adopted in many life science research environments in order to facilitate the interaction with bioinformatics tools and the handling of large quantities of biological data.
+
+For more information on the Galaxy Project, please visit the https://galaxyproject.org
+
+
+Introduction
+------------
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
 
+   overview
+   indigo
+   elixir_italy
+
+Quickstarts
+-----------
+
+.. toctree::
+   :maxdepth: 2
+
+   get_galaxy
+   isolate_your_galaxy
+   get_galaxy_cluster
+
+Development
+-----------
+
+.. toctree::
+   :maxdepth: 2
+
+   ansible_roles
+   tosca_templates
+   build_cvmfs_server
+
+Features
+--------
+
+.. toctree::
+   :maxdepth: 2
+
+   galaxy_custom
+   galaxy_production_environment
+   instance_isolation
+   galaxy_tools
+   reference_data
+   cluster_support
+   authentication
+   validation
+
+Tutorials
+---------
+Galaxy For Developers: https://crs4.github.io/Galaxy4Developers/
+
+
+Included INDIGO-DataCloud components
+------------------------------------
+
+.. toctree::
+   :maxdepth: 2
+
+   orchestrator
+   im
+   fgw
+   onedata
+   clues
+
+Support
+------
+
+
+Articles
+--------
 
 
 Indices and tables
-==================
+------------------
 
 * :ref:`genindex`
 * :ref:`modindex`
