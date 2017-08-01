@@ -19,10 +19,10 @@ Introduction
 .. toctree::
    :maxdepth: 2
 
-   overview
-   architecture
-   indigo
-   elixir_italy
+   intro_overview
+   intro_architecture
+   intro_indigo
+   intro_elixir-it
 
 Quickstarts
 -----------
