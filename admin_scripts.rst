@@ -8,3 +8,4 @@ Script
    script_galaxyctl_libs
    script_luksctl
    script_onedatactl
+   script_fast-luks
