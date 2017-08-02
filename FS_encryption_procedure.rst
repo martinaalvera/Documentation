@@ -37,7 +37,7 @@ and enter your SSH passphrase:
    :align: center
    :alt: encrypt procedure 04
 
-Ppassphrase creation
+Passphrase creation
 --------------------
 
 You will be now prompted in the encryption script automatically.
