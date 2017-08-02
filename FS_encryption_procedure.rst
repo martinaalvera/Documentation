@@ -1,6 +1,11 @@
 File System encryption procedure
 ================================
 
+To encrypt the Virtual machine external volume follow this procedure.
+
+VM login
+--------
+
 Log-in into your machine with:
 
 ``ssh -i your_private_ssh_key.key galaxy@virtual.machine.ip.address``
@@ -32,6 +37,9 @@ and enter your SSH passphrase:
    :align: center
    :alt: encrypt procedure 04
 
+Ppassphrase creation
+--------------------
+
 You will be now prompted in the encryption script automatically.
 You will be required to insert an alphanumeric key, at least 8 characters.
 A key is automatically generated, as example, plase do not use if for production!
@@ -58,7 +66,12 @@ and confirm it:
    :align: center
    :alt: encrypt procedure 06
 
-Unlock the encrypted volume typing againe your password:
+If the passphrases don't match, restart the procedure.
+
+Unlock the volume
+-----------------
+
+Unlock the encrypted volume typing again your password:
 
 .. figure:: _static/FS_ecrypt_proc_07.png
    :scale: 70 %
@@ -71,3 +84,5 @@ The volume will be now encrypted and you will be automatically get out the VM, u
    :scale: 70 %
    :align: center
    :alt: encrypt procedure 08
+
+The system is now encrypted and unlocked, ready for Galaxy installation and configuration.
