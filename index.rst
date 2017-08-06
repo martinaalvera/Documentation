@@ -48,8 +48,10 @@ For more information on the Galaxy Project, please visit the https://galaxyproje
    :maxdepth: 2
    :caption: Galaxy admin
 
-   admin_scripts
-
+   script_galaxyctl
+   script_galaxyctl_libs
+   script_luksctl
+   script_onedatactl
 
 .. toctree::
    :maxdepth: 2

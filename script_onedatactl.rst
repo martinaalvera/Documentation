@@ -1,11 +1,18 @@
 Managing Onedata Spaces
 ======================
 
+This script parse oneclient options using a configuration file (onedatactl.ini) to store onedata information.
+
+Options
+-------
+Parsing all oneclient option is out of the purpose of this script.
+Therfore the script provides  only few options to allow user to easily mount their data hosted on onedata
+
 =======================  =======================
 Option                   Description
 =======================  =======================
-``-r`` ``--refdata``     Reference Data
-``-u`` ``--userdata``    User Data
+``-r`` ``--refdata``     Mount/umount reference Data
+``-u`` ``--userdata``    Mount/umount user Data
 ``-t`` ``--token``       Set access token
 ``-H`` ``--provider``    Set onedata provider
 ``-m`` ``--mountpoint``  Set mountpoint
@@ -13,3 +20,9 @@ Option                   Description
 ``-M`` ``--mount``       Mount spaces
 ``-U`` ``--umount``      Umount space
 =======================  =======================
+
+Oneclient
+---------
+
+Troubleshooting
+---------------
