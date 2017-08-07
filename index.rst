@@ -77,9 +77,9 @@ Tutorials
 
 Galaxy For Developers: https://crs4.github.io/Galaxy4Developers/
 
-Supports
---------
-
+Support
+-------
+Github issues: https://github.com/mtangaro/GalaxyCloud/issues
 
 Articles
 --------
