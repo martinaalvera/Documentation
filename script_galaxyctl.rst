@@ -76,7 +76,11 @@ The options ``--force``, ``--timeout`` and ``--retry`` are available for restart
 Galaxy first start
 ~~~~~~~~~~~~~~~~~~
 Galaxy takes longer to start the first time. Since the uWSGI stats server is the last software component started, the script waits it ensure that Galaxy has correctly started. Then uWSGI workers are checked to ensure Galaxy is acceptin requests. If not, uWSGI is restarted.
-Currently, before rise an error, the script try to restart galaxy 5 times, while the waiting time is set to 300 seconds.
+Currently, before rise an error, the script try to restart galaxy 5 times, while the waiting time is set to 600 seconds.
+The command used in ``/usr/local/bin/galaxy-startup`` script, is
+::
+
+  galaxyctl startup galaxy -c /home/galaxy/galaxy/galaxy.ini -t 600
 
 LUKS module
 -----------
