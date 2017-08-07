@@ -11,6 +11,7 @@ Moudule      Action     Description
 galaxy       status     Show galaxy status
 |            stop       Stop Galaxy. ``--force`` check uwsgi master process. If it is still running, after galaxy stop, it is killed.
 |            start      Start Galaxy. ``--force`` force galaxy to start by restarting it. ``--retry`` option allow to specify number of tentative retart (default 5). ``--timeout`` allow to customize uWSGI stats server wait time. These options are used during galaxy instantiation and you should not use them on production.
+|            startup    Start Up Galaxy for the first time. ``--retry`` option allow to specify number of tentative retart (default 5). ``--timeout`` allow to customize uWSGI stats server wait time. Sturtup module is used during galaxy instantiation and you should not use them on production.
 |            restart      Restart Galaxy. ``--force`` force galaxy to start by restarting it. ``--retry`` option allow to specify number of tentative retart (default 5). ``--timeout`` allow to customize uWSGI stats server wait time. These options are used during galaxy instantiation and you should not use them on production.
 |            startup    This method is used only to run galaxy for the first time.
 luks         status     Show LUKS volume status
