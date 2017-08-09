@@ -11,3 +11,4 @@ Galaxy production environment
    galaxy_prod_NGINX
    galaxy_prod_uWSGI
    galaxy_prod_proftpd
+   galaxy_prod_supervisord

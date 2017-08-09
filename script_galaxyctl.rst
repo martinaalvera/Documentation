@@ -49,7 +49,7 @@ To stop galaxy:
   sudo galaxyctl stop galaxy
 
 The script check the uWSGI Stats server to retrieve workers PID and their status. If, after uWSGI stop, workers are still up and running, they are killed, allowing Galaxy to correctly start next time.
-The ``--force`` options allow to kill uwsgi master process if it is still alive after galaxy stop (in case of uwsgi FATAL error or ABNORMAL TERMINATION). Please check galaxy before run ``--force`` option.
+The ``--force`` options allow to kill uwsgi master process if it is still alive after galaxy stop (in case of uwsgi FATAL error or ABNORMAL TERMINATION). Please check galaxy logs before run ``--force`` option.
 
 start
 ~~~~~

@@ -1,5 +1,5 @@
-Managing Onedata Spaces
-======================
+Onedatactl: Onedata spaces management
+=====================================
 
 This script parse oneclient options using a configuration file (onedatactl.ini) to store onedata information.
 

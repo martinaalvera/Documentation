@@ -48,8 +48,8 @@ For more information on the Galaxy Project, please visit the https://galaxyproje
    :maxdepth: 2
    :caption: Galaxy admin
 
-   script_galaxyctl
    script_galaxyctl_libs
+   script_galaxyctl
    script_luksctl
    script_onedatactl
 
@@ -64,7 +64,7 @@ For more information on the Galaxy Project, please visit the https://galaxyproje
 
 .. toctree::
    :maxdepth: 2
-   :caption: Included INDIGO-DataCloud components
+   :caption: Included INDIGO components
 
    indigo_orchestrator
    indigo_im
