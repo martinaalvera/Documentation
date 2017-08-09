@@ -35,6 +35,10 @@ UwsgiSocket
 -----------
 Get uWSGI socket from galaxy.ini config file (e.g. 127.0.0.1:4001) and using ``lsof`` return uWSGI master PID.
 
+::
+
+  master_pid, stderr, status = UwsgiSocket(fname='/home/galaxy/galaxy/config/galaxy.ini').get_uwsgi_master_pid()
+
 UwsgiStatsServer
 ----------------
 Read uWSGI stats server json.
@@ -80,8 +84,26 @@ To get the list of busy uWSGI workers:
 
 LUKSCtl
 -------
-Read LUKS ini file, usually stored on ``/etc/galaxy/luks-cryptdev.ini``, for LUKS volume management
+Read LUKS ini file, usually stored on ``/etc/galaxy/luks-cryptdev.ini``, for LUKS volume management. Open, Close and Status commands are managed through luksctl script.
 
 OneDataCtl
 ----------
 Reads Onedata ini file, usually stored on ``/etc/galaxy/onedatactl.ini``, for Onedata space management: both user data and reference data.
+
+mount_space
+***********
+To mount onedata space (userdata or refdata), call:
+
+::
+
+    onedata = OneDataCtl('/etc/galaxy/onedatactl.ini', 'userdata')
+    onedata.mount_space()
+
+umount_space
+************
+To umount onedata space, call:
+
+::
+
+    onedata = OneDataCtl('/etc/galaxy/onedatactl.ini', 'userdata')
+    onedata.umount_space()
