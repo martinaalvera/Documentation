@@ -24,6 +24,7 @@ Open LUKS volumes
 To open LUKS volume, call: ``luksctl open``, which will require your LUKS encrypt password:
 
 ::
+
   $ sudo luksctl open
   Enter passphrase for /dev/disk/by-uuid/9bc8b7c6-dc7e-4aac-9cd7-8b7258facc75:
   Name:              ribqvkjj
@@ -37,7 +38,7 @@ To open LUKS volume, call: ``luksctl open``, which will require your LUKS encryp
   UUID: CRYPT-LUKS1-9bc8b7c6dc7e4aac9cd78b7258facc75-ribqvkjj
 
 
-  Encrypted volume: [ OK ]  
+  Encrypted volume: [ OK ] 
 
 Close LUKS volumes
 ------------------
