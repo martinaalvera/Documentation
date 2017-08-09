@@ -21,7 +21,7 @@ Since the script is going to parse cryptsetup and dmsetup commands, both are req
 
 Open LUKS volumes
 -----------------
-To open LUKS volume, call: ``luksctl open``, which will require your LUKS encrypt password:
+To open LUKS volume, call: ``luksctl open``, which will require your LUKS decrypt password:
 
 ::
 
