@@ -1,6 +1,7 @@
 Luksctl: LUKS volumes management
 ================================
 Luksctl is a python script allowing to easily Open/Close and Check LUKS encrypted volumes, parsing dmsetup and cryptsetup commands.
+
 The script requires superuser rights.
 
 ========  ========
