@@ -1,13 +1,13 @@
 Galaxy production environment
 =============================
-
 The system allows to setup and launch a virtual machine (VM) configured with the Operative System (CentOS 7 or Ubuntu 14.04/16.04) and the auxiliary applications needed to support a Galaxy production environment such as PostgreSQL, Nginx, uWSGI and Proftpd and to deploy the Galaxy platform itself. A common set of Reference data is available through a CernVM-FS volume.
 
 Once deployed each Galaxy instance can be further customized with tools and reference data.
 
-.. _fig_updateprocess:
+THe Galaxy production environment is deployed according to Galaxy official documentation: https://galaxyproject.org/admin/config/performance/production-serverr
 
-.. figure:: _static/galaxy_prod_env.png
+.. _fig_updateprocess:
+according to :: _static/galaxy_prod_env.png
    :scale: 100 %
    :align: center
    :alt: galaxy production environment
@@ -101,3 +101,6 @@ Proftpd
 
 Supervisord
 -----------
+
+Init scripts
+------------
