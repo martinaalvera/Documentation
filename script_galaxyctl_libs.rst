@@ -2,6 +2,8 @@ Galaxyctl libraries
 ===================
 Galaxyctl is a paython script collenction for Galaxy management (first start, stop/start/restart/status). Moreover it is possible to manage, through specific script, LUKS volumes and Onedata spaces.
 
+Galaxyctl requires superuser privileges.
+
 Current version: ``0.0.1``
 
 ================  ================
