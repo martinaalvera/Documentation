@@ -9,7 +9,7 @@ THe Galaxy production environment is deployed according to Galaxy official docum
 .. _fig_updateprocess:
 
 .. figure:: _static/galaxy_prod_env.png
-   :scale: 100 %
+   :scale: 90 %
    :align: center
    :alt: galaxy production environment
 

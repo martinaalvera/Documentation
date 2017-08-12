@@ -1,2 +1,8 @@
 Galaxy ShedTools
 ================
+
+
+
+
+Conda support
+-------------

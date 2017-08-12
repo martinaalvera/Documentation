@@ -2,10 +2,11 @@ Reference Data
 ==============
 
 
-.. toctree::
-   :maxdepth: 2
+CernVM-FS reference data
+------------------------
 
-   refdata_cvmfs_client
-   refdata_cvmfs_server
-   refdata_onedata
-   refdata_download
+Onedata reference data
+----------------------
+
+Reference data local download
+-----------------------------
