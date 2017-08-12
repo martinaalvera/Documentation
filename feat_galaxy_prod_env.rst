@@ -7,7 +7,8 @@ Once deployed each Galaxy instance can be further customized with tools and refe
 THe Galaxy production environment is deployed according to Galaxy official documentation: https://galaxyproject.org/admin/config/performance/production-serverr
 
 .. _fig_updateprocess:
-according to :: _static/galaxy_prod_env.png
+
+.. figure:: _static/galaxy_prod_env.png
    :scale: 100 %
    :align: center
    :alt: galaxy production environment
@@ -95,12 +96,280 @@ Ubuntu Trusty   sudo service nginx start/stop/status
 
 uWSGI
 -----
+uWSGI (https://uwsgi-docs.readthedocs.io/en/latest) is used as interface between the web server (i.e. NGINX) and the web application (i.e. Galaxy).
+Using uWSGI for production servers is recommended by the Galaxy team: https://galaxyproject.org/admin/config/performance/scaling/
+
+uWSGI configuration is embedded in the galaxy.ini file (``$HOME/galaxy/config/galaxy.ini``), with 4 handler configuration.
+By defalut the number of processes (i.e. uWSGI workers is set to ``number_of_virtual_cpus - 1``. This configuration should be fine for most uses. Nevertheless, there's no golden rule to define the workers number. It is up to the end-user to configure it dependig on your needs. The same goes for the number of job handlers (4 by default).
+
+UWSGI socket and stats server are, by default, listening on ``127.0.0.1:4001`` and ``127.0.0.1:9191``, respectively. More on the uWSGI stats server here: http://uwsgi-docs.readthedocs.io/en/latest/StatsServer.html?highlight=stats%20server.
+
+UWSGI Galaxy Configuration:
+
+::
+
+  [uwsgi]
+  master = True
+  processes = 1
+  socket = 127.0.0.1:4001
+  stats = 127.0.0.1:9191
+  pythonpath = /home/galaxy/galaxy/lib
+  pythonhome = /home/galaxy/galaxy/.venv
+  threads = 4
+  logto = /var/log/galaxy/uwsgi.log
+
+  # Job Handler(s)
+
+  [server:handler0]
+  use = egg:Paste@http
+  port = 8090
+  host = 127.0.0.1
+  use_threadpool = true
+  threadpool_workers = 5
+
+  [server:handler1]
+  use = egg:Paste@http
+  port = 8091
+  host = 127.0.0.1
+  use_threadpool = true
+  threadpool_workers = 5
+
+  [server:handler2]
+  use = egg:Paste@http
+  port = 8092
+  host = 127.0.0.1
+  use_threadpool = true
+  threadpool_workers = 5
+
+  [server:handler3]
+  use = egg:Paste@http
+  port = 8093
+  host = 127.0.0.1
+  use_threadpool = true
+  threadpool_workers = 5
 
 Proftpd
 -------
+To allow user to upload files (> 2GB) through FTP, Proftpd is installed and configured on each Galaxy server, according to: https://galaxyproject.org/admin/config/upload-via-ftp/
+
+Proftpd configuration file is located at ``/etc/proftdp.conf`` on CentOS and ``/etc/proftpd/proftpd.conf`` on Ubuntu.
+
+To grant a user access to read emails and passwords from the Galaxy database, a separate user is created for the FTP server which has permission to SELECT from the galaxy_user table and nothing else.
+
+Proftpd is listening on port ``21``. FTP protocol is not encrypted by default, thus any usernames and passwords are sent over clear text to Galaxy.
+
+How to use FTP through command line
+***********************************
+To install FTP command line client, type ``sudo yum install ftp`` on CentOS or ``sudo apt-get install ftp`` on Ubuntu.
+
+To establish a connection with Glaxy Proftpd server, you can use your Galaxy username and password, in addition to the server IP address you’re connecting to (e.g. ``90.147.102.82``). To open a connection in Terminal type the following command, replacing the IP address with with your server IP address:
+
+::
+
+  $ ftp 90.147.102.82
+  Connected to 90.147.102.82.
+  220 ProFTPD 1.3.5e Server (galaxy ftp server) [::ffff:90.147.102.82]
+  Name (90.147.102.82:marco): 
+
+Then login with your Galaxy credentials, typing your Galaxy e-mail address and password:
+
+::
+
+  $ ftp 90.147.102.82
+  Connected to 90.147.102.82.
+  220 ProFTPD 1.3.5e Server (galaxy ftp server) [::ffff:90.147.102.82]
+  Name (90.147.102.82:marco): ma.tangaro@gmail.com
+  331 Password required for ma.tangaro@gmail.com
+  Password: 
+
+To upload file to your Galaxy remote directory:
+
+::
+
+  ftp> put Sc_IP.fastq 
+  local: Sc_IP.fastq remote: Sc_IP.fastq
+  229 Entering Extended Passive Mode (|||30023|)
+  150 Opening BINARY mode data connection for Sc_IP.fastq
+  8% |******                                                                           | 12544 KiB   23.84 KiB/s  1:31:23 ETA
+
+Then you will find it on Galaxy:
+
+.. _fig_updateprocess:
+
+.. figure:: _static/ftp_copy.png
+   :scale: 100 %
+   :align: center
+   :alt: ftp fasta file copy
+
+Here’s a list of the basic commands that you can use with the FTP client.
+
+============  ======================
+Command       Description
+============  ======================
+ls	      to find out the pathname of the current directory on the remote machine.
+cd            to change directory on the remote machine.
+pwd           to find out the pathname of the current directory on the remote machine.
+delete        to delete (remove) a file in the current remote directory (same as rm in UNIX).
+mkdir         to make a new directory within the current remote directory.
+rmdir         to to remove (delete) a directory in the current remote directory.
+get           to copy one file from the remote machine to the local machine
+|             ``get ABC DEF``  copies file ABC in the current remote directory to (or on top of) a file named DEF in your current local directory.
+|             ``get ABC``      copies file ABC in the current remote directory to (or on top of) a file with the same name, ABC, in your current local directory. 
+mget          to copy multiple files from the remote machine to the local machine; you are prompted for a y/n answer before transferring each file.
+put           to copy one file from the local machine to the remote machine.
+mput          o copy multiple files from the local machine to the remote machine; you are prompted for a y/n answer before transferring each file.
+quit          to exit the FTP environment (same as bye).
+============  ======================
 
 Supervisord
 -----------
+Supervisor is a process manager written in Python, which allows its users to monitor and control processes on UNIX-like operating systems.
+It includes: 
 
-Init scripts
-------------
+#. | Supervisord daemon (privileged or unprivileged);
+#. | Supervisorctl command line interface;
+#. | INI config format;
+#. | [program:x] defines a program to control.
+
+Supervisord requires root privileges to run.
+
+Galaxy supervisord configuration is located here: https://docs.galaxyproject.org/en/master/admin/framework_dependencies.html?highlight=uwsgi#supervisor
+
+and here: https://galaxyproject.github.io/dagobah-training/2016-saltlakecity/002a-systemd-supervisor/systemd-supervisor.html#1
+
+A configuration running the Galaxy server under uWSGI has been installed on ``/etc/supervisord.d/galaxy_web.ini`` on CentOS, while it is located on ``/etc/supervisor/conf.d/galaxy.conf`` on Ubuntu.
+The options  ``stopasgroup = true`` and ``killasgroup = true`` ensure that the ``SIGINT`` signal, to shutdown Galaxy, is propagated to all uWSGI child processes (i.e. to all uWSGI workers).
+
+PYTHONPATH is not specified in this configuration since it was conflicting with Conda running.
+
+To manage Galaxy through supervisord:
+
+================  ===============
+Action            Command
+================  ===============
+Start Galaxy      sudo supervisorctl start galaxy:
+Stop Galaxy       sudo supervisorctl stop galaxy:
+Restart Galaxy    sudo supervisorctl restart galaxy:
+Galaxy status     sudo supervisorctl status galaxy:
+================  ===============
+
+::
+
+  $ supervisorctl help
+
+  default commands (type help <topic>):
+  =====================================
+  add    clear  fg        open  quit    remove  restart   start   stop  update 
+  avail  exit   maintail  pid   reload  reread  shutdown  status  tail  version
+
+::
+
+  $ sudo supervisorctl status galaxy:
+  galaxy:galaxy_web                RUNNING   pid 9030, uptime 2 days, 21:19:28
+  galaxy:handler0                  RUNNING   pid 9031, uptime 2 days, 21:19:28
+  galaxy:handler1                  RUNNING   pid 9041, uptime 2 days, 21:19:27
+  galaxy:handler2                  RUNNING   pid 9046, uptime 2 days, 21:19:26
+  galaxy:handler3                  RUNNING   pid 9055, uptime 2 days, 21:19:25
+
+galaxy_web.ini file configuration:
+
+::
+
+  [program:galaxy_web]
+  command         = /home/galaxy/galaxy/.venv/bin/uwsgi --virtualenv /home/galaxy/galaxy/.venv --ini-paste /home/galaxy/galaxy/config/galaxy.ini --pidfile /var/log/galaxy/uwsgi.pid
+  directory       = /home/galaxy/galaxy
+  umask           = 022
+  autostart       = true
+  autorestart     = true
+  startsecs       = 20
+  user            = galaxy
+  environment     = PATH="/home/galaxy/galaxy/.venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+  numprocs        = 1
+  stopsignal      = INT
+  startretries    = 15
+  stopasgroup     = true
+  killasgroup     = true
+
+  [program:handler]
+  command         = /home/galaxy/galaxy/.venv/bin/python ./lib/galaxy/main.py -c /home/galaxy/galaxy/config/galaxy.ini --server-name=handler%(process_num)s --log-file=/var/log/galaxy/handler%(process_num)s.log
+  directory       = /home/galaxy/galaxy
+  process_name    = handler%(process_num)s
+  numprocs        = 4
+  umask           = 022
+  autostart       = true
+  autorestart     = true
+  startsecs       = 20
+  user            = galaxy
+  startretries    = 15
+
+  [group:galaxy]
+  programs = handler, galaxy_web
+
+Finally, a systemd script has been installed to start/stop Supervisord on ``/etc/systemd/system/supervisord.service``.
+
+================  ===============
+Action            Command
+================  ===============
+Start             sudo systemctl start supervisord.service
+Stop              sudo systemctl stop supervisord.service
+Restart           sudo systemctl restart supervisord.service
+Status            sudo systemctl status supervisord.service
+================  ===============
+
+::
+
+  $ sudo systemctl status supervisord.service
+    ● supervisord.service - Supervisor process control system for UNIX
+     Loaded: loaded (/etc/systemd/system/supervisord.service; disabled; vendor preset: disabled)
+     Active: active (running) since Sat 2017-08-12 08:48:33 UTC; 9s ago
+       Docs: http://supervisord.org
+   Main PID: 12204 (supervisord)
+     CGroup: /system.slice/supervisord.service
+             ├─12204 /usr/bin/python /usr/bin/supervisord -n -c /etc/supervisord.conf
+             ├─12207 /home/galaxy/galaxy/.venv/bin/uwsgi --virtualenv /home/galaxy/galaxy/.venv --ini-paste /home/galaxy/galaxy/config/galaxy.ini --pidfile /var/log/galaxy/uwsgi.pid
+             ├─12208 /home/galaxy/galaxy/.venv/bin/python ./lib/galaxy/main.py -c /home/galaxy/galaxy/config/galaxy.ini --server-name=handler0 --log-file=/var/log/galaxy/handler0.log
+             ├─12209 /home/galaxy/galaxy/.venv/bin/python ./lib/galaxy/main.py -c /home/galaxy/galaxy/config/galaxy.ini --server-name=handler1 --log-file=/var/log/galaxy/handler1.log
+             ├─12210 /home/galaxy/galaxy/.venv/bin/python ./lib/galaxy/main.py -c /home/galaxy/galaxy/config/galaxy.ini --server-name=handler2 --log-file=/var/log/galaxy/handler2.log
+             └─12211 /home/galaxy/galaxy/.venv/bin/python ./lib/galaxy/main.py -c /home/galaxy/galaxy/config/galaxy.ini --server-name=handler3 --log-file=/var/log/galaxy/handler3.log
+
+  Aug 12 08:48:33 galaxy-indigo-test supervisord[12204]: 2017-08-12 08:48:33,805 CRIT Supervisor running as root (no user in config file)
+  Aug 12 08:48:33 galaxy-indigo-test supervisord[12204]: 2017-08-12 08:48:33,805 WARN Included extra file "/etc/supervisord.d/galaxy_web.ini" during parsing
+  Aug 12 08:48:34 galaxy-indigo-test supervisord[12204]: 2017-08-12 08:48:34,564 INFO RPC interface 'supervisor' initialized
+  Aug 12 08:48:34 galaxy-indigo-test supervisord[12204]: 2017-08-12 08:48:34,564 CRIT Server 'unix_http_server' running without any HTTP authentication checking
+  Aug 12 08:48:34 galaxy-indigo-test supervisord[12204]: 2017-08-12 08:48:34,565 INFO supervisord started with pid 12204
+  Aug 12 08:48:35 galaxy-indigo-test supervisord[12204]: 2017-08-12 08:48:35,569 INFO spawned: 'galaxy_web' with pid 12207
+  Aug 12 08:48:35 galaxy-indigo-test supervisord[12204]: 2017-08-12 08:48:35,573 INFO spawned: 'handler0' with pid 12208
+  Aug 12 08:48:35 galaxy-indigo-test supervisord[12204]: 2017-08-12 08:48:35,576 INFO spawned: 'handler1' with pid 12209
+  Aug 12 08:48:35 galaxy-indigo-test supervisord[12204]: 2017-08-12 08:48:35,581 INFO spawned: 'handler2' with pid 12210
+  Aug 12 08:48:35 galaxy-indigo-test supervisord[12204]: 2017-08-12 08:48:35,584 INFO spawned: 'handler3' with pid 12211
+
+Galaxy init scripts
+-------------------
+Systemctl is the command line interface to systemd:
+
+::
+
+    systemctl <start|stop|restart|...> <name>[.service]
+    systemctl <enable|disable> <name>[.service]
+
+Since CentOS and Ubuntu Xenial 16.04 exploits systemd as init system, the Galaxy init script is located in ``/etc/systemd/system/galaxy.service``.
+
+================  ===============
+Action            Command
+================  ===============
+Start             sudo systemctl start galaxy.service
+Stop              sudo systemctl stop galaxy.service
+Restart           sudo systemctl restart galaxy.service
+Status            sudo systemctl status galaxy.service
+================  ===============
+
+Ubuntu Trusty 14.04 exploits Upstart as init system. Galaxy init file is located in ``/etc/init.d/galaxy``.
+
+================  ===============
+Action            Command
+================  ===============
+Start             sudo service galaxy start
+Stop              sudo service galaxy stop
+Restart           sudo service galaxy restart
+Status            sudo service galaxy status
+================  ===============
