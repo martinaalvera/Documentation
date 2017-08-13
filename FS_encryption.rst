@@ -3,63 +3,141 @@ File System Encryption
 
 While the adoption of a distributed environment for data analysis makes data difficult to be tracked and identified by a malevolus attacker, full data anonymity and isolation is still not granted.
 
-We have introduced the possibility for the user to isolate data through standard filesystem encryption, based on LUKS (Linux Unified Key Setup), based on cryptsetup and using dm-crypt as the disk encryption backend.
+For this reason, we have introduced the possibility for the user to isolate data through standard filesystem encryption, based on LUKS (Linux Unified Key Setup), based on cryptsetup and using dm-crypt as the disk encryption backend.
 
-Disk encryption ensures that files are stored on disk in an encrypted form. The files only become available to the operating system and applications in readable when the volume is unlocked by a trusted user. 
+Disk encryption ensures that files are stored on disk in an encrypted form: the files only become available to the operating system and applications in readable when the volume is unlocked by a trusted user. An unauthorized person looking at the disk contents directly, will only find garbled random-looking data instead of the actual files. 
 
+The adopted block device encryption method, operates below the filesystem layer and ensures that everything is written to the block device (i.e. the external volume) is encrypted. Therefore, while the block device is offline, its whole content appears as a random sequence of data, without the possibility to determine the filesystem type and its content. Nevertheless, once the volume is decprypted and mounted, files will appear as normal files / symlinks / hardlinks / etc. 
 
-form while the system is running and unlocked by a trusted user. An unauthorized person looking at the disk contents directly, will only find garbled random-looking data instead of the actual files. 
+Dm-crypt is the standard device-mapper encryption functionality provided by the Linux kernel. Dm-crypt management is entrusted to the cryptsetup userspace utility, using LUKS as default block-device encryption method. LUKS, is an additional layer which stores all the needed setup information for dm-ctypt on the disk itself, abstracts partition and key management in an attempt to improve ease of use and cryptographic security
 
+To automatically setup LUKS volumes on your Galaxy instances a bash script, named ``fast-luks`` (https://github.com/mtangaro/GalaxyCloud/blob/master/LUKS/fast_luks.sh). For more details see: `Fast-luks script`_.
 
-Block device encryption methods, on the other hand, operate below the filesystem layer and make sure that everything written to a certain block device (i.e. a whole disk, or a partition, or a file acting as a virtual loop-back device) is encrypted. This means that while the block device is offline, its whole content looks like a large blob of random data, with no way of determining what kind of filesystem and data it contains. Accessing the data happens, again, by mounting the protected container (in this case the block device) to an arbitrary location in a special way. 
+The script has been integrated in the Galaxy instantiation procedure: if the File System Encryption option is selected through the dialogue window the users will be required to insert a password to encrypt/decrypt data on the virtual instance during its deployment, avoiding any interaction with the cloud administrator(s).
 
-
-
-adopting the xts-aes encryption algorithm with 256 bit keys.
-
-
-To automatically setup LUKS volumes on your Galaxy instances a bash script, named ``fast-luks`` (https://github.com/mtangaro/GalaxyCloud/blob/master/LUKS/fast_luks.sh).
-
-
-
-
-A script, named fast-luks and an ansible role (indigo-dc.galaxycloud-os) have been developed to encrypt data and it has been integrated with the Orchestrator. 
-
-
-data privacy through LUKS filesystem encryption: users will be required to insert a password to encrypt/decrypt data on the virtual instance during its deployment, avoiding any interaction with the cloud administrator(s).
-
-
-
+The system does not store your keys on its servers and cannot access your protected data unless you provide the key. This also means that if you forget or lose your key, there is no way to recover the key or to recover any data encrypted with the lost key.
 
 Default configuration
 ---------------------
-# Defaults
-cipher_algorithm='aes-xts-plain64'
-keysize='256'
-hash_algorithm='sha256'
-device='/dev/vdb'
-cryptdev='crypt'
-mountpoint='/export'
-filesystem='ext4'
+Fast-luks, by default adopt ``xts-aes-plain64`` cipher with ``256`` bit keys ans ``sha256`` hashing algorithm.
 
+Once the LUKS partition is created, it is unlocked.
 
+The unlocking process will map the partition to a new device name using the device mapper. This alerts the kernel that device is actually an encrypted device and should be addressed through LUKS using the ``/dev/mapper/<cryptdev_name>`` so as not to overwrite the encrypted data. ``cryptdev_name`` is random generated to avoid accidental overwriting.
+
+The volume is mounted, by default, on ``/export``, with standard ``ext4`` filesystem and Galaxy is configured to store here datasets.
+
+Defaults values
+***************
+
+::
+
+  # Defaults
+  cipher_algorithm='aes-xts-plain64'
+  keysize='256'
+  hash_algorithm='sha256'
+  device='/dev/vdb'
+  cryptdev='crypt'
+  mountpoint='/export'
+  filesystem='ext4'
 
 Password choice
 ---------------
+During the encryption procedure ( :doc:`FS_encryption_procedure`), users are required to configure their encryption password. You must provide at least an alphanumeric 8-character long password.
+A random generated password is generated by the script, ONLY FOR EXAMPLE!
 
+During the encryption procedure, the password will be required three times.
 
+The script will query for passwords twice, to verify it. Then, you have to unlock your device, by inserting your password.
 
+The procedure is described here: ( :doc:`FS_encryption_procedure`).
 
 Luksctl
 -------
 
-# luks ini file
-luks_cryptdev_file='/etc/galaxy/luks-cryptdev.ini'
+During the encryption procedure ( :doc:`FS_encryption_procedure`), ``fast-luks`` creates a configuration ini file, allowing Galaxy administrator to easily mange LUKS devices, through the ``luksctl`` script (:doc:`script_luksctl`).
 
-Fast-luks
----------
+By default the file is stored in ``/etc/galaxy/luks-cryptdev.ini``.
+
+The script requires superuser rights.
+
+========  ======================  =========================
+Action    Command		  Description
+========  ======================  =========================
+Open      sudo luksctl open	  Open the encrypted device, requiring your passphrase.
+Close     sudo luksctl close      Close the encrypted device
+Status    sudo luksctl status     Check device status using dm-setup
+========  ======================  =========================
+
+Galaxyctl can be used to parse luksctl commands:
+
+=====================  ==============================
+Action                 Command
+=====================  ==============================
+Open LUKS volume       sudo galaxyctl open luks
+Close LUKS volume      sudo galaxyctl close luks
+Check LUKS volume      sudo galaxyctl status luks
+=====================  ==============================
+
+.. _luks_anchor:
+
+Fast-luks script
+----------------
+The ``ast-luks`` script 
 
 
+NB: Run as root.
+
+===============================  =====================================  ============================================
+Argument	                 Defaults                               Description
+===============================  =====================================  ============================================
+``-c``, ``--cipher``             aes-xts-plain64                        Set cipher specification string.
+``-k``, ``--keysize``            256					Set key size in bits.
+``-a``, ``--hash_algorithm``     sha256                                 For luksFormat action specifies hash used\
+                                 					in LUKS key setup scheme and volume\
+ 				 					key digest.
+``-d``, ``--device``             /dev/vdb				Set device to be mounted
+``-e``, ``--cryptdev``           crypt                                  Sets up a mapping <name> after successful\
+									verification of the supplied key\
+									(via prompting).
+``-m``, ``--mountpoint``         /export 				Set mount point
+``-f``, ``--filesystem``         ext4					Set filesystem
+===============================  =====================================  ============================================
+
+::
+
+  $ sudo fast-luks --help
+  =========================================================
+                        ELIXIR-Italy
+                 Filesystem encryption script
+
+  A password with at least 8 alphanumeric string is needed
+  There's no way to recover your password.
+  Example (automatic random generated passphrase):
+                        PcHhaWx4
+
+  You will be required to insert your password 3 times:
+    1. Enter passphrase
+    2. Verify passphrase
+    3. Unlock your volume
+
+  The connection will be  automatically closed.
+
+  =========================================================
+
+  fast-luks: a bash script to automate LUKS file system encryption.
+   usage: fast-luks [-h]
+
+   optionals argumets:
+   -h, --help 		show this help text
+   -c, --cipher 		set cipher algorithm [default: aes-xts-plain64]
+   -k, --keysize 		set key size [default: 256]
+   -a, --hash_algorithm 	set hash algorithm used for key derivation
+   -d, --device 		set device [default: /dev/vdb]
+   -e, --cryptdev 	set crypt device [default: cryptdev]
+   -m, --mountpoint 	set mount point [default: /export]
+   -f, --filesystem 	set filesystem [default: ext4]
+   --default 		load default values
 
 
 
@@ -71,3 +149,5 @@ Disk encryption archlinux wiki page: https://wiki.archlinux.org/index.php/disk_e
 Dm-crypt archlinux wiki page: https://wiki.archlinux.org/index.php/Dm-crypt/Device_encryption#Encryption_options_for_LUKS_mode
 
 Original LUKS script: https://github.com/JohnTroony/LUKS-OPs/blob/master/luks-ops.sh (Credits to John Troon for the original script))
+
+LUKS: https://guardianproject.info/code/luks/
