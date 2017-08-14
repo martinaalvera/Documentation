@@ -54,7 +54,6 @@ The procedure is described here: ( :doc:`FS_encryption_procedure`).
 
 Luksctl
 -------
-
 During the encryption procedure ( :doc:`FS_encryption_procedure`), ``fast-luks`` creates a configuration ini file, allowing Galaxy administrator to easily mange LUKS devices, through the ``luksctl`` script (:doc:`script_luksctl`).
 
 By default the file is stored in ``/etc/galaxy/luks-cryptdev.ini``.
@@ -71,20 +70,23 @@ Status    sudo luksctl status     Check device status using dm-setup
 
 Galaxyctl can be used to parse luksctl commands:
 
-=====================  ==============================
-Action                 Command
-=====================  ==============================
-Open LUKS volume       sudo galaxyctl open luks
-Close LUKS volume      sudo galaxyctl close luks
-Check LUKS volume      sudo galaxyctl status luks
-=====================  ==============================
+=====================  ==============================  =========================
+Action                 Command			       Description
+=====================  ==============================  =========================
+Open LUKS volume       sudo galaxyctl open luks        Open the encrypted device, requiring your passphrase.
+Close LUKS volume      sudo galaxyctl close luks       Close the encrypted device
+Check LUKS volume      sudo galaxyctl status luks      Check device status using dm-setup
+=====================  ==============================  =========================
 
 .. _luks_anchor:
 
 Fast-luks script
 ----------------
-The ``ast-luks`` script 
+The ``fast-luks`` script is located in ``/usr/local/bin/fast-luks``.
 
+It parse common cryptsetup parameters to encrypt the volume. For this reason it checks for cryptsetup and dm-setup packages and it install cryptsetup, if not installed.
+
+Typing ``sudo fast-luks`` the script will load defaults parameters and will LUKS format ``/dev/vdb`` device, otherwise different parameters can be specified.
 
 NB: Run as root.
 
@@ -134,12 +136,51 @@ Argument	                 Defaults                               Description
    -k, --keysize 		set key size [default: 256]
    -a, --hash_algorithm 	set hash algorithm used for key derivation
    -d, --device 		set device [default: /dev/vdb]
-   -e, --cryptdev 	set crypt device [default: cryptdev]
-   -m, --mountpoint 	set mount point [default: /export]
-   -f, --filesystem 	set filesystem [default: ext4]
-   --default 		load default values
+   -e, --cryptdev	 	set crypt device [default: cryptdev]
+   -m, --mountpoint 		set mount point [default: /export]
+   -f, --filesystem 		set filesystem [default: ext4]
+   --default 			load default values
 
+Cryptsetup howto
+----------------
 
+The cryptsetup action to set up a new dm-crypt device in LUKS encryption mode is luksFormat:
+
+::
+
+  cryptsetup -v --cipher aes-xts-plain64 --key-size 256 --hash sha 256 --iter-time 2000 --use-urandom --verify-passphrase luksFormat crypt --batch-mode
+
+where ``crypt`` is the new device located to ``/dev/mapper/crypt``.
+
+To open and mount to ``/export``  an encrypted device:
+
+::
+
+  cryptsetup luksOpen /dev/vdb crypt
+
+  mount /dev/mapper/crypt /export
+
+To show LUKS device info:
+
+::
+
+  dmsetup info /dev/mapper/crypt
+
+To umount and close an encrypted device:
+
+::
+
+  umount /export
+
+  cryptsetup close crypt
+
+To force LUKS volume removal:
+
+::
+
+  dmsetup remove /dev/mapper/crypt
+
+NB: Run as root.
 
 References
 ----------
