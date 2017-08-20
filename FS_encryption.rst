@@ -182,6 +182,8 @@ To force LUKS volume removal:
 
   dmsetup remove /dev/mapper/crypt
 
+..Note::
+
 NB: Run as root.
 
 Change LUKS password
@@ -227,8 +229,6 @@ As for deleting keys, you have 2 options:
    ::
 
      cryptsetup luksKillSlot /dev/<device> 6
-
-
 
 References
 ----------

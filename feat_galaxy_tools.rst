@@ -77,16 +77,17 @@ For instance, this is the galaxy TESTING recipe:
 
 Conda support
 -------------
-
+Conda is a package manager like apt-get, yum, pip, brew or guix and it is, currently, used as default dependency resolver in Galaxy.
 
 
 
 References
 ----------
 
-Galaxy flavors
-
+Galaxy flavors: https://github.com/bgruening/docker-galaxy-stable#Extending-the-Docker-Image
 
 Ephemeris: https://ephemeris.readthedocs.io/en/latest/
+
 Ephemeris documentation: https://github.com/galaxyproject/ephemeris
+
 Conda for Galaxy tools dependencies: https://docs.galaxyproject.org/en/master/admin/conda_faq.html
