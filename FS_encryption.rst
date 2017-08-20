@@ -15,7 +15,9 @@ To automatically setup LUKS volumes on your Galaxy instances a bash script, name
 
 The script has been integrated in the Galaxy instantiation procedure: if the File System Encryption option is selected through the dialogue window the users will be required to insert a password to encrypt/decrypt data on the virtual instance during its deployment, avoiding any interaction with the cloud administrator(s).
 
-The system does not store your keys on its servers and cannot access your protected data unless you provide the key. This also means that if you forget or lose your key, there is no way to recover the key or to recover any data encrypted with the lost key.
+.. Warning::
+
+   The system does not store your keys on its servers and cannot access your protected data unless you provide the key. This also means that if you forget or lose your key, there is no way to recover the key or to recover any data encrypted with the lost key.
 
 Default configuration
 ---------------------
@@ -182,6 +184,52 @@ To force LUKS volume removal:
 
 NB: Run as root.
 
+Change LUKS password
+********************
+
+LUKS provides 8 slots for passwords or key files. First, check, which of them are used:
+
+::
+
+  cryptsetup luksDump /dev/<device> | grep Slot
+
+where the output, for example, looks like:
+
+::
+
+  Key Slot 0: ENABLED
+  Key Slot 1: DISABLED
+  Key Slot 2: DISABLED
+  Key Slot 3: DISABLED
+  Key Slot 4: DISABLED
+  Key Slot 5: DISABLED
+  Key Slot 6: DISABLED
+  Key Slot 7: DISABLED
+
+Then you can add, change or delete chosen keys:
+
+::
+
+  cryptsetup luksAddKey /dev/<device> (/path/to/<additionalkeyfile>) 
+
+  cryptsetup luksChangeKey /dev/<device> -S 6
+
+As for deleting keys, you have 2 options:
+
+#. delete any key that matches your entered password:
+
+   ::
+
+     cryptsetup luksRemoveKey /dev/<device>
+
+#. delete a key in specified slot:
+
+   ::
+
+     cryptsetup luksKillSlot /dev/<device> 6
+
+
+
 References
 ----------
 
@@ -192,3 +240,5 @@ Dm-crypt archlinux wiki page: https://wiki.archlinux.org/index.php/Dm-crypt/Devi
 Original LUKS script: https://github.com/JohnTroony/LUKS-OPs/blob/master/luks-ops.sh (Credits to John Troon for the original script))
 
 LUKS: https://guardianproject.info/code/luks/
+
+LUKS how-to: http://www.thegeekstuff.com/2016/03/cryptsetup-lukskey
