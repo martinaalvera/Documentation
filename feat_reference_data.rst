@@ -34,15 +34,9 @@ A complete list of the reference data, with download link, is available here:
 
 CernVM-FS reference data
 ------------------------
-
-CernVM-FS, conversely cvmfs,
-
 The CernVM-File System (conversely cvmfs) provides a scalable, reliable and low- maintenance software distribution service. It was developed to assist High Energy Physics (HEP) collaborations to deploy software on the worldwide- distributed computing infrastructure used to run data processing applications.
 
-CernVM-FS is implemented as a POSIX read-only file system in user space (a FUSE module). The reference data Files and directories are hosted on standard web servers and mounted on ``/refdata`` directory.
-
-Since, cvmfs relies on OverlayFS or AUFS as default storage driver and Ubuntu 16.04 natively supports OverlayFS, it is used as default choice to create and populate the cvmfs server.
-
+CernVM-FS is implemented as a POSIX read-only file system in user space (a FUSE module). The reference data Files and directories are hosted on standard web servers and mounted on ``/refdata`` directory:
 
 ::
 
@@ -66,24 +60,30 @@ Since, cvmfs relies on OverlayFS or AUFS as default storage driver and Ubuntu 16
 
 Cvmfs client setup
 ******************
+Cvmfs is installed by default on each Galaxy instance (CentOS 7 or Ubuntu 16.04) if this is the reference data configuration provided by your service provider.
 
-The ``elixir-italy.galaxy.refdata.pub`` public key is installed in ``/etc/cvmfs/keys/``.
+The ``elixir-italy.galaxy.refdata.pub`` public key is installed in ``/etc/cvmfs/keys/``. The ``/etc/cvmfs/default.local`` file is also already configured. 
 
-Since ``cvmfs_config probe`` mount the cvmfs volume to ``/cvmfs`` we 
+The ``cvmfs_config probe`` command mount the cvmfs volume to ``/cvmfs``, therefore ``mount`` command is used to correctly mount the cvmfs volume to ``/refdata``.
 
+======================  ======================
+Description             Command
+======================  ======================
+check configuration     cvmfs_config chksetup
+mount volume            mount -t cvmfs elixir-italy.galaxy.refdata /refdata/elixir-italy.galaxy.refdata
+umount volume           cvmfs_config umount elixir-italy.galaxy.refdata
+reload repository       cvmfs_config reload elixir-italy.galaxy.refdata
+======================  ======================
 
-==============  ======================
-Description     Command
-==============  ======================
-mount volume     mount -t cvmfs elixir-italy.galaxy.refdata /refdata/elixir-italy.galaxy.refdata
-umount volume    cvmfs_config umount elixir-italy.galaxy.refdata
-==============  ======================
+.. Note::
+
+   If mount fails, try to restart autofs with ``sudo service autofs restart``.
 
 .. Note::
 
    Cvmfs commands require root privileges
 
-Cvmfs output mount:
+Cvmfs mount output:
 
 ::
 
@@ -94,10 +94,9 @@ Cvmfs output mount:
   $ ls /refdata/elixir-italy.galaxy.refdata/
   at10  at9  dm2  dm3  hg18  hg19  hg38  mm10  mm8  mm9  new_repository  sacCer1  sacCer2  sacCer3  test-content
 
-
 Cvmfs server location
 *********************
-Current cvmfs server
+Current cvmfs server configuration:
 
 =========================  =================================
 Reference data cvmfs       Details
@@ -108,8 +107,53 @@ cvmfs key file             `elixir-italy.galaxy.refdata.pub <https://raw.githubu
 cvmfs proxy url            DIRECT
 =========================  =================================
 
+Troubleshooting
+***************
+Cvmfs not running, e.g. after reboot:
+
+::
+
+  $ sudo mount -t cvmfs elixir-italy.galaxy.refdata /refdata/elixir-italy.galaxy.refdata
+  CernVM-FS: running with credentials 994:990
+  CernVM-FS: loading Fuse module... Failed to initialize root file catalog (16 - file catalog failure)
+
+A reload of the config is able to fix the problem: https://wiki.chipp.ch/twiki/bin/view/CmsTier3/IssueCvmfsFailsToMount
+
+::
+
+  $ sudo cvmfs_config reload elixir-italy.galaxy.refdata
+  Connecting to CernVM-FS loader... done
+  Entering maintenance mode
+  Draining out kernel caches (60s)
+  Blocking new file system calls
+  Waiting for active file system calls
+  Saving inode tracker
+  Saving chunk tables
+  Saving inode generation
+  Saving open files counter
+  Unloading Fuse module
+  Re-Loading Fuse module
+  Restoring inode tracker...  done
+  Restoring chunk tables...  done
+  Restoring inode generation...  done
+  Restoring open files counter...  done
+  Releasing saved glue buffer
+  Releasing chunk tables
+  Releasing saved inode generation info
+  Releasing open files counter
+  Activating Fuse module
+
+Cvmfs server details
+********************
+Since, cvmfs relies on OverlayFS or AUFS as default storage driver and Ubuntu 16.04 natively supports OverlayFS, it is used as default choice to create and populate the cvmfs server.
+
+A resign script is located in ``/usr/local/bin/Cvmfs-stratum0-resign`` and the corresponding weekly cron job is set to ``/etc/cron.d/cvmfs_server_resign``.
+Log file is located in ``/var/log/Cvmfs-stratum0-resign.log``.
+
 Cvmfs references
 ****************
+
+CernVM-FS: https://cernvm.cern.ch/portal/filesystem
 
 Cvmfs documentation: http://cvmfs.readthedocs.io/en/stable/
 
