@@ -148,6 +148,7 @@ Cvmfs server details
 Since, cvmfs relies on OverlayFS or AUFS as default storage driver and Ubuntu 16.04 natively supports OverlayFS, it is used as default choice to create and populate the cvmfs server.
 
 A resign script is located in ``/usr/local/bin/Cvmfs-stratum0-resign`` and the corresponding weekly cron job is set to ``/etc/cron.d/cvmfs_server_resign``.
+
 Log file is located in ``/var/log/Cvmfs-stratum0-resign.log``.
 
 Cvmfs references
@@ -156,7 +157,6 @@ Cvmfs references
 CernVM-FS: https://cernvm.cern.ch/portal/filesystem
 
 Cvmfs documentation: http://cvmfs.readthedocs.io/en/stable/
-
 
 Onedata reference data (beta)
 -----------------------------
