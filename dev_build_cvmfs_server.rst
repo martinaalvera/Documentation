@@ -94,7 +94,7 @@ Content Publishing
 
 Reference data download
 -----------------------
-Reference data are available on Openstack Swift for public download. The list of available reference data with download link is here:
+Reference data are available on Openstack Swift for public download. The list of reference data download link is `here <https://raw.githubusercontent.com/indigo-dc/Reference-data-galaxycloud-repository/master/lists/url_list.txt>`_
 
 Furthermore, to automatically download our reference data set it is possible to use python script `refdata_download.py <https://raw.githubusercontent.com/indigo-dc/Reference-data-galaxycloud-repository/master/scripts/refdata_download.py>`_. 
 
@@ -102,42 +102,41 @@ THe package python-pycurl is needed to satisfy refdata_download.py requirements:
 
 Script usage
 ************
+This script takes the ``yaml`` files as input located in ``Reference-data-galaxycloud-repository/lists/``  directory.
+
+=======================  =================
+Option                   Description
+=======================  =================
+``-i``, ``--input.``     Input genome list in yaml format
+``-o``, ``--outdir``     Destination directory. Default ``/refdata``
+``-s``, ``--space``      Subdirectory name (for cvmfs and onedata spaces). Default ``elixir-italy.galaxy.refdata``
+=======================  =================
 
 ::
 
-  python refata_download.py -i <genome_list.yml> -o -s <cvmfs_repository_name>
+  /usr/bin/python refdata_download.py -i sacCer3-list.yml -o /refdata -s elixir-italy.galaxy.refdata
 
-refdata_download.sh ./refdata_download.sh ../lists/list.txt
+Available Reference data yaml file:
 
-wget_download ../lists/wget_list.txt
+- at10-list.yml
+- at9-list.yml
+- dm2-list.yml
+- dm3-list.yml
+- hg18-list.yml
+- hg19-list.yml
+- hg38-list.yml
+- mm10-list.yml
+- mm8-list.yml
+- mm9-list.yml
+- sacCer1-list.yml
+- sacCer2-list.yml
+- sacCer3-list.yml
 
-Available Reference data
+It is possible to download automatically all reference data files using the bash script ``refdata_download.sh``, which parse the python script, using as input the list file ``Reference-data-galaxycloud-repository/lists/list.txt``
 
-at10-list.yml
+::
 
-at9-list.yml
-
-dm2-list.yml
-
-dm3-list.yml
-
-hg18-list.yml
-
-hg19-list.yml
-
-hg38-list.yml
-
-mm10-list.yml
-
-mm8-list.yml
-
-mm9-list.yml
-
-sacCer1-list.yml
-
-sacCer2-list.yml
-
-sacCer3-list.yml
+  ./refdata_download.sh list.txt
 
 References
 ----------
