@@ -140,4 +140,6 @@ It is possible to download automatically all reference data files using the bash
 
 References
 ----------
+CernVM-FS stratum 0 documentation: http://cvmfs.readthedocs.io/en/stable/cpt-repo.html
+
 Nikhef wiki: https://wiki.nikhef.nl/grid/Adding_a_new_cvmfs_repository
