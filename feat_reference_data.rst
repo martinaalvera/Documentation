@@ -164,7 +164,6 @@ To Be Updated
 
 Reference data local download
 -----------------------------
+The reference data set can be downloaded on your machine. This option is not explicitly available, by default, on the service web intereface to avoid unuseful replication and costly virtual space consumption.
 
-
-
-Link to reference data download list:
+Nevertheless, it is still possible to download them through ansible and automatically configure galaxy to use them: :doc:`ansible_galaxycloud-refdata`. 
