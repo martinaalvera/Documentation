@@ -73,7 +73,7 @@ Set CernVM-FS server (stratum 0 or Replica) address without 'http://' string, e.
 
 ::
 
-  refdata_cvmfs_repository_name: '{{ refdata_repository_name }}'
+  refdata_cvmfs_repository_name: 'elixir-italy.galaxy.refdata'
 
 You can set a different cvmfs repository name, overwriting the default option, which point to refdata_repository_name.
 
@@ -84,7 +84,7 @@ SSH public key to mount the repository
 
 ::
 
-  refdata_cvmfs_proxy_url: '{{ refdata_cvmfs_server_url }}'
+  refdata_cvmfs_proxy_url: 'DIRECT'
 
 Proxy address (default ``DIRECT``).
 
