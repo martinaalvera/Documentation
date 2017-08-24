@@ -55,8 +55,8 @@ The role takes as input parameters the CernVM-FS server location details (stratu
         cvmfs_mountpoint: '/refdata'
         when:  refdata_provider_type == 'cvmfs'
 
-Reference
----------
+References
+----------
 
 Official cvmfs documentation: http://cvmfs.readthedocs.io/en/stable/cpt-repo.html
 
