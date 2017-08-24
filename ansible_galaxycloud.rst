@@ -8,7 +8,7 @@ Requirements
 This ansible role supports CentOS 7, Ubuntu 14.04 Trusty and Ubuntu 16.04 Xenial
 
 .. Note::
-  Minimal ansible version: 2.1.2.0
+  Minimum ansible version: 2.1.2.0
 
 Role Variables
 --------------
