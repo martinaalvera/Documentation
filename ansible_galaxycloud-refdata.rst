@@ -138,7 +138,7 @@ Select which reference data genome has to be downloaded.
 
 Dependencies
 ------------
-For cvmfs server reference data providere, the role depends on indigo-dc.cvmfs-client role, which takes as input parameters the CernVM-FS server location details (stratum 0 address, public key and mount point).
+For cvmfs server reference data provider, the role depends on indigo-dc.cvmfs-client role, which takes as input parameters the CernVM-FS server location details (stratum 0 address, public key and mount point).
 
 ::
 
