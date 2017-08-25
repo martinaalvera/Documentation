@@ -84,7 +84,41 @@ Moreover, on Ubuntu, we need to prevent NGINX to be updated by apt default packa
 
 NGINX is configured following the official Galaxy wiki: https://galaxyproject.org/admin/config/nginx-proxy/.
 
-Finally, to start/stop/status NGINX:
+NGINX is started, usually using the command line, from ``/usr/sbing/nginx``:
+
+::
+
+  $ sudo nginx
+
+NGINX options
+*************
+NGINX options are listed here: https://www.nginx.com/resources/wiki/start/topics/tutorials/commandline/
+
+================  ============================
+Option            Description
+================  ============================
+-?, -h            Print help.
+-v                Print version.
+-V                Print NGINX version, compiler version and configure parameters.
+-t                Don’t run, just test the configuration file. NGINX checks configuration for correct syntax and then try to open files referred in configuration.
+-q                Suppress non-error messages during configuration testing.
+-s signal         Send signal to a master process: stop, quit, reopen, reload. (version >= 0.7.53)
+-p prefix         Set prefix path (default: /usr/local/nginx/). (version >= 0.7.53)
+-c filename       Specify which configuration file NGINX should use instead of the default.
+-g directives     Set global directives. (version >= 0.7.4)
+================  ============================
+
+The main way to start/stop/reload nginx is through the ``-s`` command line option:
+
+==============  =================
+Action          Command
+==============  =================
+Start           sudo nginx
+Stop            sudo nginx -s stop
+Restart	        First stop nginx then start it: ``sudo nginx -s stop; sudo nginx``
+==============  =================
+
+Finally, to start/stop/status NGINX with systemd:
 
 ==============  =================
 Dstribution     Command
@@ -93,6 +127,46 @@ CentOS 7        sudo systemctl start/stop/status nginx
 Ubuntu Xenial   sudo systemctl start/stop/status nginx
 Ubuntu Trusty   sudo service nginx start/stop/status 
 ==============  =================
+
+NGINX troubleshooting
+*********************
+Running NGINX on CentOS through systemd could lead to this error in ``/var/log/nginx/error.log``, which can prevent Galaxy web page loading:
+
+::
+
+  2017/08/24 08:22:32 [crit] 3320#0: *7 connect() to 127.0.0.1:4001 failed (13: Permission denied) while connecting to upstream, client: 192.167.91.214, server: localhost, request: "GET /galaxy HTTP/1.1", upstream: "uwsgi://127.0.0.1:4001", host: "90.147.102.159"
+
+This is related to SELinux polixy on CentOS.
+
+.. Warning::
+
+   You should avoid to modify SELinux policy, since you can still use NGINX command line options.
+
+Anyway, the problem is that selinux dany socket access. This results in a generic access denied error in NGINX's log, the important messages are actually in selinux's audit log. To solve this issue, you can ran the following commands as superuser.
+
+::
+
+  # show the new rules to be generated
+  grep nginx /var/log/audit/audit.log | audit2allow
+
+  # show the full rules to be applied
+  grep nginx /var/log/audit/audit.log | audit2allow -m nginx
+
+  # generate the rules to be applied
+  grep nginx /var/log/audit/audit.log | audit2allow -M nginx
+
+  # apply the rules
+  semodule -i nginx.pp
+
+Then restart NGINX.
+
+You may need to generate the rules multiple times (likely four times to fix all policies), trying to access the site after each pass, since the first selinux error might not be the only one that can be generated.
+
+**Further readings**
+
+- NGINX documentation: https://www.nginx.com/blog/nginx-se-linux-changes-upgrading-rhel-6-6/
+- StackOverflow post: https://stackoverflow.com/questions/26334526/nginx-cant-access-a-uwsgi-unix-socket-on-centos-7
+- Blog post: http://axilleas.me/en/blog/2013/selinux-policy-for-nginx-and-gitlab-unix-socket-in-fedora-19/
 
 uWSGI
 -----
