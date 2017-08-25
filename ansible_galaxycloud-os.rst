@@ -22,7 +22,7 @@ The role exploits the ``galaxyctl_libs`` (see :doc:`script_galaxyctl_libs`) for 
 
 LUKS encryption
 ---------------
-For a detailed description of LUKS encryption used and scripts, see section :doc:`FS_ecnryption`.
+For a detailed description of LUKS encryption used and scripts, see section :doc:`FS_encryption`.
 
 Dependencies
 ------------
