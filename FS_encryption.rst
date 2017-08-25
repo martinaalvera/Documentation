@@ -11,9 +11,11 @@ The adopted block device encryption method, operates below the filesystem layer 
 
 Dm-crypt is the standard device-mapper encryption functionality provided by the Linux kernel. Dm-crypt management is entrusted to the cryptsetup userspace utility, using LUKS as default block-device encryption method. LUKS, is an additional layer which stores all the needed setup information for dm-ctypt on the disk itself, abstracts partition and key management in an attempt to improve ease of use and cryptographic security
 
-To automatically setup LUKS volumes on your Galaxy instances a bash script, named ``fast-luks`` (https://github.com/mtangaro/GalaxyCloud/blob/master/LUKS/fast_luks.sh). For more details see: `Fast-luks script`_.
+To automatically setup LUKS volumes on your Galaxy instances a bash script, named `fast-luks <https://github.com/mtangaro/GalaxyCloud/blob/master/LUKS/fast_luks.sh>`_ has been created. The script has been integrated in the Galaxy instantiation procedure: if the File System Encryption option is selected through the dialogue window the users will be required to insert a password to encrypt/decrypt data on the virtual instance during its deployment, avoiding any interaction with the cloud administrator(s). For more details see: `Fast-luks script`_.
 
-The script has been integrated in the Galaxy instantiation procedure: if the File System Encryption option is selected through the dialogue window the users will be required to insert a password to encrypt/decrypt data on the virtual instance during its deployment, avoiding any interaction with the cloud administrator(s).
+.. Note::
+
+   During the ancryption procedure an e-mail is sent to the Galaxy Instance Administrator, with the Virtual Machine IP address and a detailed description of the procedure to inject the encryption password in the system. The Galaxy installation procedure is paused until the password is correctly set (after 5 hours the system will return an error).
 
 .. Warning::
 
