@@ -1,5 +1,5 @@
-GalaxyCloud
-===========
+GalaxyCloud Documentation
+=========================
 
 .. _fig_updateprocess:
 
