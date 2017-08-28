@@ -24,5 +24,4 @@ The :doc:`indigo_orchestrator` takes the deployment requests written in `TOSCA Y
    :caption: TOSCA documentation
 
    tosca_customtypes
-   tosca_artifacts
    tosca_templates
