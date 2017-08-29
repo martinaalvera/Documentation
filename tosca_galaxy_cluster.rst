@@ -100,7 +100,7 @@ The master node hosts Galaxy and Slurm controller:
           properties:
           image: linux-ubuntu-14.04-vmi
 
-Thet the worker nodes configuration (OS and virtual hardware):
+Then the worker nodes configuration (OS and virtual hardware):
 
 ::
 
