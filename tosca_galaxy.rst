@@ -78,63 +78,63 @@ Input parameters are needed for each custom type used in the template:
          description: Onedata space
          default: "galaxy"
 
-  - Galaxy flavor input parameters:
+   - Galaxy flavor input parameters:
 
-    :: 
+     :: 
 
-      flavor:
-        type: string
-        description: Galaxy flavor for tools installation
-        default: "galaxy-no-tools"
+       flavor:
+         type: string
+         description: Galaxy flavor for tools installation
+         default: "galaxy-no-tools"
 
-  - Reference data input parameters, for all possible options (CernVM-FS, Onedata and download).
+   - Reference data input parameters, for all possible options (CernVM-FS, Onedata and download).
 
-    ::
+     ::
 
-      reference_data:
-        type: boolean
-        description: Install Reference data
-        default: true
-      refdata_dir:
-        type: string
-        description: path to store galaxy reference data
-        default: /refdata
-      refdata_repository_name:
-        type: string
-        description: Onedata space name, CernVM-FS repository name or subdirectory downaload name
-        default: 'elixir-italy.galaxy.refdata'
-      refdata_provider_type:
-        type: string
-        description: Select Reference data provider type (Onedata, CernVM-FS or download)
-        default: 'onedata'
-      refdata_provider:
-        type: string
-        description: Oneprovider for reference data
-        default: 'not_a_provider'
-      refdata_token:
-        type: string
-        description: Access token for reference data
-        default: 'not_a_token'
-      refdata_cvmfs_server_url:
-        type: string
-        description: CernVM-FS server, replica or stratum-zero
-        default: 'server_url'
-      refdata_cvmfs_repository_name:
-        type: string
-        description: Reference data CernVM-FS repository name
-        default: 'not_a_cvmfs_repository_name'
-      refdata_cvmfs_key_file:
-        type: string
-        description: CernVM-FS public key
-        default: 'not_a_key'
-      refdata_cvmfs_proxy_url:
-        type: string
-        description: CernVM-FS proxy url
-        default: 'DIRECT'
-      refdata_cvmfs_proxy_port:
-        type: integer
-        description: CernVM-FS proxy port
-        default: 80
+       reference_data:
+         type: boolean
+         description: Install Reference data
+         default: true
+       refdata_dir:
+         type: string
+         description: path to store galaxy reference data
+         default: /refdata
+       refdata_repository_name:
+         type: string
+         description: Onedata space name, CernVM-FS repository name or subdirectory downaload name
+         default: 'elixir-italy.galaxy.refdata'
+       refdata_provider_type:
+         type: string
+         description: Select Reference data provider type (Onedata, CernVM-FS or download)
+         default: 'onedata'
+       refdata_provider:
+         type: string
+         description: Oneprovider for reference data
+         default: 'not_a_provider'
+       refdata_token:
+         type: string
+         description: Access token for reference data
+         default: 'not_a_token'
+       refdata_cvmfs_server_url:
+         type: string
+         description: CernVM-FS server, replica or stratum-zero
+         default: 'server_url'
+       refdata_cvmfs_repository_name:
+         type: string
+         description: Reference data CernVM-FS repository name
+         default: 'not_a_cvmfs_repository_name'
+       refdata_cvmfs_key_file:
+         type: string
+         description: CernVM-FS public key
+         default: 'not_a_key'
+       refdata_cvmfs_proxy_url:
+         type: string
+         description: CernVM-FS proxy url
+         default: 'DIRECT'
+       refdata_cvmfs_proxy_port:
+         type: integer
+         description: CernVM-FS proxy port
+         default: 80
 
 Input parameters are passed to the corresponding ansible roles, through custom type call:
 
