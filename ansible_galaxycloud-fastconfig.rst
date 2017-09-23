@@ -1,2 +1,2 @@
-Get encrypted isntance
+Galaxycloud-fastconfig
 ======================
