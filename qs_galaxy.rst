@@ -22,7 +22,7 @@ The galaxy administrator password and the API key are automatically generated du
 
 ::
 
-  User: your user e-maill
+  User: your user e-mail
 
   Password: galaxy_admin_password
 
