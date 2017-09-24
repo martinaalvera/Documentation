@@ -19,32 +19,37 @@ Instantiate Galaxy
    :alt: Galaxy express main window
 
 .. figure:: _static/qs_galaxy/qs_galaxy_VirtualHardware.png
-   :scale: 25 %
+   :scale: 30 %
    :align: center
    :alt: Virtual hardware configuration
 
+.. Warning::
+
+   VCPUS and Memory values selected by user have to match Image Flavor presets, otherwise a different flavor, as close as possible to the one selected, will be automatically assigned.
+   Please read carefully the section: :doc:`qs_virtual_hdw_presets`.
+
 .. figure:: _static/qs_galaxy/qs_galaxy_SSHkey.png
-   :scale: 25 %
+   :scale: 30 %
    :align: center
    :alt: SSH public key injection
 
 .. figure:: _static/qs_galaxy/qs_galaxy_Storage1.png
-   :scale: 25 %
+   :scale: 30 %
    :align: center
    :alt: Galaxy express Storage section 1
 
 .. figure:: _static/qs_galaxy/qs_galaxy_Storage2.png
-   :scale: 25 %
+   :scale: 30 %
    :align: center
    :alt: Galaxy express Storage section 2
 
 .. figure:: _static/qs_galaxy/qs_galaxy_GalaxyConfig.png
-   :scale: 25 %
+   :scale: 30 %
    :align: center
    :alt: Galaxy express Galxy configuration section
 
 .. figure:: _static/qs_galaxy/qs_galaxy_Tools.png
-   :scale: 25 %
+   :scale: 30 %
    :align: center
    :alt: Galaxy express Tools section
 
