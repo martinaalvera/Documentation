@@ -14,7 +14,7 @@ Instantiate Galaxy
 
    To login into the portal see section: :doc:`feat_authentication`.
 
-#. Enter the ``Galaxy•`` section:
+#. Enter the ``Galaxy`` section:
 
    .. figure:: _static/qs_galaxy/qs_galaxy_FGW.png 
       :scale: 100 %
