@@ -1,2 +1,2 @@
-Get encrypted isntance
+Get encrypted instance
 ======================

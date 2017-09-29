@@ -21,7 +21,14 @@ Instantiate Galaxy
       :align: center
       :alt: Galaxy express main window
 
-#. Set your ``Job identifier`` as you prefer, the Number of Virtual CPUs and the Memory size:
+#. Set your ``Job identifier`` as you prefer, which will identfy your Galaxy in the job list, once your request is submitted:
+
+   .. figure:: _static/qs_galaxy/qs_galaxy_JobID.png
+      :scale: 30 %
+      :align: center
+      :alt: Virtual hardware configuration
+
+#. Set the Number of Virtual CPUs and the Memory size:
 
    .. figure:: _static/qs_galaxy/qs_galaxy_VirtualHardware.png
       :scale: 30 %
