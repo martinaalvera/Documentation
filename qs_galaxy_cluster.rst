@@ -1,13 +1,13 @@
-Galaxy Cluster (SLURM)
-==========================
+Galaxy elastic cluster (SLURM)
+==============================
 
-The Galaxy section allows user to deploy a full `Galaxy production environment <https://galaxyproject.org/admin/config/performance/production-server/>`_.
+The Galaxy elastic cluster section allow user to deploy Galaxy and a SLURM cluster with automatic elasticity.
 
-SLURM cluster with automatic elasticity is deployed. This enables dynamic cluster resources scaling, deploying and powering on new working nodes depending on the workload of the cluster and powering-off them when no longer needed. This provides an efficient use of
-the resources, making them available only when really needed.
+This enables dynamic cluster resources scaling, deploying and powering on new working nodes depending on the workload of the cluster and powering-off them when no longer needed. This provides an efficient use of the resources, making them available only when really needed.
 
-Instantiate Galaxy
-------------------
+.. Note::
+
+   For a detailed description Galaxy elastic cluster see section :doc:`feat_cluster_support`.
 
 .. Note::
 
@@ -16,6 +16,9 @@ Instantiate Galaxy
 .. Note::
 
    To login into the portal see section: :doc:`feat_authentication`.
+
+Instantiate Galaxy
+------------------
 
 #. Enter the ``Galaxy elastic cluster`` section:
 
@@ -81,6 +84,19 @@ Instantiate Galaxy
       :scale: 30 %
       :align: center
       :alt: Galaxy express Tools section
+
+#. Once the job is in ``DONE`` state, the galaxy server address is available and Galaxy is ready.
+
+   .. figure:: _static/qs_galaxy_cluster/qs_cluster_DONE.png
+      :scale: 30 %
+      :align: center
+      :alt: Galaxy express Tools section
+
+   .. figure:: _static/qs_galaxy_cluster/qs_cluster_Galaxy.png
+      :scale: 30 %
+      :align: center
+      :alt: Galaxy express Tools section
+
 
 Galaxy login
 ------------
