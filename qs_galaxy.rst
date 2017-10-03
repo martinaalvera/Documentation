@@ -3,8 +3,7 @@ Get Galaxy
 
 The Galaxy section allows user to deploy a full `Galaxy production environment <https://galaxyproject.org/admin/config/performance/production-server/>`_.
 
-Instantiate Galaxy
-------------------
+The service allows to setup and launch a virtual machine configured with the Operative System CentOS 7  and the auxiliary applications needed to support a Galaxy production environment such as PostgreSQL, Nginx, uWSGI and Proftpd and to deploy the Galaxy platform itself. Once deployed each Galaxy instance can be further customized with tools and reference data.
 
 .. Note::
 
@@ -13,6 +12,9 @@ Instantiate Galaxy
 .. Note::
 
    To login into the portal see section: :doc:`feat_authentication`.
+
+Instantiate Galaxy
+------------------
 
 #. Enter the ``Galaxy`` section:
 

@@ -31,14 +31,13 @@ GalaxyCloud has been developed by ELIXIR-IIB, the italian node of ELIXIR, within
    intro_elixir-it
    intro_indigo
 
-
 .. toctree::
    :maxdepth: 2
    :caption: Quickstarts
 
    qs_galaxy
    qs_galaxy_express
-   qs_isolate_your_galaxy
+   qs_encryption
    qs_galaxy_cluster
    qs_galaxy_onedata
    qs_virtual_hdw_presets
