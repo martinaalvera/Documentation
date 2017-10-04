@@ -10,15 +10,15 @@ This enables dynamic cluster resources scaling, deploying and powering on new wo
 
    Each node takes 12 minutes to be instantiated. Therefore, the job needs the same time to start. On the contrary if the node is already deployed the job will start immediately.
 
-.. Note::
+.. seealso::
 
    For a detailed description Galaxy elastic cluster see section :doc:`feat_cluster_support`.
 
-.. Note::
+.. seealso::
 
    For a detailed descreption of all Web UI options see section: :doc:`feat_galaxy_custom`.
 
-.. Note::
+.. seealso::
 
    To login into the portal see section: :doc:`feat_auth`.
 

@@ -7,11 +7,11 @@ The service loads a VM with galaxy and all tools alreadt embedded. This leads to
 
 In particular, it is not possible to configure Galaxy version, or retrieve last tools revision. Moreover, galaxy database password is the same for all deployments and not randomly generated.
 
-.. Note::
+.. seealso::
 
    For a detailed descreption of all Web UI options see section: :doc:`feat_galaxy_custom`.
 
-.. Note::
+.. seealso::
 
    To login into the portal see section: :doc:`feat_authentication`.
 

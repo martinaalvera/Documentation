@@ -8,7 +8,6 @@ The service provides the possibility to encrypt the storage volume associated to
    Only the external volume, where Galaxy data are stored, is encrypted, not the storage disk.
 
 To encypt the external volume storage just select ``Encryption`` as ``Storage type`` in the ``Storage`` section. 
-
  
 .. figure:: _static/qs_encryption/qs_encryption.png 
    :scale: 100 %
@@ -33,6 +32,10 @@ An e-mail is sent to the e-mail address configured in the ``Galaxy Configuration
 
 The e-mail is sent you only when the system is ready to accept your password and contains all the instructions to correctly encrypt/decrypt your system.
 
+.. Warning::
+
+   If you do not receive the e-mail from ELIXIR-ITALY, please check your spam folder.
+
 .. figure:: _static/qs_encryption/qs_encryption_mail.png 
    :scale: 30 %
    :align: center
@@ -45,6 +48,6 @@ The e-mail is sent you only when the system is ready to accept your password and
 
 Once the e-mail is arrived you can follow the step by step guide to encrypt your volume: :doc:`FS_encryption_procedure`.
 
-.. Note::
+.. seealso::
 
    For a detailed descreption of all Web UI options see section: :doc:`feat_galaxy_custom`.

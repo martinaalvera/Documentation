@@ -52,7 +52,7 @@ GalaxyCloud has been developed by ELIXIR-IIB, the italian node of ELIXIR, within
    feat_galaxy_tools
    feat_reference_data
    feat_cluster_support
-   feat_authentication
+   feat_auth
    feat_validation
 
 .. toctree::
