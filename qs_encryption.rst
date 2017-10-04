@@ -30,11 +30,9 @@ An e-mail is sent to the e-mail address configured in the ``Galaxy Configuration
 
    Make sure you have entered a valid mail address!
 
-The e-mail is sent you only when the system is ready to accept your password and contains all the instructions to correctly encrypt/decrypt your system.
+The e-mail is sent you only when the system is ready to accept your password and contains all the instructions to correctly encrypt/decrypt your system. The e-mail subject is ``[ELIXIR-ITALY] GalaxyCloud encrypt password`` sent by ``GalaxyCloud@elixir-italy.org``
 
 .. Warning::
-
-   The e-mail subject is ``[ELIXIR-ITALY] GalaxyCloud encrypt password`` sent by ``GalaxyCloud@elixir-italy.org``
 
    If you do not receive the e-mail, please check your spam folder.
 
