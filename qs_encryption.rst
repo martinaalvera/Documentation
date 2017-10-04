@@ -34,7 +34,9 @@ The e-mail is sent you only when the system is ready to accept your password and
 
 .. Warning::
 
-   If you do not receive the e-mail from ELIXIR-ITALY, please check your spam folder.
+   The e-mail subject is ``[ELIXIR-ITALY] GalaxyCloud encrypt password`` sent by ``GalaxyCloud@elixir-italy.org``
+
+   If you do not receive the e-mail, please check your spam folder.
 
 .. figure:: _static/qs_encryption/qs_encryption_mail.png 
    :scale: 30 %
