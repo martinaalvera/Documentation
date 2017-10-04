@@ -5,6 +5,11 @@ The Galaxy elastic cluster section allow user to deploy Galaxy and a SLURM clust
 
 This enables dynamic cluster resources scaling, deploying and powering on new working nodes depending on the workload of the cluster and powering-off them when no longer needed. This provides an efficient use of the resources, making them available only when really needed.
 
+
+.. Warning::
+
+   Each node takes 12 minutes to be instantiated. Therefore, the job needs the same time to start. On the contrary if the node is already deployed the job will start immediately.
+
 .. Note::
 
    For a detailed description Galaxy elastic cluster see section :doc:`feat_cluster_support`.
@@ -15,7 +20,7 @@ This enables dynamic cluster resources scaling, deploying and powering on new wo
 
 .. Note::
 
-   To login into the portal see section: :doc:`feat_authentication`.
+   To login into the portal see section: :doc:`feat_auth`.
 
 Instantiate Galaxy
 ------------------
