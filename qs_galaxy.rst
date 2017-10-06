@@ -25,6 +25,10 @@ Instantiate Galaxy
 
 #. Set your ``Job identifier`` as you prefer, which will identfy your Galaxy in the job list, once your request is submitted:
 
+   .. Note::
+
+      Please be descriptive in the ``Job Identifier`` section, storing the Galaxy VM features, like user, VCPUs and Memory, tools presets and storage.
+
    .. figure:: _static/qs_galaxy/qs_galaxy_JobID.png
       :scale: 30 %
       :align: center
