@@ -63,6 +63,7 @@ GalaxyCloud has been developed by ELIXIR-IIB, the italian node of ELIXIR, within
    script_galaxyctl
    script_luksctl
    script_onedatactl
+   faq
 
 .. toctree::
    :maxdepth: 2
