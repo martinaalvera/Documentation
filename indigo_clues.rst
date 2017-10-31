@@ -101,7 +101,7 @@ Solution:
 
 #. Edit the file ``/etc/clues2/conf.d/plugin-ec3.cfg``
 
-   and change the value of the "INDIGO_ORCHESTRATOR_AUTH_DATA" parameter with the new token.
+   and change the value of the ``INDIGO_ORCHESTRATOR_AUTH_DATA`` parameter with the new token.
 
 #. Restart CLUES.
 
