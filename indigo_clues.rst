@@ -81,10 +81,10 @@ Check worker nodes deployment
 Worker node deployment log are available to: ``/var/log/clues2/clues2.log``
 
 Troubleshooting
----------------
+***************
 
 Invalid Token
-*************
+-------------
 
 Symptoms: Galaxy jobs stuck in ``This job is waiting to run`` and stay gray in the Galaxy history.
 
