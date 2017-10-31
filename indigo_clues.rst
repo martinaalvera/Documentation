@@ -79,3 +79,32 @@ Check worker nodes deployment
 *****************************
 
 Worker node deployment log are available to: ``/var/log/clues2/clues2.log``
+
+Troubleshooting
+---------------
+
+Invalid Token
+*************
+
+Symptoms: Galaxy jobs stuck in ``This job is waiting to run`` and stay gray in the Galaxy history.
+
+The worker nodes are not correctly instantiated, due to an ``Invalid Token``. Check ``/var/log/clues2/clues2.log``:
+
+::
+
+    urllib3.connectionpool;DEBUG;2017-10-31 10:52:33,288;"GET /orchestrator/deployments/48126bd4-14d8-494d-970b-fb581a3e13b2/resources?size=20&page=0 HTTP/1.1" 401 None
+    [PLUGIN-INDIGO-ORCHESTRATOR];ERROR;2017-10-31 10:52:33,291;ERROR getting deployment info: {"code":401,"title":"Unauthorized","message":"Invalid token: eyJraWQiOiJyc2ExIiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiI3REU4Qjg4MC1DNEQwLTQ2RkEtQjQxMS0wQTlCREI3OUYzOTYiLCJpc3MiOiJodHRwczpcL1wvaWFtLXRlc3QuaW5kaWdvLWRhdGFjbG91ZC5ldVwvIiwiZXhwIjoxNTA5NDQ0NDY2LCJpYXQiOjE1MDk0NDA4NjYsImp0aSI6IjAyZmE5YmM0LTBkMjctNGJkZi1iODVjLTJlMjM2NjNjNmY5OCJ9.QqjYzVs0h5kuqoBZQf5PPcYrsRJksTFyZO5Zpx8xPcfjruWHwwOnw9knQq8Ex3lwAXgi5qxdmqBDi4EIZAOaoFsPirlM7K6fCBE0-M_btm4nTbUvTSaUAfjki41DnPoEjLqXTTy8XLPUrCSmHVeqvSHHFipeSkP9OxKltlUadPc"}
+
+Solution:
+
+#. Stop CLUES.
+
+#. Edit the file ``/etc/clues2/conf.d/plugin-ec3.cfg``
+
+   and change the value of the "INDIGO_ORCHESTRATOR_AUTH_DATA" parameter with the new token.
+
+#. Restart CLUES.
+
+#. You also have to open the CLUES DB with sqlite3 command: ``sqlite3 /var/lib/clues2/clues.db``
+
+   And delete old refreshed token: ``DELETE FROM orchestrator_token;``
