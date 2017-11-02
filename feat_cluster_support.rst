@@ -15,3 +15,7 @@ This is due to:
 #. CernVM-FS configuration
 
 #. SLURM installation and configuration
+
+.. Note::
+
+   NFS exported directory: ``/etc/exports``
