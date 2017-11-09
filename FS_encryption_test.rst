@@ -101,7 +101,10 @@ Test executed to ensure LUKS volume encryption.
      -rw-rw-r--.  1 centos centos 138M Nov  9 11:58 grep_vdd.txt
 
 
-We also tried to open the volume using our cloud controller.
+.. Warning::
+
+   We also tried to open the volume using our cloud controller.
+
 Test executed on our cloud controller:
 
 ::
@@ -109,9 +112,6 @@ Test executed on our cloud controller:
   # rbd map volume-3bedc7bc-eaed-466f-9d55-f2c29b44a7b2 --pool volumes
   /dev/rbd0
   
-  # lsb        
-  lsblk        lsb_release  
-
   # lsblk -f
   NAME          FSTYPE      LABEL UUID                                   MOUNTPOINT
   sda                                                                    
