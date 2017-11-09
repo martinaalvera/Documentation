@@ -76,7 +76,7 @@ Test executed to ensure LUKS volume encryption.
      -rw-rw-r--.  1 centos centos 4.2G Nov  9 11:32 vdd.txt
      -rw-rw-r--.  1 centos centos 4.2G Nov  9 11:36 vde.txt
 
-#. Grep non-zero bytes and search for the test.txt file content ``encryption test.``: 
+#. Grep non-zero bytes and search for the test.txt file content ``encryption test``: 
 
    ::
 
