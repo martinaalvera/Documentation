@@ -45,5 +45,5 @@ Alternatively, Users’ data access rights will be controlled through the OneDat
 
    FS_encryption
    FS_encryption_procedure
-   FS_encryption_log
+   FS_encryption_test
    FS_onedata
