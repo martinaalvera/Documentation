@@ -88,10 +88,17 @@ Test executed to ensure LUKS volume encryption.
      $ grep "encryption test" grep_vdd.txt 
      $ 
 
-
    .. Note::
 
       It is possible to see the test.txt file content only on the un-encrypted volume.
+
+
+   Moreover, the output file grep_vde.txt is 73 kb while the encrypted one, grep_vdd.txt (138 MB), is very large:
+
+   ::
+
+     -rw-rw-r--.  1 centos centos  73K Nov  9 11:46 grep_vde.txt
+     -rw-rw-r--.  1 centos centos 138M Nov  9 11:58 grep_vdd.txt
 
 
 We also tried to open the volume using our cloud controller.
