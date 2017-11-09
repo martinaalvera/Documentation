@@ -88,7 +88,10 @@ Test executed to ensure LUKS volume encryption.
      $ grep "encryption test" grep_vdd.txt 
      $ 
 
-   It is possible to see the test.txt file content only on the un-encrypted volume.
+
+   .. Note::
+
+      It is possible to see the test.txt file content only on the un-encrypted volume.
 
 
 We also tried to open the volume using our cloud controller.
