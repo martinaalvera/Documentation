@@ -103,9 +103,9 @@ Test executed to ensure LUKS volume encryption.
 
 .. Warning::
 
-   We also tried to open the volume using our cloud controller.
+   We also tried to open the volume using the cloud controller.
 
-Test executed on our cloud controller:
+Test executed on the cloud controller:
 
 ::
 
