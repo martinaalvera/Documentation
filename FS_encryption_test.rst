@@ -14,7 +14,7 @@ Test executed to ensure LUKS volume encryption.
      /dev/vdd        976M  2.6M  907M   1% /export
      /dev/vde        976M  2.6M  907M   1% /export1
 
-#. Encrypt ``/export``, i.e. ``/dev/vdd`` using fast_luks (/export is the default value).
+#. Encrypt ``/export``, i.e. ``/dev/vdd`` using fast_luks (``/export`` is the default value).
 
    ::
 
@@ -24,7 +24,7 @@ Test executed to ensure LUKS volume encryption.
      /dev/vde              976M  2.6M  907M   1% /export1
      /dev/mapper/jtedehex  990M  2.6M  921M   1% /export
 
-   Ensure that /export has the same permissions of the other two volumes.
+   Ensure that ``/export`` has the same permissions of the other two volumes.
 
    ::
 
