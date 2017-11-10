@@ -100,10 +100,7 @@ Test executed to ensure LUKS volume encryption.
      -rw-rw-r--.  1 centos centos  73K Nov  9 11:46 grep_vde.txt
      -rw-rw-r--.  1 centos centos 138M Nov  9 11:58 grep_vdd.txt
 
-
-.. Warning::
-
-   We also tried to open the volume using the cloud controller.
+We also tried to open the volume when active (LUKS volume opened and mounted) in the Virtual Machine, using the cloud controller (as administrator).
 
 Test executed on the cloud controller:
 
@@ -124,3 +121,5 @@ Test executed on the cloud controller:
   
   # mount /dev/rbd0 /mnt/
   mount: unknown filesystem type ‘crypto_LUKS’
+
+It is not possible to mount the volume without the user password.
