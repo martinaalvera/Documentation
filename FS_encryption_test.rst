@@ -100,7 +100,7 @@ Test executed to ensure LUKS volume encryption.
      -rw-rw-r--.  1 centos centos  73K Nov  9 11:46 grep_vde.txt
      -rw-rw-r--.  1 centos centos 138M Nov  9 11:58 grep_vdd.txt
 
-We also tried to open the volume when active (LUKS volume opened and mounted) in the Virtual Machine, using the cloud controller (as administrator).
+We also tried to open the volume when active (LUKS volume opened and mounted, Galaxy running) in the Virtual Machine, using the cloud controller (as administrator).
 
 Test executed on the cloud controller:
 
