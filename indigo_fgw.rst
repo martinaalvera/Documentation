@@ -122,7 +122,7 @@ The administrator portlet is here: https://github.com/mtangaro/fgw-elixir-italy/
 
 Once uploaded, the Future Gateway APIs URL is ``https://hostname/apis``.
 
-.. figure:: _static/admin_portlet_api.png
+.. figure:: _static/admin_portlet_apis.png
    :scale: 10 %
    :align: center
    :alt: Future Gateway apis pop-up
@@ -131,10 +131,10 @@ Galaxy portlet
 --------------
 
 Build FGW portlets
-******************
+------------------
 
 Create build environment
-------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 To correctly build FutureGateway portlets we recommends to use ``Ubuntu 16.04``
 ``Java 8`` and ``gradle`` are needed:
@@ -158,7 +158,7 @@ Answer ``[2] Don't initialize Liferay Workspace directory``
 and continue the installation.
 
 Build portlets
---------------
+~~~~~~~~~~~~~~
 
 Next you should use some code lines like below:
 
