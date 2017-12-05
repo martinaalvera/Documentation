@@ -120,6 +120,13 @@ Administrator portlet
 
 The administrator portlet is here: https://github.com/mtangaro/fgw-elixir-italy/tree/master/admin-modules
 
+Once uploaded, the Future Gateway APIs URL is ``https://hostname/apis``.
+
+.. figure:: _static/admin_portlet_api.png
+   :scale: 10 %
+   :align: center
+   :alt: Future Gateway apis pop-up
+
 Galaxy portlet
 --------------
 
