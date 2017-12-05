@@ -181,6 +181,6 @@ Newly created portlets are in ./modules/LIB_NAME/build/libs.
 Next you need copy created jars to ~/FutureGateway/deploy and portlets are available on the your website.
 
 References
-**********
+----------
 
 GitBook: https://www.gitbook.com/book/indigo-dc/futuregateway/details
