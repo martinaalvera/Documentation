@@ -31,7 +31,7 @@ Enalble http_proxy on apache2
 
   a2enmod proxy_http
 
-In ``/etc/apach2/sites-available/`` create your `futuregateway.conf <https://raw.githubusercontent.com/mtangaro/fgw-elixir-italy/master/configs/futuregateway.conf/>`_ file, setting
+In ``/etc/apach2/sites-available/`` create your `futuregateway.conf <https://raw.githubusercontent.com/mtangaro/fgw-elixir-italy/master/configs/futuregateway.conf>`_ file, setting
 
 ::
 
@@ -63,7 +63,7 @@ Enalble http_proxy and ssl modules on apache2
 
 Port ``443`` must be opened.
 
-In ``/etc/apach2/sites-available/`` create your `futuregateway.conf <https://raw.githubusercontent.com/mtangaro/fgw-elixir-italy/master/configs/futuregateway.ssl.conf/>`_ file, setting
+In ``/etc/apach2/sites-available/`` create your `futuregateway.conf <https://raw.githubusercontent.com/mtangaro/fgw-elixir-italy/master/configs/futuregateway.ssl.conf>`_ file, setting
 
 ::
 
