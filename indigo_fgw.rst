@@ -1,9 +1,39 @@
 INDIGO FutureGateway
 ====================
 
-To correctly setup the FGW portal follow the instruction in the ``Ubuntu LTS 14.04 Server`` section here: https://indigo-dc.gitbooks.io/futuregateway/content/installation.html
+To correctly setup the FGW portal follow the instruction in the ``Ubuntu LTS 14.04 Server`` section `here <https://indigo-dc.gitbooks.io/futuregateway/content/installation.html>`_ as super user:
+
+::
+
+  # IP=$(ifconfig | grep  -A 2 eth0 | grep inet\ addr | awk -F':' '{ print $2 }' | awk '{ print $1 }' | xargs echo)
+
+  # echo "$IP    futuregateway" >> /etc/hosts
+
+  # adduser --disabled-password --gecos "" futuregateway
+
+  # mkdir -p /home/futuregateway/.ssh
+
+  # chown futuregateway:futuregateway /home/futuregateway/.ssh
+
+  # wget https://github.com/indigo-dc/PortalSetup/raw/master/Ubuntu_14.04/fgSetup.sh
+
+  # chmod +x fgSetup.sh
+
+  # cat /dev/zero | ssh-keygen -q -N ""
+
+  # cat /root/.ssh/id_rsa.pub >> /home/futuregateway/.ssh/authorized_keys
+
+  # echo "#FGSetup remove the following after installation" >> /etc/sudoers
+
+  # echo "ALL  ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+
+  # ./fgSetup.sh futuregateway futuregateway <your ssh port> $(cat /root/.ssh/id_rsa.pub)
 
 The ssh port is, usually, the ``22``.
+
+.. Warning::
+
+   FutureGateway token authentication requires ``https``. Here, we are going to use Let's Encrypt certificates, as examble. A quick guide is available `here <https://github.com/maricaantonacci/slam/blob/master/gitbook/create-custom-keystore.md>`_.
 
 Portal configuration
 --------------------
@@ -111,7 +141,9 @@ IAM integration
 
 Iam portlets for the FGW portal are available on github: https://github.com/mtangaro/fgw-elixir-italy/tree/master/iam-modules
 
-You can follow this instructions to set it up: https://github.com/indigo-dc/LiferayPlugIns/blob/master/doc/admin.md. The deploy directory is in ``/home/futuregateway/FutureGateway/deploy/``.
+Put the portlets in the ``/home/futuregateway/FutureGateway/deploy/``, FGW will upload them automatically, moving them in ``/home/futuregateway/FutureGateway/osgi/modules/``.
+
+You can follow this instructions to set it up: https://github.com/indigo-dc/LiferayPlugIns/blob/master/doc/admin.md.
 
 The option ``javascript.fast.load=false`` has to be set in ``/home/futuregateway/FutureGateway/portal-ext.properties``.
 
@@ -120,12 +152,109 @@ Administrator portlet
 
 The administrator portlet is here: https://github.com/mtangaro/fgw-elixir-italy/tree/master/admin-modules
 
-Once uploaded, the Future Gateway APIs URL is ``https://hostname/apis``.
+Once uploaded, the Future Gateway APIs URL is ``https://hostname/apis/v1.0``.
 
-.. figure:: _static/admin_portlet_apis.png
+.. figure:: _static/fgw/admin_portlet_apis.png
    :scale: 30 %
    :align: center
    :alt: Future Gateway apis pop-up
+
+The next thing is the configuration of PTV (Portal Token Validator). This is a service which FG API server uses for token validation
+
+It is configured in ``FutureGateway/fgAPIServer/fgapiserver.conf`` [1] by the following options:
+
+fgapisrv_ptvendpoint= https://hostname/api/jsonws/iam.token/get-token-info
+fgapisrv_ptvuser    = [...]
+fgapisrv_ptvpass    = [...]
+
+Almost the same must be placed in ``FutureGateway/apache-tomcat-8.0.36/webapps/APIServerDaemon/WEB-INF/classes/it/infn/ct/ToscaIDC.properties`` and ``FutureGateway/APIServerDaemon/work/WEB-INF/classes/it/infn/ct/ToscaIDC.properties`` [2]:
+
+fgapisrv_ptvtokensrv= https://hostname/api/jsonws/iam.token/get-token
+fgapisrv_ptvuser    = [...]
+fgapisrv_ptvpass    = [...]
+
+Notice the difference:
+
+``*_ptvendpoint`` is set to the URL ``*/get-token-info``
+
+``*_ptvtokensrv`` is set to the URL ``*/get-token``
+
+ptvuser and ptvpass corresponds to username and password of a FGW user with the right permissions for token validations. You have to create this user and the corresponding role for permissions.
+
+Create a new Role named ``External Services`` and give it IAM token permissions:
+
+.. figure:: _static/fgw/external_services_role.png
+   :scale: 30 %
+   :align: center
+   :alt: External Services role
+
+.. figure:: _static/fgw/external_services_permissions.png
+   :scale: 30 %
+   :align: center
+   :alt: External Services IAM permissions
+
+Create a new user (not a IAM user, just register it using the Sign-in liferay module). 
+
+Then assign the new Role ``External Services`` to the new user: Users and Organizations -> User Information -> Roles -> Select ``External Services`` and save.
+
+To validate if your PTV service is working, you can do the following:
+
+#.  Visit https://jwt.io and copy-paste your IAM token. Token is stored in Your User Name -> Account Settings -> Miscellaneus ->  Iamaccesstoken
+
+    .. figure:: _static/fgw/iamaccesstoken.png
+       :scale: 30 %
+       :align: center
+       :alt: IAM access token
+
+
+    In the decoded payload, you will find your subject:
+
+    ::    
+    
+      321f0ea3-4aab-46f7-accf-f645cd9d3629
+
+#.  Use the PTV web service directly:
+
+    ::
+
+      $ export PTV_USER= ***
+      $ export PTV_PASS= ***
+      $ export SUBJECT=321f0ea3-4aab-46f7-accf-f645cd9d3629
+
+      $ curl -u "$PTV_USER:$PTV_PASS"\
+             -d "subject=$SUBJECT"\
+             https://hostname/api/jsonws/iam.token/get-token
+
+After changing [1] restart of Apache ``# service apache2 restart``, and after [2] restart of Tomcat ``# service futuregateway restart``.
+
+To test if the FGW API server is authenticating you correctly, you can do the following:
+
+::
+
+  $ curl https://hostname/apis/v1.0/applications
+
+This should show '401 Unauthorized', so do the following:
+
+::
+
+  export TOKEN = IAM_token_from_FGW_portal
+
+  $ curl -H "Authorization: Bearer $TOKEN" https://hostname.cloud.ba.infn.it/apis/v1.0/applications
+
+If FG API server is configured correctly, you will get JSON description of your FG applications.
+
+Finally, going in the FutureGateway admin portlet you should see:
+
+.. figure:: _static/fgw/admin_portlet.png
+   :scale: 30 %
+   :align: center
+   :alt: admin portlet
+
+Infrastructure configuration
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Application configuration
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Galaxy portlet
 --------------
