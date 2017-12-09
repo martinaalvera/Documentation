@@ -1,5 +1,5 @@
-Galaxy-tools
-============
+Galaxy-tools (deprecated)
+=========================
 This ansible role has been cloned from the official `galaxyproject.galaxy-tools <https://github.com/galaxyproject/ansible-galaxy-tools>`_, with small changes.
 
 This Ansible role is for automated installation of tools from a Tool Shed into Galaxy.
