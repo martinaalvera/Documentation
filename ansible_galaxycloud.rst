@@ -49,6 +49,8 @@ main options
 ************
 ``GALAXY_VERSION``: set Galaxy version (e.g. ``master``, ``release_17.01``, ``release_17.05``...).
 
+``create_galaxy_admin``: if true the administrator user will be created (default: ``true``).
+
 ``GALAXY_ADMIN_USERNAME``: Galaxy administrator username.
 
 ``GALAXY_ADMIN_PASSWORD``: Galaxy administrator password.
