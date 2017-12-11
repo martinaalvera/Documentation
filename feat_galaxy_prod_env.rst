@@ -232,6 +232,21 @@ To grant a user access to read emails and passwords from the Galaxy database, a 
 
 Proftpd is listening on port ``21``. FTP protocol is not encrypted by default, thus any usernames and passwords are sent over clear text to Galaxy.
 
+How to use FTP through FileZilla
+********************************
+
+You need to disable Passive (PASV) mode in FileZilla, since we are not going to open all passive ports.
+
+#. Open FileZilla.
+
+#. Click on Edit | Settings.
+
+#. Open Connection menu on the left. Click on FTP menu.
+
+#. Mark the Active radio button.
+
+#. Click OK.
+
 How to use FTP through command line
 ***********************************
 To install FTP command line client, type ``sudo yum install ftp`` on CentOS or ``sudo apt-get install ftp`` on Ubuntu.
