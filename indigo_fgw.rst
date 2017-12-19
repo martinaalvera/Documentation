@@ -27,6 +27,26 @@ To correctly setup the FGW portal follow the instruction in the ``Ubuntu LTS 14.
 
   # echo "ALL  ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
+You have to edit the fgSetup.sh with the following set, to have the FGW last revision:
+
+::
+
+  GITBASE=https://github.com/indigo-dc                   # GitHub base repository endpoint
+  GITBASERAW=https://raw.githubusercontent.com/indigo-dc # GitHub base for raw content
+  GITPORTALSETUP_NAME="PortalSetup"                      # PortalSetup git path name
+  GITPORTALSETUP_CLONE="PortalSetup.git"                 # PortalSetup clone name
+  GITPORTALSETUP_TAG="master"                            # PortalSetup tag name
+  GITFGAPISERVER_NAME="fgAPIServer"                      # fgAPIServer git path name
+  GITFGAPISERVER_CLONE="fgAPIServer.git"                 # fgAPIServer clone name
+  GITFGAPISERVER_TAG="fg_apis"                            # fgAPIServer tag name
+  GITFGAPISERVERDAEMON_NAME="APIServerDaemon"            # APIServerDaemon git path name
+  GITFGAPISERVERDAEMON_CLONE="APIServerDaemon.git"       # APIServerDaemon clone name
+  GITFGAPISERVERDAEMON_TAG="new_changes"                      # APIServerDaemin clone tag name  
+
+Then:
+
+::
+
   # ./fgSetup.sh futuregateway futuregateway <your ssh port> $(cat /root/.ssh/id_rsa.pub)
 
 The ssh port is, usually, the ``22``.
@@ -55,34 +75,7 @@ Login with the mail configured during the wizard and ``test`` as password. Then 
 Apache configuration
 --------------------
 
-Enalble http_proxy on apache2
-
-::
-
-  a2enmod proxy_http
-
-In ``/etc/apach2/sites-available/`` create your `futuregateway.conf <https://raw.githubusercontent.com/mtangaro/fgw-elixir-italy/master/configs/futuregateway.conf>`_ file, setting
-
-::
-
-  ServerName <your_serve_name>
-
-  ...
-
-then enable FGW:
-
-::
-
-  a2dissite futuregateway.conf
-
-and reload apache:
-
-::
-
-  # service apache2 reload
-
-Enable https
-------------
+https is mandatory for FutureGateway Token authentication.
 
 Enalble http_proxy and ssl modules on apache2
 
@@ -113,7 +106,7 @@ then enable FGW:
 
 ::
 
-  a2dissite futuregateway.conf
+  a2ensite futuregateway.conf
 
 and reload apache:
 
@@ -134,7 +127,9 @@ and restart FGW:
 
   # /etc/init.d/futuregateway restart
 
-To create your signed cetificate with Let's Encrypt: https://github.com/maricaantonacci/slam/blob/master/gitbook/create-custom-keystore.md
+.. Note::
+
+   To create your signed cetificate with Let's Encrypt: https://github.com/maricaantonacci/slam/blob/master/gitbook/create-custom-keystore.md
 
 IAM integration
 ---------------
@@ -308,6 +303,48 @@ Next you should use some code lines like below:
 Newly created portlets are in ./modules/LIB_NAME/build/libs.
 
 Next you need copy created jars to ~/FutureGateway/deploy and portlets are available on the your website.
+
+Update to Java 8 - Appendix A
+------------------------------
+
+::
+
+  sudo apt-get purge openjdk*
+
+  sudo add-apt-repository ppa:webupd8team/java
+
+  sudo apt-get update
+
+  sudo apt-get install oracle-java8-installer
+
+Configure Apache with for - Appendix B
+--------------------------------------
+
+Enalble http_proxy on apache2
+
+::
+
+  a2enmod proxy_http
+
+In ``/etc/apach2/sites-available/`` create your `futuregateway.conf <https://raw.githubusercontent.com/mtangaro/fgw-elixir-italy/master/configs/futuregateway.conf>`_ file, setting
+
+::
+
+  ServerName <your_serve_name>
+
+  ...
+
+then enable FGW:
+
+::
+
+  a2ensite futuregateway.conf
+
+and reload apache:
+
+::
+
+  # service apache2 reload
 
 References
 ----------
