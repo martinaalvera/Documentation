@@ -158,15 +158,19 @@ The next thing is the configuration of PTV (Portal Token Validator). This is a s
 
 It is configured in ``FutureGateway/fgAPIServer/fgapiserver.conf`` [1] by the following options:
 
-fgapisrv_ptvendpoint= https://hostname/api/jsonws/iam.token/get-token-info
-fgapisrv_ptvuser    = [...]
-fgapisrv_ptvpass    = [...]
+::
+
+  fgapisrv_ptvendpoint= https://hostname/api/jsonws/iam.token/get-token-info
+  fgapisrv_ptvuser    = [...]
+  fgapisrv_ptvpass    = [...]
 
 Almost the same must be placed in ``FutureGateway/apache-tomcat-8.0.36/webapps/APIServerDaemon/WEB-INF/classes/it/infn/ct/ToscaIDC.properties`` and ``FutureGateway/APIServerDaemon/work/WEB-INF/classes/it/infn/ct/ToscaIDC.properties`` [2]:
 
-fgapisrv_ptvtokensrv= https://hostname/api/jsonws/iam.token/get-token
-fgapisrv_ptvuser    = [...]
-fgapisrv_ptvpass    = [...]
+::
+
+  fgapisrv_ptvtokensrv= https://hostname/api/jsonws/iam.token/get-token
+  fgapisrv_ptvuser    = [...]
+  fgapisrv_ptvpass    = [...]
 
 Notice the difference:
 
