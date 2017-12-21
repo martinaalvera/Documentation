@@ -154,31 +154,9 @@ Once uploaded, the Future Gateway APIs URL is ``https://hostname/apis/v1.0``.
    :align: center
    :alt: Future Gateway apis pop-up
 
-The next thing is the configuration of PTV (Portal Token Validator). This is a service which FG API server uses for token validation
+The next thing is the configuration of PTV (Portal Token Validator). This is a service which FG API server uses for token validation.
 
-It is configured in ``FutureGateway/fgAPIServer/fgapiserver.conf`` [1] by the following options:
-
-::
-
-  fgapisrv_ptvendpoint= https://hostname/api/jsonws/iam.token/get-token-info
-  fgapisrv_ptvuser    = [...]
-  fgapisrv_ptvpass    = [...]
-
-Almost the same must be placed in ``FutureGateway/apache-tomcat-8.0.36/webapps/APIServerDaemon/WEB-INF/classes/it/infn/ct/ToscaIDC.properties`` and ``FutureGateway/APIServerDaemon/work/WEB-INF/classes/it/infn/ct/ToscaIDC.properties`` [2]:
-
-::
-
-  fgapisrv_ptvtokensrv= https://hostname/api/jsonws/iam.token/get-token
-  fgapisrv_ptvuser    = [...]
-  fgapisrv_ptvpass    = [...]
-
-Notice the difference:
-
-``*_ptvendpoint`` is set to the URL ``*/get-token-info``
-
-``*_ptvtokensrv`` is set to the URL ``*/get-token``
-
-ptvuser and ptvpass corresponds to username and password of a FGW user with the right permissions for token validations. You have to create this user and the corresponding role for permissions.
+Specific Liferay user and role are needed to exploit PTV.
 
 Create a new Role named ``External Services`` and give it IAM token permissions:
 
@@ -192,9 +170,29 @@ Create a new Role named ``External Services`` and give it IAM token permissions:
    :align: center
    :alt: External Services IAM permissions
 
-Create a new user (not a IAM user, just register it using the Sign-in liferay module). 
+Create a new user (not a IAM user, just register it using the Sign-in liferay module and enable it).
 
 Then assign the new Role ``External Services`` to the new user: Users and Organizations -> User Information -> Roles -> Select ``External Services`` and save.
+
+To configure PTV you have to modify ``FutureGateway/fgAPIServer/fgapiserver.conf`` [1] by the following options:
+
+::
+
+  fgapisrv_ptvendpoint= https://hostname/api/jsonws/iam.token/get-token-info
+  fgapisrv_ptvuser    = [...]
+  fgapisrv_ptvpass    = [...]
+
+Moreover you have to configure ``FutureGateway/apache-tomcat-8.0.36/webapps/APIServerDaemon/WEB-INF/classes/it/infn/ct/ToscaIDC.properties`` [2] with:
+
+::
+
+  fgapisrv_frontend   = https://hostname/apis/v1.0
+  fgapisrv_ptvtokensrv= https://hostname/api/jsonws/iam.token/get-token
+  fgapisrv_ptvendpoint= https://hostname/api/jsonws/iam.token
+  fgapisrv_ptvuser    = [...]
+  fgapisrv_ptvpass    = [...]
+
+ptvuser and ptvpass corresponds to user email and password of a FGW user with the right permissions for token validations.
 
 To validate if your PTV service is working, you can do the following:
 
@@ -249,14 +247,11 @@ Finally, going in the FutureGateway admin portlet you should see:
    :align: center
    :alt: admin portlet
 
-Infrastructure configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Application configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~
+Portlet configuration
+---------------------
 
 Galaxy portlet
---------------
+~~~~~~~~~~~~~~
 
 Build FGW portlets
 ------------------
