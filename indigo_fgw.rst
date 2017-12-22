@@ -158,6 +158,12 @@ The next thing is the configuration of PTV (Portal Token Validator). This is a s
 
 Specific Liferay user and role are needed to exploit PTV.
 
+.. Note::
+
+   This step is not mandatory, since you can still configure your portal owner for token validation, since it has all required permissions and is registerd to IAM.
+
+   But, if you change IAM client you have to create a new user and change the PTV configuration. This configuration avoid this.
+
 Create a new Role named ``External Services`` and give it IAM token permissions:
 
 .. figure:: _static/fgw/external_services_role.png
