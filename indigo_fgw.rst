@@ -351,6 +351,33 @@ and reload apache:
 
   # service apache2 reload
 
+Import Signed CA in Java keystore - Appendix C
+----------------------------------------------
+
+If IAM is under https but Tomcat log (``$CATILINA_HOME/webapps/APIServerDaemon/WEB-INF/logs/APIServerDaemon.log``) is showing:
+
+::
+
+  ...
+  23:03:55,675 ERROR [http-nio-8080-exec-13][IAMEndPoints:69] IAM Configuration URL 'https://indigoiam.cloud.ba.infn.it/.well-known/openid-configuration' is not reachable
+  ... 
+
+you have to import your https certificate in java keystore [*]:
+
+::
+
+  # keytool -import -file /path/to/crt/file/file.crt -storepass changeit -keystore $JAVA_HOME/lib/security/cacerts -alias mycert
+
+To list java certificates:
+
+::
+
+  $ keytool -list -storepass changeit -keystore $JAVA_HOME/lib/security/cacerts
+
+You can install it in ``/etc/ssl/certs`` to make curl work, too.
+
+[*] http://www.thinkplexx.com/learn/howto/security/tools/understanding-java-keytool-working-with-crt-files-fixing-certificate-problems
+
 References
 ----------
 
