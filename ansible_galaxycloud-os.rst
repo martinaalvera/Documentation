@@ -129,7 +129,8 @@ LUKS specific variables
 
 ``filesystem``: set file system (default: ``ext4``).
 
-Create block file
+Create block file:
+
 #. https://wiki.archlinux.org/index.php/Dm-crypt/Device_encryption
 #. https://wiki.archlinux.org/index.php/Dm-crypt/Drive_preparation
 #. https://wiki.archlinux.org/index.php/Disk_encryption#Preparing_the_disk
