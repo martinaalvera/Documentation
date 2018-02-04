@@ -390,6 +390,7 @@ If IAM is under https but Tomcat log (``$CATILINA_HOME/webapps/APIServerDaemon/W
 you have to import your https certificate in java keystore [*]:
 
 ::
+
   # apt-get install ca-certificates-java
 
   # keytool -import -file /path/to/crt/file/file.crt -storepass changeit -keystore $JAVA_HOME/lib/security/cacerts -alias mycert
