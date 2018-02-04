@@ -200,6 +200,10 @@ Moreover you have to configure ``FutureGateway/apache-tomcat-8.0.36/webapps/APIS
 
 ptvuser and ptvpass corresponds to user email and password of a FGW user with the right permissions for token validations.
 
+.. Warning::
+
+   After changing [1] restart of Apache ``# service apache2 restart``, and after [2] restart of Tomcat ``# service futuregateway restart``.
+
 To validate if your PTV service is working, you can do the following:
 
 #.  Visit https://jwt.io and copy-paste your IAM token. Token is stored in Your User Name -> Account Settings -> Miscellaneus ->  Iamaccesstoken
@@ -227,8 +231,6 @@ To validate if your PTV service is working, you can do the following:
       $ curl -u "$PTV_USER:$PTV_PASS"\
              -d "subject=$SUBJECT"\
              https://hostname/api/jsonws/iam.token/get-token
-
-After changing [1] restart of Apache ``# service apache2 restart``, and after [2] restart of Tomcat ``# service futuregateway restart``.
 
 To test if the FGW API server is authenticating you correctly, you can do the following:
 
@@ -322,8 +324,10 @@ Update to Java 8 - Appendix A
 
   sudo apt-get install oracle-java8-installer
 
-Configure Apache with for - Appendix B
---------------------------------------
+log-out and log-in to refresh environment variables.
+
+Configure Apache with for http - Appendix B
+-------------------------------------------
 
 Enalble http_proxy on apache2
 
@@ -351,9 +355,30 @@ and reload apache:
 
   # service apache2 reload
 
-Import Signed CA in Java keystore - Appendix C
-----------------------------------------------
+Import Signed CA - Appendix C
+-----------------------------
+To import the SSL certificate you have to
 
+#. Install the ca-certificates package:
+   
+   ::
+
+     # yum install ca-certificates
+
+#. Add the certificate as a new file to
+
+   ::
+
+     # cp path/to/goagent/local/CA.crt /usr/local/share/ca-certificates/cert.crt
+
+#. Use command:
+
+   ::
+
+     # update-ca-certificates
+
+Import Signed CA in Java keystore - Appendix D
+----------------------------------------------
 If IAM is under https but Tomcat log (``$CATILINA_HOME/webapps/APIServerDaemon/WEB-INF/logs/APIServerDaemon.log``) is showing:
 
 ::
@@ -365,6 +390,7 @@ If IAM is under https but Tomcat log (``$CATILINA_HOME/webapps/APIServerDaemon/W
 you have to import your https certificate in java keystore [*]:
 
 ::
+  # apt-get install ca-certificates-java
 
   # keytool -import -file /path/to/crt/file/file.crt -storepass changeit -keystore $JAVA_HOME/lib/security/cacerts -alias mycert
 
@@ -377,6 +403,16 @@ To list java certificates:
 You can install it in ``/etc/ssl/certs`` to make curl work, too.
 
 [*] http://www.thinkplexx.com/learn/howto/security/tools/understanding-java-keytool-working-with-crt-files-fixing-certificate-problems
+
+Logs
+----
+You can easily access to logs with symlinks:
+
+::
+
+  ln -s /home/futuregateway/FutureGateway/apache-tomcat-8.0.36/webapps/APIServerDaemon/WEB-INF/logs/APIServerDaemon.log logs-apiserverdaemon.log
+  ln -s /home/futuregateway/FutureGateway/fgAPIServer/fgapiserver.log logs-fgapiserver.log
+  ln -s /home/futuregateway/FutureGateway/apache-tomcat-8.0.36/logs/catalina.out logs-tomcat-catalina.out
 
 References
 ----------
