@@ -3,7 +3,7 @@ INDIGO FutureGateway
 
 .. Warning::
 
-   FutureGateway deployment requires ``https`` and java 8. Currently the script exploits ``openjdk 7``. Se section `Update to Java 8 - Appendix A`_.
+   FutureGateway deployment requires ``https`` and ``java 8``. Currently the script exploits ``openjdk 7``. Se section `Update to Java 8 - Appendix A`_.
 
 To correctly setup the FGW portal follow the instruction in the ``Ubuntu LTS 14.04 Server`` section `here <https://indigo-dc.gitbooks.io/futuregateway/content/installation.html>`_ as super user:
 
