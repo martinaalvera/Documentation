@@ -1,6 +1,10 @@
 INDIGO FutureGateway
 ====================
 
+.. Warning::
+
+   FutureGateway deployment requires ``https`` and java 8. Currently the script exploits ``openjdk 7``. Se section `Update to Java 8 - Appendix A`_.
+
 To correctly setup the FGW portal follow the instruction in the ``Ubuntu LTS 14.04 Server`` section `here <https://indigo-dc.gitbooks.io/futuregateway/content/installation.html>`_ as super user:
 
 ::
@@ -27,7 +31,9 @@ To correctly setup the FGW portal follow the instruction in the ``Ubuntu LTS 14.
 
   # echo "ALL  ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
-You have to edit the fgSetup.sh with the following set, to have the FGW last revision:
+You can edit the fgSetup.sh script to point to specific FGW release or branch. 
+
+We are currently using ``master`` branch.
 
 ::
 
@@ -38,10 +44,10 @@ You have to edit the fgSetup.sh with the following set, to have the FGW last rev
   GITPORTALSETUP_TAG="master"                            # PortalSetup tag name
   GITFGAPISERVER_NAME="fgAPIServer"                      # fgAPIServer git path name
   GITFGAPISERVER_CLONE="fgAPIServer.git"                 # fgAPIServer clone name
-  GITFGAPISERVER_TAG="fg_apis"                            # fgAPIServer tag name
+  GITFGAPISERVER_TAG="master"                            # fgAPIServer tag name
   GITFGAPISERVERDAEMON_NAME="APIServerDaemon"            # APIServerDaemon git path name
   GITFGAPISERVERDAEMON_CLONE="APIServerDaemon.git"       # APIServerDaemon clone name
-  GITFGAPISERVERDAEMON_TAG="new_changes"                      # APIServerDaemin clone tag name  
+  GITFGAPISERVERDAEMON_TAG="master"                      # APIServerDaemin clone tag name  
 
 Then:
 
@@ -90,7 +96,7 @@ In ``/etc/apach2/sites-available/`` create your `futuregateway.conf <https://raw
 
 ::
 
-  ServerName <your_serve_name>
+  ServerName <your_server_name>
 
   ...
 
@@ -310,6 +316,9 @@ Next you should use some code lines like below:
 Newly created portlets are in ./modules/LIB_NAME/build/libs.
 
 Next you need copy created jars to ~/FutureGateway/deploy and portlets are available on the your website.
+
+
+.. _java_anchor:
 
 Update to Java 8 - Appendix A
 ------------------------------
