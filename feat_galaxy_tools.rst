@@ -7,15 +7,13 @@ New Tools automatically installed using the official GalaxyProject python librar
 
 Current possible pre-sets:
 
-#. galaxy-NGS_: Galaxy ready for NGS analysis.
-#. galaxy-RNAseq_: Galaxy ready for RNA Sequencing analysis (original galaxy flavor `here <https://github.com/bgruening/galaxy-rna-seq/blob/master/rna_seq_tools.yml>`_).
-#. galaxy-TESTING_: Galaxy test recipe.
-#. galaxy-REVIEW_: Galaxy for INDIGO Review.
+#. galaxy-epigen_: Galaxy ready for NGS analysis.
+#. galaxy-rna-workbench_: Galaxy ready for RNA Sequencing analysis (original galaxy flavor `here <https://github.com/bgruening/galaxy-rna-seq/blob/master/rna_seq_tools.yml>`_).
+#. galaxy-testing_: Galaxy test recipe.
 
-.. _galaxy-NGS: https://github.com/indigo-dc/Galaxy-flavors-recipes/blob/master/galaxy-flavors/galaxy-NGS-tool-list.yml)
-.. _galaxy-RNAseq: https://github.com/indigo-dc/Galaxy-flavors-recipes/blob/master/galaxy-flavors/galaxy-RNAseq-tool-list.yml
-.. _galaxy-TESTING: https://github.com/indigo-dc/Galaxy-flavors-recipes/blob/master/galaxy-flavors/galaxy-TESTING-tool-list.yml
-.. _galaxy-REVIEW: https://github.com/indigo-dc/Galaxy-flavors-recipes/blob/master/galaxy-flavors/galaxy-REVIEW-tool-list.yml
+.. _galaxy-rna-workbench: https://github.com/indigo-dc/Galaxy-flavors-recipes/blob/master/galaxy-flavors/galaxy-RNAseq-tool-list.yml
+.. _galaxy-epigen: https://github.com/indigo-dc/Galaxy-flavors-recipes/blob/master/galaxy-flavors/galaxy-NGS-tool-list.yml)
+.. _galaxy-testing: https://github.com/indigo-dc/Galaxy-flavors-recipes/blob/master/galaxy-flavors/galaxy-TESTING-tool-list.yml
 
 The corresponding recipe on github is downloaded and processed. It is possible to easily add new flavors, just adding new recipes on github.
 

@@ -8,6 +8,8 @@ Reference data (e.g. genomic sequences) are available for many species and share
 
 Until now, Galaxy administrators have been responsible for downloading, building and installing these important reference data. For example, to make the UCSC hg19 build of the human reference genome available to the Burrows-Wheeler Aligner (BWA) short-read mapper (Li and Durbin, 2009), a Galaxy administrator would need to (i) download the reference genome FASTA file, (ii) make it available as a reference genome via the ‘all_fasta’ table (optional), (iii) build BWA alignment indexes via proper command-line calls, (iv) register the location and availability of the indexes within the ‘bwa_indexes’ data table (by adding an additional entry to the tool-data/bwa_index.loc file on disk) and (v) finally, restart the Galaxy server. 
 
+A complete list of the reference data, with download link, is available `here <https://docs.google.com/spreadsheets/d/1sqvpZIJYWuIn5T_P9Iww3y6D1IsHnNmaED3_iE6LAOU/edit?usp=sharing>`_.
+
 ::
 
   Arabidopis thaliana (TAIR9)
@@ -20,7 +22,6 @@ Until now, Galaxy administrators have been responsible for downloading, building
   Mus musculus (mm10)
   Saccharomyces cerevisiae (sacCer3)
 
-
 .. _fig_updateprocess:
 
 .. figure:: _static/feat_refdata_indexes.png
@@ -30,7 +31,21 @@ Until now, Galaxy administrators have been responsible for downloading, building
 
    Reference data indexes available for bowite
 
-A complete list of the reference data, with download link, is available here: 
+Homo Sapiens - hg19
+*******************
+
+=========================  =================================
+Available reference index            Details
+=========================  =================================
+bowtie
+bowtie2
+bwa
+liftover
+rsem                       created with rsem v1.3.0, table and gtf file from ucsc (download date 11 March 2018)
+.fa
+.2bit
+.gtf                       download date: 11 March 2018
+=========================  =================================
 
 CernVM-FS reference data
 ------------------------

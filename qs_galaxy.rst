@@ -11,7 +11,7 @@ The service allows to setup and launch a virtual machine configured with the Ope
 
 .. seealso::
 
-   To login into the portal see section: :doc:`feat_authentication`.
+   To login into the portal see section: :doc:`feat_auth`.
 
 Instantiate Galaxy
 ------------------
