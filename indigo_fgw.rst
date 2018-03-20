@@ -414,7 +414,7 @@ You can install it in ``/etc/ssl/certs`` to make curl work, too.
 
 [*] http://www.thinkplexx.com/learn/howto/security/tools/understanding-java-keytool-working-with-crt-files-fixing-certificate-problems
 
-Fix ghotst deployment issue
+Fix ghost deployment issue
 ---------------------------
 Open mysql FGW database:
 
@@ -433,7 +433,7 @@ Open mysql FGW database:
   +----+----+--------------------------------------+
   4 rows in set (0.00 sec)
 
-Suppose you want to delete user `id = 6`, which is showing you double entries:
+Suppose you want to delete user `id = 6`, which is showing you double entries (note that in this particular case we deleted both `id=6` and `id=8` which were our double entries, keeping `id=5` and `id=7`):
 
 ::
 
