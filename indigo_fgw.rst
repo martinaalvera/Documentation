@@ -414,6 +414,43 @@ You can install it in ``/etc/ssl/certs`` to make curl work, too.
 
 [*] http://www.thinkplexx.com/learn/howto/security/tools/understanding-java-keytool-working-with-crt-files-fixing-certificate-problems
 
+Fix ghotst deployment issue
+---------------------------
+Open mysql FGW database:
+
+::
+
+  mysql -h localhost -P 3306 -u fgapiserver -pfgapiserver_password fgapiserver
+
+  mysql> select f1.id, f2.id, f1.name from fg_user f1 join fg_user f2 on f1.name = f2.name where f1.id <> f2.id;
+  +----+----+--------------------------------------+
+  | id | id | name                                 |
+  +----+----+--------------------------------------+
+  |  6 |  5 | c0b907df-43a3-4c8a-952a-2b5ca56ec43e |
+  |  5 |  6 | c0b907df-43a3-4c8a-952a-2b5ca56ec43e |
+  |  8 |  7 | 9c3c7f53-7279-4008-82be-60600418c884 |
+  |  7 |  8 | 9c3c7f53-7279-4008-82be-60600418c884 |
+  +----+----+--------------------------------------+
+  4 rows in set (0.00 sec)
+
+Suppose you want to delete user `id = 6`, which is showing you double entries:
+
+::
+
+  mysql> delete from fg_user_group where user_id = 6;
+  Query OK, 1 row affected (0.04 sec)
+
+  mysql> delete from fg_user where id=6;
+  Query OK, 1 row affected (0.01 sec)
+
+Then you can add unique contraint to prevent double entries:
+
+::
+
+  mysql> alter table fg_user add unique(name);
+  Query OK, 0 rows affected (0.50 sec)
+  Records: 0  Duplicates: 0  Warnings: 0
+
 Logs
 ----
 You can easily access to logs with symlinks:
