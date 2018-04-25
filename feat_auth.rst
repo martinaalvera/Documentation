@@ -34,3 +34,10 @@ Finally, you can access the portal sections:
    :scale: 25 %
    :align: center
    :alt: FGW portal
+
+and instantiate Galaxy:
+
+.. figure:: _static/auth/auth_FGWportal_portlet.png
+   :scale: 25 %
+   :align: center
+   :alt: FGW portal portlets
