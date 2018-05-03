@@ -10,7 +10,7 @@ The service provides the possibility to encrypt the storage volume associated to
 To encypt the external volume storage just select ``Encryption`` as ``Storage type`` in the ``Storage`` section. 
  
 .. figure:: _static/qs_encryption/qs_encryption.png 
-   :scale: 100 %
+   :scale: 35 %
    :align: center
    :alt: Galaxy encryption
 
@@ -22,7 +22,7 @@ interaction with the cloud administrator(s).
 An e-mail is sent to the e-mail address configured in the ``Galaxy Configuration`` section.
 
 .. figure:: _static/qs_encryption/qs_encryption_setMail.png 
-   :scale: 100 %
+   :scale: 35 %
    :align: center
    :alt: Galaxy encryption mail configuration section
 
