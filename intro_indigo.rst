@@ -79,7 +79,7 @@ In particular, our goal is to develop a PaaS architecture to automate the creati
 .. _fig_updateprocess:
 
 .. figure:: _static/intro_indigo_use_case_1.png
-   :scale: 50 %
+   :scale: 30 %
    :align: center
    :alt: ELIXIR-IIB use case architecture (single VM)
 
@@ -88,7 +88,7 @@ In particular, our goal is to develop a PaaS architecture to automate the creati
 .. _fig_updateprocess:
 
 .. figure:: _static/intro_indigo_use_case_2.png
-   :scale: 50 %
+   :scale: 30 %
    :align: center
    :alt: ELIXIR-IIB use case archithecture (cluster)
 
