@@ -31,7 +31,8 @@ Test executed to ensure LUKS volume encryption.
      drwxr-xr-x.   3 centos centos 4096 Nov  9 10:27 export
      drwxr-xr-x.   3 centos centos 4096 Nov  9 10:27 export1
 
-#. Put the same file on the three volumes
+
+#. Put the same file on both volumes:
 
    ::
 
