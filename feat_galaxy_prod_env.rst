@@ -19,6 +19,11 @@ CentOS 7 is our default distribution, Given its adherence to Standards and the l
 
 CentOS 7 and Ubuntu Xenial 16.04 exploit systemd as as init system, while Ubuntu Trusty 14.04 still uses upstart.
 
+.. Warning::
+
+   Selinux is by default disable on CentOS.
+
+
 PostgresSQL
 -----------
 PostgreSQL packages coming from PostgreSQL official repository are installed:
