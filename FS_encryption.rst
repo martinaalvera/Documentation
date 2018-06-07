@@ -3,11 +3,9 @@ File System Encryption
 
 While the adoption of a distributed environment for data analysis makes data difficult to be tracked and identified by a malevolus attacker, full data anonymity and isolation is still not granted.
 
-For this reason, we have introduced the possibility for the user to isolate data through standard filesystem encryption, based on LUKS (Linux Unified Key Setup), based on cryptsetup and using dm-crypt as the disk encryption backend.
+For this reason, we have introduced the possibility for the user to isolate data through standard filesystem encryption, using the Linux device mapper encryption module, dm-crypt as encryption backend, cryptsetup, which is a command line interface to dm-crypt and LUKS (Linux Unified Key Setup) as encryption mode.
 
-Disk encryption ensures that files are stored on disk in an encrypted form: the files only become available to the operating system and applications in readable when the volume is unlocked by a trusted user. An unauthorized person looking at the disk contents directly, will only find garbled random-looking data instead of the actual files. 
-
-The adopted block device encryption method, operates below the filesystem layer and ensures that everything is written to the block device (i.e. the external volume) is encrypted. Therefore, while the block device is offline, its whole content appears as a random sequence of data, without the possibility to determine the filesystem type and its content. Nevertheless, once the volume is decprypted and mounted, files will appear as normal files / symlinks / hardlinks / etc. 
+Disk encryption ensures that files are stored on disk in an encrypted form: the files only become available to the operating system and applications in readable when the volume is unlocked by a trusted user. The adopted block device encryption method, operates below the filesystem layer and ensures that everything is written to the block device (i.e. the external volume) is encrypted. 
 
 Dm-crypt is the standard device-mapper encryption functionality provided by the Linux kernel. Dm-crypt management is entrusted to the cryptsetup userspace utility, using LUKS as default block-device encryption method. LUKS, is an additional layer which stores all the needed setup information for dm-ctypt on the disk itself, abstracts partition and key management in an attempt to improve ease of use and cryptographic security
 
