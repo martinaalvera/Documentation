@@ -21,7 +21,7 @@ CentOS 7 and Ubuntu Xenial 16.04 exploit systemd as as init system, while Ubuntu
 
 .. Warning::
 
-   Selinux is by default disable on CentOS.
+   Selinux is by default disabled on CentOS.
 
 
 PostgresSQL
