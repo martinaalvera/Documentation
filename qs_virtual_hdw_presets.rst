@@ -1,11 +1,6 @@
 Virtual hardware presets
 ------------------------
 Each cloud provider enable a set of Image Flavor, defined in terms of Virctual CPUs (VCPUS), Memory, Disk, etc.
-Therefore, it is possible to choose between different Virtual CPUs (VCPUS) and RAM values, corresponding to the available Image Flavors.
-
-.. Warning::
-
-   VCPUS and Memory value selected by user have to match Image Flavor presets, otherwise a different flavor, as close as possible to the one selected, will be automatically assigned.
 
 Currently, the following pre-sets are available:
 

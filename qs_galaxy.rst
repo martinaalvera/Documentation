@@ -1,9 +1,11 @@
-Get Galaxy
-==========
+Galaxy Express
+==================
 
-The Galaxy section allows user to deploy a full `Galaxy production environment <https://galaxyproject.org/admin/config/performance/production-server/>`_.
+The Galaxy Express  section allows user to deploy a full `Galaxy production environment <https://galaxyproject.org/admin/config/performance/production-server/>`_.
 
-The service allows to setup and launch a virtual machine configured with the Operative System CentOS 7  and the auxiliary applications needed to support a Galaxy production environment such as PostgreSQL, Nginx, uWSGI and Proftpd and to deploy the Galaxy platform itself. Once deployed each Galaxy instance can be further customized with tools and reference data.
+The service loads a VM with galaxy and all tools alreadt embedded. This leads to a faster deployment, but losing some of the flexibility granted by the standard method.
+
+In particular, it is not possible to configure Galaxy version, or retrieve last tools revision. Moreover, galaxy database password is the same for all deployments and not randomly generated.
 
 .. seealso::
 
@@ -11,23 +13,19 @@ The service allows to setup and launch a virtual machine configured with the Ope
 
 .. seealso::
 
-   To login into the portal see section: :doc:`feat_auth`.
+   To login into the portal see section: :doc:`feat_authentication`.
 
 Instantiate Galaxy
 ------------------
 
-#. Enter the ``Galaxy`` section:
+#. Enter in the ``Galaxy express`` section:
 
-   .. figure:: _static/qs_galaxy/qs_galaxy_FGW.png 
-      :scale: 100 %
+   .. figure:: _static/qs_galaxy_express/qs_Gexpress_FGW.png
+      :scale: 80 %
       :align: center
       :alt: Galaxy express main window
 
 #. Set your ``Job identifier`` as you prefer, which will identfy your Galaxy in the job list, once your request is submitted:
-
-   .. Note::
-
-      Please be descriptive in the ``Job Identifier`` section, storing the Galaxy VM features, like user, VCPUs and Memory, tools presets and storage.
 
    .. figure:: _static/qs_galaxy/qs_galaxy_JobID.png
       :scale: 30 %
@@ -36,8 +34,8 @@ Instantiate Galaxy
 
 #. Set the Number of Virtual CPUs and the Memory size:
 
-   .. figure:: _static/qs_galaxy/qs_galaxy_VirtualHardware.png
-      :scale: 30 %
+   .. figure:: _static/qs_galaxy_express/qs_Gexpress_VirtualHardware.png
+      :scale: 25 %
       :align: center
       :alt: Virtual hardware configuration
 
@@ -48,40 +46,47 @@ Instantiate Galaxy
 
 #. Copy & Past your SSH key, to login in the Galaxy instance:
 
-   .. figure:: _static/qs_galaxy/qs_galaxy_SSHkey.png
-      :scale: 30 %
+   .. figure:: _static/qs_galaxy_express/qs_Gexpress_SSHkey.png
+      :scale: 25 %
       :align: center
       :alt: SSH public key injection
 
 #. Storage section allows to select the IaaS storage volume size. The ``Fle system encryption`` option is explained here: :doc:`qs_isolate_your_galaxy`.
 
-   .. figure:: _static/qs_galaxy/qs_galaxy_Storage1.png
-      :scale: 30 %
+   .. figure:: _static/qs_galaxy_express/qs_Gexpress_Storage.png
+      :scale: 25 %
       :align: center
-      :alt: Galaxy express Storage section 1
+      :alt: Galaxy express Storage section
 
-   .. figure:: _static/qs_galaxy/qs_galaxy_Storage2.png
-      :scale: 30 %
-      :align: center
-      :alt: Galaxy express Storage section 2
+#. Set the instance administrator e-mail and the Galaxy brand variable
 
-#. The Galaxy configuration section, allows to select different Galaxy versions, the instance administrator e-mail and set the Galaxy brand variable
-
-   .. figure:: _static/qs_galaxy/qs_galaxy_GalaxyConfig.png
-      :scale: 30 %
-      :align: center
-      :alt: Galaxy express Galxy configuration section
+   .. figure:: _static/qs_galaxy_express/qs_Gexpress_GalaxyConfig.png
+     :scale: 25 %
+     :align: center
+     :alt: Galaxy express Galxy configuration section
 
   .. Warning::
 
      Please insert a vail mail address. No check is performed on its syntax, bbut entering an incorrect email address will cause deployment failure.
 
-#. Select Galaxy tools configuration and ``SUBMIT`` your request:
+#. Select Galaxy tools configuration:
 
-   .. figure:: _static/qs_galaxy/qs_galaxy_Tools.png
-      :scale: 30 %
+   .. figure:: _static/qs_galaxy_express/qs_Gexpress_Tools.png 
+      :scale: 25 %
       :align: center
       :alt: Galaxy express Tools section
+
+#. Finally, ``SUBMIT`` your request:
+
+   .. figure:: _static/qs_galaxy_express/qs_Gexpress_submit.png
+      :scale: 25 %
+      :align: center
+      :alt: Galaxy express submit request
+
+   .. figure:: _static/qs_galaxy_express/qs_Gexpress_done.png
+      :scale: 100 %
+      :align: center
+      :alt: Galaxy express deployed instance
 
 Galaxy login
 ------------
