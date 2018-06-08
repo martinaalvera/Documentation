@@ -20,7 +20,7 @@ GalaxyCloud has been developed by ELIXIR-IIB, the italian node of ELIXIR, within
 
 .. Note::
 
-  GalaxyCloud is in fast development. For this reason the code and the documentation may not always be in sync. We try to make our best to have good documentatation. Sorry for that. 
+  GalaxyCloud is in fast development. For this reason the code and the documentation may not always be in sync. We try to make our best to have good documentatation 
 
 .. toctree::
    :maxdepth: 2
@@ -36,7 +36,7 @@ GalaxyCloud has been developed by ELIXIR-IIB, the italian node of ELIXIR, within
    :caption: Quickstarts
 
    qs_galaxy
-   qs_galaxy_express
+   qs_galaxy_latest
    qs_encryption
    qs_galaxy_cluster
    qs_galaxy_onedata
@@ -84,26 +84,23 @@ GalaxyCloud has been developed by ELIXIR-IIB, the italian node of ELIXIR, within
    indigo_onedata
    indigo_clues
 
-Tutorials
----------
-
-Galaxy For Developers: https://crs4.github.io/Galaxy4Developers/
-
 Support
 -------
-Github issues: https://github.com/mtangaro/GalaxyCloud/issues
-
-Articles
---------
-
+Please open a Github issue here: https://github.com/mtangaro/GalaxyCloud/issues
 
 Cite
 ----
 
+Licence
+-------
+GNU General Public License v3.0+ (see COPYING or https://www.gnu.org/licenses/gpl-3.0.txt)
+
+Galaxy tutorials
+----------------
+Galaxy For Developers: https://crs4.github.io/Galaxy4Developers/
 
 Indices and tables
 ------------------
-
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
