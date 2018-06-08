@@ -1,6 +1,6 @@
 Galaxy with Onedata
 ===================
 
+.. Warning::
 
-Get Galaxy with Onedata
------------------------
+   Galaxy with Onedata support is on-going and it is not currently available.

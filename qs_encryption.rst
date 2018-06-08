@@ -5,7 +5,7 @@ The service provides the possibility to encrypt the storage volume associated to
 
 .. Note::
 
-   Only the external volume, where Galaxy data are stored, is encrypted, not the storage disk.
+   Only the external volume, where Galaxy data are stored, is encrypted, not the Virtual Machine root disk.
 
 To encypt the external volume storage just select ``Encryption`` as ``Storage type`` in the ``Storage`` section. 
  

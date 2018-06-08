@@ -1,11 +1,10 @@
-Galaxy Express
-==================
+Get Galaxy
+==========
 
-The Galaxy Express  section allows user to deploy a full `Galaxy production environment <https://galaxyproject.org/admin/config/performance/production-server/>`_.
+This Galaxy  section allows user to deploy a standard `Galaxy production environment <https://galaxyproject.org/admin/config/performance/production-server/>`_.
 
-The service loads a VM with galaxy and all tools alreadt embedded. This leads to a faster deployment, but losing some of the flexibility granted by the standard method.
+The service instantiate a CentOS 7 Virtual Machine with Galaxy, all its companion software and tools already embedded. Once deployed each Galaxy instance can be further customized with tools and reference data.
 
-In particular, it is not possible to configure Galaxy version, or retrieve last tools revision. Moreover, galaxy database password is the same for all deployments and not randomly generated.
 
 .. seealso::
 
@@ -18,9 +17,9 @@ In particular, it is not possible to configure Galaxy version, or retrieve last 
 Instantiate Galaxy
 ------------------
 
-#. Enter in the ``Galaxy express`` section:
+#. Enter in the ``Galaxy`` section:
 
-   .. figure:: _static/qs_galaxy_express/qs_Gexpress_FGW.png
+   .. figure:: _static/qs_galaxy/qs_galaxy_FGW.png
       :scale: 80 %
       :align: center
       :alt: Galaxy express main window
@@ -32,58 +31,65 @@ Instantiate Galaxy
       :align: center
       :alt: Virtual hardware configuration
 
-#. Set the Number of Virtual CPUs and the Memory size:
+#. Set the Instance flavor, (virtual CPUs and RAM):
 
-   .. figure:: _static/qs_galaxy_express/qs_Gexpress_VirtualHardware.png
+   .. figure:: _static/qs_galaxy/qs_galaxy_VirtualHardware.png
       :scale: 25 %
       :align: center
       :alt: Virtual hardware configuration
 
-.. Warning::
+   Currently, the following pre-sets are available:
 
-   VCPUS and Memory values selected by user have to match Image Flavor presets, otherwise a different flavor, as close as possible to the one selected, will be automatically assigned.
-   Please read carefully the section: :doc:`qs_virtual_hdw_presets`.
+   =========  =======  =======  =============  =============
+   Name       VCPUs    RAM      Total Disk     Root Disk
+   =========  =======  =======  =============  =============
+   small      1        2 GB     20 GB          20 GB
+   medium     2        4 GB     20 GB          20 GB
+   large      4        8 GB     20 GB          20 GB
+   xlarge     8        16 GB    20 GB          20 GB
+   xxlarge    16       32 GB    20 GB          20 GB
+   =========  =======  =======  =============  =============
 
 #. Copy & Past your SSH key, to login in the Galaxy instance:
 
-   .. figure:: _static/qs_galaxy_express/qs_Gexpress_SSHkey.png
+   .. figure:: _static/qs_galaxy/qs_galaxy_SSHkey.png
       :scale: 25 %
       :align: center
       :alt: SSH public key injection
 
 #. Storage section allows to select the IaaS storage volume size. The ``Fle system encryption`` option is explained here: :doc:`qs_isolate_your_galaxy`.
 
-   .. figure:: _static/qs_galaxy_express/qs_Gexpress_Storage.png
+   .. figure:: _static/qs_galaxy/qs_galaxy_Storage.png
       :scale: 25 %
       :align: center
       :alt: Galaxy express Storage section
 
-#. Set the instance administrator e-mail and the Galaxy brand variable
+#. Select the Galaxy version, the instance administrator e-mail, your custom Galaxy brand and the reference dataset to attach:
 
-   .. figure:: _static/qs_galaxy_express/qs_Gexpress_GalaxyConfig.png
+   .. figure:: _static/qs_galaxy/qs_galaxy_GalaxyConfig.png
      :scale: 25 %
      :align: center
      :alt: Galaxy express Galxy configuration section
 
   .. Warning::
 
-     Please insert a vail mail address. No check is performed on its syntax, bbut entering an incorrect email address will cause deployment failure.
+     Please insert a vail mail address. No check is performed on its syntax, but entering an incorrect email address will cause deployment failure.
 
-#. Select Galaxy tools configuration:
+#. Select Galaxy tools pre-set:
 
-   .. figure:: _static/qs_galaxy_express/qs_Gexpress_Tools.png 
+   .. figure:: _static/qs_galaxy/qs_galaxy_Tools.png 
       :scale: 25 %
       :align: center
       :alt: Galaxy express Tools section
 
 #. Finally, ``SUBMIT`` your request:
 
-   .. figure:: _static/qs_galaxy_express/qs_Gexpress_submit.png
+   .. figure:: _static/qs_galaxy/qs_galaxy_submit.png
       :scale: 25 %
       :align: center
       :alt: Galaxy express submit request
 
-   .. figure:: _static/qs_galaxy_express/qs_Gexpress_done.png
+   .. figure:: _static/qs_galaxy/qs_galaxy_done.png
       :scale: 100 %
       :align: center
       :alt: Galaxy express deployed instance
@@ -91,15 +97,15 @@ Instantiate Galaxy
 Galaxy login
 ------------
 
-The galaxy administrator password and the API key are automatically generated during the instatiation procedure and are the same for each instance:
+The anonymous login is by default disabled.
+
+The galaxy administrator password is  automatically generated during the instatiation procedure and is the same for each deployed instance:
 
 ::
 
   User: your user e-mail
 
   Password: galaxy_admin_password
-
-  API key: ADMIN_API_KEY
 
 .. Warning::
 
