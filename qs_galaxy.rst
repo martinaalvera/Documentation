@@ -20,7 +20,7 @@ Instantiate Galaxy
 #. Enter in the ``Galaxy`` section:
 
    .. figure:: _static/qs_galaxy/qs_galaxy_main.png
-      :scale: 25 %
+      :scale: 30 %
       :align: center
       :alt: Galaxy express main window
 
