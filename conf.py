@@ -181,4 +181,4 @@ source_suffix = ['.rst', '.md']
 # -- Options for project name variable ------------------------------------
 
 project_name = 'Laniakea'
-rst_epilog = '.. |project_name| replace:: %d' % project_name
+rst_epilog = '.. |project_name| replace:: %s' % project_name
