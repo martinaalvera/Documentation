@@ -1,7 +1,6 @@
 |project_name| Documentation
 ============================
 
-
 .. _fig_updateprocess:
 
 .. figure:: _static/elixir_italy_logo.png
