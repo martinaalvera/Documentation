@@ -176,3 +176,9 @@ source_parsers = {
 }
 
 source_suffix = ['.rst', '.md']
+
+
+# -- Options for project name variable ------------------------------------
+
+project_name = 'Laniakea'
+rst_epilog = '.. |project_name| replace:: %d' % project_name

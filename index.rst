@@ -1,6 +1,8 @@
 Laniakea Documentation
 =========================
 
+|project_name|
+
 .. _fig_updateprocess:
 
 .. figure:: _static/elixir_italy_logo.png
