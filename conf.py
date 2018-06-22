@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #
-# GalaxyCloud documentation build configuration file, created by
+# Laniakea documentation build configuration file, created by
 # sphinx-quickstart on Mon Jul 31 15:31:21 2017.
 #
 # This file is execfile()d with the current directory set to its
@@ -46,8 +46,8 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = 'GalaxyCloud'
-copyright = '2017, Marco Antonio Tangaro'
+project = 'Laniakea'
+copyright = '2018, Marco Antonio Tangaro'
 author = 'Marco Antonio Tangaro'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -115,7 +115,7 @@ html_sidebars = {
 # -- Options for HTMLHelp output ------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'GalaxyClouddoc'
+htmlhelp_basename = 'Laniakea'
 
 
 # -- Options for LaTeX output ---------------------------------------------
@@ -142,7 +142,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'GalaxyCloud.tex', 'GalaxyCloud Documentation',
+    (master_doc, 'Laniakea.tex', 'Laniakea Documentation',
      'Marco Antonio Tangaro', 'manual'),
 ]
 
@@ -152,7 +152,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'galaxycloud', 'GalaxyCloud Documentation',
+    (master_doc, 'laniakea', 'Laniakea Documentation',
      [author], 1)
 ]
 
@@ -163,8 +163,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'GalaxyCloud', 'GalaxyCloud Documentation',
-     author, 'GalaxyCloud', 'One line description of project.',
+    (master_doc, 'Laniakea', 'Laniakea Documentation',
+     author, 'Laniakea', 'One line description of project.',
      'Miscellaneous'),
 ]
 
