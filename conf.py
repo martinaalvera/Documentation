@@ -185,7 +185,11 @@ galaxy_vm = 'Galaxy'
 galaxy_latest = 'Galaxy-live'
 
 rst_prolog = """ 
-'.. |project_name| replace:: %s' % {0}
-'.. |galaxy_express| replace:: %s' % {1}
-'.. |galaxy_latest| replace:: %s' % {2}
-""".format(project_name, galaxy_vm, galaxy_latest)
+.. |project_name| replace:: {0}
+.. |galaxy_express| replace:: {1}
+.. |galaxy_latest| replace:: {2}
+""".format(
+project_name,
+galaxy_vm,
+galaxy_latest
+)
