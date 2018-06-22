@@ -1,4 +1,4 @@
-GalaxyCloud Documentation
+Laniakea Documentation
 =========================
 
 .. _fig_updateprocess:
