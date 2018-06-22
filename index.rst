@@ -1,7 +1,6 @@
-Laniakea Documentation
-=========================
+|project_name| Documentation
+============================
 
-|project_name|
 
 .. _fig_updateprocess:
 
