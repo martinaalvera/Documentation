@@ -8,7 +8,7 @@
    :align: center
    :alt: elixir-italy logo
 
-Galaxy as a Cloud Service (conversely GalaxyCloud) provides the possibility to automate the creation of Galaxy-based virtualized environments through an easy setup procedure, providing an on-demand workspace ready to be used by life scientists and bioinformaticians.
+|project_name| provides the possibility to automate the creation of Galaxy-based virtualized environments through an easy setup procedure, providing an on-demand workspace ready to be used by life scientists and bioinformaticians.
 
 Galaxy is a workflow manager adopted in many life science research environments in order to facilitate the interaction with bioinformatics tools and the handling of large quantities of biological data.
 
@@ -16,11 +16,11 @@ Once deployed each Galaxy instance will be fully customizable with tools and ref
 
 For more information on the Galaxy Project, please visit the https://galaxyproject.org
 
-GalaxyCloud has been developed by ELIXIR-IIB, the italian node of ELIXIR, within the INDIGO-DataCloud project (H2020-EINFRA-2014-2) which aims to develop PaaS based cloud solutions for e-science.
+|project_name| has been developed by ELIXIR-IIB, the italian node of ELIXIR, within the INDIGO-DataCloud project (H2020-EINFRA-2014-2) which aims to develop PaaS based cloud solutions for e-science.
 
 .. Note::
 
-  GalaxyCloud is in fast development. For this reason the code and the documentation may not always be in sync. We try to make our best to have good documentatation 
+   |project_name| is in fast development. For this reason the code and the documentation may not always be in sync. We try to make our best to have good documentatation 
 
 .. toctree::
    :maxdepth: 2
@@ -86,7 +86,7 @@ GalaxyCloud has been developed by ELIXIR-IIB, the italian node of ELIXIR, within
 
 Support
 -------
-Please open a Github issue here: https://github.com/mtangaro/GalaxyCloud/issues
+Please open a Github issue here:
 
 Cite
 ----
