@@ -181,10 +181,11 @@ source_suffix = ['.rst', '.md']
 # -- Options for project name variable ------------------------------------
 
 project_name = 'Laniakea'
-rst_epilog = '.. |project_name| replace:: %s' % project_name
-
-galaxy_express = 'Galaxy'
-rst_epilog = '.. |galaxy_express| replace:: %s' % galaxy_express
-
+galaxy_vm = 'Galaxy'
 galaxy_latest = 'Galaxy-live'
-rst_epilog = '.. |galaxy_latest| replace:: %s' % galaxy_latest
+
+rst_prolog = """ 
+'.. |project_name| replace:: %s' % {0}
+'.. |galaxy_express| replace:: %s' % {1}
+'.. |galaxy_latest| replace:: %s' % {2}
+""".format(project_name, galaxy_vm, galaxy_latest)
