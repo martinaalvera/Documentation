@@ -99,6 +99,8 @@ Galaxy tutorials
 ----------------
 Galaxy For Developers: https://crs4.github.io/Galaxy4Developers/
 
+Galaxy training network:
+
 Indices and tables
 ------------------
 * :ref:`genindex`
