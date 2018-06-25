@@ -84,6 +84,14 @@ For more information on the Galaxy Project, please visit the https://galaxyproje
    indigo_onedata
    indigo_clues
 
+GitHub repository
+-----------------
+https://github.com/Laniakea-elixir-it
+
+DockerHub repository
+--------------------
+https://hub.docker.com/r/laniakeacloud
+
 Support
 -------
 Please open a Github issue here:
