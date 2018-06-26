@@ -1,10 +1,15 @@
-Galaxy elastic cluster (SLURM)
-==============================
+Get Galaxy (elastic) cluster - LIVE
+===================================
 
-The Galaxy elastic cluster section allow user to deploy Galaxy and a SLURM cluster with automatic elasticity.
+It is possible to deploy a Galaxy cluster, using SLURM as Resource Manager, with and without automatic elasticity support. In the first case, all working nodes are deployed with the Galaxy server and are always available. 
 
-This enables dynamic cluster resources scaling, deploying and powering on new working nodes depending on the workload of the cluster and powering-off them when no longer needed. This provides an efficient use of the resources, making them available only when really needed.
+On the contrary, automatic elasticity enables dynamic cluster resources scaling, deploying and powering on new working nodes depending on the workload of the cluster and powering-off them when no longer needed. This provides an efficient use of the resources, making them available only when really needed.
 
+The two sections provide the same configuration options, therefore we refere to |galaxy_elastic_cluster| section  in the following. 
+
+.. Warning::
+
+   Currently, this feature is under testing. Galaxy and tools are installed on-the-fly starting froma a bare CentOS 7 image. The whole process, i.e. install Galaxy and tools, may take long time. We will ssoon add non-live section, using images with tools to speed-up the configuration.
 
 .. Warning::
 
@@ -16,11 +21,12 @@ This enables dynamic cluster resources scaling, deploying and powering on new wo
 
 .. seealso::
 
-   For a detailed descreption of all Web UI options see section: :doc:`feat_galaxy_custom`.
+   For a detailed descreption of all Web UI options see section: :doc:`feat_options`.
 
 .. seealso::
 
    To login into the portal see section: :doc:`feat_auth`.
+
 
 Instantiate Galaxy
 ------------------
@@ -32,31 +38,38 @@ Instantiate Galaxy
       :align: center
       :alt: Galaxy express main window
 
-#. Set your ``Job identifier`` as you prefer, which will identfy your Galaxy in the job list, once your request is submitted:
+#. Set your ``job identifier`` as you prefer, which will identfy your Galaxy in the job list, once your request is submitted:
 
    .. figure:: _static/qs_galaxy_cluster/qs_cluster_JobID.png
       :scale: 30 %
       :align: center
       :alt: Virtual hardware configuration
 
-#. Set the number of Virtual Worker Nondes of your Cluster:
+#. Select the number of Virtual Worker Nondes of your Cluster:
 
    .. figure:: _static/qs_galaxy_cluster/qs_cluster_Vhw1.png
       :scale: 30 %
       :align: center
       :alt: Virtual hardware configuration
 
-#. Set the Number of Virtual CPUs and the Memory size for your Front node (i.e. the Galaxy server) and each Worker Node:
+#. Select the Instance flavor, (virtual CPUs and RAM) for your Front node, i.e. the Galaxy server, and for each Worker Node:
 
    .. figure:: _static/qs_galaxy_cluster/qs_cluster_Vhw2.png
       :scale: 30 %
       :align: center
       :alt: Virtual hardware configuration
 
-.. Warning::
+   Currently, the following pre-sets are available:
 
-   VCPUS and Memory values selected by user have to match Image Flavor presets, otherwise a different flavor, as close as possible to the one selected, will be automatically assigned.
-   Please read carefully the section: :doc:`qs_virtual_hdw_presets`.
+   =========  =======  =======  =============  =============
+   Name       VCPUs    RAM      Total Disk     Root Disk
+   =========  =======  =======  =============  =============
+   small      1        2 GB     20 GB          20 GB
+   medium     2        4 GB     20 GB          20 GB
+   large      4        8 GB     20 GB          20 GB
+   xlarge     8        16 GB    20 GB          20 GB
+   xxlarge    16       32 GB    20 GB          20 GB
+   =========  =======  =======  =============  =============
 
 #. Copy & Past your SSH key, to login in the Galaxy instance:
 
@@ -65,14 +78,14 @@ Instantiate Galaxy
       :align: center
       :alt: SSH public key injection
 
-#. Storage section allows to select the IaaS storage volume size.
+#. Storage section allows to select the IaaS storage volume size. The ``Storage encryption`` option is explained here: :doc:`qs_isolate_your_galaxy`.
 
    .. figure:: _static/qs_galaxy_cluster/qs_cluster_Storage.png
       :scale: 30 %
       :align: center
       :alt: Galaxy express Storage section 2
 
-#. The Galaxy configuration section, allows to select different Galaxy versions, the instance administrator e-mail and set the Galaxy brand variable
+#. The Galaxy configuration section, allows to select different Galaxy versions, the instance administrator e-mail, set the Galaxy brand variable and the reference dataset to attach:
 
    .. figure:: _static/qs_galaxy_cluster/qs_cluster_GalaxyConfig.png
       :scale: 30 %
@@ -81,7 +94,7 @@ Instantiate Galaxy
 
   .. Warning::
 
-     Please insert a vail mail address. No check is performed on its syntax, bbut entering an incorrect email address will cause deployment failure.
+     Please insert a vail mail address. No check is performed on its syntax, bbut entering an incorrect email address will cause deployment failure if the ``encryption`` option is set.
 
 #. Select Galaxy tools configuration and ``SUBMIT`` your request:
 
@@ -90,7 +103,7 @@ Instantiate Galaxy
       :align: center
       :alt: Galaxy express Tools section
 
-#. Once the job is in ``DONE`` state, the galaxy server address is available and Galaxy is ready.
+#. Once the job is in ``DONE`` state, the galaxy server address is available and Galaxy is ready.
 
    .. figure:: _static/qs_galaxy_cluster/qs_cluster_DONE.png
       :scale: 30 %
@@ -105,7 +118,6 @@ Instantiate Galaxy
 
 Galaxy login
 ------------
-
 The galaxy administrator password and the API key are automatically generated during the instatiation procedure and are the same for each instance:
 
 ::
@@ -115,6 +127,10 @@ The galaxy administrator password and the API key are automatically generated du
   Password: galaxy_admin_password
 
   API key: ADMIN_API_KEY
+
+.. Warning::
+
+   The anonymous login is by default disabled.
 
 .. Warning::
 
