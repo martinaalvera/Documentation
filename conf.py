@@ -190,8 +190,8 @@ rst_prolog = """
 .. |project_name| replace:: {0}
 .. |galaxy_express| replace:: {1}
 .. |galaxy_latest| replace:: {2}
-.. |galaxy_cluster| replace: {3}
-.. |galaxy_elastic_cluster| replace: {4}
+.. |galaxy_cluster| replace:: {3}
+.. |galaxy_elastic_cluster| replace:: {4}
 """.format(
 project_name,
 galaxy_vm,
