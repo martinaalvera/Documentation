@@ -38,7 +38,7 @@ Instantiate |galaxy_latest|
       :align: center
       :alt: Virtual hardware configuration
 
-#. Set the Number of Virtual CPUs and the Memory size:
+#. Select your instance flavour (virtual CPUs and the memory size):
 
    .. figure:: _static/qs_galaxy_latest/qs_galaxy_VirtualHardware.png
       :scale: 30 %
@@ -64,7 +64,7 @@ Instantiate |galaxy_latest|
       :align: center
       :alt: SSH public key injection
 
-#. Storage section allows to select the IaaS storage volume size. The ``Fle system encryption`` option is explained here: :doc:`qs_isolate_your_galaxy`.
+#. Storage section allows to select the IaaS storage volume size. The ``Storage encryption`` option is explained here: :doc:`qs_isolate_your_galaxy`.
 
    .. figure:: _static/qs_galaxy_latest/qs_galaxy_Storage1.png
       :scale: 30 %
@@ -76,8 +76,7 @@ Instantiate |galaxy_latest|
       :align: center
       :alt: Galaxy express Storage section 2
 
-#. The Galaxy configuration section allows to select among different Galaxy versions, set the instance administrator e-mail and your Galaxy brand, select the reference dataset to attach
-
+#. The Galaxy configuration section allows to select among different Galaxy versions, set the instance administrator e-mail and your Galaxy brand, select the reference dataset to attach:
    .. figure:: _static/qs_galaxy_latest/qs_galaxy_GalaxyConfig.png
       :scale: 30 %
       :align: center
@@ -96,8 +95,6 @@ Instantiate |galaxy_latest|
 
 Galaxy login
 ------------
-The anonymous login is by default disabled.
-
 The galaxy administrator password and the API key are automatically generated during the instatiation procedure and are the same for each instance:
 
 ::
@@ -107,6 +104,10 @@ The galaxy administrator password and the API key are automatically generated du
   Password: galaxy_admin_password
 
   API key: ADMIN_API_KEY
+
+.. Warning::
+
+   The anonymous login is by default disabled.
 
 .. Warning::
 

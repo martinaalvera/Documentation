@@ -96,9 +96,6 @@ Instantiate Galaxy
 
 Galaxy login
 ------------
-
-The anonymous login is by default disabled.
-
 The galaxy administrator password is  automatically generated during the instatiation procedure and is the same for each deployed instance:
 
 ::
@@ -106,6 +103,10 @@ The galaxy administrator password is  automatically generated during the instati
   User: your user e-mail
 
   Password: galaxy_admin_password
+
+.. Warning::
+
+   The anonymous login is by default disabled.
 
 .. Warning::
 
