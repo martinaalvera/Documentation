@@ -46,7 +46,7 @@ For more information on the Galaxy Project, please visit the https://galaxyproje
    :maxdepth: 2
    :caption: Features
 
-   feat_galaxy_custom
+   feat_options
    feat_galaxy_prod_env
    feat_instance_isolation
    feat_galaxy_tools

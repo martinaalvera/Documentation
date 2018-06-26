@@ -1,5 +1,5 @@
-Get latest Galaxy 
-=================
+Get |galaxy_latest| 
+===================
 
 The Galaxy section allows user to deploy a full `Galaxy production environment <https://galaxyproject.org/admin/config/performance/production-server/>`_.
 
@@ -11,27 +11,27 @@ The service allows to setup and launch a virtual machine configured with the Ope
 
 .. seealso::
 
-   For a detailed descreption of all Web UI options see section: :doc:`feat_galaxy_custom`.
+   For a detailed descreption of all Web UI options see section: :doc:`feat_options`.
 
 .. seealso::
 
    To login into the portal see section: :doc:`feat_auth`.
 
-Instantiate Galaxy
-------------------
+Instantiate |galaxy_latest|
+---------------------------
 
-#. Enter the ``Galaxy`` section:
+#. Enter the |galaxy_latest| section:
 
    .. figure:: _static/qs_galaxy_latest/qs_galaxy_FGW.png 
       :scale: 100 %
       :align: center
       :alt: Galaxy express main window
 
-#. Set your ``Job identifier`` as you prefer, which will identfy your Galaxy in the job list, once your request is submitted:
+#. Set your ``job identifier`` as you prefer, which will identfy your Galaxy in the job list, once your request is submitted:
 
    .. Note::
 
-      Please be descriptive in the ``Job Identifier`` section, storing the Galaxy VM features, like user, VCPUs and Memory, tools presets and storage.
+      Please be descriptive in the ``job Identifier`` section, storing the Galaxy VM features, like user, VCPUs and Memory, tools presets and storage.
 
    .. figure:: _static/qs_galaxy_latest/qs_galaxy_JobID.png
       :scale: 30 %
@@ -76,7 +76,7 @@ Instantiate Galaxy
       :align: center
       :alt: Galaxy express Storage section 2
 
-#. The Galaxy configuration section allows to select among different Galaxy versions, set the instance administrator e-mail and  your Galaxy brand, select the reference dataset to attach
+#. The Galaxy configuration section allows to select among different Galaxy versions, set the instance administrator e-mail and your Galaxy brand, select the reference dataset to attach
 
    .. figure:: _static/qs_galaxy_latest/qs_galaxy_GalaxyConfig.png
       :scale: 30 %
@@ -96,7 +96,6 @@ Instantiate Galaxy
 
 Galaxy login
 ------------
-
 The anonymous login is by default disabled.
 
 The galaxy administrator password and the API key are automatically generated during the instatiation procedure and are the same for each instance:

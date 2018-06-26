@@ -8,11 +8,11 @@ The service instantiate a CentOS 7 Virtual Machine with Galaxy, all its companio
 
 .. seealso::
 
-   For a detailed descreption of all Web UI options see section: :doc:`feat_galaxy_custom`.
+   For a detailed descreption of all Web UI options see section: :doc:`feat_options`.
 
 .. seealso::
 
-   To login into the portal see section: :doc:`feat_authentication`.
+   To login into the portal see section: :doc:`feat_auth`.
 
 Instantiate Galaxy
 ------------------
