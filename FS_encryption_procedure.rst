@@ -15,7 +15,7 @@ Log-in into your machine with:
    :align: center
    :alt: encrypt procedure 01
 
-Typical ip addresses are: 90.147.170.XX or 90.147.102.XX.
+Typical ip addresses are: ``90.147.170.XX``, `` 90.147.102.XX`` and ``90.147.75.XX``.
 You can copy and past the command from the mail the system send you.
 
 .. figure:: _static/encryption/FS_ecrypt_proc_02.png
@@ -38,8 +38,7 @@ and enter your SSH passphrase:
    :alt: encrypt procedure 04
 
 Passphrase creation
---------------------
-
+-------------------
 You will be now prompted in the encryption script automatically.
 You will be required to insert an alphanumeric key, at least 8 characters.
 A key is automatically generated, as example, plase do not use if for production!
@@ -85,4 +84,4 @@ The volume will be now encrypted and you will be automatically get out the VM, u
    :align: center
    :alt: encrypt procedure 08
 
-The system is now encrypted and unlocked, ready for Galaxy installation and configuration.
+The system is now encrypted and unlocked, you will be automatically let out the VM and the Galaxy installation and configuration will continue.
