@@ -182,7 +182,7 @@ source_suffix = ['.rst', '.md']
 
 project_name = 'Laniakea'
 galaxy_vm = 'Galaxy'
-galaxy_latest = 'Galaxy-live'
+galaxy_latest = 'Galaxy LIVE'
 galaxy_cluster = 'Galaxy SLURM cluster'
 galaxy_elastic_cluster = 'Galaxy SLURM cluster (elastic)'
 
