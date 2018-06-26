@@ -24,8 +24,7 @@ Instantiate Galaxy
       :align: center
       :alt: Galaxy express main window
 
-#. Set your ``Job identifier`` as you prefer, which will identfy your Galaxy in the job list, once your request is submitted:
-
+#. Set your ``job identifier`` as you prefer, which will identfy your Galaxy in the job list, once your request is submitted:
    .. figure:: _static/qs_galaxy/qs_galaxy_JobID.png
       :scale: 30 %
       :align: center
@@ -57,7 +56,7 @@ Instantiate Galaxy
       :align: center
       :alt: SSH public key injection
 
-#. Storage section allows to select the IaaS storage volume size. The ``Fle system encryption`` option is explained here: :doc:`qs_isolate_your_galaxy`.
+#. Storage section allows to select the IaaS storage volume size. The ``Storage encryption`` option is explained here: :doc:`qs_isolate_your_galaxy`.
 
    .. figure:: _static/qs_galaxy/qs_galaxy_Storage.png
       :scale: 25 %
@@ -73,7 +72,7 @@ Instantiate Galaxy
 
   .. Warning::
 
-     Please insert a vail mail address. No check is performed on its syntax, but entering an incorrect email address will cause deployment failure.
+     Please insert a vail mail address. No check is performed on its syntax, but entering an incorrect email address will cause deployment failure if the ``encryption`` option is set.
 
 #. Select Galaxy tools pre-set:
 
