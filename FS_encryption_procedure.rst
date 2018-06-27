@@ -15,7 +15,6 @@ Log-in into your machine with:
    :align: center
    :alt: encrypt procedure 01
 
-Typical ip addresses are: ``90.147.170.XX``, `` 90.147.102.XX`` and ``90.147.75.XX``.
 You can copy and past the command from the mail the system send you.
 
 .. figure:: _static/encryption/FS_ecrypt_proc_02.png
