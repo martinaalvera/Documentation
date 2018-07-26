@@ -40,3 +40,8 @@ This is due to:
 #. CernVM-FS configuration
 
 #. SLURM installation and configuration
+
+SLURM main commands
+-------------------
+Please have a look here for a summary of SLURM main commands:
+https://www.rc.fas.harvard.edu/resources/documentation/convenient-slurm-commands/
