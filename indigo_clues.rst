@@ -97,10 +97,10 @@ The worker nodes are not correctly instantiated, due to an ``Invalid Token``. Ch
 
 Solution:
 
-#. Stop CLUES.
+#. Stop CLUES: ``sudo systemctl stop cluesd``.
 
 #. Edit the file ``/etc/clues2/conf.d/plugin-ec3.cfg`` and change the value of the ``INDIGO_ORCHESTRATOR_AUTH_DATA`` parameter with the new token.
 
-#. Restart CLUES.
+#. Restart CLUES ``sudo systemctl start cluesd``.
 
 #. You also have to open the CLUES DB with sqlite3 command: ``sqlite3 /var/lib/clues2/clues.db`` and delete old refreshed token: ``DELETE FROM orchestrator_token;``
