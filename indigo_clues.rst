@@ -103,4 +103,5 @@ Solution:
 
 #. Restart CLUES ``sudo systemctl start cluesd``.
 
-#. You also have to open the CLUES DB with sqlite3 command: ``sqlite3 /var/lib/clues2/clues.db`` and delete old refreshed token: ``DELETE FROM orchestrator_token;``
+#. You also have to open the CLUES DB with sqlite3 command: ``sqlite3 /var/lib/clues2/clues.db`` and delete old refreshed token: ``DELETE FROM orchestrator_token;``.
+   To exit from sqlite just type: ``.exit``.
