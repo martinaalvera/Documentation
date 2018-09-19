@@ -59,7 +59,7 @@ The ssh port is, usually, the ``22``.
 
 .. Warning::
 
-   FutureGateway token authentication requires ``https``. Here, we are going to use Let's Encrypt certificates, as examble. A quick guide is available `here <https://github.com/maricaantonacci/slam/blob/master/gitbook/create-custom-keystore.md>`_.
+  FutureGateway token authentication requires ``https``. Here, we are going to use Let's Encrypt certificates, as examble. A quick guide is available `here <https://github.com/maricaantonacci/slam/blob/master/gitbook/create-custom-keystore.md>`_.
 
 Portal configuration
 --------------------
@@ -264,12 +264,6 @@ Finally, going in the FutureGateway admin portlet you should see:
 Portlet configuration
 ---------------------
 
-Galaxy portlet
-~~~~~~~~~~~~~~
-
-Build FGW portlets
-------------------
-
 Create build environment
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -335,8 +329,8 @@ Update to Java 8 - Appendix A
 
 log-out and log-in to refresh environment variables.
 
-Configure Apache with for http - Appendix B
--------------------------------------------
+Configure Apache for http - Appendix B
+--------------------------------------
 
 Enalble http_proxy on apache2
 
@@ -413,6 +407,32 @@ To list java certificates:
 You can install it in ``/etc/ssl/certs`` to make curl work, too.
 
 [*] http://www.thinkplexx.com/learn/howto/security/tools/understanding-java-keytool-working-with-crt-files-fixing-certificate-problems
+
+Create https certificate - Appendix E
+-------------------------------------
+You can install the certbot tool on your machine (1st approach) or you can use the docker image certbot/certbot (2nd approach).
+
+::
+  
+  Install certbot tool (https://certbot.eff.org/#ubuntuxenial-other)
+  $ sudo apt-get install software-properties-common
+  $ sudo add-apt-repository ppa:certbot/certbot
+  $ sudo apt-get update
+  $ sudo apt-get install certbot
+  $ sudo certbot certonly --standalone -d $HOSTNAME
+
+  The certificates should be in:
+  $ sudo ls /etc/letsencrypt/live/$HOSTNAME
+  cert.pem  chain.pem  fullchain.pem  privkey.pem  README
+  
+or
+
+::
+
+  $ sudo docker run -it --rm -p 80:80 -p 443:443 -v /etc/letsencrypt:/etc/letsencrypt/  certbot/certbot certonly --standalone -d $HOSTNAME
+  The certificates should be in:
+  $ sudo ls /etc/letsencrypt/live/$HOSTNAME
+  cert.pem  chain.pem  fullchain.pem  privkey.pem  README
 
 Fix ghost deployment issue
 ---------------------------
