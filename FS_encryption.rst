@@ -1,5 +1,5 @@
-File System Encryption
-======================
+Storage encryption
+==================
 
 While the adoption of a distributed environment for data analysis makes data difficult to be tracked and identified by a malevolus attacker, full data anonymity and isolation is still not granted.
 
