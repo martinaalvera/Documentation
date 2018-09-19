@@ -1,10 +1,9 @@
 Get |galaxy_vm|
 ===============
 
-This Galaxy  section allows user to deploy a standard `Galaxy production environment <https://docs.galaxyproject.org/en/latest/admin/production.html>`_.
+The |galaxy_vm| section allows user to deploy a standard `Galaxy production environment <https://docs.galaxyproject.org/en/latest/admin/production.html>`_.
 
 The service instantiate a CentOS 7 Virtual Machine with Galaxy, all its companion software and tools already embedded. Once deployed each Galaxy instance can be further customized with tools and reference data.
-
 
 .. seealso::
 
@@ -17,22 +16,23 @@ The service instantiate a CentOS 7 Virtual Machine with Galaxy, all its companio
 Instantiate Galaxy
 ------------------
 
-#. Enter in the ``Galaxy`` section:
+#. Enter in the |galaxy_vm| section:
 
-   .. figure:: _static/qs_galaxy/qs_galaxy_main.png
-      :scale: 28 %
+   .. figure:: _static/qs_galaxy_vm/qs_galaxy_main.png
+      :scale: 50 %
       :align: center
       :alt: Galaxy express main window
 
 #. Set your ``job identifier`` as you prefer, which will identfy your Galaxy in the job list, once your request is submitted:
-   .. figure:: _static/qs_galaxy/qs_galaxy_JobID.png
+
+   .. figure:: _static/qs_galaxy_vm/qs_galaxy_JobID.png
       :scale: 30 %
       :align: center
       :alt: Virtual hardware configuration
 
 #. Set the Instance flavor, (virtual CPUs and RAM):
 
-   .. figure:: _static/qs_galaxy/qs_galaxy_VirtualHardware.png
+   .. figure:: _static/qs_galaxy_vm/qs_galaxy_VirtualHardware.png
       :scale: 25 %
       :align: center
       :alt: Virtual hardware configuration
@@ -51,21 +51,21 @@ Instantiate Galaxy
 
 #. Copy & Past your SSH key, to login in the Galaxy instance:
 
-   .. figure:: _static/qs_galaxy/qs_galaxy_SSHkey.png
+   .. figure:: _static/qs_galaxy_vm/qs_galaxy_SSHkey.png
       :scale: 25 %
       :align: center
       :alt: SSH public key injection
 
 #. Storage section allows to select the IaaS storage volume size. The ``Storage encryption`` option is explained here: :doc:`qs_isolate_your_galaxy`.
 
-   .. figure:: _static/qs_galaxy/qs_galaxy_Storage.png
+   .. figure:: _static/qs_galaxy_vm/qs_galaxy_Storage.png
       :scale: 25 %
       :align: center
       :alt: Galaxy express Storage section
 
 #. Select the Galaxy version, the instance administrator e-mail, your custom Galaxy brand and the reference dataset to attach:
 
-   .. figure:: _static/qs_galaxy/qs_galaxy_GalaxyConfig.png
+   .. figure:: _static/qs_galaxy_vm/qs_galaxy_GalaxyConfig.png
      :scale: 25 %
      :align: center
      :alt: Galaxy express Galxy configuration section
@@ -76,30 +76,30 @@ Instantiate Galaxy
 
 #. Select Galaxy tools pre-set:
 
-   .. figure:: _static/qs_galaxy/qs_galaxy_Tools.png 
+   .. figure:: _static/qs_galaxy_vm/qs_galaxy_Tools.png 
       :scale: 25 %
       :align: center
       :alt: Galaxy express Tools section
 
 #. Finally, ``SUBMIT`` your request:
 
-   .. figure:: _static/qs_galaxy/qs_galaxy_submit.png
+   .. figure:: _static/qs_galaxy_vm/qs_galaxy_submit.png
       :scale: 25 %
       :align: center
       :alt: Galaxy express submit request
 
-   .. figure:: _static/qs_galaxy/qs_galaxy_done.png
+   .. figure:: _static/qs_galaxy_vm/qs_galaxy_done.png
       :scale: 100 %
       :align: center
       :alt: Galaxy express deployed instance
 
 Galaxy login
 ------------
-The galaxy administrator password is  automatically generated during the instatiation procedure and is the same for each deployed instance:
+The galaxy administrator password is automatically generated during the instatiation procedure and is the same for each deployed instance:
 
 ::
 
-  User: your user e-mail
+  User: galaxy administrator e-mail
 
   Password: galaxy_admin_password
 
