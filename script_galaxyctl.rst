@@ -45,7 +45,9 @@ Advanced options
 stop
 ~~~~
 To stop galaxy:
+
 ::
+
   sudo galaxyctl stop galaxy
 
 The script check the uWSGI Stats server to retrieve workers PID and their status. If, after uWSGI stop, workers are still up and running, they are killed, allowing Galaxy to correctly start next time.
@@ -54,7 +56,9 @@ The ``--force`` options allow to kill uwsgi master process if it is still alive 
 start
 ~~~~~
 To start Galaxy:
+
 ::
+
   sudo galaxyctl start galaxy
 
 Once Galaxy started, galaxyctl waits and check the uWSGI Stats server. Since it is the last software loaded, this ensure that Galaxy has correctly started.
@@ -68,7 +72,9 @@ These options were not designed for production, but are used only during VMs ins
 restart
 ~~~~~~~
 To restart Galaxy:
+
 ::
+
   sudo galaxyctl restart galaxy
 
 The options ``--force``, ``--timeout`` and ``--retry`` are available for restart command too.
@@ -78,6 +84,7 @@ Galaxy first start
 Galaxy takes longer to start the first time. Since the uWSGI stats server is the last software component started, the script waits it ensure that Galaxy has correctly started. Then uWSGI workers are checked to ensure Galaxy is acceptin requests. If not, uWSGI is restarted.
 Currently, before rise an error, the script try to restart galaxy 5 times, while the waiting time is set to 600 seconds.
 The command used in ``/usr/local/bin/galaxy-startup`` script, is
+
 ::
 
   galaxyctl startup galaxy -c /home/galaxy/galaxy/galaxy.ini -t 600
@@ -95,7 +102,9 @@ Check LUKS volume      sudo galaxyctl status luks
 =====================  ==============================
 
 In particular to unlock you LUKS volume:
+
 ::
+
   sudo galaxyctl open luks
 
 Then you will be asket to insert your LUKS passphrase. For instance:

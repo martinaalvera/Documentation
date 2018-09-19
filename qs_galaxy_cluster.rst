@@ -1,5 +1,9 @@
-Get Galaxy (elastic) cluster - LIVE
-===================================
+Get |galaxy_cluster|
+====================
+
+.. Warning::
+
+   Currently, this feature is under testing. Galaxy and tools are installed on-the-fly starting from a bare CentOS 7 image. The whole process, i.e. install Galaxy and tools, may take long time. We will ssoon add non-live section, using images with tools to speed-up the configuration.
 
 It is possible to deploy a Galaxy cluster, using SLURM as Resource Manager, with and without automatic elasticity support. In the first case, all working nodes are deployed with the Galaxy server and are always available. 
 
@@ -9,21 +13,13 @@ The two sections provide the same configuration options, therefore we refere to 
 
 .. Warning::
 
-   Currently, this feature is under testing. Galaxy and tools are installed on-the-fly starting froma a bare CentOS 7 image. The whole process, i.e. install Galaxy and tools, may take long time. We will ssoon add non-live section, using images with tools to speed-up the configuration.
-
-.. Warning::
-
    Each node takes 12 minutes to be instantiated. Therefore, the job needs the same time to start. On the contrary if the node is already deployed the job will start immediately.
 
 .. seealso::
 
    For a detailed description Galaxy elastic cluster see section :doc:`feat_cluster_support`.
 
-.. seealso::
-
    For a detailed descreption of all Web UI options see section: :doc:`feat_options`.
-
-.. seealso::
 
    To login into the portal see section: :doc:`feat_auth`.
 

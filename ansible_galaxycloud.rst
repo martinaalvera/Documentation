@@ -199,7 +199,7 @@ License
 Apache Licence v2
 
 References
--------
+----------
 
 Galaxy: https://galaxyproject.org/
 

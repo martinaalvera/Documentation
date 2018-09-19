@@ -1,5 +1,5 @@
-Get Galaxy
-==========
+Get |galaxy_vm|
+===============
 
 This Galaxy  section allows user to deploy a standard `Galaxy production environment <https://galaxyproject.org/admin/config/performance/production-server/>`_.
 

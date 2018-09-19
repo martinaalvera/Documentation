@@ -78,7 +78,7 @@ Client configuration
     CVMFS_HTTP_PROXY=DIRECT
 
 Populate a CernVM-FS Repository (with reference data)
-----------------------------------------------------
+-----------------------------------------------------
 
 Content Publishing
 

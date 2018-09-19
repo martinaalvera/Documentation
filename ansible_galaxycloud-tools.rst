@@ -71,17 +71,19 @@ Main options
 
 This role exploits a lite version of galaxy to install data-libraries. It install dataset in /home/galaxy/galaxy/database/files/000 by defaults.
 If the default galaxy database directory is different you have two options. By default the role read galaxy.ini and move datasets to file_path dir:
-```yaml
-     move_datasets: true
-     set_dataset_dest_dir: false
-```
+::
+
+  move_datasets: true
+  set_dataset_dest_dir: false
 
 Otherwise you can set the destination directory. Dataset_dest_dir must exist, since the role will not create it.
-```yaml
-     move_datasets: true
-     set_dataset_dest_dir: true
-     dataset_dest_dir: '/path/to/dir'
-```
+
+::
+
+  move_datasets: true
+  set_dataset_dest_dir: true
+  dataset_dest_dir: '/path/to/dir'
+
 Defaults values:
 
 ``move_datasets``:``true``

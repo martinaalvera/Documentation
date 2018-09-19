@@ -52,7 +52,7 @@ Ubuntu Trusty	sudo service postgresql start/stop/status
 ==============  =================
 
 Galaxy database configuration
-****************************
+*****************************
 Two different database are configured to track data and tool shed install data, allowing to bootstrap fresh Galaxy instance with pretested installs.
 The database passwords are randomly generated and the passoword can be retrieved in the ``galaxy.ini`` file.
  
