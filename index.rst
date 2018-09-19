@@ -35,8 +35,8 @@ For more information on the Galaxy Project, please visit the https://galaxyproje
    :maxdepth: 2
    :caption: Quickstarts
 
+   qs_galaxy_vm
    qs_galaxy
-   qs_galaxy_latest
    qs_encryption
    qs_galaxy_cluster
    qs_galaxy_onedata

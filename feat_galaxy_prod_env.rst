@@ -4,7 +4,7 @@ The system allows to setup and launch a virtual machine (VM) configured with the
 
 Once deployed each Galaxy instance can be further customized with tools and reference data.
 
-The Galaxy production environment is deployed according to Galaxy official documentation: https://galaxyproject.org/admin/config/performance/production-server
+The Galaxy production environment is deployed according to Galaxy official documentation: https://docs.galaxyproject.org/en/latest/admin/production.html.
 
 .. _fig_updateprocess:
 
