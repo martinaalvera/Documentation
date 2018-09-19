@@ -94,20 +94,23 @@ https://hub.docker.com/r/laniakeacloud
 
 Support
 -------
-Please open a Github issue here:
+
+If you need support please contact us to: ``laniakea.helpdesk@gmail.com``
+
+Software glitches and bugs can occasionally be encoutered. The best way to report a bug is to open an issue on our GitHub `repository <https://github.com/Laniakea-elixir-it/elixir-italy-science-gateway/issues>`_.
 
 Cite
 ----
 
 Licence
 -------
-GNU General Public License v3.0+ (see COPYING or https://www.gnu.org/licenses/gpl-3.0.txt)
+GNU General Public License v3.0+ (https://www.gnu.org/licenses/gpl-3.0.txt)
 
 Galaxy tutorials
 ----------------
-Galaxy For Developers: https://crs4.github.io/Galaxy4Developers/
+Galaxy training network: https://galaxyproject.org/teach/gtn/
 
-Galaxy training network:
+Galaxy For Developers: https://crs4.github.io/Galaxy4Developers/
 
 Indices and tables
 ------------------
