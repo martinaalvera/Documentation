@@ -1,10 +1,10 @@
-File System encryption procedure
-================================
+Storage encryption procedure
+============================
 
 To encrypt the Virtual machine external volume follow this procedure.
 
-VM login
---------
+Virtual Machine login
+---------------------
 
 Log-in into your machine with:
 
@@ -15,21 +15,21 @@ Log-in into your machine with:
    :align: center
    :alt: encrypt procedure 01
 
-You can copy and past the command from the mail the system send you.
+Typical IP addresses are: ``90.147.170.xx``, ``90.147.102.xx`` or ``90.147.75.xx`` and it is reported in the e-mail we sent you. You can copy and past the command from the mail the system send you.
 
 .. figure:: _static/encryption/FS_ecrypt_proc_02.png
    :scale: 70 %
    :align: center
    :alt: encrypt procedure 02
 
-Accept the connection typing "yes"
+Probably, you have to permanently accept the connection, typing “yes”.
 
 .. figure:: _static/encryption/FS_ecrypt_proc_03.png
    :scale: 70 %
    :align: center
    :alt: encrypt procedure 03
 
-and enter your SSH passphrase:
+and then enter your SSH passphrase.
 
 .. figure:: _static/encryption/FS_ecrypt_proc_04.png
    :scale: 70 %
@@ -76,11 +76,9 @@ Unlock the encrypted volume typing again your password:
    :align: center
    :alt: encrypt procedure 07
 
-The volume will be now encrypted and you will be automatically get out the VM, until Galaxy is installed.
+The volume will be now encrypted and you will be automatically log-out the VM, until Galaxy is installed.
 
 .. figure:: _static/encryption/FS_ecrypt_proc_08.png
    :scale: 70 %
    :align: center
    :alt: encrypt procedure 08
-
-The system is now encrypted and unlocked, you will be automatically let out the VM and the Galaxy installation and configuration will continue.
