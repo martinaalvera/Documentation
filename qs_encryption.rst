@@ -7,7 +7,7 @@ The service provides the possibility to encrypt the storage volume associated to
 
    Only the external volume, where Galaxy data are stored, is encrypted, not the Virtual Machine root disk.
 
-To encypt the external volume storage just select ``encryption`` as ``Storage type`` in the ``Storage`` section. 
+To encypt the external volume storage just select ``encryption`` in ``Enable encryption`` section. 
  
 .. figure:: _static/qs_encryption/qs_encryption.png 
    :scale: 35 %
@@ -19,7 +19,7 @@ Cryptographic keys should never be transmitted in the clear. For this reason dur
 Data privacy is granted through LUKS storage encryption: user will be required to insert a password to encrypt/decrypt data directly on the virtual instance during its deployment, avoiding any
 interaction with the cloud administrator(s).
 
-An e-mail is sent to the e-mail address configured in the ``Galaxy Configuration`` section.
+An e-mail is sent to instance administrator the e-mail address configured in the ``Galaxy Configuration`` section.
 
 .. figure:: _static/qs_encryption/qs_encryption_setMail.png 
    :scale: 35 %
@@ -30,21 +30,22 @@ An e-mail is sent to the e-mail address configured in the ``Galaxy Configuration
 
    Make sure you have entered a valid mail address!
 
-The e-mail is sent you only when the system is ready to accept your password and contains all the instructions to correctly encrypt/decrypt your system. The e-mail subject is ``[ELIXIR-ITALY] GalaxyCloud encrypt password`` sent by ``GalaxyCloud@elixir-italy.org``
+The e-mail is sent you only when the system is ready to accept your password and contains all the instructions to correctly encrypt/decrypt your system. The e-mail subject is ``[ELIXIR-ITALY] Laniakea storage encryption``, sent by ``Laniakea@elixir-italy.org``
 
 .. Warning::
 
-   If you do not receive the e-mail, please check your spam folder.
+   If you don't receive the e-mail:
 
-.. figure:: _static/qs_encryption/qs_encryption_mail.png 
-   :scale: 30 %
+   #. Check you SPAM mail directory
+
+   #. Chek mail address spelling
+
+   #. Wait 15 minutes more.
+
+.. figure:: _static/encryption/FS_ecrypt_proc_01.png 
+   :scale: 70 %
    :align: center
    :alt: Galaxy encryption mail
-
-.. figure:: _static/qs_encryption/qs_encryption_attachment.png 
-   :scale: 30 %
-   :align: center
-   :alt: Galaxy encryption mail attachment
 
 Once the e-mail is arrived you can follow the step by step guide to encrypt your volume: :doc:`FS_encryption_procedure`.
 
@@ -62,7 +63,7 @@ Default encryption algorithm:
 
 ::
 
-  Cipher: aes-xts-plain64 encryption
+  Cipher: aes-xts-plain64
 
   Key size: 256 bit
 
