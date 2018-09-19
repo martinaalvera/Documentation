@@ -181,10 +181,10 @@ source_suffix = ['.rst', '.md']
 # -- Options for project name variable ------------------------------------
 
 project_name = 'Laniakea'
-galaxy_vm = 'Galaxy'
-galaxy_latest = 'Galaxy LIVE'
-galaxy_cluster = 'Galaxy SLURM cluster'
-galaxy_elastic_cluster = 'Galaxy SLURM cluster (elastic)'
+galaxy_vm = 'Galaxy Express'
+galaxy_latest = 'Galaxy'
+galaxy_cluster = 'Galaxy cluster'
+galaxy_elastic_cluster = 'Galaxy elastic cluster'
 
 rst_prolog = """ 
 .. |project_name| replace:: {0}
