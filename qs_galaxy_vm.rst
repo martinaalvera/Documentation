@@ -56,7 +56,7 @@ Instantiate Galaxy
       :align: center
       :alt: SSH public key injection
 
-#. Storage section allows to select the IaaS storage volume size. The ``Storage encryption`` option is explained here: :doc:`qs_isolate_your_galaxy`.
+#. Storage section allows to select the IaaS storage volume size. The ``Storage encryption`` option is explained here: :doc:`qs_encryption`.
 
    .. figure:: _static/qs_galaxy_vm/qs_galaxy_Storage.png
       :scale: 25 %
