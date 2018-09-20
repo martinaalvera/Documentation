@@ -19,7 +19,7 @@ Instantiate Galaxy
 #. Enter in the |galaxy_vm| section:
 
    .. figure:: _static/qs_galaxy_vm/qs_galaxy_main.png
-      :scale: 50 %
+      :scale: 40 %
       :align: center
       :alt: Galaxy express main window
 
