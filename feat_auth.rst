@@ -6,7 +6,7 @@ Currently, the authentication system relies on INDIGO-AAI.
 To login into the portal, select the ``Sign in`` section on top-right:
 
 .. figure:: _static/auth/sign_in.png
-   :scale: 20 %
+   :scale: 50 %
    :align: center
    :alt: FGW Sign In
 
@@ -91,6 +91,6 @@ Then insert your credentials or login using another authentication provider, you
 Finally, you can access the portal sections and instantiate Galaxy:
 
 .. figure:: _static/auth/portal.png
-   :scale: 35 %
+   :scale: 50 %
    :align: center
    :alt: FGW portal
