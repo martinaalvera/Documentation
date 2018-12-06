@@ -91,6 +91,6 @@ Then insert your credentials or login using another authentication provider, you
 Finally, you can access the portal sections and instantiate Galaxy:
 
 .. figure:: _static/auth/portal.png
-   :scale: 25 %
+   :scale: 35 %
    :align: center
    :alt: FGW portal
