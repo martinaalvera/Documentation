@@ -6,7 +6,7 @@ Currently, the authentication system relies on INDIGO-AAI.
 To login into the portal, select the ``Sign in`` section on top-right:
 
 .. figure:: _static/auth/sign_in.png
-   :scale: 100 %
+   :scale: 20 %
    :align: center
    :alt: FGW Sign In
 
