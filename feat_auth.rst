@@ -13,7 +13,14 @@ To login into the portal, select the ``Sign in`` section on top-right:
 
 Registration
 ------------
-It is needed to register to the portal at the first login. Register with your preferred username or using Google authentication. Fill the registration form using a valid e-mail address:
+It is needed to register to the portal at the first login. Register with your preferred username or using Google authentication.
+
+.. figure:: _static/auth/iam.png 
+   :scale: 30 %
+   :align: center
+   :alt: Select login method
+
+Fill the registration form using a valid e-mail address:
 
 .. figure:: _static/auth/registration/registration_form.png
    :scale: 50 %
