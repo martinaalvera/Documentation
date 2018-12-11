@@ -19,25 +19,15 @@ Instantiate Galaxy
 #. Enter in the |galaxy_vm| section:
 
    .. figure:: _static/qs_galaxy_vm/qs_galaxy_main.png
-      :scale: 40 %
+      :scale: 50 %
       :align: center
       :alt: Galaxy express main window
 
-#. Set your ``job identifier`` as you prefer, which will identfy your Galaxy in the job list, once your request is submitted:
+#. Describe your instance using the ``Instance description`` field, which will identfy your Galaxy in the job list, once your request is submitted:
 
-   .. figure:: _static/qs_galaxy_vm/qs_galaxy_JobID.png
-      :scale: 30 %
-      :align: center
-      :alt: Virtual hardware configuration
+#. Select the Instance flavor, (virtual CPUs and RAM):
 
-#. Set the Instance flavor, (virtual CPUs and RAM):
-
-   .. figure:: _static/qs_galaxy_vm/qs_galaxy_VirtualHardware.png
-      :scale: 25 %
-      :align: center
-      :alt: Virtual hardware configuration
-
-   Currently, the following pre-sets are available:
+   Currently, the following pre-sets are available, but not all of them are enabled.
 
    =========  =======  =======  =============  =============
    Name       VCPUs    RAM      Total Disk     Root Disk
@@ -52,21 +42,21 @@ Instantiate Galaxy
 #. Copy & Past your SSH key, to login in the Galaxy instance:
 
    .. figure:: _static/qs_galaxy_vm/qs_galaxy_SSHkey.png
-      :scale: 25 %
+      :scale: 50 %
       :align: center
       :alt: SSH public key injection
 
-#. Storage section allows to select the IaaS storage volume size. The ``Storage encryption`` option is explained here: :doc:`qs_encryption`.
+#. Storage section allows to select the user storage volume size. The ``Enable encryption`` flag is explained here: :doc:`qs_encryption`.
 
    .. figure:: _static/qs_galaxy_vm/qs_galaxy_Storage.png
-      :scale: 25 %
+      :scale: 50 %
       :align: center
       :alt: Galaxy express Storage section
 
 #. Select the Galaxy version, the instance administrator e-mail, your custom Galaxy brand and the reference dataset to attach:
 
    .. figure:: _static/qs_galaxy_vm/qs_galaxy_GalaxyConfig.png
-     :scale: 25 %
+     :scale: 50 %
      :align: center
      :alt: Galaxy express Galxy configuration section
 
@@ -77,21 +67,24 @@ Instantiate Galaxy
 #. Select Galaxy tools pre-set:
 
    .. figure:: _static/qs_galaxy_vm/qs_galaxy_Tools.png 
-      :scale: 25 %
+      :scale: 50 %
+      :align: center
+      :alt: Galaxy express Tools section
+
+#. and reference dataset:
+
+   .. figure:: _static/qs_galaxy_vm/qs_galaxy_refdata.png 
+      :scale: 50 %
       :align: center
       :alt: Galaxy express Tools section
 
 #. Finally, ``SUBMIT`` your request:
 
-   .. figure:: _static/qs_galaxy_vm/qs_galaxy_submit.png
-      :scale: 25 %
+   .. figure:: _static/qs_galaxy_vm/qs_galaxy_view.png
+      :scale: 50 %
       :align: center
       :alt: Galaxy express submit request
 
-   .. figure:: _static/qs_galaxy_vm/qs_galaxy_done.png
-      :scale: 100 %
-      :align: center
-      :alt: Galaxy express deployed instance
 
 Galaxy login
 ------------
