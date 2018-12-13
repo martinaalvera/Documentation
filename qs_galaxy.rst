@@ -17,35 +17,21 @@ The service allows to setup and launch a virtual machine configured with the Ope
 
    To login into the portal see section: :doc:`feat_auth`.
 
-Instantiate |galaxy_latest|
----------------------------
+Instantiate Galaxy
+------------------
 
 #. Enter the |galaxy_latest| section:
 
-   .. figure:: _static/qs_galaxy_latest/qs_galaxy_FGW.png 
-      :scale: 100 %
+   .. figure:: _static/qs_galaxy_latest/qs_galaxy_main.png 
+      :scale: 70 %
       :align: center
       :alt: Galaxy express main window
 
-#. Set your ``job identifier`` as you prefer, which will identfy your Galaxy in the job list, once your request is submitted:
-
-   .. Note::
-
-      Please be descriptive in the ``job Identifier`` section, storing the Galaxy VM features, like user, VCPUs and Memory, tools presets and storage.
-
-   .. figure:: _static/qs_galaxy_latest/qs_galaxy_JobID.png
-      :scale: 30 %
-      :align: center
-      :alt: Virtual hardware configuration
+#. Describe your instance using the ``Instance description`` field, which will identfy your Galaxy in the job list, once your request is submitted.
 
 #. Select your instance flavour (virtual CPUs and the memory size):
 
-   .. figure:: _static/qs_galaxy_latest/qs_galaxy_VirtualHardware.png
-      :scale: 30 %
-      :align: center
-      :alt: Virtual hardware configuration
-
-   Currently, the following pre-sets are available:
+   Currently, the following pre-sets are available, but not all of them are enabled.
 
    =========  =======  =======  =============  =============
    Name       VCPUs    RAM      Total Disk     Root Disk
@@ -60,38 +46,48 @@ Instantiate |galaxy_latest|
 #. Copy & Past your SSH key, to login in the Galaxy instance:
 
    .. figure:: _static/qs_galaxy_latest/qs_galaxy_SSHkey.png
-      :scale: 30 %
+      :scale: 50 %
       :align: center
       :alt: SSH public key injection
 
-#. Storage section allows to select the IaaS storage volume size. The ``Storage encryption`` option is explained here: :doc:`qs_isolate_your_galaxy`.
+#. Storage section allows to select the user storage volume size. The ``Enable encryption`` flag is explained here: :doc:`qs_encryption`.
 
-   .. figure:: _static/qs_galaxy_latest/qs_galaxy_Storage1.png
-      :scale: 30 %
+   .. figure:: _static/qs_galaxy_latest/qs_galaxy_Storage.png
+      :scale: 50 %
       :align: center
-      :alt: Galaxy express Storage section 1
+      :alt: Galaxy express Storage section
 
-   .. figure:: _static/qs_galaxy_latest/qs_galaxy_Storage2.png
-      :scale: 30 %
-      :align: center
-      :alt: Galaxy express Storage section 2
+#. Select the Galaxy version, the instance administrator e-mail, your custom Galaxy brand and the reference dataset to attach:
 
-#. The Galaxy configuration section allows to select among different Galaxy versions, set the instance administrator e-mail and your Galaxy brand, select the reference dataset to attach:
    .. figure:: _static/qs_galaxy_latest/qs_galaxy_GalaxyConfig.png
-      :scale: 30 %
-      :align: center
-      :alt: Galaxy express Galxy configuration section
+     :scale: 50 %
+     :align: center
+     :alt: Galaxy express Galxy configuration section
 
   .. Warning::
 
-     Please insert a vail mail address. No check is performed on its syntax, bbut entering an incorrect email address will cause deployment failure.
+     Please insert a vail mail address. No check is performed on its syntax, but entering an incorrect email address will cause deployment failure if the ``encryption`` option is set.
 
-#. Select Galaxy tools configuration and ``SUBMIT`` your request:
+#. Select Galaxy tools pre-set:
 
-   .. figure:: _static/qs_galaxy_latest/qs_galaxy_Tools.png
-      :scale: 30 %
+   .. figure:: _static/qs_galaxy_latest/qs_galaxy_Tools.png 
+      :scale: 50 %
       :align: center
       :alt: Galaxy express Tools section
+
+#. and reference dataset:
+
+   .. figure:: _static/qs_galaxy_latest/qs_galaxy_refdata.png 
+      :scale: 50 %
+      :align: center
+      :alt: Galaxy express Tools section
+
+#. Finally, ``SUBMIT`` your request:
+
+   .. figure:: _static/qs_galaxy_latest/qs_galaxy_view.png
+      :scale: 70 %
+      :align: center
+      :alt: Galaxy express submit request
 
 Galaxy login
 ------------
