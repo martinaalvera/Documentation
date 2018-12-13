@@ -7,10 +7,10 @@ The service provides the possibility to encrypt the storage volume associated to
 
    Only the external volume, where Galaxy data are stored, is encrypted, not the Virtual Machine root disk.
 
-To encypt the external volume storage just select ``encryption`` in ``Enable encryption`` section. 
+To encypt the external volume storage flag ``encryption`` in ``Enable encryption`` box. 
  
 .. figure:: _static/qs_encryption/qs_encryption.png 
-   :scale: 35 %
+   :scale: 70 %
    :align: center
    :alt: Galaxy encryption
 
@@ -22,7 +22,7 @@ interaction with the cloud administrator(s).
 An e-mail is sent to instance administrator the e-mail address configured in the ``Galaxy Configuration`` section.
 
 .. figure:: _static/qs_encryption/qs_encryption_setMail.png 
-   :scale: 35 %
+   :scale: 70 %
    :align: center
    :alt: Galaxy encryption mail configuration section
 
@@ -59,7 +59,9 @@ User is only asked to insert their alphanumeric password 3 times:
 
 After the password injection the logout is automatic: the encryption procedure continues in background.
 
-Default encryption algorithm:
+Default encryption algorithm
+----------------------------
+The default LUKS configuration are:
 
 ::
 
