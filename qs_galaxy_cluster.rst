@@ -3,17 +3,19 @@ Get |galaxy_cluster|
 
 .. Warning::
 
-   Currently, this feature is under testing. Galaxy and tools are installed on-the-fly starting from a bare CentOS 7 image. The whole process, i.e. install Galaxy and tools, may take long time. We will ssoon add non-live section, using images with tools to speed-up the configuration.
+   Currently, this feature is under beta testing. Galaxy and tools are installed on-the-fly starting from a bare CentOS 7 image. The whole process, i.e. install Galaxy and tools, may take time. We will soon add the possibility to exploit images with tools to speed-up the configuration.
 
-It is possible to deploy a Galaxy cluster, using SLURM as Resource Manager, with and without automatic elasticity support. In the first case, all working nodes are deployed with the Galaxy server and are always available. 
+It is possible to deploy a Galaxy cluster, using SLURM as Resource Manager, with or without automatic elasticity support.
 
-On the contrary, automatic elasticity enables dynamic cluster resources scaling, deploying and powering on new working nodes depending on the workload of the cluster and powering-off them when no longer needed. This provides an efficient use of the resources, making them available only when really needed.
+#. Galaxy cluster section: all working nodes are deployed with the Galaxy server and are always available. 
 
-The two sections provide the same configuration options, therefore we refere to |galaxy_elastic_cluster| section  in the following. 
+#. Galaxy elastic cluster serciont: automatic elasticity enables dynamic cluster resources scaling, deploying and powering on new working nodes depending on the workload of the cluster and powering-off them when no longer needed. This provides an efficient use of the resources, making them available only when really needed.
+
+The two sections provide the same configuration options. 
 
 .. Warning::
 
-   Each node takes 12 minutes to be instantiated. Therefore, the job needs the same time to start. On the contrary if the node is already deployed the job will start immediately.
+   Each node takes 12 minutes or more to be instantiated. Therefore, the job needs the same time to start. On the contrary if the node is already deployed the job will start immediately.
 
 .. seealso::
 
@@ -27,33 +29,23 @@ The two sections provide the same configuration options, therefore we refere to 
 Instantiate Galaxy
 ------------------
 
-#. Enter the ``Galaxy elastic cluster`` section:
+#. Enter in the ``Galaxy cluster`` section:
 
-   .. figure:: _static/qs_galaxy_cluster/qs_cluster_FGW.png 
+   .. figure:: _static/qs_galaxy_cluster/qs_cluster_main.png 
       :scale: 100 %
       :align: center
       :alt: Galaxy express main window
 
-#. Set your ``job identifier`` as you prefer, which will identfy your Galaxy in the job list, once your request is submitted:
-
-   .. figure:: _static/qs_galaxy_cluster/qs_cluster_JobID.png
-      :scale: 30 %
-      :align: center
-      :alt: Virtual hardware configuration
+#. Describe your instance using the ``Instance description`` field, which will identfy your Galaxy in the job list, once your request is submitted.
 
 #. Select the number of Virtual Worker Nondes of your Cluster:
 
    .. figure:: _static/qs_galaxy_cluster/qs_cluster_Vhw1.png
-      :scale: 30 %
+      :scale: 100 %
       :align: center
       :alt: Virtual hardware configuration
 
 #. Select the Instance flavor, (virtual CPUs and RAM) for your Front node, i.e. the Galaxy server, and for each Worker Node:
-
-   .. figure:: _static/qs_galaxy_cluster/qs_cluster_Vhw2.png
-      :scale: 30 %
-      :align: center
-      :alt: Virtual hardware configuration
 
    Currently, the following pre-sets are available:
 
@@ -67,50 +59,51 @@ Instantiate Galaxy
    xxlarge    16       32 GB    20 GB          20 GB
    =========  =======  =======  =============  =============
 
-#. Copy & Past your SSH key, to login in the Galaxy instance:
+#. Copy & Paste your SSH key, to login in the Galaxy instance:
 
    .. figure:: _static/qs_galaxy_cluster/qs_cluster_SSHkey.png
-      :scale: 30 %
+      :scale: 100 %
       :align: center
       :alt: SSH public key injection
 
-#. Storage section allows to select the IaaS storage volume size. The ``Storage encryption`` option is explained here: :doc:`qs_isolate_your_galaxy`.
+#. Storage section allows to select the IaaS storage volume size. The ``Storage encryption`` option is explained here: :doc:`qs_encryption`.
 
    .. figure:: _static/qs_galaxy_cluster/qs_cluster_Storage.png
-      :scale: 30 %
+      :scale: 100 %
       :align: center
       :alt: Galaxy express Storage section 2
 
-#. The Galaxy configuration section, allows to select different Galaxy versions, the instance administrator e-mail, set the Galaxy brand variable and the reference dataset to attach:
+#. Select the Galaxy version, the instance administrator e-mail and your custom Galaxy brand:
 
    .. figure:: _static/qs_galaxy_cluster/qs_cluster_GalaxyConfig.png
-      :scale: 30 %
-      :align: center
-      :alt: Galaxy express Galxy configuration section
+     :scale: 100 %
+     :align: center
+     :alt: Galaxy express Galxy configuration section
 
   .. Warning::
 
-     Please insert a vail mail address. No check is performed on its syntax, bbut entering an incorrect email address will cause deployment failure if the ``encryption`` option is set.
+     Please insert a vail mail address. No check is performed on its syntax, but entering an incorrect email address will cause deployment failure if the ``encryption`` option is set.
 
-#. Select Galaxy tools configuration and ``SUBMIT`` your request:
+#. Select Galaxy tools pre-set:
 
-   .. figure:: _static/qs_galaxy_cluster/qs_cluster_Tools.png
-      :scale: 30 %
+   .. figure:: _static/qs_galaxy_cluster/qs_cluster_Tools.png 
+      :scale: 100 %
       :align: center
       :alt: Galaxy express Tools section
 
-#. Once the job is in ``DONE`` state, the galaxy server address is available and Galaxy is ready.
+#. and reference dataset:
 
-   .. figure:: _static/qs_galaxy_cluster/qs_cluster_DONE.png
-      :scale: 30 %
+   .. figure:: _static/qs_galaxy_cluster/qs_cluster_refdata.png 
+      :scale: 100 %
       :align: center
       :alt: Galaxy express Tools section
 
-   .. figure:: _static/qs_galaxy_cluster/qs_cluster_Galaxy.png
-      :scale: 30 %
-      :align: center
-      :alt: Galaxy express Tools section
+#. Finally, ``SUBMIT`` your request:
 
+   .. figure:: _static/qs_galaxy_cluster/qs_cluster_view.png
+      :scale: 100 %
+      :align: center
+      :alt: Galaxy express submit request
 
 Galaxy login
 ------------
