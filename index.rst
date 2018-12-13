@@ -39,6 +39,7 @@ For more information on the Galaxy Project, please visit the https://galaxyproje
    qs_galaxy
    qs_encryption
    qs_galaxy_cluster
+   qs_key_pair
    qs_galaxy_onedata
    qs_virtual_hdw_presets
 

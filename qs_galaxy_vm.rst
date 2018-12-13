@@ -39,7 +39,7 @@ Instantiate Galaxy
    xxlarge    16       32 GB    20 GB          20 GB
    =========  =======  =======  =============  =============
 
-#. Copy & Past your SSH key, to login in the Galaxy instance:
+#. Copy & Paste your SSH key, to login in the Galaxy instance:
 
    .. figure:: _static/qs_galaxy_vm/qs_galaxy_SSHkey.png
       :scale: 50 %
@@ -53,7 +53,7 @@ Instantiate Galaxy
       :align: center
       :alt: Galaxy express Storage section
 
-#. Select the Galaxy version, the instance administrator e-mail, your custom Galaxy brand and the reference dataset to attach:
+#. Select the Galaxy version, the instance administrator e-mail and your custom Galaxy:
 
    .. figure:: _static/qs_galaxy_vm/qs_galaxy_GalaxyConfig.png
      :scale: 50 %
@@ -84,7 +84,6 @@ Instantiate Galaxy
       :scale: 50 %
       :align: center
       :alt: Galaxy express submit request
-
 
 Galaxy login
 ------------
