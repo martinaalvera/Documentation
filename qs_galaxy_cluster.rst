@@ -32,7 +32,7 @@ Instantiate Galaxy
 #. Enter in the ``Galaxy cluster`` section:
 
    .. figure:: _static/qs_galaxy_cluster/qs_cluster_main.png 
-      :scale: 100 %
+      :scale: 70 %
       :align: center
       :alt: Galaxy express main window
 
@@ -41,7 +41,7 @@ Instantiate Galaxy
 #. Select the number of Virtual Worker Nondes of your Cluster:
 
    .. figure:: _static/qs_galaxy_cluster/qs_cluster_Vhw1.png
-      :scale: 100 %
+      :scale: 70 %
       :align: center
       :alt: Virtual hardware configuration
 
@@ -62,21 +62,21 @@ Instantiate Galaxy
 #. Copy & Paste your SSH key, to login in the Galaxy instance:
 
    .. figure:: _static/qs_galaxy_cluster/qs_cluster_SSHkey.png
-      :scale: 100 %
+      :scale: 70 %
       :align: center
       :alt: SSH public key injection
 
 #. Storage section allows to select the IaaS storage volume size. The ``Storage encryption`` option is explained here: :doc:`qs_encryption`.
 
    .. figure:: _static/qs_galaxy_cluster/qs_cluster_Storage.png
-      :scale: 100 %
+      :scale: 70 %
       :align: center
       :alt: Galaxy express Storage section 2
 
 #. Select the Galaxy version, the instance administrator e-mail and your custom Galaxy brand:
 
    .. figure:: _static/qs_galaxy_cluster/qs_cluster_GalaxyConfig.png
-     :scale: 100 %
+     :scale: 70 %
      :align: center
      :alt: Galaxy express Galxy configuration section
 
@@ -87,21 +87,21 @@ Instantiate Galaxy
 #. Select Galaxy tools pre-set:
 
    .. figure:: _static/qs_galaxy_cluster/qs_cluster_Tools.png 
-      :scale: 100 %
+      :scale: 70 %
       :align: center
       :alt: Galaxy express Tools section
 
 #. and reference dataset:
 
    .. figure:: _static/qs_galaxy_cluster/qs_cluster_refdata.png 
-      :scale: 100 %
+      :scale: 70 %
       :align: center
       :alt: Galaxy express Tools section
 
 #. Finally, ``SUBMIT`` your request:
 
    .. figure:: _static/qs_galaxy_cluster/qs_cluster_view.png
-      :scale: 100 %
+      :scale: 70 %
       :align: center
       :alt: Galaxy express submit request
 
