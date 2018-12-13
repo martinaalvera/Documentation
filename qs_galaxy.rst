@@ -85,7 +85,7 @@ Instantiate Galaxy
 #. Finally, ``SUBMIT`` your request:
 
    .. figure:: _static/qs_galaxy_latest/qs_galaxy_view.png
-      :scale: 70 %
+      :scale: 80 %
       :align: center
       :alt: Galaxy express submit request
 

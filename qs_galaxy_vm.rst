@@ -19,11 +19,11 @@ Instantiate Galaxy
 #. Enter in the |galaxy_vm| section:
 
    .. figure:: _static/qs_galaxy_vm/qs_galaxy_main.png
-      :scale: 50 %
+      :scale: 70 %
       :align: center
       :alt: Galaxy express main window
 
-#. Describe your instance using the ``Instance description`` field, which will identfy your Galaxy in the job list, once your request is submitted:
+#. Describe your instance using the ``Instance description`` field, which will identfy your Galaxy in the job list, once your request is submitted.
 
 #. Select the Instance flavor, (virtual CPUs and RAM):
 
