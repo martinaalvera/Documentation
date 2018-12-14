@@ -1,6 +1,6 @@
 Galaxyctl libraries
 ===================
-Galaxyctl is a paython script collenction for Galaxy management (first start, stop/start/restart/status). Moreover it is possible to manage, through specific script, LUKS volumes and Onedata spaces.
+Galaxyctl is a python script collection for Galaxy management (first start, stop/start/restart/status). Moreover it is possible to manage, through specific script, LUKS volumes and Onedata spaces.
 
 Galaxyctl requires superuser privileges.
 
@@ -20,7 +20,7 @@ Galaxyctl_libs is composed by several modules.
 Dependencies
 ------------
 
-Galaxyctl_libs depends on ``uWSGI`` for Galaxy management (i.e. currently no run.sh support). Morover ``lsof`` is needed to check listening ports.
+Galaxyctl_libs depends on ``uWSGI`` for Galaxy management (i.e. currently no run.sh support). Moreover ``lsof`` is needed to check listening ports.
 
 ::
 
