@@ -49,15 +49,19 @@ If you have encrypted your storage, you have to unlock it with the command ``sud
 Step 2: One-command procedure
 *****************************
 
-If you did not changed Instance user permissions you can just copy and paste this: 
+To start Galaxy you can just copy and paste this: 
 
 ::
 
-  $ wget -O - https://raw.githubusercontent.com/Laniakea-elixir-it/Scripts/master/galaxy/recover.sh | bash
+  $ sudo su -c "wget -O - https://raw.githubusercontent.com/Laniakea-elixir-it/Scripts/master/galaxy/recover.sh | bash" root
 
   Probing /cvmfs/elixir-italy.galaxy.refdata... OK
   Contacting Galaxy (wait for 10 seconds)...
   Galaxy server on-line: [ OK ]
+
+.. Warning::
+
+   This may require few minutes, but should safely restart your Galaxy. 
 
 .. figure:: _static/faq/faq_restart_galaxy_3.png
    :scale: 25 %
