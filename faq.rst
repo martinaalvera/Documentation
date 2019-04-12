@@ -1,18 +1,20 @@
 Frequently Asked Questions
 ==========================
-Questions that apply to	Galaxy instances.
+Laniakea FAQs.
 
 Recover Galaxy after Virtual Machine reboot
 -------------------------------------------
-How to correctly restart Galaxy after Virtual Machine reboot?
+How to correctly restart Galaxy after a reboot of the Virtual Machine ?
 
-#. PostgreSQL is already running
+After the boot procedure of your VM at least these services should already be up and running:
 
-#. Proftpd is aready running
+#. PostgreSQL
 
-#. NGINX is already running
+#. Proftpd
 
-Thus conneting to your galaxy instance you should see:
+#. NGINX 
+
+Trying to connect to your Galaxy instance IP with a web browser you should see:
 
 .. figure:: _static/faq/faq_restart_galaxy_2.png
    :scale: 25 %
@@ -23,9 +25,9 @@ Thus conneting to your galaxy instance you should see:
 
 Step 1: Unlock encrypted storage
 ********************************
-If you don't have encrypted storage, please skip this and go to :ref:`one_command_procedure`
+If your instance is not mounted on encrypted storage please skip this and go to :ref:`one_command_procedure`
 
-If you have encrypted your storage, you have to unlock it with the command ``sudo /usr/local/bin/luksctl open`` and then typing your passphrase.
+To unlock the volume connect with SSH and type the command ``sudo /usr/local/bin/luksctl open`` followed by your passphrase.
 
 ::
 
@@ -49,7 +51,7 @@ If you have encrypted your storage, you have to unlock it with the command ``sud
 Step 2: One-command procedure
 *****************************
 
-If you did not changed Instance user permissions you can just copy and paste this: 
+If you did not change Instance user permissions you can just copy and paste this: 
 
 ::
 
