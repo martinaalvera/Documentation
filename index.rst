@@ -74,16 +74,27 @@ For more information on the Galaxy Project, please visit the https://galaxyproje
    dev_tosca_templates
    dev_build_cvmfs_server
 
+.. toctree::
+   :maxdepth: 2
+   :caption: Laniakea Installation
+
+   indigo_paas_deploy/introduction
+   indigo_paas_deploy/prerequisites
+   indigo_paas_deploy/iam
+   indigo_paas_deploy/proxy
+   indigo_paas_deploy/im
+   indigo_paas_deploy/cmdb
+   indigo_paas_deploy/slam
+   indigo_paas_deploy/orchestrator
+   indigo_paas_deploy/dashboard
 
 .. toctree::
    :maxdepth: 2
-   :caption: Included INDIGO components
+   :caption: FAQ INDIGO components
 
-   indigo_orchestrator
-   indigo_im
-   indigo_fgw
-   indigo_onedata
-   indigo_clues
+   indigo_paas_deploy/orchestrator_faq
+   indigo_paas_deploy/im_faq
+   indigo_paas_deploy/clues_faq
 
 GitHub repository
 -----------------
