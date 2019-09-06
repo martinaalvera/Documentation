@@ -70,7 +70,7 @@ Run the role using the ``ansible-playbook`` command:
   # ansible-playbook -i inventory/inventory playbooks/deploy-iam.yml
 
 .. figure:: _static/iam_login.png
-   :scale: 50%
+   :scale: 25%
    :align: center
 
 .. centered:: Fig.2: IAM login page
@@ -156,10 +156,4 @@ Create IAM Client
    :scale: 25%
    :align: center
 
-.. centered:: Fig.3: MitreID Dashboard client registration
-
-
-
-
-
-
+.. centered:: Fig.4: MitreID Dashboard client registration
