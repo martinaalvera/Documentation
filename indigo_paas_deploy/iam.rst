@@ -1,7 +1,7 @@
 Identity Access Manager (IAM)
 =============================
 
-The INDIGO Identity and Access Management (IAM) is an Authentication and Authorisation Infrastructure (AAI) service which manages users credentitials and attributes, like group membership,  and authorization policies to access to the resources.
+The INDIGO Identity and Access Management (IAM) is an Authentication and Authorisation Infrastructure (AAI) service which manages users credentitials and attributes, like group membership,  and authorization policies to access the resources.
 
 VM configuration
 ----------------
@@ -35,7 +35,7 @@ To enable Google authentication access to `Google developers console <https://co
 Installation
 ------------
 
-Create the file ``indigopaas-deploy/ansible/inventory/group_vars/iam.yaml`` with the following configured variables:
+Create the file ``indigopaas-deploy/ansible/inventory/group_vars/iam.yaml`` with the following configured values:
 
 ::
 
@@ -55,7 +55,7 @@ Create the file ``indigopaas-deploy/ansible/inventory/group_vars/iam.yaml`` with
 
 .. warning::
 
-   Set your custom mysql password with: ``iam_mysql_root_password``.
+   Set also your custom mysql password with: ``iam_mysql_root_password``.
 
 .. warning::
 
@@ -75,6 +75,8 @@ Run the role using the ``ansible-playbook`` command:
 
 .. centered:: Fig.2: IAM login page
 
+Video tutorial
+--------------
 
 .. raw:: html
 
@@ -82,7 +84,7 @@ Run the role using the ``ansible-playbook`` command:
 
 IAM test
 --------
-We perform here some basic IAM testes.
+Basic IAM tests.
 
 Test 1: login as admin 
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -96,8 +98,8 @@ Test 1: login as admin
 
 #. Change default password
 
-Test 2: register a new user
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Test 2: Create a new user
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 #. Click Register a new account
 #. Fill the form
@@ -116,7 +118,7 @@ Create IAM Client
 
 #. Login as user, i.e. non Administrator user
 #. Click on *MitreID Dashboard* and then *Self-service client registration*
-#. Click on *New client* and compile the form wit the following paramethers
+#. Click on *New client* and compile the form wit the following parameters
 
    ::
 
@@ -141,7 +143,7 @@ Create IAM Client
        * authorization code
        * refresh
 
-#. save the client IDm, client secre and client token.
+#. save the client IDm, client secret and client token.
 
 .. figure:: _static/mitre.png
    :scale: 25%
