@@ -6,7 +6,14 @@ The INDIGO Identity and Access Management (IAM) is an Authentication and Authori
 VM configuration
 ----------------
 
-Create an Ubuntu 16.04 VM with at least 2 vCPUs, 4 GB of RAM and a public IP address and set the SSH public key to allow Ansible to connect to the remote VM.
+Create VM for IAM. The VM should meet the following minimum requirements:
+
+::
+
+  OS: Ubuntu 16.04 VM
+  vCPUs: 2 vCPUs
+  RAM:4 GB of RAM
+  Network: a public IP address and the SSH public key configuration to allow Ansible to connect to the remote VM.
 
 .. warning::
 
