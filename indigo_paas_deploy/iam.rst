@@ -10,7 +10,7 @@ Create VM for IAM. The VM should meet the following minimum requirements:
 
 ::
 
-  OS: Ubuntu 16.04 VM
+  OS: Ubuntu 16.04
   vCPUs: 2 vCPUs
   RAM:4 GB of RAM
   Network: a public IP address and the SSH public key configuration to allow Ansible to connect to the remote VM.

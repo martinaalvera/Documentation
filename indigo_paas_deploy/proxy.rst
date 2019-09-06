@@ -9,7 +9,7 @@ The master VM can used to run the proxy server. The VM should meet the following
 
 ::
 
-  OS: Ubuntu 16.04 VM
+  OS: Ubuntu 16.04
   vCPUs: 2 vCPUs
   RAM:4 GB of RAM
   Network: a private and a public IP address and the SSH public key configuration to allow Ansible to connect to the remote VM.
