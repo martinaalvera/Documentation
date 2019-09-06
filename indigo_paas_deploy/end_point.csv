@@ -1,0 +1,8 @@
+IAM,https://<IAM_HOSTNAME>/
+SLAM,https://<SLAM_HOSTNAME>:8443/auth
+PROXY,https://<PROXY_HOSTNAME>
+CMDB,https://<PROXY_HOSTNAME>/couch/_utils/database.html?indigo-cmdb-v2
+IM,https://<PROXY_HOSTNAME>/im
+CPR,https://<PROXY_HOSTNAME>/cpr
+ORCHESTRATOR,https://<PROXY_HOSTNAME>/orchestrator
+DASHBOARD,https://<DASHBOARD_HOSTNAME>
