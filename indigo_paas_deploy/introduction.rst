@@ -38,3 +38,12 @@ Please create the needed VMs with the following configuration:
 +----------------------------------------------+------+------+-----------------------+---------------+
 
 In particular we highlight in the table the VM Network configuration, i.e. if the VM needs a public IP address to be accessed from outside or a private IP address is enough.
+
+Once installed the services will be available at the following endpoint:
+
+Services end-points
+-------------------
+.. csv-table:: **Services end-points**
+   :header: "Service", "end-point"
+   :widths: auto
+   :file: ./end_point.csv
