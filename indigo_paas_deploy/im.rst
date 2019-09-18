@@ -71,7 +71,7 @@ Video tutorial
 
 .. raw:: html
 
-   <a href="https://asciinema.org/a/aliahieqrR5ab2Wc3P1ILSrIv" target="_blank"><img src="https://asciinema.org/a/aliahieqrR5ab2Wc3P1ILSrIv.svg" /></a>
+   <a href="https://asciinema.org/a/pWo4o5QMhTawQ4aXIwUamOKOo" target="_blank"><img src="https://asciinema.org/a/pWo4o5QMhTawQ4aXIwUamOKOo.svg" /></a>
 
 IM Test
 -------

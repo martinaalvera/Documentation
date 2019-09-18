@@ -174,7 +174,7 @@ Video tutorial
 
 .. raw:: html
 
-   <a href="https://asciinema.org/a/mh5SZHybsnAov02d3RZ757gUb" target="_blank"><img src="https://asciinema.org/a/mh5SZHybsnAov02d3RZ757gUb.svg" /></a>
+   <a href="https://asciinema.org/a/TKsSQfmN47F4idbuA3vty1lMl" target="_blank"><img src="https://asciinema.org/a/TKsSQfmN47F4idbuA3vty1lMl.svg" /></a>
 
 IAM test
 --------
