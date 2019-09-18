@@ -5,18 +5,18 @@ A proxy server is used to expose IM, CMDB, CPR and the PaaS Orchestrator.
 VM configuration
 ----------------
 
-The master VM can used to run the proxy server. The VM should meet the following minimum requirements:
+The control machine can used to run the proxy server. The VM should meet the following minimum requirements:
 
-::
-
-  OS: Ubuntu 16.04
-  vCPUs: 2 vCPUs
-  RAM:4 GB of RAM
-  Network: a private and a public IP address and the SSH public key configuration to allow Ansible to connect to the remote VM.
+======= ==============================
+OS      Ubuntu 16.04
+vCPUs   1
+RAM     2 GB
+Network Public and private IP address.
+======= ==============================
 
 .. warning::
 
-   All the command will be run on the ``master`` VM.
+   All the command will be run from the control machine.
 
 Installation
 ------------
@@ -45,4 +45,4 @@ Video tutorial
 
 .. raw:: html
 
-   <script id="asciicast-RHPlUmQGfGT1cPx4hGDOMWqAv" src="https://asciinema.org/a/RHPlUmQGfGT1cPx4hGDOMWqAv.js" async></script>
+   <a href="https://asciinema.org/a/269283" target="_blank"><img src="https://asciinema.org/a/269283.svg" /></a>
