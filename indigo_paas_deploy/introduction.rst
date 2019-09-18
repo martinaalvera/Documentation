@@ -20,21 +20,21 @@ Please create the needed VMs with the following configuration:
 +----------------------------------------------+------+------+-----------------------+---------------+
 | INDIGO Component                             | RAM  | vCPU | Ports                 | Network       |
 +==============================================+======+======+=======================+===============+
-| Proxy server                                 | 2 GB | 1    | 443, 8080             | | public IP   |
+| Proxy server                                 | 2 GB | 1    | 22, 443, 8080         | | public IP   |
 |                                              |      |      |                       | | private IP  |
 +----------------------------------------------+------+------+-----------------------+---------------+
-| Identity and Access Manager (IAM)            | 4 GB | 2    | 443                   | public IP     |
+| Identity and Access Manager (IAM)            | 4 GB | 2    | 22, 443               | public IP     |
 +----------------------------------------------+------+------+-----------------------+---------------+
-| Infrastructure Manager (IM)                  | 4 GB | 2    | 8800                  | private IP    |
+| Infrastructure Manager (IM)                  | 4 GB | 2    | 22, 8800              | private IP    |
 +----------------------------------------------+------+------+-----------------------+---------------+
-| | Change Management Database (CMDB),         | 4 GB | 2    | 443, 5984, 8080, 8081 | private IP    |
-| | Cloud Provider Ranker (CPR)                |      |      |                       |               |
+| | Change Management Database (CMDB),         | 4 GB | 2    | 22, 443, 5984, 8080,  | private IP    |
+| | Cloud Provider Ranker (CPR)                |      |      | 8081                  |               |
 +----------------------------------------------+------+------+-----------------------+---------------+
-| Service Level Agreement Manager (SLAM)       | 2 GB | 1    | 8443, 443             | public IP     |
+| Service Level Agreement Manager (SLAM)       | 2 GB | 1    | 22, 8443, 443         | public IP     |
 +----------------------------------------------+------+------+-----------------------+---------------+
-| PaaS Orchestrator                            | 4 GB | 2    | 443                   | private IP    |
+| PaaS Orchestrator                            | 4 GB | 2    | 22, 44                | private IP    |
 +----------------------------------------------+------+------+-----------------------+---------------+
-| HashiCorp Vault and Dashboard                | 4 GB | 2    | 443                   | public IP     |
+| HashiCorp Vault and Dashboard                | 4 GB | 2    | 22, 443               | public IP     |
 +----------------------------------------------+------+------+-----------------------+---------------+
 
 In particular we highlight in the table the VM Network configuration, i.e. if the VM needs a public IP address to be accessed from outside or a private IP address is enough.
