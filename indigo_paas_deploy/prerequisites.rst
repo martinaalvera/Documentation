@@ -1,27 +1,32 @@
 Prerequisites
 =============
 
-The installation procedure exploits Ansible to deploy all the INDIGO services. A Virtual Machine with ansible is mandatory for this purpose.
+The installation procedure exploits Ansible to deploy all the INDIGO services.
 
-This VM will be used to run the installation procedure of each INDIGO component on the remote VMs. 
+A Virtual Machine with ansible is mandatory for this purpose, which we will refer to as **control machine** in the following. This VM will be used to run the installation procedure of each INDIGO component on the remote VMs. 
 
 Here, we will exploit the same VM we will use to deploy the Proxy Server.
 
 VM configuration
 ----------------
 
-Create an Ubuntu 16.04 VM with at least 1 vCPUs, 2 GB of RAM and a public IP address.
+======= ==============================
+OS      Ubuntu 16.04
+vCPUs   2
+RAM     4 GB
+Network Public and private IP address.
+======= ==============================
 
-This VM will be used as ``master`` VM to run Ansible and will also serve as a proxy server
+This VM will be used as ``control machine`` VM to run Ansible and will also serve as host for the proxy server.
 
 .. warning::
 
-   All the command will be run on this ``master`` VM!!!!!
+   All the command will be run on this ``control machine`` VM!
 
 Ansible installation
 --------------------
 
-Ansible can be easily installed following the `documentation here <https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html>`_.
+Ansible can be easily installed following the `documentation <https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html>`_.
 
 We tested the whole procedure using ``Ansible 2.8.3`` with `Ubuntu 16.04 <https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#latest-releases-via-apt-ubuntu>`_.
 
