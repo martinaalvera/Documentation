@@ -4,10 +4,10 @@ Laniakea deployment
 Laniakea relies on the INDIGO-DataCloud `software catalogue <https://www.indigo-datacloud.eu/electricindigo-software-catalogue>`_. The Fig. 1 shows the deployment strategy to be followed to install Laniakea.
 
 .. figure:: _static/paas_deploy.png
-   :scale: 80%
+   :scale: 60%
    :align: center
 
-.. centered:: Fig.1: PaaS component architecture scheme
+.. centered:: Fig 1: PaaS component architecture scheme
 
 We tested our deployment on OpenStack `Mitaka <https://releases.openstack.org/mitaka/index.html>`_ and `Stein <https://releases.openstack.org/stein/index.html>`_, using Ubuntu 16.04 as default OS.
 
@@ -39,10 +39,17 @@ Please create the needed VMs with the following configuration:
 
 In particular we highlight in the table the VM Network configuration, i.e. if the VM needs a public IP address to be accessed from outside or a private IP address is enough.
 
-Once installed the services will be available at the following endpoint:
+.. figure:: _static/openstack_paas_deploy.png
+   :scale: 80%
+   :align: center
+
+.. centered:: Fig 2: INDIGO PaaS VMs view on OpenStack
 
 Services end-points
 -------------------
+
+Once installed the services will be available at the following endpoint:
+
 .. csv-table:: **Services end-points**
    :header: "Service", "end-point"
    :widths: auto
