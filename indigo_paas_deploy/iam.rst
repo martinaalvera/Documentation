@@ -39,8 +39,88 @@ To enable Google authentication access to `Google developers console <https://co
 
 #. Copy your client ID and client secret
 
+Create the file ``indigopaas-deploy/ansible/application-oidc.yml``, copying and pasting the client ID, client Secret and the IAM url
+
+::
+
+  oidc:
+  providers:
+  - name: google
+    issuer: https://accounts.google.com
+    client:
+      clientId: <iam_google_client_id>
+      clientSecret: <iam_google_client_secret>
+      redirectUris: https://<iam_url>/openid_connect_login
+      scope: openid,profile,email,address,phone
+    loginButton:
+      text: Google
+      style: btn-social btn-google
+      image:
+        fa-icon: google
+
+
+
+Enable ELIXIR-AAI Authentication
+--------------------------------
+
+To enable you need to request a valid client ID and client Secret. Please read the corresponding `documentation <https://elixir-europe.org/services/compute/aai>`_.
+
+Then create the file ``indigopaas-deploy/ansible/application-oidc.yml``, copying and pasting the client ID, client Secret and the IAM url:
+
+::
+
+  oidc:
+  providers:
+  - name: elixir-aai
+    issuer: https://login.elixir-czech.org/oidc/
+    client:
+      clientId: <iam_elixiraai_client_id>
+      clientSecret: <iam_elixiraai_client_secret>
+      redirectUris: https://<iam_fqdn>/openid_connect_login
+      scope: openid,groupNames,bona_fide_status,forwardedScopedAffiliations,email,profile
+    loginButton:
+      text:
+      style: no-bg
+      image:
+        url: https://raw.githubusercontent.com/Laniakea-elixir-it/ELIXIR-AAI/master/login-button-orange.png
+        size: medium
+
+
 Installation
 ------------
+
+In the following, both Google and ELIXIR-AAI authentication methods will be enabled. To achieve this the ``indigopaas-deploy/ansible/application-oidc.yml`` with Google and ELIXIR-AAI corresponding clients ID and clients Secret, looks like:
+
+::
+
+  oidc:
+  providers:
+  - name: google
+    issuer: https://accounts.google.com
+    client:
+      clientId: <iam_google_client_id>
+      clientSecret: <iam_google_client_secret>
+      redirectUris: https://<iam_fqdn>/openid_connect_login
+      scope: openid,profile,email,address,phone
+    loginButton:
+      text: Google
+      style: btn-social btn-google
+      image:
+        fa-icon: google
+  - name: elixir-aai
+    issuer: https://login.elixir-czech.org/oidc/
+    client:
+      clientId: <iam_elixiraai_client_id>
+      clientSecret: <iam_elixiraai_client_secret>
+      redirectUris: https://<iam_fqdn>/openid_connect_login
+      scope: openid,groupNames,bona_fide_status,forwardedScopedAffiliations,email,profile
+    loginButton:
+      text:
+      style: no-bg
+      image:
+        url: https://raw.githubusercontent.com/Laniakea-elixir-it/ELIXIR-AAI/master/login-button-orange.png
+        size: medium
+
 
 Create the file ``indigopaas-deploy/ansible/inventory/group_vars/iam.yaml`` with the following configured values:
 
@@ -50,14 +130,13 @@ Create the file ``indigopaas-deploy/ansible/inventory/group_vars/iam.yaml`` with
   iam_mysql_root_password: *******
   iam_organization_name: '<your_organization_name>'
   iam_logo_url: <logo_url>
-  iam_enable_google_auth: true
   iam_account_linking_disable: true
-  iam_mysql_image: "mysql:5.5"
-  iam_image: indigoiam/iam-login-service:v1.4.0-latest
+  iam_mysql_image: "mysql:5.7"
+  iam_image: indigoiam/iam-login-service:v1.5.0.rc2-SNAPSHOT-latest
   iam_notification_disable: true
   iam_notification_from: 'iam@{{iam_fqdn}}'
-  iam_google_client_id: '<google_client_ID>'
-  iam_google_client_secret: '<google_client_secret>'
+  iam_enable_oidc_auth: true
+  iam_application_oidc_path: "/root/indigopaas-deploy/ansible/application-oidc.yml"
   iam_admin_email: '<valid_email_address>'
 
 .. warning::
@@ -86,7 +165,6 @@ Run the role using the ``ansible-playbook`` command:
      password: password
 
 .. figure:: _static/iam_login.png
-   :scale: 25%
    :align: center
 
 .. centered:: Fig.2: IAM login page
@@ -96,7 +174,7 @@ Video tutorial
 
 .. raw:: html
 
-   <script id="asciicast-266305" src="https://asciinema.org/a/266305.js" async></script>
+   <a href="https://asciinema.org/a/mh5SZHybsnAov02d3RZ757gUb" target="_blank"><img src="https://asciinema.org/a/mh5SZHybsnAov02d3RZ757gUb.svg" /></a>
 
 IAM test
 --------
@@ -112,7 +190,7 @@ Test 1: login as admin
       username: admin
       password: password
 
-#. Change default password
+.. Warning:: Change default password
 
 Test 2: Create a new user
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -122,7 +200,7 @@ Test 2: Create a new user
 #. Login as admin and accept the request
 #. Login as new user
 
-Test 3: register using Google account (optional)
+Test 3: Register using Google account (optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 #. Sign-in with Google 

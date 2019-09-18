@@ -1,7 +1,7 @@
 Infrastructure Manager (IM)
 ===========================
 
-The `Infrastructure Manager (IM) <https://www.grycap.upv.es>`_ is used to deploy virtual infrastructures, e.g. Galaxy.
+The `Infrastructure Manager (IM) <https://www.grycap.upv.es>`_ is used to deploy virtual infrastructures, to deploy virtual infrastructures, e.g. Galaxy and the underlying virtual hardware.
 
 .. note::
    Current IM version: 1.8.2
@@ -9,35 +9,35 @@ The `Infrastructure Manager (IM) <https://www.grycap.upv.es>`_ is used to deploy
 VM configuration
 ----------------
 
-Create VM for IA. The VM should meet the following minimum requirements:
+Create VM for IM. The VM should meet the following minimum requirements:
 
-::
-
-  OS: Ubuntu 16.04
-  vCPUs: 2 vCPUs
-  RAM:4 GB of RAM
-  Network: a private IP address and the SSH public key configuration to allow Ansible to connect to the remote VM.
+======= ==============================
+OS      Ubuntu 16.04
+vCPUs   2
+RAM     4 GB
+Network Private IP address.
+======= ==============================
 
 .. warning::
 
-   All the command will be run on the ``master`` VM.
+   All the command will be run from the control machine VM.
 
 IAM protected resource configuration
 ------------------------------------
 
-Create a protected resource registration for IM on IAM:
+Register a new protected resource for IM on IAM:
 
-#. Login on IAM
+#. Login on IAM as admin.
 
-#. Navigate to *MitreID Dashboard* and finally select from the left panel *Self-service protected resource registration*.
+#. Navigate to **MitreID Dashboard** and finally select from the left panel **Self-service protected resource registration**.
 
-#. Create a *New Resource*
+#. Create a **New Resource**.
 
-#. Give it a name, e.g. *infrastructure_manager*
+#. Give it a name, e.g. ``infrastructure_manager``.
 
-#. Keep the default configuration and *Save*
+#. Keep the default configuration and Save.
 
-#. Save IM *Client ID* and *Client Secret*
+#. Save IM **Client ID** and **Client Secret**.
 
 Installation
 ------------
@@ -71,7 +71,7 @@ Video tutorial
 
 .. raw:: html
 
-   <script id="asciicast-RN1WDNR8sgzr3iM5uJw8Mkzma" src="https://asciinema.org/a/RN1WDNR8sgzr3iM5uJw8Mkzma.js" async></script>
+   <a href="https://asciinema.org/a/aliahieqrR5ab2Wc3P1ILSrIv" target="_blank"><img src="https://asciinema.org/a/aliahieqrR5ab2Wc3P1ILSrIv.svg" /></a>
 
 IM Test
 -------
