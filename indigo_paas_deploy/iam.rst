@@ -8,16 +8,16 @@ VM configuration
 
 Create VM for IAM. The VM should meet the following minimum requirements:
 
-::
-
-  OS: Ubuntu 16.04
-  vCPUs: 2 vCPUs
-  RAM:4 GB of RAM
-  Network: a public IP address and the SSH public key configuration to allow Ansible to connect to the remote VM.
+======= ==============================
+OS      Ubuntu 16.04
+vCPUs   2
+RAM     4 GB
+Network Public IP address.
+======= ==============================
 
 .. warning::
 
-   All the command will be run on the ``master`` VM.
+   All the command will be run on the control machine.
 
 
 Enable Google Authentication
@@ -76,6 +76,15 @@ Run the role using the ``ansible-playbook`` command:
 
   # ansible-playbook -i inventory/inventory playbooks/deploy-iam.yml
 
+.. note::
+
+   Default administrator credentials:
+ 
+   ::
+
+     username: admin
+     password: password
+
 .. figure:: _static/iam_login.png
    :scale: 25%
    :align: center
@@ -123,8 +132,10 @@ Test 3: register using Google account (optional)
 Create IAM Client
 -----------------
 
-#. Login as user, i.e. non Administrator user
+#. Login as administrator or registered user.
+
 #. Click on *MitreID Dashboard* and then *Self-service client registration*
+
 #. Click on *New client* and compile the form wit the following parameters
 
    ::
@@ -150,7 +161,7 @@ Create IAM Client
        * authorization code
        * refresh
 
-#. save the client IDm, client secret and client token.
+#. save the client ID, client secret and client token.
 
 .. figure:: _static/mitre.png
    :scale: 25%
@@ -164,3 +175,13 @@ Create IAM Client
    :align: center
 
 .. centered:: Fig.4: MitreID Dashboard client registration
+
+Obtaining an IAM access token
+-----------------------------
+
+To get a vaild IAM access token, please follow this instructions:
+
+.. toctree::
+   :maxdepth: 2
+
+   get_iam_token
