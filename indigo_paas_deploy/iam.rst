@@ -3,6 +3,9 @@ Identity Access Manager (IAM)
 
 The INDIGO Identity and Access Management (IAM) is an Authentication and Authorisation Infrastructure (AAI) service which manages users credentitials and attributes, like group membership,  and authorization policies to access the resources.
 
+.. note::
+   Current IAM version: v1.5.0.rc2
+
 VM configuration
 ----------------
 

@@ -1,73 +1,100 @@
 SLA Manager (SLAM)
 ==================
 
+The Service Level Agreement Manager (SLAM) role is to establish an agreement between customer and provider about capacity and quality targets. SLAM is using INDIGO IAM for authentication and INDIGO CMDB for configuration and authorization for providers.
+
+.. note::
+   Current SLAM version v2.0.0
+
+VM configuration
+----------------
+
+Create VM for SLAM. The VM should meet the following minimum requirements:
+
+======= ==============================
+OS      Ubuntu 16.04
+vCPUs   1
+RAM     2 GB
+Network Public IP address.
+======= ==============================
+
+.. warning::
+
+   All the command will be run from the control machine VM.
+
 SLAM IAM client creation
 ------------------------
 
-1. Login in IAM as non-Admin user
-2. Click on *MitreID Dashboard* and then *Self-service client registration*
-3. Click on *New client* and compile the form wit the following paramethers
+Register a new IAM client for SLAM:
 
+#. Login in IAM as admin
 
-*Client name* = slam-client
+#. Click on **MitreID Dashboard** and then **Self-service client registration**
 
-*redirect URI* = https://<SLAM_HOSTNAME>:8443/auth
+#. Click on **New client** and fill the form wit the following paramethers:
 
-*scope:*
+   ::
 
-* openid
-* profile
-* email
-* address
-* phone
-* offline_access
+     Client name:  slam_client
 
-*Grant Types*
+     redirect URI = https://<slam_vm_dns_name>:8443/auth
 
-* authorization code
+#. In the Access tab select the follwing **Scopes** 
 
-*Response types*
+   ::
 
-* code
+     openid
 
-*credentials*
+     profile
 
-* client Secret over HTTP Post
+     email
 
-*Public key set*
+     address
 
-* By URI
+     phone
 
-4. save the client ID and client secret
+     offline_access
 
-Setting up SLAM role
---------------------
+    and **Grant Types**:
 
-1. Create and edit proxy.yaml in **group_vars** that contain all the following variables:
+    ::
 
- .. highlight:: none
+      authorization code
+
+#. save the client ID and client secret.
+
+Installation
+------------
+
+Create the file ``indigopaas-deploy/ansible/inventory/group_vars/slam.yaml`` with the following configured values:
 
  ::
   
-  letsencrypt_email: 'email'
-  slam_dns_name: '<SLAM_HOSTNAME>'
-  slam_mysql_password: '<password>'
-  slam_mysql_root_password: '<password>'
-  slam_iam_url: 'https://<IAM_HOSTNAME>'
+  letsencrypt_email: '<validemail_address>'
+  slam_dns_name: '<slam_dns_name>'
+  slam_mysql_password: '*****'
+  slam_mysql_root_password: '*****'
+  slam_iam_url: 'https://<iam_dns_name>'
   slam_iam_client_id: '<slam-client-ID>'
   slam_iam_client_secret: '<slam-client-secret>'
-  slam_cmdb_url: 'https://<proxy_HOSTNAME>'
-  slam_keystore_password: '<password>'
+  slam_cmdb_url: 'https://<proxy_dns_name>'
+  slam_keystore_password: '*****'
   slam_create_keystore: true
 
+.. warning::
 
-                   
-.. highlight:: default
+   Set also your custom mysql password with ``slam_mysql_password``, ``lam_mysql_root_password`` and keystore password with ``slam_keystore_password``.
 
-Run the role
-------------
+Run the role using the ``ansible-playbook`` command:
 
-* Run the role using *ansible-playbook* with input ``indigopass-deploy/indigopaas-deploy/ansible/playbooks/deploy-slam.yml``
+::
+
+  # cd indigopaas-deploy/ansible 
+
+  # ansible-playbook -i inventory/inventory playbooks/deploy-slam.yml
+
+Video tutorial
+--------------
 
 SLAM configuration
 ------------------
@@ -84,7 +111,7 @@ Authorize SLAM
    :align: center
 
 .. centered:: Fig.1: SLAM authorization screenshot
-
+`
 .. figure:: _static/SLAM.png
    :scale: 50%
    :align: center

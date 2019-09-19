@@ -11,7 +11,7 @@ Laniakea relies on the INDIGO-DataCloud `software catalogue <https://www.indigo-
 
 We tested our deployment on OpenStack `Mitaka <https://releases.openstack.org/mitaka/index.html>`_ and `Stein <https://releases.openstack.org/stein/index.html>`_, using Ubuntu 16.04 as default OS.
 
-Each INDIGO component is installed using its official Docker container and run on a specific Virtual Machine.
+Docker containers are used to provide the INDIGO microservices: each INDIGO component is installed using its official Docker container and run on a specific Virtual Machine.
 
 Tab. 1 shows the VMs tha has to be created, their requirements and the corresponding ports configuration needed to install Laniakea.
 

@@ -7,6 +7,12 @@ The Cloud Provider Ranker is a standalone REST WEB Service which ranks cloud pro
 
 CMDB and CPR are installed on the same machine.
 
+.. note::
+   Current CMDB version: indigo_2
+
+.. note::
+   Current CPR version: indigo_2
+
 VM configuration
 ----------------
 
