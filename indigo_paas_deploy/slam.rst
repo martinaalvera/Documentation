@@ -115,13 +115,13 @@ Authorize SLAM
 #. Authorize SLAM
 
    .. figure:: _static/slam/slam_client_authorize.png
-      :scale: 50%
+      :scale: 30%
       :align: center
    
    .. centered:: Fig.1: SLAM authorization
 
    .. figure:: _static/slam/slam_home.png
-      :scale: 50%
+      :scale: 30%
       :align: center
    
    .. centered:: Fig.1: SLAM home page

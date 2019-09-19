@@ -10,7 +10,7 @@ Resources con be negotiated trought SLAM dashboard creating new **computing SLA*
       Only Provider and service, Start and End data are currently relevant parameters.
    
    .. figure:: _static/slam/slam_negotiation_1.png
-      :scale: 50%
+      :scale: 30%
       :align: center
    
    Save the document to perfom actions, validate and send it to provider.
@@ -18,13 +18,13 @@ Resources con be negotiated trought SLAM dashboard creating new **computing SLA*
    The entry is now available in the dashboard tab.
 
    .. figure:: _static/slam/slam_negotiation_2.png
-      :scale: 50%
+      :scale: 30%
       :align: center
 
    The SLA is now available in the SLAM dashboard.
 
    .. figure:: _static/slam/slam_negotiation_3.png
-      :scale: 50%
+      :scale: 30%
       :align: center
 
 #. The SLA has to be validated by provider owner provided during CMDB configuration (see section :doc:`cmdb`):
@@ -34,17 +34,17 @@ Resources con be negotiated trought SLAM dashboard creating new **computing SLA*
    Tap on the **ID** in the Provider tab, which is available only for provider user set in CMDB.
 
    .. figure:: _static/slam/slam_negotiation_4.png
-      :scale: 50%
+      :scale: 30%
       :align: center
 
 #. Accept the SLA.
 
    .. figure:: _static/slam/slam_negotiation_5.png
-      :scale: 50%
+      :scale: 30%
       :align: center
 
 #. The SLA is now available:
 
    .. figure:: _static/slam/slam_negotiation_6.png
-      :scale: 50%
+      :scale: 30%
       :align: center
