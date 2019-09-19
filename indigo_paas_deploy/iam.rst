@@ -213,54 +213,18 @@ Test 3: Register using Google account (optional)
 Create IAM Client
 -----------------
 
-#. Login as administrator or registered user.
+To create a IAM **client** or a **protetect resource**, please follow these instructions:
 
-#. Click on *MitreID Dashboard* and then *Self-service client registration*
 
-#. Click on *New client* and compile the form wit the following parameters
+.. toctree::
+   :maxdepth: 2
 
-   ::
-
-     Client name = iam-client-name
-
-     redirect URI = https://<service_hostname>
-
-#. Configure your client, for example:
-
-   ::
-
-     scope:
-       * openid
-       * profile
-       * email
-       * address
-       * phone
-       * offline_access
-       
-     Grant Types
-       
-       * authorization code
-       * refresh
-
-#. save the client ID, client secret and client token.
-
-.. figure:: _static/mitre.png
-   :scale: 25%
-   :align: center
-
-.. centered:: Fig.3: MitreID Dashboard screenshot
-
- 
-.. figure:: _static/client_conf.png
-   :scale: 25%
-   :align: center
-
-.. centered:: Fig.4: MitreID Dashboard client registration
+   iam_client
 
 Obtaining an IAM access token
 -----------------------------
 
-To get a vaild IAM access token, please follow this instructions:
+To get a vaild IAM access token, please follow these instructions:
 
 .. toctree::
    :maxdepth: 2

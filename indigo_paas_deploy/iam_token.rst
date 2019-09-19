@@ -16,6 +16,7 @@ Prerequisites
       :scale: 80%
       :align: center
 
+   Save client ID, secret and token.
 
 #. On any linux distirbution, e.g. Ubuntu, Install ``jq``:
 
