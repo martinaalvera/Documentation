@@ -37,7 +37,7 @@ Register a new protected resource for IM on IAM:
 
 #. Keep the default configuration and Save.
 
-#. Save IM **Client ID** and **Client Secret**.
+#. Save IM **Client ID**, **Client Secret** and **Registration Access Token**.
 
 Installation
 ------------

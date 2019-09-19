@@ -39,7 +39,7 @@ IAM  protected resource configuration for CLUES
 
      Introspection Allow calls to the Introspection Endpoint?
 
-#. Save **client ID** and **client secret**
+#. Save **Client ID**, **Client Secret** and **Registration Access Token**.
 
 .. Warning::
 
@@ -64,7 +64,7 @@ IAM protected resource configuration for the Orchestrator
 
      Introspection Allow calls to the Introspection Endpoint?
 
-#. Save **client ID** and **client secret**
+#. Save **Client ID**, **Client Secret** and **Registration Access Token**.
 
 .. Warning::
 

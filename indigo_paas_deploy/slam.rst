@@ -59,7 +59,7 @@ Register a new IAM client for SLAM:
       :scale: 50%
       :align: center
 
-#. save the client ID and client secret.
+#. Save **Client ID**, **Client Secret** and **Registration Access Token**.
 
 Installation
 ------------
