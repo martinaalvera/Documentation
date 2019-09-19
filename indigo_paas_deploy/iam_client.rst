@@ -25,7 +25,7 @@ Create IAM client or protected resource
        
      Grant Types: authorization code, refresh
 
-#. Save the client ID, client secret and client token.
+#. Save the client ID, client secret and registration access token (needed to modify the client).
 
 .. figure:: _static/mitre.png
    :scale: 25%
