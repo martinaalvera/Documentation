@@ -40,7 +40,7 @@ Register a new IAM client for SLAM:
      redirect URI = https://<slam_vm_dns_name>:8443/auth
 
    .. figure:: _static/slam/slam_client_main.png
-      :scale: 50%
+      :scale: 30%
       :align: center
 
 #. In the Access tab select the follwing **Scopes** 
@@ -56,7 +56,7 @@ Register a new IAM client for SLAM:
      Grant types: authorization code
 
    .. figure:: _static/slam/slam_client_access.png
-      :scale: 50%
+      :scale: 30%
       :align: center
 
 #. Save **Client ID**, **Client Secret** and **Registration Access Token**.
