@@ -7,13 +7,13 @@ Prerequisites
 #. Create a IAM client. The Redirect URI is not important, so you can exploit the IAM address itself. 
 
    .. figure:: _static/get_iam_token/get_iam_token_client_main.png
-      :scale: 80%
+      :scale: 40%
       :align: center
 
 #. Give the client the rigth **Scopes** and **Grant Types** as in the figure:
 
    .. figure:: _static/get_iam_token/get_iam_token_client_access.png
-      :scale: 80%
+      :scale: 40%
       :align: center
 
    Save client ID, secret and token.
@@ -57,25 +57,25 @@ Get IAM access token
      # ./dc-get-access-token.sh
 
    .. figure:: _static/get_iam_token/get_iam_token_script_start.png
-      :scale: 80%
+      :scale: 50%
       :align: center
 
 #. Open in a brower the URL obtained from the script and paste code:
 
    .. figure:: _static/get_iam_token/get_iam_token_enter_code.png
-      :scale: 80%
+      :scale: 50%
       :align: center
 
 #. Authorize the client to create a token:
 
    .. figure:: _static/get_iam_token/get_iam_token_authorize.png
-      :scale: 80%
+      :scale: 50%
       :align: center
 
 
 #. Type ```Y`` on the shell script and get your access token:
 
    .. figure:: _static/get_iam_token/get_iam_token_script_end.png
-      :scale: 80%
+      :scale: 50%
       :align: center
 
