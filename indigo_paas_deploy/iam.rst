@@ -229,4 +229,4 @@ To get a vaild IAM access token, please follow these instructions:
 .. toctree::
    :maxdepth: 2
 
-   get_iam_token
+   iam_token
