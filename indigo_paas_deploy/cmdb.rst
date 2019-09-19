@@ -47,8 +47,8 @@ Run the role using the ``ansible-playbook`` command:
 
   # ansible-playbook -i inventory/inventory playbooks/deploy-cmdb.yml
 
-CMDB video tutorial
--------------------
+CMDB installation video tutorial
+--------------------------------
 
 .. raw:: html
 
@@ -67,9 +67,10 @@ The current version of CMDB is supporting set of configuration elements that are
 
 CMDB needs to be populated with IaaS provider, services and images information.
 
-In the following we will
 
-#. SSH on cmdb virtual machine.
+.. warning::
+
+   SSH on CMDb virtual machine.
 
 #. Create a directory called **cmdb-data**
 
@@ -94,6 +95,10 @@ In the following we will
          },
          "type": "provider"
       }
+
+   .. warning::
+
+      The provider **owners** list requrires at least a valid mail address, since this user has to be used for the resource negotiation procedure, during SLAM configuration (see section :doc:`slam`)
 
 #. Create the file ``cmdb-data/service.json``
 
@@ -183,7 +188,72 @@ In the following we will
    :align: center
 
 .. centered:: CMDB couchDB after the configuration process with provider, service and image. 
-       
+
+CMBD configuration json example
+-------------------------------
+
+These are the configuration files used for **Laniakea@ReCaS** service, the Laniakea installation at the ReCaS Datacenter:
+
+**provider.json**
+
+.. code:: json
+
+   {
+      "_id": "provider-RECAS-BARI",
+      "data": {
+          "name": "RECAS-BARI",
+          "country": "Italy",
+          "country_code": "IT",
+          "roc": "NGI_IT",
+          "subgrid": "",
+          "giis_url": "ldap://cloud-bdii.recas.ba.infn.it:2170/GLUE2DomainID=RECAS-BARI,o=glue",
+          "owners": [ "*****" ]
+      },
+      "type": "provider"
+   }
+
+**service.json**
+
+.. code:: json
+
+   {
+      "_id": "service-RECAS-BARI-openstack",
+      "data": {
+          "service_type": "eu.egi.cloud.vm-management.openstack",
+          "endpoint": "https://cloud.recas.ba.infn.it:5000/v3",
+          "provider_id": "provider-RECAS-BARI",
+          "region": "recas-cloud",
+          "sitename": "RECAS-BARI",
+          "hostname": "cloud.recas.ba.infn.it",
+          "type": "compute"
+      },
+      "type": "service"
+   }
+
+**image.json**
+
+.. code:: json
+
+   {
+      "type": "image",
+      "data": {
+          "image_id": "8f667fbc-40bf-45b8-b22d-40f05b48d060",
+          "image_name": "RECAS-BARI-ubuntu-16.04",
+          "architecture": "x86_64",
+          "type": "linux",
+          "distribution": "ubuntu",
+          "version": "16.04",
+          "service": "service-RECAS-BARI-openstack"
+      }
+   }
+
+CMDB configuration video tutorial
+---------------------------------
+
+.. raw:: html
+
+   <a href="https://asciinema.org/a/TnKtCwuarE0hrnrGm6VODirKW" target="_blank"><img src="https://asciinema.org/a/TnKtCwuarE0hrnrGm6VODirKW.svg" /></a>
+
 CPR installation
 ----------------
 
