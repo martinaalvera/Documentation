@@ -27,39 +27,37 @@ SLAM IAM client creation
 
 Register a new IAM client for SLAM:
 
-#. Login in IAM as admin
+#. Login in IAM as admin.
 
-#. Click on **MitreID Dashboard** and then **Self-service client registration**
+#. Click on **MitreID Dashboard** and then **Self-service client registration**.
 
 #. Click on **New client** and fill the form wit the following paramethers:
 
    ::
 
-     Client name:  slam_client
+     Client name: slam_client
 
      redirect URI = https://<slam_vm_dns_name>:8443/auth
+
+   .. figure:: _static/slam/slam_client_main.png
+      :scale: 50%
+      :align: center
 
 #. In the Access tab select the follwing **Scopes** 
 
    ::
 
-     openid
+     Scopes: openid, profile, email, address, phone, offline_access
 
-     profile
+   and for **Grant Types** select:
 
-     email
+   ::
 
-     address
+     Grant types: authorization code
 
-     phone
-
-     offline_access
-
-    and **Grant Types**:
-
-    ::
-
-      authorization code
+   .. figure:: _static/slam/slam_client_access.png
+      :scale: 50%
+      :align: center
 
 #. save the client ID and client secret.
 
@@ -70,7 +68,7 @@ Create the file ``indigopaas-deploy/ansible/inventory/group_vars/slam.yaml`` wit
 
  ::
   
-  letsencrypt_email: '<validemail_address>'
+  letsencrypt_email: '<valid_email_address>'
   slam_dns_name: '<slam_dns_name>'
   slam_mysql_password: '*****'
   slam_mysql_root_password: '*****'
@@ -93,8 +91,16 @@ Run the role using the ``ansible-playbook`` command:
 
   # ansible-playbook -i inventory/inventory playbooks/deploy-slam.yml
 
+.. warning::
+
+   SLAM will require few minutes to start and will be available at **https://<slam_dns_name>:8443/auth**.
+
 Video tutorial
 --------------
+
+.. raw:: html
+
+   <a href="https://asciinema.org/a/NmMSgc2QEB6I9Y32GASbXTBi7" target="_blank"><img src="https://asciinema.org/a/NmMSgc2QEB6I9Y32GASbXTBi7.svg" /></a>
 
 SLAM configuration
 ------------------
@@ -102,30 +108,32 @@ SLAM configuration
 Authorize SLAM
 ^^^^^^^^^^^^^^
 
-1. Go to https://<SLAM_HOSTNAME>:8443/auth it will redirect you to IAM
-2. Login as admin
-3. Authorize SLAM (Fig.4)
+#. SLAM is available at **https://<slam_dns_name>:8443/auth**. It will redirect you to IAM
 
-.. figure:: _static/SLAM_approvation.png
-   :scale: 50%
-   :align: center
+#. Login as admin
 
-.. centered:: Fig.1: SLAM authorization screenshot
-`
-.. figure:: _static/SLAM.png
-   :scale: 50%
-   :align: center
+#. Authorize SLAM
 
-.. centered:: Fig.1: SLAM homepage
+   .. figure:: _static/slam/slam_client_authorize.png
+      :scale: 50%
+      :align: center
+   
+   .. centered:: Fig.1: SLAM authorization
 
-Negotiate resources
-^^^^^^^^^^^^^^^^^^^
+   .. figure:: _static/slam/slam_home.png
+      :scale: 50%
+      :align: center
+   
+   .. centered:: Fig.1: SLAM home page
 
-Resources con be negotiated trought SLAM dashboard creating new **computing and storage SLA** filling the module.
+Resources negitation
+^^^^^^^^^^^^^^^^^^^^
 
-.. figure:: _static/slam_configuration.png
-   :scale: 50%
-   :align: center
+To create new SLAs with SLAM follow this steps:
 
-.. centered:: Fig.2: SLAM Creating new SLA
+.. toctree::
+   :maxdepth: 2
+
+   slam_negotiation
+
 
