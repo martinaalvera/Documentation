@@ -71,9 +71,19 @@ Configuration
       [orchestrator]
       <orchestrator_vm_private_ip>
 
+      [vault]
+      <vault_vm_public_ip>
+
+      [orchestrator-dashboard]
+      <dashboard-vm-public-ip> 
+
    .. warning::
 
       CMDB and CPR will be host on the same Virtual Machine in this guide.
+
+   .. warning::
+
+      Vault and the Orchestrator Dashboard will be host on the same Virtual Machine in this guide.
 
 3. Create the ``group_vars`` directory in ``indigopaas-deploy/ansible/inventory/``
 

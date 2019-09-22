@@ -31,7 +31,7 @@ Register a new IAM client for SLAM:
 
 #. Click on **MitreID Dashboard** and then **Self-service client registration**.
 
-#. Click on **New client** and fill the form wit the following paramethers:
+#. Click on **New client** and fill the form with the following paramethers:
 
    ::
 
@@ -135,5 +135,3 @@ To create new SLAs with SLAM follow this steps:
    :maxdepth: 2
 
    slam_negotiation
-
-

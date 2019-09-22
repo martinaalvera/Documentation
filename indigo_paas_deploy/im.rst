@@ -77,8 +77,3 @@ IM Test
 -------
 
 .. scrivi test IM
-
-
-
-
-

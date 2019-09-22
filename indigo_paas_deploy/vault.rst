@@ -1,29 +1,23 @@
-Laniakea Dashboard
+Hashicorp Vault
 ==================
 
-The Laniakea Dashbaord is built on top of the INDIGO Orchestrator Dashboard.
+Vault is exploited as secrets management store, to store and manage encryption passphrases
 
 .. note::
 
-   Current Dahsboard version: v0.5
+   Current version version: 1.1.2
 
 VM configuration
 ----------------
 
-Create VM for Dashboard. The VM should meet the following minimum requirements:
+Create a VM for Vault. The VM should meet the following minimum requirements:
 
 ======= ==============================
 OS      Ubuntu 16.04
 vCPUs   2
 RAM     4 GB
-Network Private IP address.
+Network Public IP address.
 ======= ==============================
-
-.. warnings::
-
-   In this tutorial we will use the same VM for vault and the dashbord, being the two services strictly connected.
-
-   This is not requred.
 
 .. warning::
 
@@ -78,26 +72,24 @@ IAM client configuration
 Installation
 ------------
 
-The Laniakea dashboard can be installed in three different ways:
+Create the file ``indigopaas-deploy/ansible/inventory/group_vars/vault.yaml`` with the following configured values:
 
-#. Stateless version: this is a simple graphical User interface of the INDIGO PaaS orchestrator. The automated storage encryption will not work.
+::
 
-   .. toctree::
-      :maxdepth: 2
+  vault_fqdn: <dashboard_vm_dns_name>
+  vault_image_name: vault:1.1.2
+  
+  vault_iam_issuer: "https://<iam_address>/"
+  vault_iam_client_id: "<im_client_id>'"
+  vault_iam_client_secret: "<iam_client_secret>"
+  
+  vault_letsencrypt_email: "<valid_email_address>"
 
-      dashboard_stateless
+Run the role using the ``ansible-playbook`` command:
 
+::
 
-#. With MySQL database: this version comes with a MySQL database support and requires
+  # cd indigopaas-deploy/ansible 
 
-   .. toctree::
-      :maxdepth: 2
-
-      dashboard_db
-
-#. With MySQL and Hashicorp Vault: this is the version exploited by default on Laniakea.
-
-   .. toctree::
-      :maxdepth: 2
-
-      dashboard_vault
+  # ansible-playbook -i inventory/inventory playbooks/deploy-vault.yml
+~                                                                                      

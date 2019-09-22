@@ -34,7 +34,7 @@ Please create the needed VMs with the following configuration:
 +----------------------------------------------+------+------+-----------------------+---------------+
 | PaaS Orchestrator                            | 4 GB | 2    | 22, 44                | private IP    |
 +----------------------------------------------+------+------+-----------------------+---------------+
-| HashiCorp Vault and Dashboard                | 4 GB | 2    | 22, 443               | public IP     |
+| HashiCorp Vault and Dashboard                | 4 GB | 2    | 22, 8200, 443         | public IP     |
 +----------------------------------------------+------+------+-----------------------+---------------+
 
 In particular we highlight in the table the VM Network configuration, i.e. if the VM needs a public IP address to be accessed from outside or a private IP address is enough.
