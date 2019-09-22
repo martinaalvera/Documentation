@@ -86,6 +86,7 @@ For more information on the Galaxy Project, please visit the https://galaxyproje
    indigo_paas_deploy/cmdb
    indigo_paas_deploy/slam
    indigo_paas_deploy/orchestrator
+   indigo_paas_deploy/vault
    indigo_paas_deploy/dashboard
 
 .. toctree::
