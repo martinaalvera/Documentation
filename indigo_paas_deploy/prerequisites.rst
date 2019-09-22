@@ -75,7 +75,7 @@ Configuration
       <vault_vm_public_ip>
 
       [orchestrator-dashboard]
-      <dashboard-vm-public-ip> 
+      <dashboard_vm_public_ip> 
 
    .. warning::
 
