@@ -42,13 +42,13 @@ Laniakea exploits a set of four different policies for secrets management:
        capabilities = ["list"]
      }
 
-#. The **write onlyi.hcl** token is exploited by LUKS script on the Virtual machine during the encryption procedure to store passphrases on Vault.
+#. The **write only.hcl** token is exploited by LUKS script on the Virtual machine during the encryption procedure to store passphrases on Vault.
    
    ::
    
      # Grant permissions on user specific path
      path "secrets/data/{{identity.entity.aliases.<jwt_auth_accessor>.name}}/*" {
-       capabilities = [ "read" ]
+         capabilities = [ "create"]
      }
 
    The ecryption script write the random generated passphrase on vault on Vault, in a path where only the user can access, since it depends on its identity.
@@ -59,7 +59,7 @@ Laniakea exploits a set of four different policies for secrets management:
    
      # Grant permissions on user specific path
      path "secrets/data/{{identity.entity.aliases.<jwt_auth_accessor>.name}}/*" {
-         capabilities = [ "create"]
+       capabilities = [ "read" ]
      }
 
    Users can read their passphrases through the dashboard after authenticating.
