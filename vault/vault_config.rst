@@ -33,7 +33,7 @@ Laniakea exploits a set of four different policies for secrets management:
      }
      
      # Grant permissions on user specific path
-     path "secrets/data/{{identity.entity.aliases.auth_jwt_9144d398.name}}/*" {
+     path "secrets/data/{{identity.entity.aliases.<jwt_auth_accessor>.name}}/*" {
          capabilities = [ "read" ]
      }
      
