@@ -40,7 +40,6 @@ For more information on the Galaxy Project, please visit the https://galaxyproje
    qs_encryption
    qs_galaxy_cluster
    qs_key_pair
-   qs_galaxy_onedata
    qs_virtual_hdw_presets
 
 .. toctree::
@@ -73,6 +72,7 @@ For more information on the Galaxy Project, please visit the https://galaxyproje
    dev_ansible_roles
    dev_tosca_templates
    dev_build_cvmfs_server
+   vault/vault_config
 
 .. toctree::
    :maxdepth: 2
