@@ -33,7 +33,7 @@ For more information on the Galaxy Project, please visit the https://galaxyproje
 
 .. toctree::
    :maxdepth: 2
-   :caption: Quickstarts
+   :caption: user documentation
 
    qs_galaxy_vm
    qs_galaxy
@@ -41,11 +41,6 @@ For more information on the Galaxy Project, please visit the https://galaxyproje
    qs_galaxy_cluster
    qs_key_pair
    qs_virtual_hdw_presets
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Features
-
    feat_options
    feat_galaxy_prod_env
    feat_instance_isolation
@@ -57,45 +52,20 @@ For more information on the Galaxy Project, please visit the https://galaxyproje
 
 .. toctree::
    :maxdepth: 2
-   :caption: Galaxy admin
+   :caption: admin documentation
 
    script_galaxyctl_libs
    script_galaxyctl
    script_luksctl
    script_onedatactl
    faq
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Development
-
    dev_ansible_roles
    dev_tosca_templates
    dev_build_cvmfs_server
    vault/vault_config
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Laniakea Installation
+   dashboard/dashboard_config
 
    indigo_paas_deploy/introduction
-   indigo_paas_deploy/prerequisites
-   indigo_paas_deploy/iam
-   indigo_paas_deploy/proxy
-   indigo_paas_deploy/im
-   indigo_paas_deploy/cmdb
-   indigo_paas_deploy/slam
-   indigo_paas_deploy/orchestrator
-   indigo_paas_deploy/vault
-   indigo_paas_deploy/dashboard
-
-.. toctree::
-   :maxdepth: 2
-   :caption: FAQ INDIGO components
-
-   indigo_paas_deploy/orchestrator_faq
-   indigo_paas_deploy/im_faq
-   indigo_paas_deploy/clues_faq
 
 GitHub repository
 -----------------
