@@ -1,14 +1,7 @@
-Infrastructure Manager
-======================
+Where are the deployments log?
+******************************
 
-The Infrastructure Manager (IM) is a tool that deploys complex and customized virtual infrastructures on IaaS Cloud deployments (such as AWS, OpenStack, etc.). 
-
-Official GitBook documentation: https://www.gitbook.com/book/indigo-dc/im/details
-
-Deployments log
-***************
-
-Deployment logs are available in `/var/tmp/.im/<im-id>/<deployment_ip>/ctxt_agent.log`. For instance:
+The deployment logs are available in `/var/tmp/.im/<im-id>/<deployment_ip>/ctxt_agent.log`. For example:
 
 ::
 

@@ -77,3 +77,11 @@ IM Test
 -------
 
 .. scrivi test IM
+
+FAQ
+---
+
+.. toctree::
+   :maxdepth: 2
+
+   im_faq

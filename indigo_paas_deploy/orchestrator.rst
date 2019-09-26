@@ -123,3 +123,13 @@ Run the role using the ``ansible-playbook`` command:
 
 Video tutorial
 --------------
+
+
+FAQ
+---
+
+.. toctree::
+   :maxdepth: 2
+
+   orchestrator_faq
+   clues_faq
