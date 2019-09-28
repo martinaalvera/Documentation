@@ -13,6 +13,8 @@ To add metadata information, corresponding to the TOSCA template, a metadata fil
 
   The metadata directory can be modified in the dahsboard configuration file ``config.json`` (see section :doc:`config_json`).
 
+Once added the metadata file, the dashboard needs to be restart to make changes effective.
+
 The dashboard reads the content of this directory and automatically associate to each TOSCA template the corresponding metadata file, if existing.
 
 Metadata file structure

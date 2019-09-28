@@ -3,7 +3,7 @@ Add new applications
 
 The PaaS Layer accepts deployment requests in the form of TOSCA Templates (see section :doc:`../tosca_templates/tosca_templates`): a document (YAML syntax) describing the infrastructure to deploy, e.g. the virtual hardware and the software to be installed and configured. Galaxy TOSCA tempaltes are installed during Laniakea installation procedure automaticall on ``/opt/laniakea-dashboard-config/tosca-templates``
 
-To add new TOSCA applications copy you tosca template in ``/opt/laniakea-dashboard-config/tosca-templates`` and restart the dashboard:
+To add new TOSCA applications copy your tosca template in ``/opt/laniakea-dashboard-config/tosca-templates`` and restart the dashboard:
 
 ::
 

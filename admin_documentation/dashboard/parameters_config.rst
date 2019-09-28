@@ -11,6 +11,8 @@ To enable configurable forms a parameter file, corresponding to the TOSCA templa
 
   The parameters directory can be modified in the dahsboard configuration file ``config.json`` (see section :doc:`config_json`).
 
+Once added the parameters file, the dashboard needs to be restart to make changes effective.
+
 The dashboard reads the content of this directory and automatically associate to each TOSCA template the corresponding parameters file, if existing.
 
 .. note::
