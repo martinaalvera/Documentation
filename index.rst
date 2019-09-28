@@ -60,10 +60,10 @@ For more information on the Galaxy Project, please visit the https://galaxyproje
    script_onedatactl
    faq
    dev_ansible_roles
-   dev_tosca_templates
+   admin_documentation/tosca_templates/tosca_templates
    dev_build_cvmfs_server
-   vault/vault_config
-   dashboard/dashboard_config
+   admin_documentation/vault/vault_config
+   admin_documentation/dashboard/dashboard_config
 
    indigo_paas_deploy/introduction
 
