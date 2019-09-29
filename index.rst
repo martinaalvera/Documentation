@@ -39,7 +39,7 @@ For more information on the Galaxy Project, please visit the https://galaxyproje
    qs_galaxy
    qs_encryption
    qs_galaxy_cluster
-   qs_key_pair
+   user_documentation/ssh_keys/ssh_keys.rst
    qs_virtual_hdw_presets
    feat_options
    feat_galaxy_prod_env
