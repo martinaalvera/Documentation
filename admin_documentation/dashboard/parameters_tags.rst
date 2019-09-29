@@ -21,7 +21,7 @@ The Laniakea dashboard currently supports the following tag_types allowing to di
 	    tab: "tab_2"
 
 .. figure:: img/tag_text_render.png
-   :scale: 70%
+   :scale: 35%
    :align: center
 
 ----------
@@ -63,7 +63,7 @@ The Laniakea dashboard currently supports the following tag_types allowing to di
 	    required: yes
 
 .. figure:: img/tag_email_render.png
-   :scale: 70%
+   :scale: 35%
    :align: center
 
 ------------
@@ -84,7 +84,7 @@ The Laniakea dashboard currently supports the following tag_types allowing to di
 	    tab: "tab_1"
 
 .. figure:: img/tag_password_render.png
-   :scale: 70%
+   :scale: 35%
    :align: center
 
 ----------
@@ -108,11 +108,11 @@ The Laniakea dashboard currently supports the following tag_types allowing to di
 	    tab: "tab_1"
 
 .. figure:: img/tag_select_render_closed.png
-   :scale: 70%
+   :scale: 35%
    :align: center
 
 .. figure:: img/tag_select_render_open.png
-   :scale: 70%
+   :scale: 35%
    :align: center
 
 ----------
@@ -134,7 +134,7 @@ The Laniakea dashboard currently supports the following tag_types allowing to di
 	    tab: "tab_1"
 
 .. figure:: img/tag_toggle_render.png
-   :scale: 70%
+   :scale: 35%
    :align: center
 
 ---------
