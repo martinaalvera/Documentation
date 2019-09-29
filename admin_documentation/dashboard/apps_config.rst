@@ -33,7 +33,7 @@ where the default value ``small`` corresponds to a VM with 1 CPU and 2 GB of RAM
 The user input field automatically rendered as text field on the dashboard, allowing the user to modify the flavour modifying the value:
 
 .. figure:: img/tosca_inputs_render_explained.png
-   :scale: 70%
+   :scale: 30%
    :align: center
 
 .. note::

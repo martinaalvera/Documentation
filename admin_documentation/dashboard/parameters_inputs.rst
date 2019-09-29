@@ -4,7 +4,7 @@ Input parameters options
 Each entry in the YAML parameters file can be customized in order to simplify the user intercation with the UI.
 
 .. figure:: img/tosca_pars_render_explained.png
-   :scale: 70%
+   :scale: 30%
    :align: center
 
 The Laniakea dashboard supports the following options.
