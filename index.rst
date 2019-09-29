@@ -42,7 +42,6 @@ For more information on the Galaxy Project, please visit the https://galaxyproje
    user_documentation/ssh_keys/ssh_keys.rst
    qs_virtual_hdw_presets
    feat_galaxy_prod_env
-   feat_instance_isolation
    feat_galaxy_tools
    feat_reference_data
    feat_cluster_support
@@ -53,6 +52,7 @@ For more information on the Galaxy Project, please visit the https://galaxyproje
    :maxdepth: 2
    :caption: admin documentation
 
+   admin_documentation/encryption/encryption
    script_galaxyctl_libs
    script_galaxyctl
    script_luksctl
