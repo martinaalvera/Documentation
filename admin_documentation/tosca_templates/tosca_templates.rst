@@ -1,7 +1,7 @@
 TOSCA templates
 ===============
 
-.. figure:: _static/dev_tosca.png
+.. figure:: img/tosca_logo.png
    :scale: 100 %
    :align: center
    :alt: TOSCA logo
