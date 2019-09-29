@@ -2,7 +2,7 @@ Galaxy instance isolation
 =========================
 User data are automatically stored to the “/export” directory, where an external (standard block storage) volume is mounted.
 
-All Galaxy job results are stored in this directory through galaxy.ini configuration file. For instance, files directory is located:
+All Galaxy job results are stored in this directory through galaxy.yml (galaxy.ini on galaxy < 18.01) configuration file. For instance, the files directory is located:
 
 ::
 
