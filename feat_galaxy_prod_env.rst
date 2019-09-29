@@ -41,14 +41,13 @@ On CentOS 7 the default pgdata directory is ``/var/lib/pgsql/9.6/data``. The ``p
 
 On Ubuntu default pgdata directory is ``/var/lib/postgresql/9.6/main``, while the configuration files are stored in ``/etc/postgresql/9.6/main``. There's no need to modify the HBA configuration file since, by default, it is allowing password authentication.
 
-PostgreSQL start/stop/status in entrusted to Systemd on CentOS 7 and Ubuntu Xenial and to Upstart for Ubuntu Trusty.
+PostgreSQL start/stop/status in entrusted to Systemd on CentOS 7 and Ubuntu Xenial.
 
 ==============	=================
 Distribution	Command
 ==============  =================
 CentOS 7	sudo systemctl start/stop/status postgres-9.6
 Ubuntu Xenial	sudo systemctl start/stop/status postgresql
-Ubuntu Trusty	sudo service postgresql start/stop/status
 ==============  =================
 
 Galaxy database configuration
@@ -56,7 +55,7 @@ Galaxy database configuration
 Two different database are configured to track data and tool shed install data, allowing to bootstrap fresh Galaxy instance with pretested installs.
 The database passwords are randomly generated and the passoword can be retrieved in the ``galaxy.ini`` file.
  
-Galaxy database is named ``galaxy`` and is configured in the ``galaxy.ini`` file:
+Galaxy database is named ``galaxy`` and is configured in the ``galaxy.yml`` file:
 
 ::
 
@@ -93,37 +92,13 @@ NGINX is started, usually using the command line, from ``/usr/sbing/nginx``:
 
 ::
 
-  $ sudo nginx
+  $ sudo systemctl start nginx
 
 NGINX options
 *************
 NGINX options are listed here: https://www.nginx.com/resources/wiki/start/topics/tutorials/commandline/
 
-================  ============================
-Option            Description
-================  ============================
--?, -h            Print help.
--v                Print version.
--V                Print NGINX version, compiler version and configure parameters.
--t                Don’t run, just test the configuration file. NGINX checks configuration for correct syntax and then try to open files referred in configuration.
--q                Suppress non-error messages during configuration testing.
--s signal         Send signal to a master process: stop, quit, reopen, reload. (version >= 0.7.53)
--p prefix         Set prefix path (default: /usr/local/nginx/). (version >= 0.7.53)
--c filename       Specify which configuration file NGINX should use instead of the default.
--g directives     Set global directives. (version >= 0.7.4)
-================  ============================
-
-The main way to start/stop/reload nginx is through the ``-s`` command line option:
-
-==============  =================
-Action          Command
-==============  =================
-Start           sudo nginx
-Stop            sudo nginx -s stop
-Restart	        First stop nginx then start it: ``sudo nginx -s stop; sudo nginx``
-==============  =================
-
-Finally, to start/stop/status NGINX with systemd:
+To start/stop/status NGINX with systemd:
 
 ==============  =================
 Dstribution     Command
@@ -141,7 +116,7 @@ Running NGINX on CentOS through systemd could lead to this error in ``/var/log/n
 
   2017/08/24 08:22:32 [crit] 3320#0: *7 connect() to 127.0.0.1:4001 failed (13: Permission denied) while connecting to upstream, client: 192.167.91.214, server: localhost, request: "GET /galaxy HTTP/1.1", upstream: "uwsgi://127.0.0.1:4001", host: "90.147.102.159"
 
-This is related to SELinux polixy on CentOS.
+This is related to SELinux policy on CentOS.
 
 .. Warning::
 
@@ -291,7 +266,7 @@ Then you will find it on Galaxy:
 .. _fig_updateprocess:
 
 .. figure:: _static/ftp_copy.png
-   :scale: 100 %
+   :scale: 25 %
    :align: center
    :alt: ftp fasta file copy
 
@@ -437,33 +412,38 @@ Status            sudo systemctl status supervisord.service
   Aug 12 08:48:35 galaxy-indigo-test supervisord[12204]: 2017-08-12 08:48:35,581 INFO spawned: 'handler2' with pid 12210
   Aug 12 08:48:35 galaxy-indigo-test supervisord[12204]: 2017-08-12 08:48:35,584 INFO spawned: 'handler3' with pid 12211
 
-Galaxy init scripts
--------------------
-Systemctl is the command line interface to systemd:
+Paths
+-----
+
+User data are automatically stored to the “/export” directory, where an external (standard block storage) volume is mounted.
+
+All Galaxy job results are stored in this directory through galaxy.yml (galaxy.ini on galaxy < 18.01) configuration file. For instance, the files directory is located:
 
 ::
 
-    systemctl <start|stop|restart|...> <name>[.service]
-    systemctl <enable|disable> <name>[.service]
+  # Dataset files are stored in this directory.
+  file_path = /export/galaxy/database/files
 
-Since CentOS and Ubuntu Xenial 16.04 exploits systemd as init system, the Galaxy init script is located in ``/etc/systemd/system/galaxy.service``.
+while the job working directory is located:
 
-================  ===============
-Action            Command
-================  ===============
-Start             sudo systemctl start galaxy.service
-Stop              sudo systemctl stop galaxy.service
-Restart           sudo systemctl restart galaxy.service
-Status            sudo systemctl status galaxy.service
-================  ===============
+::
 
-Ubuntu Trusty 14.04 exploits Upstart as init system. Galaxy init file is located in ``/etc/init.d/galaxy``.
+  # Each job is given a unique empty directory as its current working directory.
+  # This option defines in what parent directory those directories will be
+  # created.
+  job_working_directory = /export/job_work_dir
 
-================  ===============
-Action            Command
-================  ===============
-Start             sudo service galaxy start
-Stop              sudo service galaxy stop
-Restart           sudo service galaxy restart
-Status            sudo service galaxy status
-================  ===============
+Here is the list of Galaxy database path directories:
+
+::
+
+  file_path = /export/galaxy/database/files
+  job_working_directory = /export/job_work_dir
+  new_file_path = /export/galaxy/database/tmp
+  template_cache_path = /export/galaxy/database/compiled_templates
+  citation_cache_data_dir = /export/galaxy/database/citations/data
+  citation_cache_lock_dir = /export/galaxy/database/citations/lock
+  whoosh_index_dir = /export/galaxy/database/whoosh_indexes
+  object_store_cache_path = /export/galaxy/database/object_store_cache
+  cluster_file_directory = /export/galaxy/database/pbs"
+  ftp_upload_dir = /export/galaxy/database/ftp
