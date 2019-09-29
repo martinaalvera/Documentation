@@ -1,4 +1,4 @@
-Galaxy ShedTools
+Galaxy Flavours
 ================
 
 Each Galaxy instance is customizable, through the web front-end, with different sets of pre installed tools (e.g. SAMtools, BamTools, Bowtie, MACS, RSEM, etc...), exploiting CONDA as default dependency resolver.
