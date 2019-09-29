@@ -41,14 +41,13 @@ For more information on the Galaxy Project, please visit the https://galaxyproje
    qs_galaxy_cluster
    user_documentation/ssh_keys/ssh_keys.rst
    qs_virtual_hdw_presets
-   feat_options
    feat_galaxy_prod_env
    feat_instance_isolation
    feat_galaxy_tools
    feat_reference_data
    feat_cluster_support
    feat_auth
-   feat_validation
+   faq
 
 .. toctree::
    :maxdepth: 2
@@ -57,8 +56,6 @@ For more information on the Galaxy Project, please visit the https://galaxyproje
    script_galaxyctl_libs
    script_galaxyctl
    script_luksctl
-   script_onedatactl
-   faq
    dev_ansible_roles
    admin_documentation/tosca_templates/tosca_templates
    dev_build_cvmfs_server
