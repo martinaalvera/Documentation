@@ -61,8 +61,7 @@ For more information on the Galaxy Project, please visit the https://galaxyproje
    dev_build_cvmfs_server
    admin_documentation/vault/vault_config
    admin_documentation/dashboard/dashboard_config
-
-   indigo_paas_deploy/introduction
+   admin_documentation/indigo_paas_deploy/introduction
 
 GitHub repository
 -----------------
