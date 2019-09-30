@@ -45,7 +45,7 @@ For more information on the Galaxy Project, please visit the https://galaxyproje
    feat_galaxy_tools
    feat_reference_data
    feat_cluster_support
-   feat_auth
+   user_documentation/authentication/authentication.rst
    faq
 
 .. toctree::
