@@ -40,7 +40,7 @@ For more information on the Galaxy Project, please visit the https://galaxyproje
    qs_encryption
    qs_galaxy_cluster
    user_documentation/ssh_keys/ssh_keys.rst
-   qs_virtual_hdw_presets
+   user_documentation/virtual_hdw_presets
    user_documentation/galaxy_production_environment/galaxy_production_environment
    feat_galaxy_tools
    feat_reference_data
