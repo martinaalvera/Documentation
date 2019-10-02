@@ -41,11 +41,11 @@ For more information on the Galaxy Project, please visit the https://galaxyproje
    qs_galaxy_cluster
    user_documentation/ssh_keys/ssh_keys.rst
    qs_virtual_hdw_presets
-   feat_galaxy_prod_env
+   user_documentation/galaxy_production_environment
    feat_galaxy_tools
    feat_reference_data
    feat_cluster_support
-   user_documentation/authentication/authentication.rst
+   user_documentation/authentication/authentication
    faq
 
 .. toctree::
@@ -58,7 +58,7 @@ For more information on the Galaxy Project, please visit the https://galaxyproje
    script_luksctl
    dev_ansible_roles
    admin_documentation/tosca_templates/tosca_templates
-   dev_build_cvmfs_server
+   admin_documentation/build_cvmfs_server
    admin_documentation/vault/vault_config
    admin_documentation/dashboard/dashboard_config
    admin_documentation/indigo_paas_deploy/introduction

@@ -68,8 +68,14 @@ The shed install tool database is named ``galaxy_tools`` and is configured as:
 
   install_database_connection = postgresql://galaxy:gtLxNnH7DpISmI5FXeeI@localhost:5432/galaxy_tools
 
-Docker
-******
+PostgresSQL troubleshooting
+***************************
+With the recents update (October 2019) the package python2-psycopg2 requires postgresql12-libs, resulting in a broken environment since the package is not available.
+We avoid this behaviour excluding python pytho2-psycopg2 update in ``/etc/yum.conf`` file with the line ``exclude=python2-psycopg2``.
+If you need to update it, just remove it from the exclude line in ``/etc/yum.conf``.
+
+Docker configuration
+********************
 On Docker container PostgreSQL cannot be managed through systemd/upstart, since there's no init system on CentOS and Ubuntu docker images.
 Therefore, the system is automatically configured to run postgresql using ``supervisord``.
 
