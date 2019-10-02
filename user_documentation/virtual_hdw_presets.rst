@@ -1,8 +1,12 @@
 Virtual hardware presets
-------------------------
+========================
+
 Each cloud provider enable a set of Image Flavor, defined in terms of Virctual CPUs (VCPUS), Memory, Disk, etc.
 
-Currently, the following pre-sets are available:
+``Laniakea@ReCaS``
+------------------
+
+Currently, the following pre-sets are available at ReCaS-Bari facility:
 
 =========  =======  =======  =============  =============
 Name       VCPUS    RAM      Total Disk     Root Disk
