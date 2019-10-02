@@ -1,4 +1,4 @@
-Build cvmfs server for reference data
+Build CVMFS server for reference data
 =====================================
 This section gives a quick overview of the steps needed to create a new cvmfs repository to share reference data and activate it on the clients. The repository name used is ``elixir-italy.galaxy.refdata``, but it can be replaced  with the appropriate name. 
 
@@ -140,6 +140,6 @@ It is possible to download automatically all reference data files using the bash
 
 References
 ----------
-CernVM-FS stratum 0 documentation: http://cvmfs.readthedocs.io/en/stable/cpt-repo.html
+`CernVM-FS stratum Zero documentation <http://cvmfs.readthedocs.io/en/stable/cpt-repo.html>`_
 
-Nikhef wiki: https://wiki.nikhef.nl/grid/Adding_a_new_cvmfs_repository
+`Nikhef wiki <https://wiki.nikhef.nl/grid/Adding_a_new_cvmfs_repository>`_
