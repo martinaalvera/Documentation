@@ -27,9 +27,9 @@ IAM protected resource configuration
 
 Register a new protected resource for IM on IAM:
 
-#. Login on IAM as admin.
+#. Login on IAM as Administrator User.
 
-#. Navigate to **MitreID Dashboard** and finally select from the left panel **Self-service protected resource registration**.
+#. Navigate to **MitreID Dashboard** and select from the left panel **Self-service protected resource registration**.
 
 #. Create a **New Resource**.
 
@@ -37,7 +37,7 @@ Register a new protected resource for IM on IAM:
 
 #. Keep the default configuration and Save.
 
-#. Save IM **Client ID**, **Client Secret** and **Registration Access Token**.
+#. Save **Client ID**, **Client Secret** and **Registration Access Token** or the full output json in the **JSON** tab for future access.
 
 Installation
 ------------
