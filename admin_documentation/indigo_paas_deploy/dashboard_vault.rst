@@ -1,6 +1,53 @@
 Install Laniakea dashboard (database and vault version)
 =======================================================
 
+.. Warning::
+
+   Vault integration leverages on MySQL database. It can't work with dashboard stateless version
+
+IAM client configuration
+-------------------------------
+
+
+#. Navigate to **MitreID Dashboard** and then **Self-service client registration**
+
+#. Login on IAM then **MitreID Dashboard** and select **Self-service client registration** as Administrator user.
+
+#. Click on **New client** and fill the form with the following paramethers
+
+   ::
+
+     Client name = dashboard_client
+
+     redirect URI(s) = https://<dashboard_vm_dns_name>/login/iam/authorized
+
+   .. figure:: _static/vault/vault_client_main.png
+      :scale: 30%
+      :align: center
+
+#. In the Access tab select the follwing **Scopes**
+
+   ::
+
+     Scopes: openid, profile, email, address, phone, offline_access
+
+   and for **Grant Types** select:
+
+   ::
+
+     Grant types: authorization code
+
+   .. figure:: _static/vault/vault_client_access.png
+      :scale: 30%
+      :align: center
+
+#. Save the client.
+
+#. Save **Client ID**, **Client Secret** and **Registration Access Token** or the full output json in the **JSON** tab for future access.
+
+Installation
+------------
+
 Create the file ``indigopaas-deploy/ansible/inventory/group_vars/orchestrator-dashboard.yaml`` with the following configured values:
 
 ::
@@ -29,6 +76,12 @@ Create the file ``indigopaas-deploy/ansible/inventory/group_vars/orchestrator-da
   dashboard_mysql_root_password: *****
   dashboard_db_password: ******
 
+  dashboard_enable_vault: True
+  dashboard_vault_token: "<vault_valid_token>"
+  dashboard_vault_iam_client_id: "vault_iam_client_id>"
+  dashboard_vault_iam_client_secret: "<vault_iam_client_secret"
+
+
 .. warning::
 
    Set also your custom mysql password with: ``dashboard_mysql_root_password`` and ``dashboard_mysql_password``.
@@ -40,3 +93,7 @@ Run the role using the ``ansible-playbook`` command:
   # cd indigopaas-deploy/ansible 
 
   # ansible-playbook -i inventory/inventory playbooks/deploy-orchestrator-dashboard.yml
+
+
+Video Tutorial
+--------------
