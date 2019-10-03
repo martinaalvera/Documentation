@@ -73,10 +73,151 @@ Video tutorial
 
    <a href="https://asciinema.org/a/pWo4o5QMhTawQ4aXIwUamOKOo" target="_blank"><img src="https://asciinema.org/a/pWo4o5QMhTawQ4aXIwUamOKOo.svg" /></a>
 
-IM Test
--------
+IM testing
+----------
 
-.. scrivi test IM
+#. Get IAM access token (see section :doc:`iam_token`)
+
+#. Download an IM tosca template
+
+   ::
+
+    # mkdir im_test
+
+    # cd im_test
+
+    # wget https://raw.githubusercontent.com/Laniakea-elixir-it/IM-templates/devel/node_with_image.yaml
+
+#. Configure the image url as ``ost://<keystone_url>/<image_id>``, as for example:
+
+   ::
+
+     image: ost://cloud.recas.ba.infn.it/f38d4e87-cc7e-4035-921b-6b200a9ebaee
+
+   save and exit.
+
+POST
+****
+
+The POST request, istantiate a new deployment
+
+::
+
+  curl -k -H 'Content-type: text/yaml' -H 'AUTHORIZATION: type = InfrastructureManager; username = mtangaro; token = eyJraWQiOiJyc2ExIiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiJhOGJjZmU0OS1hOWY3LTQzMDctYWIzYS0wMmMyYmMzZWUxMTgiLCJpc3MiOiJodHRwczpcL1wvY2xvdWQtOTAtMTQ3LTc1LTIwNy5jbG91ZC5iYS5pbmZuLml0XC8iLCJleHAiOjE1NzAxMzIwNDYsImlhdCI6MTU3MDEyODQ0NiwianRpIjoiYmI5NjM4MmUtOGU5ZS00NmZmLWI2YzYtNWJkNGU1ZTFjZTRmIn0.OKqmt8NvUFWY22ui092yMPTIqCeGuyzjUfVAWllTeoZF-ea50RS91qSIHV8AW-O1AZSg4tM5O4W49jVSzvzVq4gLJEMKhBojaJSe9tVf0HE2REcfCb1pYi70jLBhC2TF-tiAmcb0ZywFcF3VEP8DhcPFrbd_JoiG0_q-vVtzcF4\nid = ost; type = OpenStack; host = <keystone_url>; username = <username>; password = ***** ; tenant = <tenant_name>; service_region = <region>' -i -X POST https://cloud-90-147-75-119.cloud.ba.infn.it/im/infrastructures --data-binary "@node_with_image.yaml"
+
+  HTTP/1.1 100 Continue
+
+  HTTP/1.1 200 OK
+  Server: nginx/1.10.3 (Ubuntu)
+  Date: Thu, 03 Oct 2019 15:54:37 GMT
+  Content-Type: text/uri-list
+  Content-Length: 100
+  Connection: keep-alive
+  Infid: c90796fe-e5f5-11e9-930c-fa163eefe815
+
+  https://cloud-90-147-75-119.cloud.ba.infn.it/im/infrastructures/c90796fe-e5f5-11e9-930c-fa163eefe815
+
+Where Infid, in this case ``a9feb488-e5f3-11e9-aafa-fa163eefe815``, is the IM UUID of your deployment
+
+.. figure:: _static/im/im_openstack_post.png
+   :scale: 50%
+   :align: center
+
+GET
+***
+
+The GET request can be used to list the VMs associated to a deployment:
+
+::
+
+  # curl -k -H 'Content-type: text/yaml' -H 'AUTHORIZATION: type = InfrastructureManager; username = mtangaro; token = eyJraWQiOiJyc2ExIiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiJhOGJjZmU0OS1hOWY3LTQzMDctYWIzYS0wMmMyYmMzZWUxMTgiLCJpc3MiOiJodHRwczpcL1wvY2xvdWQtOTAtMTQ3LTc1LTIwNy5jbG91ZC5iYS5pbmZuLml0XC8iLCJleHAiOjE1NzAxMzIwNDYsImlhdCI6MTU3MDEyODQ0NiwianRpIjoiYmI5NjM4MmUtOGU5ZS00NmZmLWI2YzYtNWJkNGU1ZTFjZTRmIn0.OKqmt8NvUFWY22ui092yMPTIqCeGuyzjUfVAWllTeoZF-ea50RS91qSIHV8AW-O1AZSg4tM5O4W49jVSzvzVq4gLJEMKhBojaJSe9tVf0HE2REcfCb1pYi70jLBhC2TF-tiAmcb0ZywFcF3VEP8DhcPFrbd_JoiG0_q-vVtzcF4\nid = ost; type = OpenStack; host = <keystone_url>; username = <username>; password = ***** ; tenant = <tenant_name>; service_region = <region>' -i -X GET https://cloud-90-147-75-119.cloud.ba.infn.it/im/infrastructures/c90796fe-e5f5-11e9-930c-fa163eefe815
+  HTTP/1.1 200 OK
+  Server: nginx/1.10.3 (Ubuntu)
+  Date: Thu, 03 Oct 2019 18:49:43 GMT
+  Content-Type: text/uri-list
+  Content-Length: 106
+  Connection: keep-alive
+
+  https://cloud-90-147-75-119.cloud.ba.infn.it/im/infrastructures/c90796fe-e5f5-11e9-930c-fa163eefe815/vms/0
+
+The GET request can be used to list all VMs information:
+
+::
+
+  # curl -k -H 'Content-type: text/yaml' -H 'AUTHORIZATION: type = InfrastructureManager; username = mtangaro; token = eyJraWQiOiJyc2ExIiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiJhOGJjZmU0OS1hOWY3LTQzMDctYWIzYS0wMmMyYmMzZWUxMTgiLCJpc3MiOiJodHRwczpcL1wvY2xvdWQtOTAtMTQ3LTc1LTIwNy5jbG91ZC5iYS5pbmZuLml0XC8iLCJleHAiOjE1NzAxMzIwNDYsImlhdCI6MTU3MDEyODQ0NiwianRpIjoiYmI5NjM4MmUtOGU5ZS00NmZmLWI2YzYtNWJkNGU1ZTFjZTRmIn0.OKqmt8NvUFWY22ui092yMPTIqCeGuyzjUfVAWllTeoZF-ea50RS91qSIHV8AW-O1AZSg4tM5O4W49jVSzvzVq4gLJEMKhBojaJSe9tVf0HE2REcfCb1pYi70jLBhC2TF-tiAmcb0ZywFcF3VEP8DhcPFrbd_JoiG0_q-vVtzcF4\nid = ost; type = OpenStack; host = <keystone_url>; username = <username>; password = ***** ; tenant = <tenant_name>; service_region = <region>' -i -X GET https://cloud-90-147-75-119.cloud.ba.infn.it/im/infrastructures/c90796fe-e5f5-11e9-930c-fa163eefe815/vms/0
+
+  HTTP/1.1 200 OK
+  Server: nginx/1.10.3 (Ubuntu)
+  Date: Thu, 03 Oct 2019 18:52:38 GMT
+  Content-Type: text/plain
+  Content-Length: 2476
+  Connection: keep-alive
+  
+  network public_net ( outports = '9001/tcp-9001/tcp,9000/tcp-9000/tcp' and
+  provider_id = 'public_net' and
+  outbound = 'yes' )
+  system simple_node (
+  instance_name = 'userimage-157011807495' and
+  cpu.arch = 'x86_64' and
+  disk.0.image.url = 'ost://cloud.recas.ba.infn.it/f38d4e87-cc7e-4035-921b-6b200a9ebaee' and
+  net_interface.0.ip = '90.147.75.76' and
+  memory.size = 2048M and
+  cpu.count = 1 and
+  disk.0.os.credentials.private_key = '-----BEGIN RSA PRIVATE KEY-----
+  MIIEqAIBAAKCAQEAmNLLui9dXce/1XAj21inN5K4zrpgtst7cAJmZwnbIrVqEiNa
+  q60MhINASHP5VR0HQpMqWuC1dlDE09XGp6qGzPa1+RFn894j5jd9X/H/HFbvMYN4
+  DFq5AF+Lwj0AkCQT4+R/9iYYJbjuZug3UflAspCYzg7Ht94lVRNAzhlCM++96kkO
+  j9jNxI5enX+MdKA0n1mOVhAyRi3wtfaQmhk2q47R1X9URqeE8UaZf6xL9KincVb/
+  X94Wnc0dtbQfyHsNWM/Oo78pkrSfKxUNHC18Em/ZfJ+ADm7u27rY+V2eiKK+kahm
+  8PCvOGO3qblBqwcnPUh/clVm5JGaiLal/keDlQIDAQABAoIBAAnjsj1VLVSRRY+5
+  VwitvvxwqTbvhqytlEpWTWwjjiO726Za1VZAt4untrQ5lQv1+e9L+LSyz+tdJK+U
+  qOtWtKx01qfMgY6ddHNEaf+YeGrMEWSB3nXmNQyaIkAqlGu/ee4IbmNuaaefRQYx
+  xsquN4qWotzKxg/W91F/EnWD2u3jXyxOAOmRFBy5y1pU9YhcDR8w46+ZyV7h04f8
+  hFbJILYA5kzmFtwHScUq5yGLlcddDGSK40EGJNpni4gNh61D4DOD/yzCrgqhL+th
+  wfwSMOVhxWPBKOqlQDHqOyb21TVc+5UeFBwb+3LbfCdjfA7Sfi4Dpygvv1FPELCl
+  ZGF1+0ECggCBAMUi+q15uresVXCyQrQ9HmZ2FcRwNc9BtB0ag5RuuuFNsh4suPcL
+  hxJVG35vTfRgf9USO2WzCrgiAHzij6yT/USIoAFOUvLrtg+T5abd6Fec3lrvXgsL
+  LLVX0NPK0RVqKhTAgNzEAqGEOkd8Ew3WWH0Klrwr3uxp1sEO8I3kt8/RAoIAgQDG
+  dImkibakryLFd833OWdG33ClWT0kgFRBerq8taHZjdBejze9n67LzJludW77lqUQ
+  VCpH424lxP7qIT+hNs/pFXi9Sq/VBsbfehwPoetDgv0yKSP1mRHiKOvTu47hHdst
+  4q4iwxuYENLBjjESMKR2nge1pJMe2EUFURWHx87MhQKCAIAvp/QXqbzEmCmTc9SC
+  Q+AsftFmSoYHk2eaPYWfhWEyBBlSCBeyyRufB+n8l6WttQJSHPU08aJevwGFLzPy
+  UVhBkBG2HxwYU3kQrP0waKa5P1fVfdYrL0lgkVkPShFfbum7WIoOVGgaaZ+5Fjp4
+  9t8vYzbrSGO8nR1oUFdAxhDVcQKCAIEAspZsxwSmt8xjHhCR6MhfiAfK9wE3ZIGX
+  UNWA9hD9dSmJOY7oOlxYkE2uRRiopv8Jy4fyBH9Fv/dm7oq9F/abYsVPwghT8wAG
+  N1VLq0Wq0TYvY9Rh58G3ti3dCszd5vdXJhO3YNDzJAT/o+6xeg0L8zKC/ZL8UeWN
+  NxugpG/KSYECggCAbcJeVFjNQYEhroRg2dmVY/Y6cmndvCUudDs8hvtTmvWmFGri
+  7dY1T7ACdWAbFYh+Q1x2SswHAOXC+FYJ2HJ8InbKeRAlQ7KDgDsofPGRCTRUL9HO
+  mZQkIZqryAcSnC++OLNnbFGsTY4vhyotb3IgR/pC+6RSgqJFabFtA7Ttkgg=
+  -----END RSA PRIVATE KEY-----
+  ' and
+  provider.host = 'cloud.recas.ba.infn.it' and
+  disk.0.free_size = 20G and
+  instance_id = 'c6e54a1e-f2ce-4cd5-a38f-f26858d57d7c' and
+  instance_type = 'small' and
+  state = 'unconfigured' and
+  provider.port = 5000 and
+  provider.type = 'OpenStack' and
+  net_interface.0.connection = 'public_net' and
+  disk.0.os.name = 'linux' and
+  disk.0.os.credentials.username = 'cloudadm'
+  )
+
+DELETE
+******
+
+The DELETE request can be used to delete the deployment:
+
+::
+
+  # curl -k -H 'Content-type: text/yaml' -H 'AUTHORIZATION: type = InfrastructureManager; username = mtangaro; token = eyJraWQiOiJyc2ExIiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiJhOGJjZmU0OS1hOWY3LTQzMDctYWIzYS0wMmMyYmMzZWUxMTgiLCJpc3MiOiJodHRwczpcL1wvY2xvdWQtOTAtMTQ3LTc1LTIwNy5jbG91ZC5iYS5pbmZuLml0XC8iLCJleHAiOjE1NzAxMzIwNDYsImlhdCI6MTU3MDEyODQ0NiwianRpIjoiYmI5NjM4MmUtOGU5ZS00NmZmLWI2YzYtNWJkNGU1ZTFjZTRmIn0.OKqmt8NvUFWY22ui092yMPTIqCeGuyzjUfVAWllTeoZF-ea50RS91qSIHV8AW-O1AZSg4tM5O4W49jVSzvzVq4gLJEMKhBojaJSe9tVf0HE2REcfCb1pYi70jLBhC2TF-tiAmcb0ZywFcF3VEP8DhcPFrbd_JoiG0_q-vVtzcF4\nid = ost; type = OpenStack; host = <keystone_url>; username = <username>; password = ***** ; tenant = <tenant_name>; service_region = <region>' -i -X DELETE https://cloud-90-147-75-119.cloud.ba.infn.it/im/infrastructures/c90796fe-e5f5-11e9-930c-fa163eefe815
+
+  HTTP/1.1 200 OK
+  Server: nginx/1.10.3 (Ubuntu)
+  Date: Thu, 03 Oct 2019 15:43:52 GMT
+  Content-Type: text/plain
+  Content-Length: 0
+  Connection: keep-alive
 
 FAQ
 ---
@@ -85,3 +226,8 @@ FAQ
    :maxdepth: 2
 
    im_faq
+
+References
+----------
+
+`IM APIs documentation <https://imdocs.readthedocs.io/en/latest/REST.html>`_
