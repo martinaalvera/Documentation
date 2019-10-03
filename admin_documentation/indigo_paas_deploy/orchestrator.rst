@@ -18,18 +18,72 @@ RAM     4 GB
 Network Private IP address.
 ======= ==============================
 
+IAM protected resource configuration for the Orchestrator
+---------------------------------------------------------
+
+#. Login on IAM then **MitreID Dashboard** and select **Self-service protected resource registration** as Administrator user.
+
+#. Select **New Resource** with the follwoing parameters
+
+   ::
+
+     Name: orchestrator_client
+
+     Scopes: openid, profile, offline_access
+
+   .. figure:: _static/orchestrator/orchestrator_client_main.png
+      :scale: 50 %
+      :align: center
+
+   .. figure:: _static/orchestrator/orchestrator_client_access.png
+      :scale: 50 %
+      :align: center
+
+#. Enable Introspection accessing to the client configuration page as Administrator user, through the **ADMINISTRATIVE**, **Manage Clients
+
+   .. figure:: _static/orchestrator/iam_manage_clients.png
+      :scale: 50 %
+      :align: center
+
+
+   and check the flag at **Introspection**:
+
+   ::
+
+     Introspection Allow calls to the Introspection Endpoint?
+
+   .. figure:: _static/orchestrator/orchestrator_admin_client_access.png
+      :scale: 50 %
+      :align: center
+
+#. Save the protected resource.
+
+#. Save **Client ID**, **Client Secret** and **Registration Access Token**.
+
 IAM  protected resource configuration for CLUES
 ------------------------------------------------
 
-#. Login on IAM then **MitreID Dashboard** and select a **Self-service protected resource registration** as Administrator user.
+#. Login on IAM then **MitreID Dashboard** and select **Self-service protected resource registration** as Administrator user.
 
-#. Select *New Resource* with the follwoing parameters
+#. Select **New Resource** and set the follwoing parameters
 
    ::
 
      Name: clues_client
 
      Scopes: openid, profile, email, address,  phone, offline_access
+
+   .. figure:: _static/orchestrator/clues_client_main.png
+      :scale: 50 %
+      :align: center
+
+   .. figure:: _static/orchestrator/clues_client_access.png
+      :scale: 50 %
+      :align: center
+
+#. Enable Token exchange and Introspection, accessing to the client configuration page, through the **ADMINISTRATIVE**, **Manage Clients
+
+   ::
 
      Grant Types: token exchange
 
@@ -39,54 +93,16 @@ IAM  protected resource configuration for CLUES
 
      Introspection Allow calls to the Introspection Endpoint?
 
-#. Save **Client ID**, **Client Secret** and **Registration Access Token**.
+   .. figure:: _static/orchestrator/clues_admin_client_access.png
+      :scale: 50 %
+      :align: center
 
-.. Warning::
-
-   If you did not create this resource ad aministrator user you will not be able to enable the **token exchange** grant type and introspection. To fix this: log out and login as Admin user and edit the client, setting in Grant types **token exange** and flagging **introspection**.
-
-IAM protected resource configuration for the Orchestrator
----------------------------------------------------------
-
-#. Login on IAM then **MitreID Dashboard** and select a **Self-service protected resource registration** as Administrator user.
-
-#. Select *New Resource* with the follwoing parameters
-
-   ::
-
-     Name: orchestrator_client
-
-     Scopes: openid, profile, offline_access
-
-   and check the flag at **Introspection**:
-
-   ::
-
-     Introspection Allow calls to the Introspection Endpoint?
+#. Save the protected resource.
 
 #. Save **Client ID**, **Client Secret** and **Registration Access Token**.
-
-.. Warning::
-
-   If you did not create this resource ad aministrator user you will not be able to enable the **token exchange** grant type and introspection. To fix this: log out and login as Admin user and edit the client, setting in Grant types **token exange** and flagging **introspection**.
-
-Monitoring-mock installation
-----------------------------
-
-In this guide we avoid monitoring installation, leaving this job to the Cloud provider.
-
-To do this SSH on the orchestrator VM and run the monitoring-mock docker:
-
-::
-
-  docker run -d --restart always --name monitoring-mock -p 8082:8082 marica/monitoring-mock:latest
-
-.. Warning::
-
-   This command has to be run directly on the Orchestrator VM, not on the control machine.
 
 Orchestrator Installation
-----------------------------
+-------------------------
 
 Create the file ``indigopaas-deploy/ansible/inventory/group_vars/orchestrator.yaml`` with the following configured values:
 
@@ -100,18 +116,21 @@ Create the file ``indigopaas-deploy/ansible/inventory/group_vars/orchestrator.ya
   orchestrator_cmdb_url: http://<proxy_dns_name>/cmdb
   orchestrator_slam_url: https://<slam_dns_name>:8443/rest/slam
   orchestrator_cpr_url: http://<proxy_dns_name>:80
-  orchestrator_monitoring_url: http://localhost:8082
   orchestrator_iam_issuer: https://<iam_dns_name>/
   orchestrator_iam_client_id: <orchestrator_client_id>
   orchestrator_iam_client_secret: <orchestrator_client_secret>
   orchestrator_clues_iam_client_id: <clues_client_id> 
   orchestrator_clues_iam_client_secret: <clues_client_secrett> 
-  orchestrator_custom_types: https://raw.githubusercontent.com/mtangaro/tosca-types/master/custom_types.yaml
- 
+  orchestrator_custom_types: https://raw.githubusercontent.com/Laniakea-elixir-it/indigopaas-resources/master/orchestrator/custom_types.yaml
+  disable_monitoring: True
 
 .. Warning::
 
    SLAM and IAM are the only two services requiring a public IP, on the contrary all the others are behind the proxy.
+
+.. Warning::
+
+   In this guide we avoid monitoring installation, leaving this job to the Cloud provider.
 
 Run the role using the ``ansible-playbook`` command:
 
@@ -124,6 +143,9 @@ Run the role using the ``ansible-playbook`` command:
 Video tutorial
 --------------
 
+.. raw:: html
+
+   <a href="https://asciinema.org/a/eYWgO4OkemkpW5bpEUCx7K4UX" target="_blank"><img src="https://asciinema.org/a/eYWgO4OkemkpW5bpEUCx7K4UX.svg" /></a>
 
 FAQ
 ---
