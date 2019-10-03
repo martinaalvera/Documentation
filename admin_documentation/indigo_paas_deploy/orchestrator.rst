@@ -39,6 +39,10 @@ IAM protected resource configuration for the Orchestrator
       :scale: 50 %
       :align: center
 
+#. Save the protected resource.
+
+#. Save **Client ID**, **Client Secret** and **Registration Access Token** or the full output json in the **JSON** tab for future access.
+
 #. Enable Introspection accessing to the client configuration page as Administrator user, through the **ADMINISTRATIVE**, **Manage Clients
 
    .. figure:: _static/orchestrator/iam_manage_clients.png
@@ -56,9 +60,7 @@ IAM protected resource configuration for the Orchestrator
       :scale: 50 %
       :align: center
 
-#. Save the protected resource.
-
-#. Save **Client ID**, **Client Secret** and **Registration Access Token**.
+#. Save again the protected resource.
 
 IAM  protected resource configuration for CLUES
 ------------------------------------------------
@@ -81,6 +83,10 @@ IAM  protected resource configuration for CLUES
       :scale: 50 %
       :align: center
 
+#. Save the protected resource.
+
+#. Save **Client ID**, **Client Secret** and **Registration Access Token** or the full output json in the **JSON** tab for future access.
+
 #. Enable Token exchange and Introspection, accessing to the client configuration page, through the **ADMINISTRATIVE**, **Manage Clients
 
    ::
@@ -97,9 +103,7 @@ IAM  protected resource configuration for CLUES
       :scale: 50 %
       :align: center
 
-#. Save the protected resource.
-
-#. Save **Client ID**, **Client Secret** and **Registration Access Token**.
+#. Save the protected resource again.
 
 Orchestrator Installation
 -------------------------
