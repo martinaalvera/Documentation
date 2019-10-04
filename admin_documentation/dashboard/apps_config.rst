@@ -51,6 +51,9 @@ Supported inputs
 
    Lanaiakea exploits this feature to automatically set user public key on Galaxy instances.
 
+
+``admin_email``: if present among the inputs, this field is automatically filled with user e-mail address.
+
 Supported outputs
 -----------------
 
