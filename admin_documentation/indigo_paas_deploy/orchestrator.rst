@@ -43,7 +43,7 @@ IAM protected resource configuration for the Orchestrator
 
 #. Save **Client ID**, **Client Secret** and **Registration Access Token** or the full output json in the **JSON** tab for future access.
 
-#. Enable Introspection accessing to the client configuration page as Administrator user, through the **ADMINISTRATIVE**, **Manage Clients
+#. Enable Introspection accessing to the client configuration page as Administrator user, through the **ADMINISTRATIVE**, **Manage Clients**
 
    .. figure:: _static/orchestrator/iam_manage_clients.png
       :scale: 50 %
