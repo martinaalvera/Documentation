@@ -71,26 +71,41 @@ IAM client configuration
 Installation
 ------------
 
-The Laniakea dashboard can be installed in three different ways:
+The Laniakea dashboard can be installed in three different ways: Stateless, with MySQL database and with MySQL and Vault integration.
 
-#. Stateless version: this is a simple graphical User interface of the INDIGO PaaS orchestrator. The automated storage encryption will not work.
+The one with MySQL and Hashicorp Vault is the one used in Laniakea.
 
-   .. toctree::
-      :maxdepth: 2
+.. toctree::
+   :maxdepth: 2
 
-      dashboard_stateless
+   dashboard_vault
 
 
-#. With MySQL database: this version comes with a MySQL database support and requires
 
-   .. toctree::
-      :maxdepth: 2
+Appendix A. Stateless version
+-----------------------------
 
-      dashboard_db
+This is a simple graphical User interface of the INDIGO PaaS orchestrator. The automated storage encryption will not work.
 
-#. With MySQL and Hashicorp Vault: this is the version exploited by default on Laniakea.
+.. toctree::
+   :maxdepth: 2
 
-   .. toctree::
-      :maxdepth: 2
+   dashboard_stateless
 
-      dashboard_vault
+.. warnings::
+
+   The automated storage encryption will not work with this version.
+
+Appendix B. Database version
+----------------------------
+
+This version comes with a MySQL database support.
+
+.. toctree::
+   :maxdepth: 2
+
+   dashboard_db
+
+.. warnings::
+
+   The automated storage encryption will not work with this version.
