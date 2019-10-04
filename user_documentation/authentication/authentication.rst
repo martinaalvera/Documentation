@@ -74,7 +74,7 @@ Once your request is approved, you will be notified by mail and asked to insert 
 
 Finally at the first login you have to allow the Laniakea portal to acquire your login information:
 
-.. figure:: img/registration/mitre_auth.png
+.. figure:: img/registration/client_approval.png
    :scale: 50 %
    :align: center
    :alt: mitre authorization
