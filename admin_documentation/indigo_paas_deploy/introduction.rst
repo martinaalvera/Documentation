@@ -40,7 +40,7 @@ Please create the needed VMs with the following configuration:
 In particular we highlight in the table the VM Network configuration, i.e. if the VM needs a public IP address to be accessed from outside or a private IP address is enough.
 
 .. figure:: _static/openstack_paas_deploy.png
-   :scale: 80%
+   :scale: 50%
    :align: center
 
 .. centered:: Fig 2: INDIGO PaaS VMs view on OpenStack
