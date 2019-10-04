@@ -150,6 +150,10 @@ The Vault initialization can not be automated. To initialize it and get your roo
      identity_policies    []
      policies             ["root"]
 
+.. warning::
+
+   Save the unseal keys and the root token. Please read `Vault documentation <https://www.vaultproject.io/docs/concepts/seal.html>`_.
+
 Initialization video tutorial
 *****************************
 

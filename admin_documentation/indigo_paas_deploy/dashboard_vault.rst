@@ -5,21 +5,33 @@ Install Laniakea dashboard (database and vault version)
 
    Vault integration leverages on MySQL database. It can't work with dashboard stateless version
 
-IAM client configuration
--------------------------------
 
+Update the dashboard IAM client configuration 
+---------------------------------------------
 
-#. Navigate to **MitreID Dashboard** and then **Self-service client registration**
+To enable Vault integration the **token exchange** is needed. Therefore, edit the IAM client previously created for the dashboard.
+
+Enable **token exchange** accessing to the client configuration page as Administrator user, through the **ADMINISTRATIVE**, **Manage Clients** and check the flag ``token exchange`` in the ``Grany types`` section.
+
+.. figure:: _static/dashboard/dashboard_admin_client_access.png
+   :scale: 30%
+   :align: center
+
+IAM client configuration for Vault
+----------------------------------
+
+Create another IAM client for Vault, to enable oidc integration to authenticate users.
 
 #. Login on IAM then **MitreID Dashboard** and select **Self-service client registration** as Administrator user.
 
-#. Click on **New client** and fill the form with the following paramethers
+#. Click on **New client** with the following paramethers
 
    ::
 
-     Client name = dashboard_client
+     Client name: vault_client
 
-     redirect URI(s) = https://<dashboard_vm_dns_name>/login/iam/authorized
+     redirect URI(s): https://<dashboard_vm_dns_name>:8200/ui/vault/auth/oidc/oidc/callback
+                      https://<dashboard_vm_dns_name>:8250/oidc/callback
 
    .. figure:: _static/vault/vault_client_main.png
       :scale: 30%
@@ -30,12 +42,6 @@ IAM client configuration
    ::
 
      Scopes: openid, profile, email, address, phone, offline_access
-
-   and for **Grant Types** select:
-
-   ::
-
-     Grant types: authorization code
 
    .. figure:: _static/vault/vault_client_access.png
       :scale: 30%
@@ -53,7 +59,7 @@ Create the file ``indigopaas-deploy/ansible/inventory/group_vars/orchestrator-da
 ::
 
   dashboard_fqdn: <dashboard_vm_dns_name>
-  dashboard_image_name: laniakeacloud/laniakea-dashboard:stable
+  dashboard_image_name: laniakeacloud/laniakea-dashboard
   
   dashboard_iam_issuer: "https://<iam_address>/"
   dashboard_iam_client_id: "<im_client_id>'"
@@ -86,6 +92,11 @@ Create the file ``indigopaas-deploy/ansible/inventory/group_vars/orchestrator-da
 
    Set also your custom mysql password with: ``dashboard_mysql_root_password`` and ``dashboard_mysql_password``.
 
+
+.. note::
+
+   A valid token to create policies and enable OIDC authentication on vault is needed. Here, for simplicity we use the root token gathered in the Vault installation section :doc:`vault`.
+
 Run the role using the ``ansible-playbook`` command:
 
 ::
@@ -97,3 +108,7 @@ Run the role using the ``ansible-playbook`` command:
 
 Video Tutorial
 --------------
+
+.. raw:: html
+
+   <a href="https://asciinema.org/a/x9teGZ7yhuSilpDdHCDsesMMz" target="_blank"><img src="https://asciinema.org/a/x9teGZ7yhuSilpDdHCDsesMMz.svg" /></a>

@@ -32,11 +32,11 @@ Network Private IP address.
 IAM client configuration
 -------------------------------
 
-#. Login as admin
+#. Login on IAM as Administrator User.
 
-#. Navigate to **MitreID Dashboard** and then **Self-service client registration**
+#. Navigate to **MitreID Dashboard** and select from the left panel **Self-service client registration**.
 
-#. Click on **New client** and fill the form with the following paramethers
+#. Create a **New client** and fill the form with the following paramethers
 
    ::
 
@@ -64,16 +64,9 @@ IAM client configuration
       :scale: 30%
       :align: center
 
-#. Save **Client ID**, **Client Secret** and **Registration Access Token**.
+#. Save.
 
-#. From Manage Clients Re-edit the client and set also in tokens:
-
-   * Refresh tokens are issued for this client
-   * Refresh tokens for this client are re-used
-   * Active access tokens are automatically revoked when the refresh token is used
-   * Refresh tokens do not time out 
-
-6. Save
+#. Save **Client ID**, **Client Secret** and **Registration Access Token** or the full output json in the **JSON** tab for future access.
 
 Installation
 ------------
