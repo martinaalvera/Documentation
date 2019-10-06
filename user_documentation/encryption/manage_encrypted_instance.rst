@@ -1,5 +1,5 @@
-Get encrypted instance
-======================
+Manage encrypted instance
+=========================
 
 The service provides the possibility to encrypt the storage volume associated to the virtual machine on-demand.
 
@@ -7,8 +7,30 @@ The service provides the possibility to encrypt the storage volume associated to
 
    Only the external volume, where Galaxy data are stored, is encrypted, not the Virtual Machine root disk.
 
-To encypt the external volume storage flag ``encryption`` in ``Enable encryption`` box. 
- 
+
+Retrieve encrypted storage passphrase
+-------------------------------------
+
+.. raw:: html
+
+   <p align="center">
+   <iframe width="640" height="360"
+      src="https://www.youtube.com/embed/G_4aIqkXZTM">
+   </iframe> 
+   </p>
+
+Restart Galaxy on encrypted instance
+------------------------------------
+
+.. raw:: html
+
+   <p align="center">
+   <iframe width="640" height="360"
+      src="https://www.youtube.com/embed/g37X8jDSkG4">
+   </iframe> 
+   </p>
+
+
 .. figure:: _static/qs_encryption/qs_encryption.png 
    :scale: 70 %
    :align: center
