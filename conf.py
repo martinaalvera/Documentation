@@ -182,10 +182,11 @@ source_suffix = ['.rst', '.md']
 # -- Options for project name variable ------------------------------------
 
 project_name = 'Laniakea'
-galaxy_vm = 'Galaxy Express'
-galaxy_latest = 'Galaxy'
+galaxy_vm = 'Galaxy express'
+galaxy_latest = 'Galaxy live build'
 galaxy_cluster = 'Galaxy cluster'
 galaxy_elastic_cluster = 'Galaxy elastic cluster'
+galaxy_docker = 'Galaxy docker'
 
 rst_prolog = """ 
 .. |project_name| replace:: {0}
@@ -193,10 +194,12 @@ rst_prolog = """
 .. |galaxy_latest| replace:: {2}
 .. |galaxy_cluster| replace:: {3}
 .. |galaxy_elastic_cluster| replace:: {4}
+.. |galaxy_docker| replace:: {5}
 """.format(
 project_name,
 galaxy_vm,
 galaxy_latest,
 galaxy_cluster,
-galaxy_elastic_cluster
+galaxy_elastic_cluster,
+galaxy_docker
 )
