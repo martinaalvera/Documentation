@@ -1,11 +1,11 @@
 Get Galaxy 
 ==========
 
-The Galaxy section allows user to deploy a full `Galaxy production environment <https://docs.galaxyproject.org/en/latest/admin/production.html>`_.
+The Laniakea dashboard tiles allow user to deploy a standard `Galaxy production environment <https://docs.galaxyproject.org/en/latest/admin/production.html>`_ through two methods: Galaxy Express and Galaxy live build.
 
 .. seealso::
 
-   To login on Laniakea dashboard visit the section: :doc:`/user_documentation//authentication/authentication`.
+   To login to Laniakea dashboard visit the section: :doc:`/user_documentation//authentication/authentication`.
 
 |galaxy_vm| 
 -----------
@@ -14,7 +14,7 @@ The Galaxy section allows user to deploy a full `Galaxy production environment <
    :scale: 50 %
    :align: center
 
-The service instantiate a CentOS 7 Virtual Machine with Galaxy, all its companion software and tools already embedded. Once deployed each Galaxy instance can be further customized with tools and reference data.
+The **Galaxy express** instantiate a CentOS 7 Virtual Machine with Galaxy, all its companion software and tools already embedded. Once deployed each Galaxy instance can be further customized with tools and reference data.
 
 **This version is usually quite reliable and work well for most users.**
 
@@ -29,7 +29,7 @@ The service instantiate a CentOS 7 Virtual Machine with Galaxy, all its companio
    :scale: 50 %
    :align: center
 
-The service allows to setup and launch a virtual machine configured with the Operative System CentOS 7 and the auxiliary applications needed to support a Galaxy production environment such as PostgreSQL, Nginx, uWSGI and Proftpd and to deploy the Galaxy platform itself and the selected Galaxt tools.
+The **Galaxy live build** allows to setup and launch a virtual machine configured with the Operative System CentOS 7 and the auxiliary applications needed to support a Galaxy production environment such as PostgreSQL, Nginx, uWSGI and Proftpd and to deploy the Galaxy platform itself and the selected Galaxt tools.
 
 This versione is recommended for those users which needs an up-to-date system.
 
