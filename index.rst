@@ -35,12 +35,11 @@ For more information on the Galaxy Project, please visit the https://galaxyproje
    :maxdepth: 2
    :caption: user documentation
 
-   qs_galaxy_vm
-   qs_galaxy
-   qs_encryption
+   user_documentation/galaxy/galaxy
+   user_documentation/encryption/manage_encrypted_instance
    qs_galaxy_cluster
    user_documentation/ssh_keys/ssh_keys.rst
-   user_documentation/virtual_hdw_presets
+   user_documentation/galaxy/virtual_hdw_presets
    user_documentation/galaxy_production_environment/galaxy_production_environment
    feat_galaxy_tools
    feat_reference_data
