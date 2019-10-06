@@ -1,7 +1,7 @@
 Get Galaxy 
 ==========
 
-The Laniakea dashboard tiles allow user to deploy a standard `Galaxy production environment <https://docs.galaxyproject.org/en/latest/admin/production.html>`_ through two methods: Galaxy Express and Galaxy live build.
+The Laniakea dashboard tiles allow user to deploy a standard `Galaxy production environment <https://docs.galaxyproject.org/en/latest/admin/production.html>`_ through two methods: |galaxy_vm| and |galaxy_latest|.
 
 .. seealso::
 
@@ -14,7 +14,7 @@ The Laniakea dashboard tiles allow user to deploy a standard `Galaxy production 
    :scale: 50 %
    :align: center
 
-The **Galaxy express** instantiate a CentOS 7 Virtual Machine with Galaxy, all its companion software and tools already embedded. Once deployed each Galaxy instance can be further customized with tools and reference data.
+The |galaxy_vm| instantiate a CentOS 7 Virtual Machine with Galaxy, all its companion software and tools already embedded. Once deployed each Galaxy instance can be further customized with tools and reference data.
 
 **This version is usually quite reliable and work well for most users.**
 
@@ -29,7 +29,7 @@ The **Galaxy express** instantiate a CentOS 7 Virtual Machine with Galaxy, all i
    :scale: 50 %
    :align: center
 
-The **Galaxy live build** allows to setup and launch a virtual machine configured with the Operative System CentOS 7 and the auxiliary applications needed to support a Galaxy production environment such as PostgreSQL, Nginx, uWSGI and Proftpd and to deploy the Galaxy platform itself and the selected Galaxt tools.
+The |galaxy_latest| allows to setup and launch a virtual machine configured with the Operative System CentOS 7 and the auxiliary applications needed to support a Galaxy production environment such as PostgreSQL, Nginx, uWSGI and Proftpd and to deploy the Galaxy platform itself and the selected Galaxt tools.
 
 This versione is recommended for those users which need an up-to-date system.
 
