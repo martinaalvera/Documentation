@@ -31,7 +31,7 @@ The **Galaxy express** instantiate a CentOS 7 Virtual Machine with Galaxy, all i
 
 The **Galaxy live build** allows to setup and launch a virtual machine configured with the Operative System CentOS 7 and the auxiliary applications needed to support a Galaxy production environment such as PostgreSQL, Nginx, uWSGI and Proftpd and to deploy the Galaxy platform itself and the selected Galaxt tools.
 
-This versione is recommended for those users which needs an up-to-date system.
+This versione is recommended for those users which need an up-to-date system.
 
 .. figure:: img/get_galaxy_live_build.gif 
    :scale: 80 %
