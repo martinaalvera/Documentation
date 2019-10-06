@@ -26,10 +26,10 @@ For more information on the Galaxy Project, please visit the https://galaxyproje
    :maxdepth: 2
    :caption: Introduction
 
-   intro_overview
-   intro_architecture
-   intro_elixir-it
-   intro_indigo
+   introduction/laniakea
+   introduction/architecture
+   introduction/elixir_it
+   introduction/indigo
 
 .. toctree::
    :maxdepth: 2

@@ -3,7 +3,7 @@ INDIGO-DataCloud
 
 .. _fig_updateprocess:
 
-.. figure:: _static/intro_indigo_logo.png
+.. figure:: img/indigo_logo.png
    :scale: 40 %
    :align: center
    :alt: INDIGO-DataCloud project logo
@@ -14,7 +14,7 @@ In order to exploit the full capabilities of current cloud infrastructures, supp
 
 .. _fig_updateprocess:
 
-.. figure:: _static/intro_indigo_architecture.png
+.. figure:: img/indigo_architecture.png
    :scale: 15 %
    :align: center
    :alt: INDIGO-DataCloud architecture
@@ -23,7 +23,7 @@ In order to exploit the full capabilities of current cloud infrastructures, supp
 
 .. _fig_updateprocess:
 
-.. figure:: _static/intro_indigo_communities.png
+.. figure:: img/indigo_communities.png
    :scale: 50 %
    :align: center
    :alt: INDIGO-DataCloud communities
@@ -78,7 +78,7 @@ In particular, our goal is to develop a PaaS architecture to automate the creati
 
 .. _fig_updateprocess:
 
-.. figure:: _static/intro_indigo_use_case_1.png
+.. figure:: img/indigo_use_case_1.png
    :scale: 30 %
    :align: center
    :alt: ELIXIR-IIB use case architecture (single VM)
@@ -87,7 +87,7 @@ In particular, our goal is to develop a PaaS architecture to automate the creati
 
 .. _fig_updateprocess:
 
-.. figure:: _static/intro_indigo_use_case_2.png
+.. figure:: img/indigo_use_case_2.png
    :scale: 30 %
    :align: center
    :alt: ELIXIR-IIB use case archithecture (cluster)
@@ -96,4 +96,4 @@ In particular, our goal is to develop a PaaS architecture to automate the creati
 
 References
 ----------
-INDIGO services: https://www.indigo-datacloud.eu/service-component
+`INDIGO services <https://www.indigo-datacloud.eu/service-component>`_
