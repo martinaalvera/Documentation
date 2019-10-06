@@ -44,9 +44,7 @@ This versione is recommended for those users which need an up-to-date system.
 Instantiate Galaxy
 ------------------
 
-Enter the |galaxy_vm| or |galaxy_latest| configuration section.
-
-The configuration options for |galaxy_vm| and |galaxy_latest| are the same.
+Enter the |galaxy_vm| or |galaxy_latest| configuration section. The configuration options are the same.
 
 .. figure:: img/configure_virtual_hardware.png 
    :scale: 50 %
