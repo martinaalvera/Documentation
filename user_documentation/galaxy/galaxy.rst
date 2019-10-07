@@ -61,7 +61,7 @@ Virtual hardware configuration
 
 #. Copy & Paste your SSH key, to login in the Galaxy instance or configure it in the :doc:`/user_documentation//ssh_keys/ssh_keys` page:
 
-#. Lanieakea provides the possibility to encrypt the storage volume associated with the virtual machine on-demand, to protect user data.
+#. Laniakea provides the possibility to encrypt the storage volume associated with the virtual machine on-demand, to protect user data.
 
    To enable storage encryption set the switch to **ON** .
 
