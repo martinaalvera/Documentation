@@ -100,7 +100,7 @@ Galaxy configuration
 Galaxy access
 -------------
 
-Once your Galaxy instance a confirmation e-mail is sent, to the Laniake user and to the galaxy administrator email, if different, with the URL of Galaxy and user credentials.
+Once your Galaxy instance a confirmation e-mail is sent, to the Laniakea user and to the galaxy administrator email, if different, with the URL of Galaxy and user credentials.
 
 .. Warning::
 
