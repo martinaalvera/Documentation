@@ -1,4 +1,4 @@
-Get Galaxy 
+Launch Galaxy 
 ==========
 
 The Laniakea dashboard tiles allow user to deploy a standard `Galaxy production environment <https://docs.galaxyproject.org/en/latest/admin/production.html>`_ through two methods: |galaxy_vm| and |galaxy_latest|.
