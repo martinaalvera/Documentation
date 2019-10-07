@@ -3,12 +3,12 @@ Service architecture
 
 The web front-end is designed to grant user friendly access to the service, allowing to easily configure and launch each Galaxy instance through the :doc:`indigo_fgw` portal.
 
-.. figure:: _static/intro_galaxycloud_architecture.png
+.. figure:: img/laniakea_architecture.png
    :scale: 40 %
    :align: center
    :alt: Galaxy as a cloud service architecture
 
-   Galaxy as a Cloud Service architecture
+   Laniakea architecture
 
 All the required components to automatically setup Galaxy instances (Galaxy and all its companion software) are deployed using the :doc:`indigo_orchestrator` and the :doc:`indigo_im` services, based on the TOSCA orchestration language. The service is compatible with both OpenNebula and OpenStack, its deployment on different e-infrastructures. Moreover, it supports both VMs and Docker containers, leaving the selection of the virtual environment to the service providers. This effectively removes the need to depend on particular configurations (e.g. OpenStack, OpenNebula or other private cloud solution like Amazon or Google).
 
