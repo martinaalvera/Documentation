@@ -16,7 +16,7 @@ After the boot procedure of your VM at least these services should already be up
 
 Trying to connect to your Galaxy instance IP with a web browser you should see:
 
-.. figure:: _static/faq/faq_restart_galaxy_2.png
+.. figure:: img/galaxy_400.png
    :scale: 25 %
    :align: center
    :alt: Galaxy page
@@ -65,7 +65,7 @@ To start Galaxy you can just copy and paste this:
 
    This may require few minutes, but should safely restart your Galaxy. 
 
-.. figure:: _static/faq/faq_restart_galaxy_3.png
+.. figure:: img/galaxy_200.png
    :scale: 25 %
    :align: center
    :alt: Galaxy page

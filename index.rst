@@ -45,7 +45,7 @@ For more information on the Galaxy Project, please visit the https://galaxyproje
    feat_reference_data
    feat_cluster_support
    user_documentation/authentication/authentication
-   faq
+   user_documentation/faq/faq
 
 .. toctree::
    :maxdepth: 2

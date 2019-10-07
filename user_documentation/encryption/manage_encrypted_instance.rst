@@ -2,14 +2,18 @@ Manage encrypted instance
 =========================
 
 The service provides the possibility to encrypt the storage volume associated to the virtual machine on-demand.
+A detailed description of Laniakea encryption strategy is reported here: :doc:`/admin_documentation/encryption/encryption`.
 
 .. Warning::
 
    Only the external volume, where Galaxy data are stored, is encrypted, not the Virtual Machine root disk.
 
+Data privacy is granted through LUKS storage encryption: user will be required to insert a password to encrypt/decrypt data directly on the virtual instance during its deployment, avoiding any interaction with the cloud administrator(s).
 
 Retrieve encrypted storage passphrase
 -------------------------------------
+
+Cryptographic keys should never be transmitted in the clear. For this reason during Galaxy deployment user intervention is required.
 
 .. raw:: html
 
@@ -30,56 +34,9 @@ Restart Galaxy on encrypted instance
    </iframe> 
    </p>
 
+.. note::
 
-.. figure:: _static/qs_encryption/qs_encryption.png 
-   :scale: 70 %
-   :align: center
-   :alt: Galaxy encryption
-
-Cryptographic keys should never be transmitted in the clear. For this reason during Galaxy deployment user intervention is required.
-
-Data privacy is granted through LUKS storage encryption: user will be required to insert a password to encrypt/decrypt data directly on the virtual instance during its deployment, avoiding any
-interaction with the cloud administrator(s).
-
-An e-mail is sent to instance administrator the e-mail address configured in the ``Galaxy Configuration`` section.
-
-.. figure:: _static/qs_encryption/qs_encryption_setMail.png 
-   :scale: 70 %
-   :align: center
-   :alt: Galaxy encryption mail configuration section
-
-.. Warning::
-
-   Make sure you have entered a valid mail address!
-
-The e-mail is sent you only when the system is ready to accept your password and contains all the instructions to correctly encrypt/decrypt your system. The e-mail subject is ``[ELIXIR-ITALY] Laniakea storage encryption``, sent by ``Laniakea@elixir-italy.org``
-
-.. Warning::
-
-   If you don't receive the e-mail:
-
-   #. Check you SPAM mail directory
-
-   #. Chek mail address spelling
-
-   #. Wait 15 minutes more.
-
-.. figure:: _static/encryption/FS_ecrypt_proc_01.png 
-   :scale: 70 %
-   :align: center
-   :alt: Galaxy encryption mail
-
-Once the e-mail is arrived you can follow the step by step guide to encrypt your volume: :doc:`FS_encryption_procedure`.
-
-User is only asked to insert their alphanumeric password 3 times:
-
-#. Set password
-
-#. Confirm password
-
-#. Open LUKS volume.
-
-After the password injection the logout is automatic: the encryption procedure continues in background.
+   If the automatic procecure does not work, please have a look here: :doc:`/user_documentation/faq/faq`
 
 Default encryption algorithm
 ----------------------------
@@ -92,7 +49,3 @@ The default LUKS configuration are:
   Key size: 256 bit
 
   Hash Algorithm for key derivation: sha256
-
-.. seealso::
-
-   For a detailed description of all Web UI options see section: :doc:`feat_options`.
