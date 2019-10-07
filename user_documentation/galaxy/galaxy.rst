@@ -100,7 +100,7 @@ Galaxy configuration
 Galaxy access
 -------------
 
-Dashboard deployments page
+Once your Galaxy instance a confirmation e-mail is sent, to the Laniake user and to the galaxy administrator email, if different, with the URL of Galaxy and user credentials.
 
 .. Warning::
 
@@ -111,6 +111,12 @@ Dashboard deployments page
    #. Chek mail address spelling
 
    #. Wait 15 minutes more.
+
+The instance information are also available in the **Deployments** page of the dashboard:
+
+.. figure:: img/deployments_page.png
+   :scale: 50%
+   :align: center
 
 The galaxy administrator password and the API key are automatically set during the instatiation procedure and are the same for each instance:
 
@@ -128,4 +134,4 @@ The galaxy administrator password and the API key are automatically set during t
 
 .. Warning::
 
-   The anonymous login is disabled by default .
+   The anonymous login is disabled by default.
