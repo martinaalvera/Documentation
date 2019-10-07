@@ -60,3 +60,30 @@ It is possible to do this through the dashboard.
 .. note::
 
    If the automatic procecure does not work, please have a look here: :doc:`/user_documentation/faq/faq`
+
+Command line interface: luksctl
+-------------------------------
+
+To easily the encrypted storage management a python script, ``luksctl``, is installed. 
+
+By default its configuration file is stored in ``/etc/luks/luks-cryptdev.ini``.
+
+.. Warning::
+
+   Please don't change it unless you know what you're doing.
+
+
+.. Note::
+
+   The script requires superuser rights.
+
+Here the list of the currently available commands:
+
+========  ======================  =========================
+Action    Command                 Description
+========  ======================  =========================
+Open      sudo luksctl open       Open the encrypted device, requiring your passphrase.
+Close     sudo luksctl close      Closei and umount the encrypted device
+Status    sudo luksctl status     Check device status
+========  ======================  =========================
+
