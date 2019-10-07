@@ -97,8 +97,20 @@ Galaxy configuration
 
 #. Finally, ``SUBMIT`` your request:
 
-Galaxy login
-------------
+Galaxy access
+-------------
+
+Dashboard deployments page
+
+.. Warning::
+
+   If you don't receive the e-mail:
+
+   #. Check you SPAM mail directory
+
+   #. Chek mail address spelling
+
+   #. Wait 15 minutes more.
 
 The galaxy administrator password and the API key are automatically set during the instatiation procedure and are the same for each instance:
 
