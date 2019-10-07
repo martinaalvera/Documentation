@@ -5,7 +5,7 @@ The Laniakea dashboard tiles allow user to deploy a standard `Galaxy production 
 
 .. seealso::
 
-   To login to Laniakea dashboard visit the section: :doc:`/user_documentation//authentication/authentication`.
+   To login to the Laniakea dashboard visit the section: :doc:`/user_documentation//authentication/authentication`.
 
 |galaxy_vm| 
 -----------
@@ -14,7 +14,7 @@ The Laniakea dashboard tiles allow user to deploy a standard `Galaxy production 
    :scale: 50 %
    :align: center
 
-The |galaxy_vm| instantiate a CentOS 7 Virtual Machine with Galaxy, all its companion software and tools already embedded. Once deployed each Galaxy instance can be further customized with tools and reference data.
+The |galaxy_vm| instantiate a CentOS 7 Virtual Machine with Galaxy, all its companion software and the set of tools that come with the selected flavour. Once deployed each Galaxy instance can be further customized with additional tools and reference data.
 
 **This version is usually quite reliable and work well for most users.**
 
@@ -29,9 +29,9 @@ The |galaxy_vm| instantiate a CentOS 7 Virtual Machine with Galaxy, all its comp
    :scale: 50 %
    :align: center
 
-The |galaxy_latest| allows to setup and launch a virtual machine configured with the Operative System CentOS 7 and the auxiliary applications needed to support a Galaxy production environment such as PostgreSQL, Nginx, uWSGI and Proftpd and to deploy the Galaxy platform itself and the selected Galaxt tools.
+The |galaxy_latest| allows to setup and launch a virtual machine configured with the Operative System CentOS 7 and the auxiliary applications needed to support a Galaxy production environment such as PostgreSQL, Nginx, uWSGI and Proftpd and to deploy the Galaxy platform itself and the tools that come with the selected flavour.
 
-This versione is recommended for those users which need an up-to-date system.
+This version is recommended for those users which want to be sure to have the latest available version of each tool.
 
 .. figure:: img/get_galaxy_live_build.gif 
    :scale: 80 %
@@ -39,7 +39,7 @@ This versione is recommended for those users which need an up-to-date system.
 
 .. Warning::
 
-   Everything is configured on the fly and, depending on the number of the tools to be installed may take time.
+   In fact, each tool is downloaded from the repositories and configured on the fly. Depending on the number of the tools to be installed the deploument process may take time a variable amount of time.
 
 Instantiate Galaxy
 ------------------
@@ -50,9 +50,9 @@ Enter the |galaxy_vm| or |galaxy_latest| configuration section. The configuratio
    :scale: 50 %
    :align: center
 
-Describe your instance using the ``Instance description`` field, which will identfy your Galaxy in the **Deployments page**, once your request is submitted.
+Provide a description for your instance using the ``Instance description`` field, which will identfy your Galaxy in the **Deployments page**, once your request is submitted.
 
-Then the web front-end provides two different tabs for configuring the virtual hardware and the Galaxy instance.
+Two panels allows to configure the virtual hardware and the Galaxy instance respectively.
 
 Virtual hardware configuration
 ******************************
@@ -61,13 +61,13 @@ Virtual hardware configuration
 
 #. Copy & Paste your SSH key, to login in the Galaxy instance or configure it in the :doc:`/user_documentation//ssh_keys/ssh_keys` page:
 
-#. The service provides the possibility to encrypt the storage volume associated to the virtual machine on-demand, to protect user data.
+#. Lanieakea provides the possibility to encrypt the storage volume associated with the virtual machine on-demand, to protect user data.
 
-   To enable storage encryption set to **ON** the switch.
+   To enable storage encryption set the switch to **ON** .
 
    .. Warning::
 
-      Only the external volume, where Galaxy data are stored, is encrypted, not the Virtual Machine root disk.
+      Only the external volume where Galaxy data are stored is encrypted, not the Virtual Machine root disk.
 
    The storage will be encrypted with a strong alphanumerical passphrase. More information on this topic can be found here:
 
@@ -89,11 +89,11 @@ Galaxy configuration
 
    .. note::
 
-      A notification mail will be sent also to this e-mail address once the deployment is done.
+      A notification mail will be sent to this e-mail address once the deployment is done.
 
-#. Select Galaxy tools pre-set among those available (see section :doc:`galaxy_flavours`).
+#. Select the Galaxy flavour among those available (see section :doc:`galaxy_flavours`).
 
-#. Select Galaxy reference dataset. The default should be the best choicne for most users (see section :doc:`galaxy_refdata`).
+#. Select Galaxy reference dataset. The default should be the best choice for most users (see section :doc:`galaxy_refdata`).
 
 #. Finally, ``SUBMIT`` your request:
 
@@ -112,8 +112,8 @@ The galaxy administrator password and the API key are automatically set during t
 
 .. Warning::
 
-   Change Galaxy password and the API key as soon as possible!
+   Change the Galaxy password and API key as soon as possible!
 
 .. Warning::
 
-   The anonymous login is by default disabled.
+   The anonymous login is disabled by default .
