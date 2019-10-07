@@ -1,15 +1,15 @@
-Manage encrypted instance
-=========================
+Manage an encrypted instance
+============================
 
-The service provides the possibility to encrypt the storage volume associated to the virtual machine on-demand.
+The service provides the possibility to encrypt the storage volume associated with a Galaxy instance.
 
 .. Warning::
 
-   Only the external volume, where Galaxy data are stored, is encrypted, not the Virtual Machine root disk.
+   Only the external volume, where Galaxy data are stored, is encrypted, not the Virtual Machine root disk. The encryption layer should be secure enough to protect data uploaded from users to the Galaxy instance from any unwantend attention. However, users must be aware that the responsibility of correctly handling any sensitive data they upload to Laniakea falls on them and that the administrators of the Laniakea service can not be considered responsible for any data breach that may happen due to neglicence by Galaxy users or the action of external malicious attackers.
 
 
-Retrieve encrypted storage passphrase
--------------------------------------
+Retrieve the encrypted storage passphrase
+-----------------------------------------
 
 .. raw:: html
 
@@ -19,8 +19,8 @@ Retrieve encrypted storage passphrase
    </iframe> 
    </p>
 
-Restart Galaxy on encrypted instance
-------------------------------------
+Restart Galaxy on an encrypted instance
+---------------------------------------
 
 .. raw:: html
 
@@ -36,12 +36,10 @@ Restart Galaxy on encrypted instance
    :align: center
    :alt: Galaxy encryption
 
-Cryptographic keys should never be transmitted in the clear. For this reason during Galaxy deployment user intervention is required.
 
-Data privacy is granted through LUKS storage encryption: user will be required to insert a password to encrypt/decrypt data directly on the virtual instance during its deployment, avoiding any
-interaction with the cloud administrator(s).
+Data privacy is granted through LUKS storage encryption: user will be required to insert a password to encrypt/decrypt data directly on the virtual instance during its deployment, avoiding any interaction with the cloud administrator(s).
 
-An e-mail is sent to instance administrator the e-mail address configured in the ``Galaxy Configuration`` section.
+An e-mail is sent to the e-mail address provided the ``Galaxy Configuration`` section.
 
 .. figure:: _static/qs_encryption/qs_encryption_setMail.png 
    :scale: 70 %
@@ -52,26 +50,26 @@ An e-mail is sent to instance administrator the e-mail address configured in the
 
    Make sure you have entered a valid mail address!
 
-The e-mail is sent you only when the system is ready to accept your password and contains all the instructions to correctly encrypt/decrypt your system. The e-mail subject is ``[ELIXIR-ITALY] Laniakea storage encryption``, sent by ``Laniakea@elixir-italy.org``
+The e-mail is sent you only when the system is ready to accept your password and contains the instructions to correctly encrypt/decrypt your system. The e-mail subject is ``[ELIXIR-ITALY] Laniakea storage encryption``, sent by ``Laniakea@elixir-italy.org``
 
 .. Warning::
 
-   If you don't receive the e-mail:
+   If you do not receive the e-mail:
+  
 
    #. Check you SPAM mail directory
 
-   #. Chek mail address spelling
+   #. Chek the spelling of the mail address 
 
-   #. Wait 15 minutes more.
 
 .. figure:: _static/encryption/FS_ecrypt_proc_01.png 
    :scale: 70 %
    :align: center
    :alt: Galaxy encryption mail
 
-Once the e-mail is arrived you can follow the step by step guide to encrypt your volume: :doc:`FS_encryption_procedure`.
+Once you get the e-mail  follow the step by step guide to encrypt your volume: :doc:`FS_encryption_procedure`.
 
-User is only asked to insert their alphanumeric password 3 times:
+User is asked to insert their alphanumeric password 3 times:
 
 #. Set password
 
