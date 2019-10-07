@@ -1,52 +1,28 @@
-Launch Galaxy 
-==========
+Launch |galaxy_docker| 
+======================
 
-The Laniakea dashboard tiles allow user to deploy a standard `Galaxy production environment <https://docs.galaxyproject.org/en/latest/admin/production.html>`_ through two methods: |galaxy_vm| and |galaxy_latest|.
+The Laniakea dashboard tiles allow user to deploy Galaxy through its official `Docker image <https://github.com/bgruening/docker-galaxy-stable>`_.
 
 .. seealso::
 
    To login to the Laniakea dashboard visit the section: :doc:`/user_documentation//authentication/authentication`.
 
-|galaxy_vm| 
------------
-
-.. figure:: img/galaxy_express_tile.png
-   :scale: 50 %
+.. figure:: img/galaxy_docker_tile.png
+   :scale: 100 %
    :align: center
 
-The |galaxy_vm| instantiate a CentOS 7 Virtual Machine with Galaxy, all its companion software and the set of tools that come with the selected flavour. Once deployed each Galaxy instance can be further customized with additional tools and reference data.
+The |galaxy_docker| instantiate an Ubuntu 16.04 Virtual Machine with the Galaxy official Docker. Once deployed each Galaxy instance can be further customized with additional tools and reference data.
 
-**This version is usually quite reliable and work well for most users.**
-
-.. figure:: img/get_galaxy_express.gif 
+.. figure:: img/launch_galaxy_docker.gif 
    :scale: 80 %
    :align: center
-
-|galaxy_latest|
----------------
-
-.. figure:: img/galaxy_live_build_tile.png
-   :scale: 50 %
-   :align: center
-
-The |galaxy_latest| allows to setup and launch a virtual machine configured with the Operative System CentOS 7 and the auxiliary applications needed to support a Galaxy production environment such as PostgreSQL, Nginx, uWSGI and Proftpd and to deploy the Galaxy platform itself and the tools that come with the selected flavour.
-
-This version is recommended for those users which want to be sure to have the latest available version of each tool.
-
-.. figure:: img/get_galaxy_live_build.gif 
-   :scale: 80 %
-   :align: center
-
-.. Warning::
-
-   In fact, each tool is downloaded from the repositories and configured on the fly. Depending on the number of the tools to be installed the deploument process may take time a variable amount of time.
 
 Instantiate Galaxy
 ------------------
 
-Enter the |galaxy_vm| or |galaxy_latest| configuration section. The configuration options are the same.
+Enter the |galaxy_docker| configuration section.
 
-.. figure:: img/configure_virtual_hardware.png 
+.. figure:: img/configure_virtual_hardware_docker.png 
    :scale: 50 %
    :align: center
 
@@ -79,11 +55,11 @@ Virtual hardware configuration
 Galaxy configuration
 ********************
 
-.. figure:: img/configure_galaxy.png
+.. figure:: img/configure_galaxy_docker.png
    :scale: 50 %
    :align: center
 
-#. Select the Galaxy version, the instance administrator e-mail and the Galaxy brand tag (the top-left name in the Galaxy home page).
+#. Select the instance administrator e-mail and the Galaxy brand tag (the top-left name in the Galaxy home page).
 
 #. Provide a valid e-mail address as Galaxy administrator credential.
 
@@ -91,7 +67,7 @@ Galaxy configuration
 
       A notification mail will be sent to this e-mail address once the deployment is done.
 
-#. Select the Galaxy flavour among those available (see section :doc:`galaxy_flavours`).
+#. Select the Galaxy flavour among those available.
 
 #. Select Galaxy reference dataset. The default should be the best choice for most users (see section :doc:`galaxy_refdata`).
 
@@ -135,3 +111,8 @@ The galaxy administrator password and the API key are automatically set during t
 .. Warning::
 
    The anonymous login is disabled by default.
+
+References
+----------
+
+`Official Galaxy Docker slides <https://galaxyproject.github.io/training-material/topics/admin/tutorials/galaxy-docker/slides.html#1>`_

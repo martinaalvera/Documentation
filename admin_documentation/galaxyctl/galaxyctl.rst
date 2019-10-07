@@ -177,3 +177,8 @@ Finally, for onedata spaces management, onedatactl.ini file (stored in ``/etc/ga
 
   onedatactl_config_file = '/etc/galaxy/onedatactl.ini'
   onedatactl_path = '/usr/local/bin'
+
+.. toctree::
+   :maxdepth: 2
+
+   galaxyctl_libs

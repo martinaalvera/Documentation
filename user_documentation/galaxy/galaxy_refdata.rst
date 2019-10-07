@@ -24,7 +24,7 @@ A complete list of the reference data, with download link, is available `here <h
 
 .. _fig_updateprocess:
 
-.. figure:: _static/feat_refdata_indexes.png
+.. figure:: img/refdata_indexes.png
    :scale: 30 %
    :align: center
    :alt: Reference data indexes

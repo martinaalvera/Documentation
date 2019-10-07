@@ -1,117 +1,138 @@
-Get |galaxy_cluster|
-====================
+Launch |galaxy_cluster|
+=======================
 
-.. Warning::
-
-   Currently, this feature is under beta testing. Galaxy and tools are installed on-the-fly starting from a bare CentOS 7 image. The whole process, i.e. install Galaxy and tools, may take time. We will soon add the possibility to exploit images with tools to speed-up the configuration.
-
-It is possible to deploy a Galaxy cluster, using SLURM as Resource Manager, with or without automatic elasticity support.
-
-#. Galaxy cluster section: all working nodes are deployed with the Galaxy server and are always available. 
-
-#. Galaxy elastic cluster serciont: automatic elasticity enables dynamic cluster resources scaling, deploying and powering on new working nodes depending on the workload of the cluster and powering-off them when no longer needed. This provides an efficient use of the resources, making them available only when really needed.
-
-The two sections provide the same configuration options. 
-
-.. Warning::
-
-   Each node takes 12 minutes or more to be instantiated. Therefore, the job needs the same time to start. On the contrary if the node is already deployed the job will start immediately.
+Galaxy serves tools which may require a wide range of compute resources to properly work. To account this, the Laniakea dashboard tiles allow user to deploy a standard `Galaxy production environment <https://docs.galaxyproject.org/en/latest/admin/production.html>`_ connected to a `compute cluster <https://galaxyproject.github.io/training-material/topics/admin/tutorials/connect-to-compute-cluster/tutorial.html>`_.
 
 .. seealso::
 
-   For a detailed description Galaxy elastic cluster see section :doc:`feat_cluster_support`.
+   To login to the Laniakea dashboard visit the section: :doc:`/user_documentation//authentication/authentication`.
 
-   For a detailed descreption of all Web UI options see section: :doc:`feat_options`.
+|galaxy_cluster|
+----------------
 
-   To login into the portal see section: :doc:`feat_auth`.
+The |galaxy_cluster| instantiate a Galaxy server and the worker nodes.
 
+.. figure:: img/galaxy_cluster_tile.png
+   :scale: 100 %
+   :align: center
+
+--------------------------
+``Galaxy cluster Express``
+--------------------------
+
+The |galaxy_cluster| Express instantiate a CentOS 7 Virtual Machine with Galaxy, all its companion software and the set of tools that come with the selected flavour. Once deployed each Galaxy instance can be further customized with additional tools and reference data.
+
+**This version is usually quite reliable and work well for most users.**
+
+-----------------------------
+``Galaxy cluster Live Build``
+-----------------------------
+
+The |galaxy_cluster| Live Build allows to setup and launch a virtual machine configured with the Operative System CentOS 7 and the auxiliary applications needed to support a Galaxy production environment such as PostgreSQL, Nginx, uWSGI and Proftpd and to deploy the Galaxy platform itself and the tools that come with the selected flavour.
+
+This version is recommended for those users which want to be sure to have the latest available version of each tool.
+
+|galaxy_elastic_cluster|
+------------------------
+
+The |galaxy_elastic_cluster| section allows to deploy a Galaxy Server with automatic elasticity support for worker nodes deplyment. Automatic elasticity enables dynamic cluster resources scaling, deploying and powering on new working nodes depending on the workload of the cluster and powering-off them when no longer needed. This provides an efficient use of the resources, making them available only when really needed.
+
+.. figure:: img/galaxy_elastic_cluster_tile.png
+   :scale: 100 %
+   :align: center
+
+.. Warning::
+
+   Currently, this feature is under beta testing. Galaxy and tools are installed on-the-fly starting from a bare CentOS 7 image. The whole process, i.e. install Galaxy and tools, may take time. We will soon add the possibility to exploit images with tools to speed-up the configuration
+
+.. Warning::
+
+   Each node takes 12 minutes or more to be instantiated. Therefore, the job needs the same time to start. On the contrary, if the node is already deployed, the job will start immediately.
 
 Instantiate Galaxy
 ------------------
 
-#. Enter in the ``Galaxy cluster`` section:
+Enter the |galaxy_cluster| (Express or Live BUild) or |galaxy_elastic_cluster| configuration section. The configuration options are the same.
 
-   .. figure:: _static/qs_galaxy_cluster/qs_cluster_main.png 
-      :scale: 70 %
-      :align: center
-      :alt: Galaxy express main window
+.. figure:: img/configure_virtual_hardware_cluster.png 
+   :scale: 50 %
+   :align: center
 
-#. Describe your instance using the ``Instance description`` field, which will identfy your Galaxy in the job list, once your request is submitted.
+Provide a description for your instance using the ``Instance description`` field, which will identfy your Galaxy in the **Deployments page**, once your request is submitted.
 
-#. Select the number of Virtual Worker Nondes of your Cluster:
+Two panels allows to configure the virtual hardware and the Galaxy instance respectively.
 
-   .. figure:: _static/qs_galaxy_cluster/qs_cluster_Vhw1.png
-      :scale: 70 %
-      :align: center
-      :alt: Virtual hardware configuration
+Virtual hardware configuration
+******************************
 
-#. Select the Instance flavor, (virtual CPUs and RAM) for your Front node, i.e. the Galaxy server, and for each Worker Node:
+#. Select the instance flavour (virtual CPUs and the memory size) for your Front node, i.e. the Galaxy server. More information on available virtual hardware presets can be found here: :doc:`virtual_hdw_presets`.
 
-   Currently, the following pre-sets are available:
+#. Select the number of Virtual Worker Nodes of your Cluster and the instance flavor, (virtual CPUs and RAM) for each worker node. More information on available virtual hardware presets can be found here: :doc:`virtual_hdw_presets`.
 
-   =========  =======  =======  =============  =============
-   Name       VCPUs    RAM      Total Disk     Root Disk
-   =========  =======  =======  =============  =============
-   small      1        2 GB     20 GB          20 GB
-   medium     2        4 GB     20 GB          20 GB
-   large      4        8 GB     20 GB          20 GB
-   xlarge     8        16 GB    20 GB          20 GB
-   xxlarge    16       32 GB    20 GB          20 GB
-   =========  =======  =======  =============  =============
+#. Copy & Paste your SSH key, to login in the Galaxy instance or configure it in the :doc:`/user_documentation//ssh_keys/ssh_keys` page:
 
-#. Copy & Paste your SSH key, to login in the Galaxy instance:
+#. Laniakea provides the possibility to encrypt the storage volume associated with the virtual machine on-demand, to protect user data.
 
-   .. figure:: _static/qs_galaxy_cluster/qs_cluster_SSHkey.png
-      :scale: 70 %
-      :align: center
-      :alt: SSH public key injection
+   To enable storage encryption set the switch to **ON** .
 
-#. Storage section allows to select the IaaS storage volume size. The ``Storage encryption`` option is explained here: :doc:`qs_encryption`.
+   .. Warning::
 
-   .. figure:: _static/qs_galaxy_cluster/qs_cluster_Storage.png
-      :scale: 70 %
-      :align: center
-      :alt: Galaxy express Storage section 2
+      Only the external volume where Galaxy data are stored is encrypted, not the Virtual Machine root disk.
 
-#. Select the Galaxy version, the instance administrator e-mail and your custom Galaxy brand:
+   The storage will be encrypted with a strong alphanumerical passphrase. More information on this topic can be found here:
 
-   .. figure:: _static/qs_galaxy_cluster/qs_cluster_GalaxyConfig.png
-     :scale: 70 %
-     :align: center
-     :alt: Galaxy express Galxy configuration section
+   - :doc:`/user_documentation/encryption/manage_encrypted_instance`
+   - :doc:`/admin_documentation/encryption/encryption`
 
-  .. Warning::
+#. Finally, it is possible to select the user storage volume size.
 
-     Please insert a vail mail address. No check is performed on its syntax, but entering an incorrect email address will cause deployment failure if the ``encryption`` option is set.
+Galaxy configuration
+********************
 
-#. Select Galaxy tools pre-set:
+.. figure:: img/configure_galaxy_cluster.png
+   :scale: 50 %
+   :align: center
 
-   .. figure:: _static/qs_galaxy_cluster/qs_cluster_Tools.png 
-      :scale: 70 %
-      :align: center
-      :alt: Galaxy express Tools section
+#. Select the Galaxy version, the instance administrator e-mail and the Galaxy brand tag (the top-left name in the Galaxy home page).
 
-#. and reference dataset:
+#. Provide a valid e-mail address as Galaxy administrator credential.
 
-   .. figure:: _static/qs_galaxy_cluster/qs_cluster_refdata.png 
-      :scale: 70 %
-      :align: center
-      :alt: Galaxy express Tools section
+   .. note::
 
-#. Finally, ``SUBMIT`` your request:
+      A notification mail will be sent to this e-mail address once the deployment is done.
 
-   .. figure:: _static/qs_galaxy_cluster/qs_cluster_view.png
-      :scale: 70 %
-      :align: center
-      :alt: Galaxy express submit request
+#. Select the Galaxy flavour among those available (see section :doc:`galaxy_flavours`).
 
-Galaxy login
-------------
-The galaxy administrator password and the API key are automatically generated during the instatiation procedure and are the same for each instance:
+#. Select Galaxy reference dataset. The default should be the best choice for most users (see section :doc:`galaxy_refdata`).
+
+#. Finally, ``SUBMIT`` your request.
+
+Galaxy access
+-------------
+
+Once your Galaxy instance a confirmation e-mail is sent, to the Laniakea user and to the galaxy administrator email, if different, with the URL of Galaxy and user credentials.
+
+.. Warning::
+
+   If you don't receive the e-mail:
+
+   #. Check you SPAM mail directory
+
+   #. Chek mail address spelling
+
+   #. Wait 15 minutes more.
+
+The instance information are also available in the **Deployments** page of the dashboard:
+
+.. figure:: img/deployments_page.png
+   :scale: 50%
+   :align: center
+
+The galaxy administrator password and the API key are automatically set during the instatiation procedure and are the same for each instance:
 
 ::
 
-  User: your user e-mail
+  User: administrator e-mail
 
   Password: galaxy_admin_password
 
@@ -119,8 +140,8 @@ The galaxy administrator password and the API key are automatically generated du
 
 .. Warning::
 
-   The anonymous login is by default disabled.
+   Change the Galaxy password and API key as soon as possible!
 
 .. Warning::
 
-   Change Galaxy password and the API key as soon as possible!
+   The anonymous login is disabled by default.

@@ -33,29 +33,28 @@ For more information on the Galaxy Project, please visit the https://galaxyproje
 
 .. toctree::
    :maxdepth: 2
-   :caption: user documentation
+   :caption: User documentation
 
    user_documentation/galaxy/galaxy
+   user_documentation/galaxy/galaxy_docker
+   user_documentation/galaxy/galaxy_cluster
    user_documentation/encryption/manage_encrypted_instance
-   qs_galaxy_cluster
    user_documentation/ssh_keys/ssh_keys.rst
    user_documentation/galaxy/virtual_hdw_presets
+   user_documentation/galaxy/galaxy_flavours
+   user_documentation/galaxy/galaxy_refdata
    user_documentation/galaxy_production_environment/galaxy_production_environment
-   feat_galaxy_tools
-   feat_reference_data
-   feat_cluster_support
+   user_documentation/galaxy_production_environment/galaxy_cluster_support
    user_documentation/authentication/authentication
    user_documentation/faq/faq
 
 .. toctree::
    :maxdepth: 2
-   :caption: admin documentation
+   :caption: Admin documentation
 
    admin_documentation/encryption/encryption
-   script_galaxyctl_libs
-   script_galaxyctl
-   script_luksctl
-   dev_ansible_roles
+   admin_documentation/galaxyctl/galaxyctl
+   admin_documentation/ansible/ansible_roles
    admin_documentation/tosca_templates/tosca_templates
    admin_documentation/cvmfs/build_cvmfs_server
    admin_documentation/vault/vault_config

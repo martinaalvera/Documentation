@@ -186,7 +186,7 @@ galaxy_vm = 'Galaxy express'
 galaxy_latest = 'Galaxy live build'
 galaxy_cluster = 'Galaxy cluster'
 galaxy_elastic_cluster = 'Galaxy elastic cluster'
-galaxy_docker = 'Galaxy docker'
+galaxy_docker = 'Galaxy Docker'
 
 rst_prolog = """ 
 .. |project_name| replace:: {0}
