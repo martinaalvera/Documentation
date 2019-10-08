@@ -224,6 +224,10 @@ Test IM using OIDC
 
 It is possible to use an OIDC Token with IM for POST, GET and DELETE calls:
 
+.. note::
+
+   Please note in this case that the ``username`` parameter in the API call must be set to IAM organization name. For example, in the following, we used as IAM organization name ``laniakea`` and the username has been set accordingly.
+
 --------
 ``POST``
 --------
