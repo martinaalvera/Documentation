@@ -1,91 +1,90 @@
 Galaxy Flavours
 ================
 
-Each Galaxy instance is customizable, through the web front-end, with different sets of pre installed tools (e.g. SAMtools, BamTools, Bowtie, MACS, RSEM, etc...), exploiting CONDA as default dependency resolver.
+Each Galaxy instance is customizable, through the web front-end, with different sets of pre installed tools (e.g. SAMtools, BamTools, Bowtie, MACS, RSEM, etc...), exploiting CONDA as default dependency resolver. New tools are automatically installed using the official GalaxyProject python library `Ephemeris <https://ephemeris.readthedocs.io/en/latest/index.html>`_.
 
-New Tools automatically installed using the official GalaxyProject python library `Ephemeris <https://ephemeris.readthedocs.io/en/latest/index.html>`_.
+Currently the following Galaxy flavours are available on Laniakea
 
-Current possible pre-sets:
+------------------
+``Galaxy minimal``
+------------------
 
-#. galaxy-epigen_: Galaxy ready for NGS analysis.
-#. galaxy-rna-workbench_: Galaxy ready for RNA Sequencing analysis (original galaxy flavor `here <https://github.com/bgruening/galaxy-rna-seq/blob/master/rna_seq_tools.yml>`_).
-#. galaxy-testing_: Galaxy test recipe.
+:Description:
+	Galaxy production-grade server (Galaxy, PostgreSQL, NGINX, proFTPd, uWSGI).
 
-.. _galaxy-rna-workbench: https://github.com/indigo-dc/Galaxy-flavors-recipes/blob/master/galaxy-flavors/galaxy-RNAseq-tool-list.yml
-.. _galaxy-epigen: https://github.com/indigo-dc/Galaxy-flavors-recipes/blob/master/galaxy-flavors/galaxy-NGS-tool-list.yml)
-.. _galaxy-testing: https://github.com/indigo-dc/Galaxy-flavors-recipes/blob/master/galaxy-flavors/galaxy-TESTING-tool-list.yml
+:Reference data repository:
+	**usegalaxy.org Galaxy reference data CVMFS repository**
 
-The corresponding recipe on github is downloaded and processed. It is possible to easily add new flavors, just adding new recipes on github.
+-----------------
+``Galaxy CoVaCS``
+-----------------
 
-Create and test Galaxy flavors
+:Description:
+	Workflow for genotyping and variant annotation of whole genome/exome and target-gene sequencing data.
+
+        For more information on CoVaCs Flavour visit this page: :doc:`galaxy_covacs`.
+
+:Reference data repository:
+        **ELIXIR-IT Galaxy CoVaCS reference data CVMFS repository**
+
+:Reference:
+	https://www.ncbi.nlm.nih.gov/pubmed/29402227
+
 ------------------------------
-For each tool you want to install, you must provide tool ``name`` and ``owner`` and one between ``tool_panel_section_id`` and ``tool_panel_section_label``.
+``Galaxy GDC Somatic Variant``
+------------------------------
 
-====================================  =====================================  ====================================  ========================================
-Keys                                  Required                               Default value                         Description
-====================================  =====================================  ====================================  ========================================
-``name``                              yes                             				                   This is is the name of the tool to install
-``owner``                             yes                             				                   Owner of the Tool Shed repository from where the tools is being installed
-``tool_panel_section_id``             yes, if ``tool_panel_section_label``                                         ID of the tool panel section where you want the
-                                      not specified		                                                   tool to be installed. The section ID can be found
-			                                                                                           in Galaxy's ``shed_tool_conf.xml`` config file. Note
-                                    			                                                           that the specified section must exist in this file.
- 					                                                                           Otherwise, the tool will be installed outside any
-                                                                                                                   section.
-``tool_panel_section_label``          yes, if ``tool_panel_section_id``                                            Display label of a tool panel section where
-                                      not specified                                                                you want the tool to be installed. If it does not
-                                                                                                                   exist, this section will be created on the target
-                                                                                                                   Galaxy instance (note that this is different than
-                                                                                                                   when using the ID).
-                                                                                                                   Multi-word labels need to be placed in quotes.
-                                                                                                                   Each label will have a corresponding ID created;
-                                                                                                                   the ID will be an all lowercase version of the
-                                                                                                                   label, with multiple words joined with
-                                                                                                                   underscores (e.g., 'BED tools' -> 'bed_tools').
-``tool_shed_url``                                                            ``https://toolshed.g2.bx.psu.edu)``   The URL of the Tool Shed from where the tool should be
-                                                                                                                   installed.
-``revisions``                                                                latest                                A list of revisions of the tool, all of which will attempt to
-                                                                                                                   be installed.
-``install_tool_dependencies``                                                True                                  True or False - whether to install tool
-                                                                                                                   dependencies or not.
-``install_repository_dependencies``                                          True                                  True or False - whether to install repo
-                                                                                                                   dependencies or not, using classic toolshed packages
-====================================  =====================================  ====================================  ========================================
+:Description:
+	Port of the Genomic Data Commons (GDC) pipeline for the identification of somatic variants on whole exome/genome sequencing data.
 
-For instance, this is the galaxy TESTING recipe:
+	For more information on GDC Somatic Variant visit this page: :doc:`galaxy_gdc`.
 
-::
+:Reference data repository:
+        **usegalaxy.org Galaxy reference data CVMFS repository**
 
-  ---
-  api_key: <Admin user API key from galaxy_instance>
-  galaxy_instance: <Galaxy instance IP>
+:Reference:
+	https://gdc.cancer.gov/node/246
 
-  tools:
-  - name: fastqc
-    owner: devteam
-    tool_panel_section_label: 'Tools'
-    install_resolver_dependencies: True
-    install_tool_dependencies: False
+------------------------
+``Galaxy RNA workbench``
+------------------------
 
-  - name: 'bowtie_wrappers'
-    owner: 'devteam'
-    tool_panel_section_label: 'Tools'
-    install_resolver_dependencies: True
-    install_tool_dependencies: False
+:Description:
+	More than 50 tools for RNA centric analysis.
 
-Conda support
--------------
-Conda is a package manager like apt-get, yum, pip, brew or guix and it is, currently, used as default dependency resolver in Galaxy.
+:Reference data repository:
+        **usegalaxy.org Galaxy reference data CVMFS repository**
 
+:Reference:
+	https://www.ncbi.nlm.nih.gov/pubmed/28582575
 
+-----------------
+``Galaxy Epigen``
+-----------------
+
+:Description:
+	Based on Epigen project.
+
+:Reference data repository:
+        **usegalaxy.org Galaxy reference data CVMFS repository**
+
+:Reference:
+	`Galaxy Epigen server <http://159.149.160.87/galaxy>`_
+
+Create new Galaxy flavours
+--------------------------
+
+New flavors can be created through yaml recipes with the list of tools. A tool list example can be found `here <https://raw.githubusercontent.com/indigo-dc/Galaxy-flavors-recipes/master/galaxy-testing/galaxy-testing-tool-list.yml>`_.
+
+For more information on how to create a flavour visit this page: :doc:`galaxy_flavours_creation`.
 
 References
 ----------
 
-Galaxy flavors: https://github.com/bgruening/docker-galaxy-stable#Extending-the-Docker-Image
+`Galaxy flavors <https://github.com/bgruening/docker-galaxy-stable#Extending-the-Docker-Image>`_
 
-Ephemeris: https://ephemeris.readthedocs.io/en/latest/
+`Ephemeris <https://ephemeris.readthedocs.io/en/latest/>`_
 
-Ephemeris documentation: https://github.com/galaxyproject/ephemeris
+`Ephemeris documentation <https://github.com/galaxyproject/ephemeris>`_
 
-Conda for Galaxy tools dependencies: https://docs.galaxyproject.org/en/master/admin/conda_faq.html
+`Conda for Galaxy tools dependencies <https://docs.galaxyproject.org/en/master/admin/conda_faq.html>`_
