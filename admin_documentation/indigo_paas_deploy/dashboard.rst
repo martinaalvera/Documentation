@@ -80,7 +80,30 @@ The one with MySQL and Hashicorp Vault is the one used in Laniakea.
 
    dashboard_vault
 
+Post installation steps to enable the callback
+----------------------------------------------
 
+If the callback is enabled, the Paas Orchestrator (:doc:`/admin_documentation/indigo_paas_deploy/orchestrator`) needs to be configured accordingly.
+
+In particular, the dashboard CA certificate has to be copied on the PaaS Orchestrator Virtual Machine in ``/etc/orchestrator/trusted_certs``.
+
+For Let's Encrypt certificats, those used in this wiki:
+
+#. Connect through SSH to the Dashboard VM and copy the content of the file ``/etc/letsencrypt/live/<orchestrator_dashboard_dns_name>/chain.pem``.
+
+#. Connect through SSH to the PaaS Orchestrator VM and paste the ``chain.pem`` to ``/etc/orchestrator/trusted_certs/dashboard-cert.pem``
+
+#. Restart the PaaS Orchestrator with:
+
+   ::
+
+     # docker restart orchestrator
+
+#. Once the Orchestrator is started the chain file can be removed:
+
+   ::
+
+     # rm /etc/orchestrator/trusted_certs/dashboard-cert.pem
 
 Appendix A. Stateless version
 -----------------------------
