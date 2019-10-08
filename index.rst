@@ -43,8 +43,8 @@ For more information on the Galaxy Project, please visit the https://galaxyproje
    user_documentation/galaxy/virtual_hdw_presets
    user_documentation/galaxy/galaxy_flavours
    user_documentation/galaxy/galaxy_refdata
-   user_documentation/galaxy_production_environment/galaxy_production_environment
-   user_documentation/galaxy_production_environment/galaxy_cluster_support
+   user_documentation/galaxy_production_environment/galaxy_production_environment_configuration
+   user_documentation/galaxy_production_environment/galaxy_cluster_configuration
    user_documentation/authentication/authentication
    user_documentation/faq/faq
 
@@ -78,6 +78,10 @@ Software glitches and bugs can occasionally be encoutered. The best way to repor
 
 Cite
 ----
+
+**Laniakea: an open solution to provide Galaxy “on-demand” instances over heterogeneous cloud infrastructures**, Marco Antonio Tangaro, Giacinto Donvito, Marica Antonacci, Matteo Chiara, Pietro Mandreoli, Graziano Pesole, Federico Zambelli,, ioRxiv 472464; doi: https://doi.org/10.1101/472464
+
+https://www.biorxiv.org/content/10.1101/472464v2
 
 Licence
 -------
