@@ -41,8 +41,6 @@ Configuration
  
     # cd indigopaas-deploy
 
-    # git checkout devel
-
     # mkdir ansible/inventory
 
 2. Create the file ``indigopaas-deploy/ansible/inventory/inventory`` and set the IP of the virtual machines for each service as shown in the following:
