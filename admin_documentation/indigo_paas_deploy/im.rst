@@ -4,7 +4,7 @@ Infrastructure Manager (IM)
 The `Infrastructure Manager (IM) <https://www.grycap.upv.es>`_ is used to deploy virtual infrastructures, to deploy virtual infrastructures, e.g. Galaxy and the underlying virtual hardware.
 
 .. note::
-   Current IM version: 1.8.2
+   Current IM version: 1.8.5
 
 VM configuration
 ----------------
@@ -46,7 +46,7 @@ Create the file ``indigopaas-deploy/ansible/inventory/group_vars/im.yaml`` with 
 
 ::
 
- im_image_version: 1.8.2
+ im_image_version: 1.8.5
  im_mysql_root_password: ********
  im_mysql_password: *********
  im_cfg_oidc_issuers: 'https://<iam_address>/'
@@ -218,6 +218,41 @@ The DELETE request can be used to delete the deployment:
   Content-Type: text/plain
   Content-Length: 0
   Connection: keep-alive
+
+Test IM using OIDC
+******************
+
+It is possible to use an OIDC Token with IM for POST, GET and DELETE calls:
+
+--------
+``POST``
+--------
+
+::
+
+  export IAM_ACCESS_TOKEN="..."
+
+  curl -k -H 'Content-type: text/yaml' -H "Authorization: id = ost; type = OpenStack; host = https://cloud.recas.ba.infn.it:5000/; username = laniakea; password = $IAM_ACCESS_TOKEN; tenant = oidc; auth_version = 3.x_oidc_access_token; domain = default; service_region = recas-cloud;\nid = im; type = InfrastructureManager; token = $IAM_ACCESS_TOKEN" -i -X GET https://cloud-90-147-75-119.cloud.ba.infn.it/im/infrastructures
+
+-------
+``GET``
+-------
+
+::
+
+  export IAM_ACCESS_TOKEN="..."
+
+  curl -k -H 'Content-type: text/yaml' -H "Authorization: id = ost; type = OpenStack; host = https://cloud.recas.ba.infn.it:5000/; username = laniakea; password = $IAM_ACCESS_TOKEN; tenant = oidc; auth_version = 3.x_oidc_access_token; domain = default; service_region = recas-cloud;\nid = im; type = InfrastructureManager; token = $IAM_ACCESS_TOKEN" -i -X GET https://cloud-90-147-75-119.cloud.ba.infn.it/im/infrastructures
+
+---------
+``DELETE``
+---------
+
+::
+
+  export IAM_ACCESS_TOKEN="..."
+
+  curl -k -H 'Content-type: text/yaml' -H "Authorization: id = ost; type = OpenStack; host = https://cloud.recas.ba.infn.it:5000/; username = laniakea; password = $IAM_ACCESS_TOKEN; tenant = oidc; auth_version = 3.x_oidc_access_token; domain = default; service_region = recas-cloud;\nid = im; type = InfrastructureManager; token = $IAM_ACCESS_TOKEN" -i -X GET https://cloud-90-147-75-119.cloud.ba.infn.it/im/infrastructures/<infrastructure_uuid>
 
 FAQ
 ---
