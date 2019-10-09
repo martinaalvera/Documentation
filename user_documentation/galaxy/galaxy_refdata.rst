@@ -66,6 +66,7 @@ cvmfs proxy url            DIRECT
 galaxy tool data table     `tool-data-table.xml <https://raw.githubusercontent.com/indigo-dc/Reference-data-galaxycloud-repository/master/elixir-italy.galaxy.refdata/location/tool_data_table_conf.xml>`_
 =========================  =================================
 
+-------------------------
 Supplementary information
 -------------------------
 
