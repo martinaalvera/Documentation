@@ -137,6 +137,10 @@ CMDB needs to be populated with IaaS provider, services and images information.
      }
 
    where the ``ìmage_id`` is the image ID on the Cloud Provider Manager, e.g. OpenStack.
+
+   .. note::
+
+      The ``image_name`` field is the parameter which is used in the **image** field in the tosca template to identify the image to use (see section :doc:`/admin_documentation/tosca_templates/tosca_galaxy`)
  
 #. Add providers, services and images to CMDB.
 
