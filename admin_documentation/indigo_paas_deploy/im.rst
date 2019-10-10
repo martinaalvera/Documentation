@@ -43,7 +43,10 @@ Register a new protected resource for IM on IAM:
 
 #. Select the client just created.
 
-#. Navigate to the **Tokens** tab and set it as in the figure and save. In particular the **Device Code Timeout** should not be empty.
+#. Navigate to the **Tokens** tab and set it as in the figure and save. In particular set:
+
+   - Access Token Timeout: 3600
+   - ID Token Timeout: 1800
 
    .. figure:: _static/im/im_client_admin_tokens.png
       :scale: 40%
