@@ -33,11 +33,21 @@ Register a new protected resource for IM on IAM:
 
 #. Create a **New Resource**.
 
-#. Give it a name, e.g. ``infrastructure_manager``.
+#. Give it a name, e.g. ``im_test``.
 
 #. Keep the default configuration and Save.
 
 #. Save **Client ID**, **Client Secret** and **Registration Access Token** or the full output json in the **JSON** tab for future access.
+
+#. As Administrator user select from the left menu **Manage Clients**.
+
+#. Select the client just created.
+
+#. Navigate to the **Tokens** tab and set it as in the figure and save. In particular the **Device Code Timeout** should not be empty.
+
+   .. figure:: _static/im/im_client_admin_tokens.png
+      :scale: 40%
+      :align: center
 
 Installation
 ------------
