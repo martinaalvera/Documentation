@@ -25,9 +25,7 @@ The same ansible roles used to deploy Laniakea can be used to keep it up to date
 
 .. warning::
 
-   INDIGO Software catalogue is acively developed. So the update procedure of Laniakea depends on the INDIGO services evolution.
-
-   We will keep this page updated accordingly.
+   INDIGO Software catalogue is acively developed. So the update procedure of Laniakea depends on the INDIGO services evolution. We will keep this page updated accordingly.
 
 .. note::
 
