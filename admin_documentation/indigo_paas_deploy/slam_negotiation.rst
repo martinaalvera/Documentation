@@ -1,5 +1,5 @@
-Resources negitation
-^^^^^^^^^^^^^^^^^^^^
+Resources negotiation
+^^^^^^^^^^^^^^^^^^^^^
 
 Resources con be negotiated trought SLAM dashboard creating new **computing SLA** or **storage SLA** and filling the form.
 
@@ -30,6 +30,10 @@ Resources con be negotiated trought SLAM dashboard creating new **computing SLA*
 #. The SLA has to be validated by provider owner provided during CMDB configuration (see section :doc:`cmdb`):
 
    Login with the e-mail address provided during CMDB configuration.
+
+   .. note::
+
+      For testing purposes, plese, use a broweser hidden session to avoid any cookie and login problem.
 
    Tap on the **ID** in the Provider tab, which is available only for provider user set in CMDB.
 
