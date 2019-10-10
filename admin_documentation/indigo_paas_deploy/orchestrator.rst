@@ -43,14 +43,13 @@ IAM protected resource configuration for the Orchestrator
 
 #. Save **Client ID**, **Client Secret** and **Registration Access Token** or the full output json in the **JSON** tab for future access.
 
-#. Enable Introspection accessing to the client configuration page as Administrator user, through the **ADMINISTRATIVE**, **Manage Clients**
+#. Edit the protected resource configuration page as Administrator user, through the **ADMINISTRATIVE**, **Manage Clients**
 
    .. figure:: _static/orchestrator/iam_manage_clients.png
       :scale: 50 %
       :align: center
 
-
-   and check the flag at **Introspection**:
+#. Enable **Token exchange** and Check the flag at **Introspection**:
 
    ::
 
@@ -59,6 +58,15 @@ IAM protected resource configuration for the Orchestrator
    .. figure:: _static/orchestrator/orchestrator_admin_client_access.png
       :scale: 50 %
       :align: center
+
+#. Navigate to the **Tokens** tab and set:
+
+   - Access Token Timeout: 7200
+   - ID Token Timeout: 7200
+
+   .. figure:: _static/orchestrator/orchestrator_admin_client_tokens.png
+      :scale: 40%
+      :align: center 
 
 #. Save again the protected resource.
 
@@ -87,21 +95,22 @@ IAM  protected resource configuration for CLUES
 
 #. Save **Client ID**, **Client Secret** and **Registration Access Token** or the full output json in the **JSON** tab for future access.
 
-#. Enable Token exchange and Introspection, accessing to the client configuration page, through the **ADMINISTRATIVE**, **Manage Clients
+#. Edit the protected resource configuration page as Administrator user, through the **ADMINISTRATIVE**, **Manage Clients**
 
-   ::
-
-     Grant Types: token exchange
-
-   and check the flag at **Introspection**:
-
-   ::
-
-     Introspection Allow calls to the Introspection Endpoint?
+#. Enable **Token exchange** and Check the flag at **Introspection**:
 
    .. figure:: _static/orchestrator/clues_admin_client_access.png
       :scale: 50 %
       :align: center
+
+#. Navigate to the **Tokens** tab and set:
+
+   - Access Token Timeout: 7200
+   - ID Token Timeout: 7200
+
+   .. figure:: _static/orchestrator/clues_admin_client_tokens.png
+      :scale: 40%
+      :align: center 
 
 #. Save the protected resource again.
 
