@@ -71,3 +71,4 @@ Service installation
    orchestrator
    vault
    dashboard
+   update
