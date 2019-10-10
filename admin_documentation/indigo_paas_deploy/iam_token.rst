@@ -16,7 +16,19 @@ Prerequisites
       :scale: 40%
       :align: center
 
-   Save client ID, secret and token.
+#. Save.
+
+#. Save **Client ID**, **Client Secret** and **Registration Access Token** or the full output json in the **JSON** tab for future access.
+
+#. Login as Administrator user and select from the left menu **Manage Clients**.
+
+#. Select the client just created.
+
+#. Navigate to the **Tokens** tab and set it as in the figure and save. In particular the **Device Code Timeout** should not be empty.
+
+   .. figure:: _static/get_iam_token/get_iam_token_client_tokens.png
+      :scale: 40%
+      :align: center
 
 #. On any linux distirbution, e.g. Ubuntu, Install ``jq``:
 
