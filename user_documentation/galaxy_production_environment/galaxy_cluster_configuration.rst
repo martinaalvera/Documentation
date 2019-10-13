@@ -19,6 +19,21 @@ Current cluster configuration foresee two path shared between front and worker n
 
    The NFS exports configuration file is: ``/etc/exports``
 
+For example, listing the mount points in the worker nodes:
+
+::
+
+  $ df -h
+  Filesystem             Size  Used Avail Use% Mounted on
+  devtmpfs               1.9G     0  1.9G   0% /dev
+  tmpfs                  1.9G     0  1.9G   0% /dev/shm
+  tmpfs                  1.9G   17M  1.9G   1% /run
+  tmpfs                  1.9G     0  1.9G   0% /sys/fs/cgroup
+  /dev/vda1               20G  2.3G   18G  12% /
+  172.30.66.154:/home     20G  3.9G   17G  20% /home
+  172.30.66.154:/export   47G  537M   44G   2% /export
+  tmpfs                  379M     0  379M   0% /run/user/1000
+
 Network configuration
 ---------------------
 
