@@ -68,7 +68,7 @@ Finally, you can connect to worker nodes as:
 
   ssh -i ansible_key cloudadm@<wn_ip_address>
 
-where ``wn_ip_address`` is the worker noded ip address
+where ``wn_ip_address`` is the worker node ip address
 
 Worker nodes deployment on elastic cluster
 ------------------------------------------
