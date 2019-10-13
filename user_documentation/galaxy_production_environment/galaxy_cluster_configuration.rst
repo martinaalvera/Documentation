@@ -3,7 +3,7 @@ Cluster configuration
 
 |project_name| provides the possibility to instantiate Galaxy with `SLURM <slurm.schedmd.com>`_ as Resource Manager and to customize the number of virtual workern nodes and the workenr nodes and front-end server virtual hardware, e.g. vCPUs and memory.
 
-Furthermore, automatic elasticity, provided using the `CLUES <https://ec3.readthedocs.io/en/latest/arch.html#clues>`_, enables dynamic cluster resources scaling, deploying and powering on new working nodes depending on the workload of the cluster and powering-off them when no longer needed. This provides an efficient use of the resources, making them available only when really needed.
+Furthermore, automatic elasticity, provided using `CLUES <https://ec3.readthedocs.io/en/latest/arch.html#clues>`_, enables dynamic cluster resources scaling, deploying and powering on new working nodes depending on the workload of the cluster and powering-off them when no longer needed. This provides an efficient use of the resources, making them available only when really needed.
 
 Conda packages used to solve Galaxy tools dependencies are stored in ``/export/tool_deps/_conda`` directory and shared between front and worker nodes.
 
@@ -13,14 +13,50 @@ Current cluster configuration foresee two path shared between front and worker n
 
 #. ``/home`` where Galaxy is installed.
 
-#. ``/export`` where Galaxy input and output datasets are stored.
+#. ``/export`` where Galaxy input and output datasets are stored. Here is also mounted the external (encrypted) storage volume, allowing to share it among worner nodes.
 
 .. Note::
 
-   NFS exports configuration file: ``/etc/exports``
+   The NFS exports configuration file is: ``/etc/exports``
 
-Nodes deployment
-----------------
+Network configuration
+---------------------
+
+The front node, hosting Galaxy and SLURM, is deployed with a public IP addess. Moreover, a private net is created among front and worker nodes. The worker nodes are not exposed to the internet, but reachable only from the front node, because they connected only with the private network.
+
+.. figure:: img/cluster_network.png
+   :scale: 30 %
+   :align: center
+
+Worker nodes SSH access
+-----------------------
+
+It is possible to SSH login to each deployed worker node from the front node, i.e. the Galaxy server.
+
+The SSH public key is availeble at ``/var/tmp/.im/<deployment_uuid>/ansible_key``. The ``deployment_uuid`` is a random string which identifies your deployment and in the only directory in the path ``/var/tmp/.im``. For examples:
+
+::
+
+  # cd /var/tmp/.im/748ee382-ed9f-11e9-9ace-fa163eefe815/
+  (.venv) [root@slurmserver 748ee382-ed9f-11e9-9ace-fa163eefe815]# ll ansible_key
+  ansible_key      ansible_key.pub
+
+The list of the worker nodes ip address is in the ``Output values`` tab of the deployment, as ``wn_ips``:
+
+.. figure:: img/cluster_outputs.png
+   :scale: 40 %
+   :align: center
+
+Finally, you can connect to worker nodes as:
+
+::
+
+  ssh -i ansible_key cloudadm@<wn_ip_address>
+
+where ``wn_ip_address`` is the worker noded ip address
+
+Worker nodes deployment on elastic cluster
+------------------------------------------
 
 .. Warning::
 
