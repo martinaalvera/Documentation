@@ -33,6 +33,11 @@ For example, listing the mount points in the worker nodes:
   172.30.66.154:/home     20G  3.9G   17G  20% /home
   172.30.66.154:/export   47G  537M   44G   2% /export
   tmpfs                  379M     0  379M   0% /run/user/1000
+  cvmfs2                 4.0G   68K  4.0G   1% /cvmfs/data.galaxyproject.org
+
+.. note::
+
+   The CVMFS repository is mounted on each node of the cluster.
 
 Network configuration
 ---------------------
