@@ -96,6 +96,8 @@ CMDB needs to be populated with IaaS provider, services and images information.
          "type": "provider"
       }
 
+   The **_id** field identifies the Cloud Provider and can be set as preferred
+
    .. warning::
 
       The provider **owners** list requrires at least a valid mail address, since this user has to be used for the resource negotiation procedure, during SLAM configuration (see section :doc:`slam`)
@@ -118,6 +120,8 @@ CMDB needs to be populated with IaaS provider, services and images information.
          "type": "service"
       }
 
+   Here the **_id** string identifies the service and can be set as preferred. On the contrary, the ``provider_id`` is the ``_id`` previously set in the provider.json file.
+
 #. Create the file ``cmdb-data/image.json``
 
    .. code:: json
@@ -138,10 +142,12 @@ CMDB needs to be populated with IaaS provider, services and images information.
 
    where the ``ìmage_id`` is the image ID on the Cloud Provider Manager, e.g. OpenStack.
 
+   The **service** field has to be set with the ``_id`` set in the service.json file.
+
    .. note::
 
       The ``image_name`` field is the parameter which is used in the **image** field in the tosca template to identify the image to use (see section :doc:`/admin_documentation/tosca_templates/tosca_galaxy`)
- 
+
 #. Add providers, services and images to CMDB.
 
    Create the file ``cmdb-add-data.sh`` with the content:
