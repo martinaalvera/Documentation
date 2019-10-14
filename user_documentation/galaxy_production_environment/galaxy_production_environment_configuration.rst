@@ -280,9 +280,7 @@ It includes:
 
 Supervisord requires root privileges to run.
 
-Galaxy supervisord configuration is located here: https://docs.galaxyproject.org/en/master/admin/framework_dependencies.html?highlight=uwsgi#supervisor
-
-and here: https://galaxyproject.github.io/dagobah-training/2016-saltlakecity/002a-systemd-supervisor/systemd-supervisor.html#1
+Galaxy supervisord configuration is located `here <https://docs.galaxyproject.org/en/master/admin/framework_dependencies.html?highlight=uwsgi#supervisor>`_ and `here <https://galaxyproject.github.io/dagobah-training/2016-saltlakecity/002a-systemd-supervisor/systemd-supervisor.html#1>`_.
 
 A configuration running the Galaxy server under uWSGI has been installed on ``/etc/supervisord.d/galaxy_web.ini`` on CentOS, while it is located on ``/etc/supervisor/conf.d/galaxy.conf`` on Ubuntu.
 The options  ``stopasgroup = true`` and ``killasgroup = true`` ensure that the ``SIGINT`` signal, to shutdown Galaxy, is propagated to all uWSGI child processes (i.e. to all uWSGI workers).
