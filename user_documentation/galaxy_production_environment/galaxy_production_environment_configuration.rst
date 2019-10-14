@@ -1,8 +1,6 @@
 Galaxy production environment
 =============================
-The system allows to setup and launch a virtual machine (VM) configured with the Operative System (CentOS 7 or Ubuntu 14.04/16.04) and the auxiliary applications needed to support a Galaxy production environment such as PostgreSQL, Nginx, uWSGI and Proftpd and to deploy the Galaxy platform itself. A common set of Reference data is available through a CernVM-FS volume.
-
-Once deployed each Galaxy instance can be further customized with tools and reference data.
+|project_name| allows to setup and launch a virtual machine (VM) configured with the Operative System (CentOS 7 or Ubuntu 16.04) and the auxiliary applications needed to support a Galaxy production environment such as PostgreSQL, Nginx, uWSGI and Proftpd and to deploy the Galaxy platform itself. A common set of Reference data is available through a CernVM-FS volume. Once deployed each Galaxy instance can be further customized with tools and reference data.
 
 The Galaxy production environment is deployed according to Galaxy official documentation: https://docs.galaxyproject.org/en/latest/admin/production.html.
 
@@ -15,18 +13,20 @@ The Galaxy production environment is deployed according to Galaxy official docum
 
 OS support
 ----------
-CentOS 7 is our default distribution, Given its adherence to Standards and the length of official support (CentOS-7 updates until June 30, 2024, https://wiki.centos.org/FAQ/General#head-fe8a0be91ee3e7dea812e8694491e1dde5b75e6d). CentOS 7 and Ubuntu (14.04 and 16.04) are both supported.
-
-CentOS 7 and Ubuntu Xenial 16.04 exploit systemd as as init system, while Ubuntu Trusty 14.04 still uses upstart.
+CentOS 7 is our default distribution, Given its adherence to Standards and the length of official support (CentOS-7 updates until June 30, 2024, https://wiki.centos.org/FAQ/General#head-fe8a0be91ee3e7dea812e8694491e1dde5b75e6d). CentOS 7 and Ubuntu 16.04 are both supported.
 
 .. Warning::
 
    Selinux is by default disabled on CentOS.
 
-
 PostgresSQL
 -----------
+
 PostgreSQL packages coming from PostgreSQL official repository are installed:
+
+.. note::
+
+   Current installed PostgreSQL is: ``PostgreSQL 9.6``
 
 ==============  ===============
 Distribution	Repository
@@ -34,8 +34,6 @@ Distribution	Repository
 Centos		https://wiki.postgresql.org/wiki/YUM_Installation
 Ubuntu		https://wiki.postgresql.org/wiki/Apt
 ==============  ===============
-
-Current stable PostgreSQL version is installed: ``PostgreSQL 9.6``
 
 On CentOS 7 the default pgdata directory is ``/var/lib/pgsql/9.6/data``. The ``pg_hba.conf`` configuration is modified allowing for password authentication. On CentOS we need to exclude CentOS base and updates repo for PostgreSQL, otherwise dependencies might resolve to the postgresql supplied by the base repository.
 
@@ -52,8 +50,9 @@ Ubuntu Xenial	sudo systemctl start/stop/status postgresql
 
 Galaxy database configuration
 *****************************
-Two different database are configured to track data and tool shed install data, allowing to bootstrap fresh Galaxy instance with pretested installs.
-The database passwords are randomly generated and the passoword can be retrieved in the ``galaxy.ini`` file.
+
+Two different database are configured to track data and tool shed install data, e.g. allowing to bootstrap fresh Galaxy instance with pretested installs.
+The database passwords are randomly generated and the passoword can be retrieved in the ``galaxy.yml`` file.
  
 Galaxy database is named ``galaxy`` and is configured in the ``galaxy.yml`` file:
 
@@ -70,17 +69,20 @@ The shed install tool database is named ``galaxy_tools`` and is configured as:
 
 PostgresSQL troubleshooting
 ***************************
+
 With the recents update (October 2019) the package python2-psycopg2 requires postgresql12-libs, resulting in a broken environment since the package is not available.
 We avoid this behaviour excluding python pytho2-psycopg2 update in ``/etc/yum.conf`` file with the line ``exclude=python2-psycopg2``.
 If you need to update it, just remove it from the exclude line in ``/etc/yum.conf``.
 
 Docker configuration
 ********************
+
 On Docker container PostgreSQL cannot be managed through systemd/upstart, since there's no init system on CentOS and Ubuntu docker images.
 Therefore, the system is automatically configured to run postgresql using ``supervisord``.
 
 NGINX
 -----
+
 To improve Galaxy performance, NGINX is used as web server. The official Galaxy nginx packages are used by default (built in upload module support).
 
 ==============  ===============
@@ -94,7 +96,7 @@ Moreover, on Ubuntu, we need to prevent NGINX to be updated by apt default packa
 
 NGINX is configured following the official Galaxy wiki: https://galaxyproject.org/admin/config/nginx-proxy/.
 
-NGINX is started, usually using the command line, from ``/usr/sbing/nginx``:
+NGINX is started, usually using systemd:
 
 ::
 
@@ -111,11 +113,11 @@ Dstribution     Command
 ==============  =================
 CentOS 7        sudo systemctl start/stop/status nginx
 Ubuntu Xenial   sudo systemctl start/stop/status nginx
-Ubuntu Trusty   sudo service nginx start/stop/status 
 ==============  =================
 
 NGINX troubleshooting
 *********************
+
 Running NGINX on CentOS through systemd could lead to this error in ``/var/log/nginx/error.log``, which can prevent Galaxy web page loading:
 
 ::
@@ -150,63 +152,30 @@ You may need to generate the rules multiple times (likely four times to fix all 
 
 **Further readings**
 
-- NGINX documentation: https://www.nginx.com/blog/nginx-se-linux-changes-upgrading-rhel-6-6/
-- StackOverflow post: https://stackoverflow.com/questions/26334526/nginx-cant-access-a-uwsgi-unix-socket-on-centos-7
-- Blog post: http://axilleas.me/en/blog/2013/selinux-policy-for-nginx-and-gitlab-unix-socket-in-fedora-19/
+`NGINX documentation <https://www.nginx.com/blog/nginx-se-linux-changes-upgrading-rhel-6-6/>`_
+
+`StackOverflow post <https://stackoverflow.com/questions/26334526/nginx-cant-access-a-uwsgi-unix-socket-on-centos-7>`_
+
+`Blog post <http://axilleas.me/en/blog/2013/selinux-policy-for-nginx-and-gitlab-unix-socket-in-fedora-19/>`_
 
 uWSGI
 -----
-uWSGI (https://uwsgi-docs.readthedocs.io/en/latest) is used as interface between the web server (i.e. NGINX) and the web application (i.e. Galaxy).
-Using uWSGI for production servers is recommended by the Galaxy team: https://galaxyproject.org/admin/config/performance/scaling/
 
-uWSGI configuration is embedded in the galaxy.ini file (``$HOME/galaxy/config/galaxy.ini``), with 4 handler configuration.
-By defalut the number of processes (i.e. uWSGI workers is set to ``number_of_virtual_cpus - 1``. This configuration should be fine for most uses. Nevertheless, there's no golden rule to define the workers number. It is up to the end-user to configure it dependig on your needs. The same goes for the number of job handlers (4 by default).
+uWSGI (https://uwsgi-docs.readthedocs.io/en/latest) is used as interface between the web server (i.e. NGINX) and the web application (i.e. Galaxy). Using uWSGI for production servers is recommended by the Galaxy team: https://galaxyproject.org/admin/config/performance/scaling/
+
+uWSGI configuration is embedded in the galaxy.yml file (``$HOME/galaxy/config/galaxy.yml``), and by default foresee 4 handler configuration.
+The number of processes (i.e. uWSGI workers is set to ``number_of_virtual_cpus - 1``. This configuration should be fine for most uses. Nevertheless, there's no golden rule to define the workers number. It is up to the end-user to configure it dependig on your needs. The same goes for the number of job handlers (4 by default).
 
 UWSGI socket and stats server are, by default, listening on ``127.0.0.1:4001`` and ``127.0.0.1:9191``, respectively. More on the uWSGI stats server here: http://uwsgi-docs.readthedocs.io/en/latest/StatsServer.html?highlight=stats%20server.
 
-UWSGI Galaxy Configuration:
-
 ::
 
-  [uwsgi]
-  master = True
-  processes = 1
-  socket = 127.0.0.1:4001
-  stats = 127.0.0.1:9191
-  pythonpath = /home/galaxy/galaxy/lib
-  pythonhome = /home/galaxy/galaxy/.venv
-  threads = 4
-  logto = /var/log/galaxy/uwsgi.log
-
-  # Job Handler(s)
-
-  [server:handler0]
-  use = egg:Paste@http
-  port = 8090
-  host = 127.0.0.1
-  use_threadpool = true
-  threadpool_workers = 5
-
-  [server:handler1]
-  use = egg:Paste@http
-  port = 8091
-  host = 127.0.0.1
-  use_threadpool = true
-  threadpool_workers = 5
-
-  [server:handler2]
-  use = egg:Paste@http
-  port = 8092
-  host = 127.0.0.1
-  use_threadpool = true
-  threadpool_workers = 5
-
-  [server:handler3]
-  use = egg:Paste@http
-  port = 8093
-  host = 127.0.0.1
-  use_threadpool = true
-  threadpool_workers = 5
+  enable-threads: true
+  socket: 127.0.0.1:4001
+  manage-script-name: True
+  stats: 127.0.0.1:9191
+  logto: /var/log/galaxy/uwsgi.log
+  no-orphans: true
 
 Proftpd
 -------
@@ -221,17 +190,20 @@ Proftpd is listening on port ``21``. FTP protocol is not encrypted by default, t
 How to use FTP through FileZilla
 ********************************
 
-You need to disable Passive (PASV) mode in FileZilla, since we are not going to open all passive ports.
+Open FileZilla and configure it with:
 
-#. Open FileZilla.
+#. Host: Galaxy ip address (e.g. 90.147.170.108), without the ``/gaaxy``.
 
-#. Click on Edit | Settings.
+#. User name: your e-mail address on Galaxy.
 
-#. Open Connection menu on the left. Click on FTP menu.
+#. Password: your password on Galaxy.
 
-#. Mark the Active radio button.
+#. Port: 21
 
-#. Click OK.
+.. figure:: img/ftp_filezilla.png
+   :scale: 50 %
+   :align: center
+
 
 How to use FTP through command line
 ***********************************
@@ -315,7 +287,7 @@ and here: https://galaxyproject.github.io/dagobah-training/2016-saltlakecity/002
 A configuration running the Galaxy server under uWSGI has been installed on ``/etc/supervisord.d/galaxy_web.ini`` on CentOS, while it is located on ``/etc/supervisor/conf.d/galaxy.conf`` on Ubuntu.
 The options  ``stopasgroup = true`` and ``killasgroup = true`` ensure that the ``SIGINT`` signal, to shutdown Galaxy, is propagated to all uWSGI child processes (i.e. to all uWSGI workers).
 
-PYTHONPATH is not specified in this configuration since it was conflicting with Conda running.
+PYTHONPATH is not specified in this configuration since it was conflicting with Conda.
 
 To manage Galaxy through supervisord:
 
