@@ -199,6 +199,10 @@ CMDB needs to be populated with IaaS provider, services and images information.
 
 .. centered:: CMDB couchDB after the configuration process with provider, service and image. 
 
+.. note::
+
+   All CMDB image are listed at the address: https://<proxy_url>/cmdb/image/list?include_docs=true
+
 CMBD configuration json example
 -------------------------------
 
