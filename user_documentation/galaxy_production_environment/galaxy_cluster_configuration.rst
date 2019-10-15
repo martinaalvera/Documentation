@@ -90,6 +90,19 @@ This is due to:
 
 #. SLURM installation and configuration
 
+During the worker node deployment and delete procedure the Dashboard will show the status ``UPDATE_IN_PROGRESS``:
+
+
+.. figure:: img/cluster_update_in_progress.png
+   :scale: 40 %
+   :align: center
+
+When the worker node is up and running or once it is deleted the Dashboard will show the status ``UPDATE_COMPLETE``:
+
+.. figure:: img/cluster_update_complete.png
+   :scale: 40 %
+   :align: center
+
 SLURM main commands
 -------------------
 
