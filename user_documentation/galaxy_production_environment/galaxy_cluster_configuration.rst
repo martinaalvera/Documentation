@@ -103,8 +103,8 @@ When the worker node is up and running or once it is deleted the Dashboard will 
    :scale: 40 %
    :align: center
 
-SLURM main commands
--------------------
+References
+----------
 
 `Connecting Galaxy to a compute cluster <https://galaxyproject.github.io/training-material/topics/admin/tutorials/connect-to-compute-cluster/tutorial.html>`_
 
