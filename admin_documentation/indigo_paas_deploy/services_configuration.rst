@@ -3,9 +3,8 @@ The last mile: applications configuration
 
 By default, Laniakea is configured to run the following applications:
 
----------------------
-``Galaxy Live Build``
----------------------
+|galaxy_latest|
+---------------
 
 :Description:
 	The Galaxy live build allows to setup and launch a virtual machine configured with the Operative System CentOS 7 and the auxiliary applications needed to support a Galaxy production environment such as PostgreSQL, Nginx, uWSGI and Proftpd and to deploy the Galaxy platform itself and the tools that come with the selected flavour.
@@ -18,9 +17,8 @@ By default, Laniakea is configured to run the following applications:
 :Configuration:
 	:doc:`galaxy_latest`
 
-------------------
-``Galaxy Express``
-------------------
+|galaxy_vm|
+-----------
 
 :Description:
 	The Galaxy express instantiate a CentOS 7 Virtual Machine with Galaxy, all its companion software and the set of tools that come with the selected flavour. Once deployed each Galaxy instance can be further customized with additional tools and reference data.
@@ -30,9 +28,8 @@ By default, Laniakea is configured to run the following applications:
 :Configuration:
         :doc:`galaxy_vm`
 
------------------
-``Galaxy Docker``
------------------
+|galaxy_docker|
+---------------
 
 :Description:
 	The Galaxy Docker instantiate an Ubuntu 16.04 Virtual Machine with the Galaxy official Docker. Once deployed each Galaxy instance can be further customized with additional tools and reference data.
@@ -43,9 +40,8 @@ By default, Laniakea is configured to run the following applications:
 :Configuration:
         :doc:`galaxy_docker`
 
----------------------
-``Test applications``
----------------------
+Test applications
+-----------------
 
 :Description:
 	Two test recipes are shipped by default to test a simple Ubuntu or Centos deployment with or without storage volume
