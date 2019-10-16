@@ -1,19 +1,25 @@
-|galaxy_vm| configuration
+|galaxy_vm| configuration
 =========================
 
-|galaxy_vm| exploits custom images with Galaxy, all its companion software and tools inside it. In particular, tools are installed on Galaxy but their dependencies, being bulky and leading to the creation of images that are difficult to manage are compressend in a separated tarball, which is downloaded and extracted at the deployment time.
+|galaxy_vm| exploits custom images with Galaxy, all its companion software and tools inside it. In particular, tools are installed on Galaxy but their dependencies are not included in the image, otherwise its size would make deployment slow and difficult to manage. For this reason the ``tool_dep`` directory is compressed in a separated tarball, which is downloaded and extracted at the deployment time.
 
 Image creation
 --------------
 
+Galaxy flavours images can be created using the same ansible roles used for |galaxy_latest| deployment. 
+
 Image upload
 ------------
 
-The OS image has to be available in the Tenant.
+Once create the Galaxy image has to be made available in the cloud provider tenant. For example, on Openstack:
 
 Tools upload
 ------------
 
+The tarrball with the tools must be available, to be downloaded at deployment time. We uploaded our
+
+
+mettere l'url all'xml del pseudo folder
 
 CMDB configuration
 ------------------
@@ -57,6 +63,8 @@ Finally
 ``galaxy-minimal``
 ******************
 
+:Description:
+	Galaxy production-grade server (Galaxy, PostgreSQL, NGINX, proFTPd, uWSGI).
 
 :Image:
 	http://cloud.recas.ba.infn.it/horizon/api/swift/containers/Laniakea-generic-cloud-images/object/CentOS-7-x86_64-GenericCloud_galaxy-minimal_release_19.05-1.qcow2
@@ -81,6 +89,9 @@ Finally
 ``galaxy-CoVaCS``
 ******************
 
+:Description:
+	Workflow for genotyping and variant annotation of whole genome/exome and target-gene sequencing data (https://www.ncbi.nlm.nih.gov/pubmed/29402227).
+
 :Image:
 	http://cloud.recas.ba.infn.it/horizon/api/swift/containers/Laniakea-generic-cloud-images/object/CentOS-7-x86_64-GenericCloud_galaxy-CoVaCS_release_19.05-1.qcow2
 
@@ -88,32 +99,120 @@ Finally
 	http://cloud.recas.ba.infn.it/horizon/api/swift/containers/Laniakea-generic-cloud-images/object/galaxy-CoVaCS-release_19.05-1.tar.gz
 
 :CMDB json:
+	Create the file ``cmdb-data/galaxy-CoVaCS.json`` on the CMDB Virtual Machine, with the content:
+
 	::
 
 	  {
 	    "type": "image",
 	    "data": {
-	        "image_id": "0a4bca8d-8e7c-43bf-aee1-21cb9057c1d9",
+	        "image_id": "<galaxy-covacs-image-id>",
 	        "image_name": "centos-7-galaxy-CoVaCS-release_19.05",
 	        "architecture": "x86_64",
 	        "type": "linux",
 	        "distribution": "centos",
 	        "version": "7",
-	        "service": "service-RECAS-BARI-openstack"
+	        "service": "<service-id>"
 	    }
 	  }
+
+	where ``galaxy-covacs-image-id`` is the image ID on the Cloud platform, while ``service-id`` is the service ID on CMDB.
+
+:CMDB upload command:
+        On CMDB Virtual Machine run the following command:
+
+	::
+
+	  curl -X POST http://cmdb:Delta552@localhost:5984/indigo-cmdb-v2 -H "Content-Type: application/json" -d@cmdb-data/galaxy-CoVaCS.json
 
 
 ******************************
 ``galaxy-GDC_Somatic_Variant``
 ******************************
 
+:Description:
+	Port of the Genomic Data Commons (GDC) pipeline for the identification of somatic variants on whole exome/genome sequencing data (https://gdc.cancer.gov/node/246).
+
+:Image:
+	http://cloud.recas.ba.infn.it/horizon/api/swift/containers/Laniakea-generic-cloud-images/object/CentOS-7-x86_64-GenericCloud_galaxy-GDC_Somatic_Variant_release_19.05-1.qcow2
+
+:Tools tarball:
+	http://cloud.recas.ba.infn.it/horizon/api/swift/containers/Laniakea-generic-cloud-images/object/galaxy-GDC_Somatic_Variant-release_19.05-1.tar.gz
+
+:CMDB json:
+        Create the file ``cmdb-data/galaxy-GDC_Somatic_Variant.json`` on the CMDB Virtual Machine, with the content:
+
+	::
+
+	  {
+	    "type": "image",
+	    "data": {
+	        "image_id": "<galaxy-gdc-image-id>",
+	        "image_name": "centos-7-galaxy-GDC_Somatic_Variant-release_19.05",
+	        "architecture": "x86_64",
+	        "type": "linux",
+	        "distribution": "centos",
+	        "version": "7",
+	        "service": "<service-id>"
+	    }
+	  }
+
+        where ``galaxy-gdc-image-id`` is the image ID on the Cloud platform, while ``service-id`` is the service ID on CMDB.
+
+:CMDB upload command:
+	On CMDB Virtual Machine run the following command:
+
+	::
+
+	  # curl -X POST http://cmdb:Delta552@localhost:5984/indigo-cmdb-v2 -H "Content-Type: application/json" -d@cmdb-data/galaxy-GDC_Somatic_Variant.json
+	  {"ok":true,"id":"6e2ed4e065ab0a768d2614fc34005859","rev":"1-edf1bca98184f9a3b08001f96752f214"}
 
 *****************
 ``galaxy-epigen``
 *****************
 
+:Description:
+	Based on Epigen project (http://www.epigen.it/).
 
 *************************
 ``galaxy-rna-workebench``
 *************************
+
+:Description:
+	More than 50 tools for RNA centric analysis (https://www.ncbi.nlm.nih.gov/pubmed/28582575).
+
+:Image:
+	http://cloud.recas.ba.infn.it/horizon/api/swift/containers/Laniakea-generic-cloud-images/object/CentOS-7-x86_64-GenericCloud_galaxy-rna-workbench_19.05-1.qcow2
+
+:Tools tarball:
+	http://cloud.recas.ba.infn.it/horizon/api/swift/containers/Laniakea-generic-cloud-images/object/galaxy-rna-workbench-release_19.05-1.tar.gz
+
+:CMDB json:
+        Create the file ``cmdb-data/galaxy-rna-workbench.json`` on the CMDB Virtual Machine, with the content:
+
+        ::
+
+	  {
+	    "type": "image",
+	    "data": {
+	        "image_id": "<galaxy-rnawb-image-id>",
+	        "image_name": "centos-7-galaxy-rna-workbench-release_19.05",
+	        "architecture": "x86_64",
+	        "type": "linux",
+	        "distribution": "centos",
+	        "version": "7",
+	        "service": "<service-id>"
+	    }
+	  }
+
+        where ``galaxy-rnawb-image-id`` is the image ID on the Cloud platform, while ``service-id`` is the service ID on CMDB.
+
+:CMDB upload command:
+        On CMDB Virtual Machine run the following command:
+
+	::
+
+	  curl -X POST http://cmdb:Delta552@localhost:5984/indigo-cmdb-v2 -H "Content-Type: application/json" -d@cmdb-data/galaxy-rna-workbench.json
+	  {"ok":true,"id":"6e2ed4e065ab0a768d2614fc34005ad8","rev":"1-bcc95ed3bbb3ca6ef4138d70fb8acab3"}
+
+
