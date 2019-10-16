@@ -187,6 +187,7 @@ galaxy_latest = 'Galaxy live build'
 galaxy_cluster = 'Galaxy cluster'
 galaxy_elastic_cluster = 'Galaxy elastic cluster'
 galaxy_docker = 'Galaxy Docker'
+galaxy_cluster_vm = 'Galaxy express cluster'
 
 rst_prolog = """ 
 .. |project_name| replace:: {0}
@@ -195,11 +196,13 @@ rst_prolog = """
 .. |galaxy_cluster| replace:: {3}
 .. |galaxy_elastic_cluster| replace:: {4}
 .. |galaxy_docker| replace:: {5}
+.. |galaxy_cluster_vm| replace:: {6}
 """.format(
 project_name,
 galaxy_vm,
 galaxy_latest,
 galaxy_cluster,
 galaxy_elastic_cluster,
-galaxy_docker
+galaxy_docker,
+galaxy_cluster_vm
 )

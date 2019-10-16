@@ -23,9 +23,9 @@ Image upload
 
 Once create the Galaxy image has to be made available in the cloud provider tenant. For example, on Openstack:
 
-
-mettere l'immagine di openstack
-
+   .. figure:: _static/galaxy_images/openstack_images.png
+      :scale: 30%
+      :align: center
 
 Tools upload
 ------------
@@ -62,7 +62,7 @@ Galaxy Epigen                      galaxy-epigen                      Based on E
 TOSCA template configuration
 ----------------------------
 
-The |galaxy_vm| TOSCA template needs to be configured to use the right image and download the right tool tarball.
+The |galaxy_vm| TOSCA template needs to be configured to use the right image and download the right tool tarball. Open the file ``/opt/laniakea-dashoard-config/tosca-templates/galaxy-express.yaml``.
 
 Tools tarball repository is set in the ``inputs`` section of the TOSCA template:
 
@@ -84,8 +84,6 @@ The image can be configured in the section ``galaxy_server``, with the image ins
         properties:
           image: { concat: ['centos-7-', get_input: flavor,'-', get_input: version ] } # centos-7-galaxy-CoVaCS-release_19.05
   ...
-
-The image prefix ``centos-7`` is arbitrary and can be modified, but it must be the same on the CMDB image name and the TOSCA template.
 
 galaxy-minimal
 --------------
@@ -278,6 +276,18 @@ Create the file ``cmdb-data/galaxy-epigen.json`` on the CMDB Virtual Machine, wi
 
 ::
 
+  {
+    "type": "image",
+    "data": {
+        "image_id": "<galaxy-epigen-image-id>",
+        "image_name": "centos-7-galaxy-epigen-release_19.05",
+        "architecture": "x86_64",
+        "type": "linux",
+        "distribution": "centos",
+        "version": "7",
+        "service": "<service-id>"
+    }
+  }
 
 where ``galaxy-epigen-image-id`` is the image ID on the Cloud platform, while ``service-id`` is the service ID on CMDB.
 
@@ -289,6 +299,8 @@ On CMDB Virtual Machine run the following command:
 
 ::
 
+  curl -X POST http://cmdb:Delta552@localhost:5984/indigo-cmdb-v2 -H "Content-Type: application/json" -d@cmdb-data/galaxy-epigen.json
+  {"ok":true,"id":"6e2ed4e065ab0a768d2614fc340066d4","rev":"1-b94b13e05f7afb4dfd98b2b59608de49"}
 
 where ``<cmdb_crud_password>`` is the CMDB password set during its installation.
 
@@ -348,3 +360,65 @@ On CMDB Virtual Machine run the following command:
   {"ok":true,"id":"6e2ed4e065ab0a768d2614fc34005ad8","rev":"1-bcc95ed3bbb3ca6ef4138d70fb8acab3"}
 
 where ``<cmdb_crud_password>`` is the CMDB password set during its installation.
+
+|galaxy_cluster_vm|
+-------------------
+
+The |galaxy_cluster_vm| explits the previous flavour images to instantiate Galaxy, but it needs an additional image for the Worker Nodes, since the galaxy user must be already created in the image, to grant the right permissions. The galaxy user is created with 4001 UID and GID, that are the galaxy user default UID and GID on galaxy images, thus granting the right permissions.
+
+**********************
+``Worker nodes image``
+**********************
+
+http://cloud.recas.ba.infn.it/horizon/api/swift/containers/Laniakea-generic-cloud-images/object/CentOS-7-x86_64-GenericCloud_galaxy-wn-1.qcow2
+
+*************
+``CMDB json``
+*************
+
+Create the file ``cmdb-data/galaxy-wn.json`` on the CMDB Virtual Machine, with the content:
+
+::
+
+  {
+    "type": "image",
+    "data": {
+        "image_id": "<galaxy-wn-image-id>",
+        "image_name": "centos-7-galaxy-wn",
+        "architecture": "x86_64",
+        "type": "linux",
+        "distribution": "centos",
+        "version": "7",
+        "service": "<service-id>"
+    }
+  }
+
+where ``galaxy-wn-image-id`` is the image ID on the Cloud platform, while ``service-id`` is the service ID on CMDB.
+
+***********************
+``CMDB upload command``
+***********************
+
+On CMDB Virtual Machine run the following command:
+
+::
+
+  curl -X POST http://cmdb:<cmdb_crud_password>@localhost:5984/indigo-cmdb-v2 -H "Content-Type: application/json" -d@cmdb-data/galaxy-wn.json
+  {"ok":true,"id":"6e2ed4e065ab0a768d2614fc340068a3","rev":"1-07289295a1aefb3c0a50e5d9bbc675f9"}
+
+where ``<cmdb_crud_password>`` is the CMDB password set during its installation.
+
+
+******************
+``TOSCA template``
+******************
+
+The images must be configured in the |galaxy_cluster_vm| corresponding TOSCA template. Open the file ``/opt/laniakea-dashoard-config/tosca-templates/galaxy-express-cluster.yaml`` end edit the image name in the section in the ``lrms_wn`` section:
+
+::
+
+  lrms_wn:
+  ...
+    os:
+      properties:
+        image: centos-7-galaxy-wn
