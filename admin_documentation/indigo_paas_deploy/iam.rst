@@ -6,6 +6,10 @@ The INDIGO Identity and Access Management (IAM) is an Authentication and Authori
 .. note::
    Current IAM version: v1.5.0.rc2
 
+.. note::
+
+   After IAM installation it is needed to configure the Cloud provider identity service to accept the INDIGO IAM OpenID Connect authentication. For Openstack Keystone this is a standard configuration and the documentation can be found `here <https://indigo-dc.gitbook.io/keystone-with-oidc-documentation/>`_. Furthermore, to enable more OpenID Connect providers configured in the apache mod_auth_openidc module used by Keystone, in order to not change Keystone configuration, it is possible to exploit the `ESACO plugin <https://github.com/indigo-iam/esaco>`_. At the moment, for example, it is used with OpenStack at ReCaS-Bari datacenter. An example of integration is available `here <https://github.com/andreaceccanti/esaco-integration>`_.
+
 VM configuration
 ----------------
 
@@ -21,7 +25,6 @@ Network Public IP address.
 .. warning::
 
    All the command will be run on the control machine.
-
 
 Enable Google Authentication
 ----------------------------
@@ -150,6 +153,17 @@ Create the file ``indigopaas-deploy/ansible/inventory/group_vars/iam.yaml`` with
 
    Please provide a valid e-mail address, which is mandatory for Let's Encrypt certificate creation.
 
+It is possible to enable mail notification adding the following parameters:
+
+::
+
+  iam_notification_disable: true
+  iam_notification_from: 'laniakea-alert@example.com'
+  iam_notification_admin_address: <valid_email_address>
+  iam_mail_host: <mail_server_address>
+
+This is needed to allow user registration, e.g. to enable confirmation e-mails.
+
 Run the role using the ``ansible-playbook`` command:
 
 ::
@@ -193,15 +207,17 @@ Test 1: login as admin
       username: admin
       password: password
 
-.. Warning:: Change default password
+.. Warning:: Change the default password.
 
-Test 2: Create a new user
-^^^^^^^^^^^^^^^^^^^^^^^^^
+Test 2: Register a new user
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 #. Click Register a new account
 #. Fill the form
 #. Login as admin and accept the request
 #. Login as new user
+
+The full registration procedure is described in the :doc:`/user_documentation/authentication/authentication` section.
 
 Test 3: Register using Google account (optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -209,6 +225,8 @@ Test 3: Register using Google account (optional)
 #. Sign-in with Google 
 #. Login as admin and accept the request
 #. Login with Google
+
+The full registration procedure is described in the :doc:`/user_documentation/authentication/authentication` section.
 
 Create IAM Client
 -----------------
