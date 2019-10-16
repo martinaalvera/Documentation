@@ -1,5 +1,5 @@
-|galaxy_docker|
-===============
+|galaxy_docker| configuration
+=============================
 
 |project_name| leverages on an Ansible role (indigo-dc.galaxycloud_docker) to run a Galaxy Docker in a Virtual Machine.
 
