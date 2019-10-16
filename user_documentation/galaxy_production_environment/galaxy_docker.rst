@@ -34,7 +34,7 @@ The Docker configuration is slighty customized to make the Galaxy experience as 
 
   ``GALAXY_CONFIG_ALLOW_USER_IMPERSONATION``: false - allow user impersonation.
 
-  ``GALAXY_CONFIG_NEW_USER_DATASET_ACCESS_ROLE_DEFAULT_PRIVATE``: true, 
+  ``GALAXY_CONFIG_NEW_USER_DATASET_ACCESS_ROLE_DEFAULT_PRIVATE``: true - By default, users' data will be public, but setting this to True will cause it to be private.
 
   ``GALAXY_CONDA_PREFIX``: path to _conda prefix
 
