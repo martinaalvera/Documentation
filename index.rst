@@ -44,6 +44,7 @@ For more information on the Galaxy Project, please visit the https://galaxyproje
    user_documentation/galaxy/galaxy_flavours
    user_documentation/galaxy/galaxy_refdata
    user_documentation/galaxy_production_environment/galaxy_production_environment_configuration
+   user_documentation/galaxy_production_environment/galaxy_docker
    user_documentation/galaxy_production_environment/galaxy_cluster_configuration
    user_documentation/authentication/authentication
    user_documentation/faq/faq
