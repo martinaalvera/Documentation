@@ -59,6 +59,10 @@ Galaxy RNA workbench               galaxy-rna-workbench               More than 
 Galaxy Epigen                      galaxy-epigen                      Based on Epigen project (http://www.epigen.it/).
 ================================== =================================  ========================================================================================================================================================================
 
+.. note::
+
+   All CMDB image are listed at the address: https://<proxy_vm_dns_name>/cmdb/image/list?include_docs=true
+
 TOSCA template configuration
 ----------------------------
 
@@ -134,6 +138,8 @@ On CMDB Virtual Machine run the following command:
 
 where ``<cmdb_crud_password>`` is the CMDB password set during its installation.
 
+The image shuld now be available on CMDB with the name: ``centos-7-galaxy-minimal-release_19.05``.
+
 galaxy-CoVaCS
 -------------
 
@@ -189,6 +195,8 @@ On CMDB Virtual Machine run the following command:
   curl -X POST http://cmdb:<cmdb_crud_password>@localhost:5984/indigo-cmdb-v2 -H "Content-Type: application/json" -d@cmdb-data/galaxy-CoVaCS.json
 
 where ``<cmdb_crud_password>`` is the CMDB password set during its installation.
+
+The image shuld now be available on CMDB with the name: ``centos-7-galaxy-CoVaCS-release_19.05``.
 
 galaxy-GDC_Somatic_Variant
 --------------------------
@@ -247,6 +255,8 @@ On CMDB Virtual Machine run the following command:
 
 where ``<cmdb_crud_password>`` is the CMDB password set during its installation.
 
+The image shuld now be available on CMDB with the name: ``centos-7-galaxy-GDC_Somatic_Variant-release_19.05``.
+
 galaxy-epigen
 -------------
 
@@ -303,6 +313,8 @@ On CMDB Virtual Machine run the following command:
   {"ok":true,"id":"6e2ed4e065ab0a768d2614fc340066d4","rev":"1-b94b13e05f7afb4dfd98b2b59608de49"}
 
 where ``<cmdb_crud_password>`` is the CMDB password set during its installation.
+
+The image shuld now be available on CMDB with the name: ``centos-7-galaxy-epigen-release_19.05``.
 
 galaxy-rna-workebench
 ---------------------
@@ -361,6 +373,8 @@ On CMDB Virtual Machine run the following command:
 
 where ``<cmdb_crud_password>`` is the CMDB password set during its installation.
 
+The image shuld now be available on CMDB with the name: ``centos-7-galaxy-rna-workbench-release_19.05``.
+
 |galaxy_cluster_vm|
 -------------------
 
@@ -408,6 +422,7 @@ On CMDB Virtual Machine run the following command:
 
 where ``<cmdb_crud_password>`` is the CMDB password set during its installation.
 
+The image shuld now be available on CMDB with the name: ``centos-7-galaxy-wn``.
 
 ******************
 ``TOSCA template``
