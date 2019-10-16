@@ -151,9 +151,9 @@ Workflow for genotyping and variant annotation of whole genome/exome and target-
 
 http://cloud.recas.ba.infn.it/horizon/api/swift/containers/Laniakea-generic-cloud-images/object/CentOS-7-x86_64-GenericCloud_galaxy-CoVaCS_release_19.05-1.qcow2
 
-*****************
-``Tools tarball``
-*****************
+******************************
+``Tools dependencies tarball``
+******************************
 
 http://cloud.recas.ba.infn.it/horizon/api/swift/containers/Laniakea-generic-cloud-images/object/galaxy-CoVaCS-release_19.05-1.tar.gz
 
@@ -207,9 +207,9 @@ Port of the Genomic Data Commons (GDC) pipeline for the identification of somati
 
 http://cloud.recas.ba.infn.it/horizon/api/swift/containers/Laniakea-generic-cloud-images/object/CentOS-7-x86_64-GenericCloud_galaxy-GDC_Somatic_Variant_release_19.05-1.qcow2
 
-*****************
-``Tools tarball``
-*****************
+******************************
+``Tools dependencies tarball``
+******************************
 
 http://cloud.recas.ba.infn.it/horizon/api/swift/containers/Laniakea-generic-cloud-images/object/galaxy-GDC_Somatic_Variant-release_19.05-1.tar.gz
 
@@ -262,9 +262,13 @@ Based on Epigen project (http://www.epigen.it/).
 ``Image``
 *********
 
-*****************
-``Tools tarball``
-*****************
+http://cloud.recas.ba.infn.it/horizon/api/swift/containers/Laniakea-generic-cloud-images/object/CentOS-7-x86_64-GenericCloud_galaxy-epigen_release_19.05-1.qcow2
+
+******************************
+``Tools dependencies tarball``
+******************************
+
+http://cloud.recas.ba.infn.it/horizon/api/swift/containers/Laniakea-generic-cloud-images/object/galaxy-epigen-release_19.05-1.tar.gz
 
 *************
 ``CMDB json``
@@ -303,9 +307,9 @@ More than 50 tools for RNA centric analysis (https://www.ncbi.nlm.nih.gov/pubmed
 
 http://cloud.recas.ba.infn.it/horizon/api/swift/containers/Laniakea-generic-cloud-images/object/CentOS-7-x86_64-GenericCloud_galaxy-rna-workbench_19.05-1.qcow2
 
-*****************
-``Tools tarball``
-*****************
+******************************
+``Tools dependencies tarball``
+******************************
 
 http://cloud.recas.ba.infn.it/horizon/api/swift/containers/Laniakea-generic-cloud-images/object/galaxy-rna-workbench-release_19.05-1.tar.gz
 

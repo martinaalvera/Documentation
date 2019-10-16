@@ -27,11 +27,13 @@ By default, Laniakea is configured to run the following applications:
 
         The default available flavours currently are:
 
-	- galaxy-minimal: Galaxy production-grade server (Galaxy, PostgreSQL, NGINX, proFTPd, uWSGI)
-	- galaxy-CoVaCS: workflow for genotyping and variant annotation of whole genome/exome and target-gene sequencing data (https://www.ncbi.nlm.nih.gov/pubmed/29402227)
+	- galaxy-minimal: Galaxy production-grade server (Galaxy, PostgreSQL, NGINX, proFTPd, uWSGI).
+	- galaxy-CoVaCS: workflow for genotyping and variant annotation of whole genome/exome and target-gene sequencing data (https://www.ncbi.nlm.nih.gov/pubmed/29402227).
 	- galaxy-GDC_Somatic_Variant: port of the Genomic Data Commons (GDC) pipeline for the identification of somatic variants on whole exome/genome sequencing data (https://gdc.cancer.gov/node/246).
-	- galaxy-rna-workbench: more than 50 tools for RNA centric analysis (https://www.ncbi.nlm.nih.gov/pubmed/28582575)
-	- galaxy-epigen: based on Epigen project (http://www.epigen.it/)
+	- galaxy-rna-workbench: more than 50 tools for RNA centric analysis (https://www.ncbi.nlm.nih.gov/pubmed/28582575).
+	- galaxy-epigen: based on Epigen project (http://www.epigen.it/).
+
+	More information on Laniakea default Galaxy flavours can be found here: :doc:`/user_documentation/galaxy/galaxy_flavours`.
 
 :Configuration:
         :doc:`galaxy_vm`
