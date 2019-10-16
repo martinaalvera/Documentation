@@ -1,4 +1,4 @@
-|galaxy_vm| configuration
+|galaxy_vm| configuration
 =========================
 
 |galaxy_vm| exploits custom images with Galaxy, all its companion software and tools inside it. In particular, tools are installed on Galaxy but their dependencies are not included in the image, otherwise its size would make deployment slow and difficult to manage. For this reason the ``tool_dep`` directory is compressed in a separated tarball, which is downloaded and extracted at the deployment time.
@@ -56,8 +56,6 @@ Finally
       type: string
       description: tools tar gz location
       default: 'http://cloud.recas.ba.infn.it:8080/v1/AUTH_3b4918e0a982493e8c3ebcc43586a2a8/Laniakea-generic-cloud-images'
-
-
 
 ******************
 ``galaxy-minimal``
@@ -214,5 +212,3 @@ Finally
 
 	  curl -X POST http://cmdb:Delta552@localhost:5984/indigo-cmdb-v2 -H "Content-Type: application/json" -d@cmdb-data/galaxy-rna-workbench.json
 	  {"ok":true,"id":"6e2ed4e065ab0a768d2614fc34005ad8","rev":"1-bcc95ed3bbb3ca6ef4138d70fb8acab3"}
-
-
