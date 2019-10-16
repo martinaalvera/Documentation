@@ -9,6 +9,10 @@ The |project_name| Galaxy Docker application run a Galaxy Docker container insid
 - `bgruening/galaxy-rna-workbench <https://hub.docker.com/r/bgruening/galaxy-rna-workbench/tags>`_
 - `laniakeacloud/galaxy-epigen <https://hub.docker.com/r/laniakeacloud/galaxy-epigen/tags>`_
 
+.. note::
+
+   Docker is configured to install all docker-engine files on ``/export``, i.e. in the external storage.
+
 Configuration files
 -------------------
 
