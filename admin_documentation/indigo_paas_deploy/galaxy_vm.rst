@@ -87,196 +87,260 @@ The image can be configured in the section ``galaxy_server``, with the image ins
 
 The image prefix ``centos-7`` is arbitrary and can be modified, but it must be the same on the CMDB image name and the TOSCA template.
 
-******************
-``galaxy-minimal``
-******************
+galaxy-minimal
+--------------
 
-:Description:
-	Galaxy production-grade server (Galaxy, PostgreSQL, NGINX, proFTPd, uWSGI).
+***************
+``Description``
+***************
+Galaxy production-grade server (Galaxy, PostgreSQL, NGINX, proFTPd, uWSGI).
 
-:Image:
-	http://cloud.recas.ba.infn.it/horizon/api/swift/containers/Laniakea-generic-cloud-images/object/CentOS-7-x86_64-GenericCloud_galaxy-minimal_release_19.05-1.qcow2
+*********
+``Image``
+*********
 
-:CMDB json:
-        Create the file ``cmdb-data/galaxy-minimal.json`` on the CMDB Virtual Machine, with the content:
+http://cloud.recas.ba.infn.it/horizon/api/swift/containers/Laniakea-generic-cloud-images/object/CentOS-7-x86_64-GenericCloud_galaxy-minimal_release_19.05-1.qcow2
 
-	::
+*************
+``CMDB json``
+*************
 
-	  {
-	    "type": "image",
-	    "data": {
-	        "image_id": "<galaxy-minimal-image-id>",
-	        "image_name": "centos-7-galaxy-minimal-release_19.05",
-	        "architecture": "x86_64",
-	        "type": "linux",
-	        "distribution": "centos",
-	        "version": "7",
-	        "service": "<service-id>"
-	    }
-	  }
+Create the file ``cmdb-data/galaxy-minimal.json`` on the CMDB Virtual Machine, with the content:
 
-        where ``galaxy-minimal-image-id`` is the image ID on the Cloud platform, while ``service-id`` is the service ID on CMDB.
+::
 
-:CMDB upload command:
-        On CMDB Virtual Machine run the following command:
+  {
+    "type": "image",
+    "data": {
+        "image_id": "<galaxy-minimal-image-id>",
+        "image_name": "centos-7-galaxy-minimal-release_19.05",
+        "architecture": "x86_64",
+        "type": "linux",
+        "distribution": "centos",
+        "version": "7",
+        "service": "<service-id>"
+    }
+  }
 
-        ::
+where ``galaxy-minimal-image-id`` is the image ID on the Cloud platform, while ``service-id`` is the service ID on CMDB.
 
-          curl -X POST http://cmdb:<cmdb_crud_password>@localhost:5984/indigo-cmdb-v2 -H "Content-Type: application/json" -d@cmdb-data/galaxy-minimal.json
+***********************
+``CMDB upload command``
+***********************
 
-	where ``<cmdb_crud_password>`` is the CMDB password set during its installation.
+On CMDB Virtual Machine run the following command:
 
-******************
-``galaxy-CoVaCS``
-******************
+::
 
-:Description:
-	Workflow for genotyping and variant annotation of whole genome/exome and target-gene sequencing data (https://www.ncbi.nlm.nih.gov/pubmed/29402227).
+  curl -X POST http://cmdb:<cmdb_crud_password>@localhost:5984/indigo-cmdb-v2 -H "Content-Type: application/json" -d@cmdb-data/galaxy-minimal.json
 
-:Image:
-	http://cloud.recas.ba.infn.it/horizon/api/swift/containers/Laniakea-generic-cloud-images/object/CentOS-7-x86_64-GenericCloud_galaxy-CoVaCS_release_19.05-1.qcow2
+where ``<cmdb_crud_password>`` is the CMDB password set during its installation.
 
-:Tools tarball:
-	http://cloud.recas.ba.infn.it/horizon/api/swift/containers/Laniakea-generic-cloud-images/object/galaxy-CoVaCS-release_19.05-1.tar.gz
+galaxy-CoVaCS
+-------------
 
-:CMDB json:
-	Create the file ``cmdb-data/galaxy-CoVaCS.json`` on the CMDB Virtual Machine, with the content:
+***************
+``Description``
+***************
 
-	::
+Workflow for genotyping and variant annotation of whole genome/exome and target-gene sequencing data (https://www.ncbi.nlm.nih.gov/pubmed/29402227).
 
-	  {
-	    "type": "image",
-	    "data": {
-	        "image_id": "<galaxy-covacs-image-id>",
-	        "image_name": "centos-7-galaxy-CoVaCS-release_19.05",
-	        "architecture": "x86_64",
-	        "type": "linux",
-	        "distribution": "centos",
-	        "version": "7",
-	        "service": "<service-id>"
-	    }
-	  }
+*********
+``Image``
+*********
 
-	where ``galaxy-covacs-image-id`` is the image ID on the Cloud platform, while ``service-id`` is the service ID on CMDB.
-
-:CMDB upload command:
-        On CMDB Virtual Machine run the following command:
-
-	::
-
-	  curl -X POST http://cmdb:<cmdb_crud_password>@localhost:5984/indigo-cmdb-v2 -H "Content-Type: application/json" -d@cmdb-data/galaxy-CoVaCS.json
-
-	where ``<cmdb_crud_password>`` is the CMDB password set during its installation.
-
-******************************
-``galaxy-GDC_Somatic_Variant``
-******************************
-
-:Description:
-	Port of the Genomic Data Commons (GDC) pipeline for the identification of somatic variants on whole exome/genome sequencing data (https://gdc.cancer.gov/node/246).
-
-:Image:
-	http://cloud.recas.ba.infn.it/horizon/api/swift/containers/Laniakea-generic-cloud-images/object/CentOS-7-x86_64-GenericCloud_galaxy-GDC_Somatic_Variant_release_19.05-1.qcow2
-
-:Tools tarball:
-	http://cloud.recas.ba.infn.it/horizon/api/swift/containers/Laniakea-generic-cloud-images/object/galaxy-GDC_Somatic_Variant-release_19.05-1.tar.gz
-
-:CMDB json:
-        Create the file ``cmdb-data/galaxy-GDC_Somatic_Variant.json`` on the CMDB Virtual Machine, with the content:
-
-	::
-
-	  {
-	    "type": "image",
-	    "data": {
-	        "image_id": "<galaxy-gdc-image-id>",
-	        "image_name": "centos-7-galaxy-GDC_Somatic_Variant-release_19.05",
-	        "architecture": "x86_64",
-	        "type": "linux",
-	        "distribution": "centos",
-	        "version": "7",
-	        "service": "<service-id>"
-	    }
-	  }
-
-        where ``galaxy-gdc-image-id`` is the image ID on the Cloud platform, while ``service-id`` is the service ID on CMDB.
-
-:CMDB upload command:
-	On CMDB Virtual Machine run the following command:
-
-	::
-
-	  curl -X POST http://cmdb:<cmdb_crud_password>@localhost:5984/indigo-cmdb-v2 -H "Content-Type: application/json" -d@cmdb-data/galaxy-GDC_Somatic_Variant.json
-	  {"ok":true,"id":"6e2ed4e065ab0a768d2614fc34005859","rev":"1-edf1bca98184f9a3b08001f96752f214"}
-
-	where ``<cmdb_crud_password>`` is the CMDB password set during its installation.
+http://cloud.recas.ba.infn.it/horizon/api/swift/containers/Laniakea-generic-cloud-images/object/CentOS-7-x86_64-GenericCloud_galaxy-CoVaCS_release_19.05-1.qcow2
 
 *****************
-``galaxy-epigen``
+``Tools tarball``
 *****************
 
-:Description:
-	Based on Epigen project (http://www.epigen.it/).
-:Image:
+http://cloud.recas.ba.infn.it/horizon/api/swift/containers/Laniakea-generic-cloud-images/object/galaxy-CoVaCS-release_19.05-1.tar.gz
 
-:Tools tarball:
+*************
+``CMDB json``
+*************
+
+Create the file ``cmdb-data/galaxy-CoVaCS.json`` on the CMDB Virtual Machine, with the content:
+
+::
+
+  {
+    "type": "image",
+    "data": {
+        "image_id": "<galaxy-covacs-image-id>",
+        "image_name": "centos-7-galaxy-CoVaCS-release_19.05",
+        "architecture": "x86_64",
+        "type": "linux",
+        "distribution": "centos",
+        "version": "7",
+        "service": "<service-id>"
+    }
+  }
+
+where ``galaxy-covacs-image-id`` is the image ID on the Cloud platform, while ``service-id`` is the service ID on CMDB.
+
+***********************
+``CMDB upload command``
+***********************
+
+On CMDB Virtual Machine run the following command:
+
+::
+
+  curl -X POST http://cmdb:<cmdb_crud_password>@localhost:5984/indigo-cmdb-v2 -H "Content-Type: application/json" -d@cmdb-data/galaxy-CoVaCS.json
+
+where ``<cmdb_crud_password>`` is the CMDB password set during its installation.
+
+galaxy-GDC_Somatic_Variant
+--------------------------
+
+***************
+``Description``
+***************
+
+Port of the Genomic Data Commons (GDC) pipeline for the identification of somatic variants on whole exome/genome sequencing data (https://gdc.cancer.gov/node/246).
+
+*********
+``Image``
+*********
+
+http://cloud.recas.ba.infn.it/horizon/api/swift/containers/Laniakea-generic-cloud-images/object/CentOS-7-x86_64-GenericCloud_galaxy-GDC_Somatic_Variant_release_19.05-1.qcow2
+
+*****************
+``Tools tarball``
+*****************
+
+http://cloud.recas.ba.infn.it/horizon/api/swift/containers/Laniakea-generic-cloud-images/object/galaxy-GDC_Somatic_Variant-release_19.05-1.tar.gz
+
+*************
+``CMDB json``
+*************
+
+Create the file ``cmdb-data/galaxy-GDC_Somatic_Variant.json`` on the CMDB Virtual Machine, with the content:
+
+::
+
+  {
+    "type": "image",
+    "data": {
+        "image_id": "<galaxy-gdc-image-id>",
+        "image_name": "centos-7-galaxy-GDC_Somatic_Variant-release_19.05",
+        "architecture": "x86_64",
+        "type": "linux",
+        "distribution": "centos",
+        "version": "7",
+        "service": "<service-id>"
+    }
+  }
+
+where ``galaxy-gdc-image-id`` is the image ID on the Cloud platform, while ``service-id`` is the service ID on CMDB.
+
+***********************
+``CMDB upload command``
+***********************
+
+On CMDB Virtual Machine run the following command:
+
+::
+
+  curl -X POST http://cmdb:<cmdb_crud_password>@localhost:5984/indigo-cmdb-v2 -H "Content-Type: application/json" -d@cmdb-data/galaxy-GDC_Somatic_Variant.json
+  {"ok":true,"id":"6e2ed4e065ab0a768d2614fc34005859","rev":"1-edf1bca98184f9a3b08001f96752f214"}
+
+where ``<cmdb_crud_password>`` is the CMDB password set during its installation.
+
+galaxy-epigen
+-------------
+
+***************
+``Description``
+***************
+
+Based on Epigen project (http://www.epigen.it/).
+
+*********
+``Image``
+*********
+
+*****************
+``Tools tarball``
+*****************
+
+*************
+``CMDB json``
+*************
+
+Create the file ``cmdb-data/galaxy-epigen.json`` on the CMDB Virtual Machine, with the content:
+
+::
 
 
-:CMDB json:
-        Create the file ``cmdb-data/galaxy-epigen.json`` on the CMDB Virtual Machine, with the content:
+where ``galaxy-epigen-image-id`` is the image ID on the Cloud platform, while ``service-id`` is the service ID on CMDB.
 
-        ::
+***********************
+``CMDB upload command``
+***********************
 
+On CMDB Virtual Machine run the following command:
 
-        where ``galaxy-epigen-image-id`` is the image ID on the Cloud platform, while ``service-id`` is the service ID on CMDB.
-
-:CMDB upload command:
-        On CMDB Virtual Machine run the following command:
-
-        ::
+::
 
 
-	where ``<cmdb_crud_password>`` is the CMDB password set during its installation.
+where ``<cmdb_crud_password>`` is the CMDB password set during its installation.
 
-*************************
-``galaxy-rna-workebench``
-*************************
+galaxy-rna-workebench
+---------------------
 
-:Description:
-	More than 50 tools for RNA centric analysis (https://www.ncbi.nlm.nih.gov/pubmed/28582575).
+***************
+``Description``
+***************
 
-:Image:
-	http://cloud.recas.ba.infn.it/horizon/api/swift/containers/Laniakea-generic-cloud-images/object/CentOS-7-x86_64-GenericCloud_galaxy-rna-workbench_19.05-1.qcow2
+More than 50 tools for RNA centric analysis (https://www.ncbi.nlm.nih.gov/pubmed/28582575).
 
-:Tools tarball:
-	http://cloud.recas.ba.infn.it/horizon/api/swift/containers/Laniakea-generic-cloud-images/object/galaxy-rna-workbench-release_19.05-1.tar.gz
+*********
+``Image``
+*********
 
-:CMDB json:
-        Create the file ``cmdb-data/galaxy-rna-workbench.json`` on the CMDB Virtual Machine, with the content:
+http://cloud.recas.ba.infn.it/horizon/api/swift/containers/Laniakea-generic-cloud-images/object/CentOS-7-x86_64-GenericCloud_galaxy-rna-workbench_19.05-1.qcow2
 
-        ::
+*****************
+``Tools tarball``
+*****************
 
-	  {
-	    "type": "image",
-	    "data": {
-	        "image_id": "<galaxy-rnawb-image-id>",
-	        "image_name": "centos-7-galaxy-rna-workbench-release_19.05",
-	        "architecture": "x86_64",
-	        "type": "linux",
-	        "distribution": "centos",
-	        "version": "7",
-	        "service": "<service-id>"
-	    }
-	  }
+http://cloud.recas.ba.infn.it/horizon/api/swift/containers/Laniakea-generic-cloud-images/object/galaxy-rna-workbench-release_19.05-1.tar.gz
 
-        where ``galaxy-rnawb-image-id`` is the image ID on the Cloud platform, while ``service-id`` is the service ID on CMDB.
+*************
+``CMDB json``
+*************
 
-:CMDB upload command:
-        On CMDB Virtual Machine run the following command:
+Create the file ``cmdb-data/galaxy-rna-workbench.json`` on the CMDB Virtual Machine, with the content:
 
-	::
+::
 
-	  curl -X POST http://cmdb:<cmdb_crud_password>@localhost:5984/indigo-cmdb-v2 -H "Content-Type: application/json" -d@cmdb-data/galaxy-rna-workbench.json
-	  {"ok":true,"id":"6e2ed4e065ab0a768d2614fc34005ad8","rev":"1-bcc95ed3bbb3ca6ef4138d70fb8acab3"}
+  {
+    "type": "image",
+    "data": {
+        "image_id": "<galaxy-rnawb-image-id>",
+        "image_name": "centos-7-galaxy-rna-workbench-release_19.05",
+        "architecture": "x86_64",
+        "type": "linux",
+        "distribution": "centos",
+        "version": "7",
+        "service": "<service-id>"
+    }
+  }
 
-	where ``<cmdb_crud_password>`` is the CMDB password set during its installation.
+where ``galaxy-rnawb-image-id`` is the image ID on the Cloud platform, while ``service-id`` is the service ID on CMDB.
+
+***********************
+``CMDB upload command``
+***********************
+
+On CMDB Virtual Machine run the following command:
+
+::
+
+  curl -X POST http://cmdb:<cmdb_crud_password>@localhost:5984/indigo-cmdb-v2 -H "Content-Type: application/json" -d@cmdb-data/galaxy-rna-workbench.json
+  {"ok":true,"id":"6e2ed4e065ab0a768d2614fc34005ad8","rev":"1-bcc95ed3bbb3ca6ef4138d70fb8acab3"}
+
+where ``<cmdb_crud_password>`` is the CMDB password set during its installation.
