@@ -1,5 +1,5 @@
-|galaxy_docker| instance on Laniakea
-====================================
+|galaxy_docker| instance
+========================
 
 The |project_name| Galaxy Docker application run a Galaxy Docker container inside a Centos 7 virtual machine. The `Official Galaxy Docker image <https://github.com/bgruening/docker-galaxy-stable>`_ is used. Currently, |project_name| supports the following Docker images:
 
