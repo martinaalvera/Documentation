@@ -1,7 +1,7 @@
 Vault configuration
 ===================
 
-Hashicorp Vault is a tool for securely accessing “secrets" and is exploited on Laniakea to store and manage user encrpyptin passphrases.
+Hashicorp Vault is a tool for securely accessing “secrets" and is exploited on Laniakea to store and manage user encryption passphrases.
 
 A secret is everything you want to tightly control access to, such as encryption passphrases. Data stored on Vault are encrypted with 256 bit AES (Advanced Encryption Standard) cipher in the Galois Counter Mode (GCM) with a randomly generated nonce.
 
