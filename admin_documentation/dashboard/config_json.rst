@@ -27,7 +27,10 @@ The dashboard configuration file can be is located at ``/etc/orchestrator-dashbo
       "MAIL_SENDER": "test@orchestrator.com",
       "ADMINS": "['admin@foo.it','other_admin@test.it']",
       "VAULT_URL": "https://my-vault-instance.com",
-      "SUPPORT_EMAIL": "support@example.com"
+      "SUPPORT_EMAIL": "support@example.com",
+      "EXTERNAL_LINKS": [ { "url": "https://indigo-paas.cloud.ba.infn.it/status-page", "menu_item_name": "Services status" } ],
+      "ENABLE_ADVANCED_MENU": "no",
+      "LOG_LEVEL": "info
   }
 
 Configuration options
@@ -152,7 +155,7 @@ MAIL_SENDER
 ``Defaults``: Laniakea@elixir-italy.org
 
 ADMINS
-*****************
+******
 
 ``Description``: Dahsobard administrator users. Set this to a comma-separated list of valid Galaxy users (email addresses). These users will have access to the ``Users`` section of the dashboard.
 
@@ -162,8 +165,25 @@ VAULT_URL
 ``Description``: Vault url. This option enable vault support on Laniakea.
 
 SUPPORT_EMAIL
-*****************
+*************
 
 ``Description``: Support email, displayed on 500 error page.
 
 ``Defaults``: laniakea.helpdesk@gmail.com
+
+EXTERNAL_LINKS
+**************
+
+``Description``: create menu with external links, giving the url and the menu item name.
+
+ENABLE_ADVANCED_MENU
+********************
+
+``Description``: if yes, show advanced options in the navbar and the configurator form.
+
+LOG_LEVEL
+*********
+
+``Description``: Set log level.
+
+``Defaults``: info
