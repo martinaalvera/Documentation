@@ -66,3 +66,4 @@ Which is rendered as a dropdown menu on the dashboard:
    parameters_file_structure
    parameters_inputs
    parameters_tags
+   parameters_supported_inputs
