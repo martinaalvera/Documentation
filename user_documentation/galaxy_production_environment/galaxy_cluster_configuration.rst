@@ -7,6 +7,57 @@ Furthermore, automatic elasticity, provided using `CLUES <https://ec3.readthedoc
 
 Conda packages used to solve Galaxy tools dependencies are stored in ``/export/tool_deps/_conda`` directory and shared between front and worker nodes.
 
+job_conf.xml configuration
+--------------------------
+
+SLURM has been configured following the `GalaxyProject tutorial <https://galaxyproject.github.io/training-material/topics/admin/tutorials/connect-to-compute-cluster/tutorial.html>`_.
+ 
+In particular the number of tasks per nodes, i.e. the ``$GALAXY_SLOTS`` directory is set at ``--ntasks=2`` by default.
+
+.. figure:: img/cluster_history.png
+   :scale: 80 %
+   :align: center
+
+Moreover, to allow SLURM restart on elastic cluster, the number of connection retries has been set to ``100``.
+
+
+::
+
+  <?xml version="1.0"?>
+  <job_conf>
+      <plugins>
+          <plugin id="local" type="runner" load="galaxy.jobs.runners.local:LocalJobRunner" workers="2"/>
+          <plugin id="slurm" type="runner" load="galaxy.jobs.runners.drmaa:DRMAAJobRunner" workers="100">
+              <param id="drmaa_library_path">/usr/local/lib/libdrmaa.so</param>
+              <param id="internalexception_retries">100</param>
+          </plugin>
+      </plugins>
+      <handlers default="handlers">
+          <handler id="handler0" tags="handlers"/>
+          <handler id="handler1" tags="handlers"/>
+          <handler id="handler2" tags="handlers"/>
+          <handler id="handler3" tags="handlers"/>
+      </handlers>
+      <destinations default="slurm">
+          <destination id="slurm" runner="slurm" tags="mycluster" >
+                  <param id="nativeSpecification">--nodes=1 --ntasks=2</param>
+          </destination>
+          <destination id="local" runner="local">
+                  <param id="local_slots">2</param>
+          </destination>
+      </destinations>
+      <tools>
+          <tool id="upload1" destination="local"/>
+      </tools>
+      <limits>
+          <limit type="registered_user_concurrent_jobs">1</limit>
+          <limit type="unregistered_user_concurrent_jobs">0</limit>
+          <limit type="job_walltime">72:00:00</limit>
+          <limit type="output_size">268435456000</limit>
+      </limits>
+  </job_conf>
+
+
 Shared file system
 ------------------
 Current cluster configuration foresee two path shared between front and worker nodes: 
