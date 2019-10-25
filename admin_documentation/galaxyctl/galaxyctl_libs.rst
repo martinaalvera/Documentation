@@ -1,18 +1,20 @@
 Galaxyctl libraries
 ===================
-Galaxyctl is a python script collection for Galaxy management (first start, stop/start/restart/status). Moreover it is possible to manage, through specific script, LUKS volumes and Onedata spaces.
+Galaxyctl is a python script collection for Galaxy management (first start, stop/start/restart/status).
 
-Galaxyctl requires superuser privileges.
+.. note::
 
-Current version: ``0.0.1``
+   Galaxyctl requires superuser privileges.
+
+.. note::
+
+   Current version: ``v2.0.0``
 
 ================  ================
 Script            Description
 ================  ================
 galaxyctl_libs    Python libraries for uWSGI socket and stats server management, LUKS volume and Onedata space management.
 galaxyctl         Galaxy management script. It integrates Luksctl and Onedatactl commands.
-luksctl           LUKS volume script management
-onedatactl        Onedata spaces for user data and reference data management.
 ================  ================
 
 Galaxyctl_libs is composed by several modules.
@@ -83,29 +85,3 @@ To get the list of busy uWSGI workers:
 
   stats = UwsgiStatsServer(timeout=5, fname='/home/galaxy/galaxy/config/galaxy.ini)
   busy_list = stats.GetBusyList()
-
-LUKSCtl
--------
-Read LUKS ini file, usually stored on ``/etc/galaxy/luks-cryptdev.ini``, for LUKS volume management. Open, Close and Status commands are managed through luksctl script.
-
-OneDataCtl
-----------
-Reads Onedata ini file, usually stored on ``/etc/galaxy/onedatactl.ini``, for Onedata space management: both user data and reference data.
-
-mount_space
-***********
-To mount onedata space (userdata or refdata), call:
-
-::
-
-    onedata = OneDataCtl('/etc/galaxy/onedatactl.ini', 'userdata')
-    onedata.mount_space()
-
-umount_space
-************
-To umount onedata space, call:
-
-::
-
-    onedata = OneDataCtl('/etc/galaxy/onedatactl.ini', 'userdata')
-    onedata.umount_space()
