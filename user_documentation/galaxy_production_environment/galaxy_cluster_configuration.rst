@@ -12,7 +12,7 @@ job_conf.xml configuration
 
 SLURM has been configured following the `GalaxyProject tutorial <https://galaxyproject.github.io/training-material/topics/admin/tutorials/connect-to-compute-cluster/tutorial.html>`_.
  
-In particular the number of tasks per nodes, i.e. the ``$GALAXY_SLOTS`` directory is set at ``--ntasks=2`` by default.
+In particular the number of tasks per nodes, i.e. the ``$GALAXY_SLOTS``, is set at ``--ntasks=2`` by default.
 
 .. figure:: img/cluster_history.png
    :scale: 80 %
