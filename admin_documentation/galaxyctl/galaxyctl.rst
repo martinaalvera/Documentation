@@ -121,3 +121,4 @@ Galaxyctl needs galaxy.yml to retrieve uWSGI stats server information, through t
    :maxdepth: 2
 
    galaxyctl_libs
+   galaxyctl_api

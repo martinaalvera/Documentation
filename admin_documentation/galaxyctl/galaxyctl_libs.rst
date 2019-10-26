@@ -1,5 +1,6 @@
-Galaxyctl libraries
-===================
+Galaxyctl: libraries
+====================
+
 Galaxyctl is a python script collection for Galaxy management (first start, stop/start/restart/status).
 
 .. note::
