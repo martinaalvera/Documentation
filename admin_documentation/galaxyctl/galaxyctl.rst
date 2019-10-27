@@ -1,6 +1,7 @@
 Galaxyctl: Galaxy management
 ============================
-Galaxyctl is a python script collection used for Galaxy management, to properly check uWSGI Stats and to correctly retrieve Galaxy and uWSGI workers status.
+
+Galaxyctl is a python script collection used for Galaxy management, to properly check uWSGI Stats and to correctly retrieve Galaxy and uWSGI workers status. It's source code is located on `Laniakea GitHub <https://github.com/Laniakea-elixir-it/galaxyctl>`_.
 
 .. note::
 
