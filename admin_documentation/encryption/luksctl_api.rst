@@ -84,6 +84,10 @@ To perform the LUKSctl API, Laniakea creates a ``luksctl_api`` user on the Virt
 
 The LUSKctl API currently support both single VMs and Cluster. Moreover, if the encrypted volume is used to host the Docker Engine files, it can be configured to correctly manage this scenario. This is managed using a json configuration file ``config.json``.
 
+.. note::
+
+   Laniakea provides automaric configuration for LUKSctl APIs.
+
 *************
 ``Single VM``
 *************
@@ -102,7 +106,7 @@ The LUSKctl API currently support both single VMs and Cluster. Moreover, if the 
 ``Docker``
 **********
 
-:Description: If the Docker engine files are installed on the encrypted storage, it needs to be restarted after LUKS volume mount. If ``VIRTUALIZATION_TYPE`` is set at ``docker`` after LUKS volume mount the Docker daemon is restarted.
+:Description: The Docker engine files are installed on the encrypted storage, so the Docker daemon needs to be restarted after LUKS volume mount. If ``VIRTUALIZATION_TYPE`` is set at ``docker`` after LUKS volume mount, the Docker daemon is restarted.
 
 :config.json:
 	::
@@ -116,7 +120,7 @@ The LUSKctl API currently support both single VMs and Cluster. Moreover, if the 
 ``Cluster``
 ***********
 
-Current cluster configuration foresee NFS between front and worker nodes. If the Front End and/or the Worker Nodes are restarted, once the encrypted volume is opened and mount, the NFS has to be restarted. If the cluster support is enabled in the API configuration file, after LUKS volum mount, the API contacts each worker nodes, via API, and restart the NFS module.
+Current cluster configuration foresee a NFS between front and worker nodes. If the Front End and/or the Worker Nodes are restarted, once the encrypted volume is opened and mounted, the NFS has to be restarted. If the cluster support is enabled in the API configuration file, after LUKS volum mount, the API contacts each worker nodes, via API, and restart the NFS module.
 
 ``Front End configuration``
 	
@@ -134,7 +138,7 @@ Current cluster configuration foresee NFS between front and worker nodes. If the
 ``Worker Nodes(s) configuration``
 
 :Description:
-	On each worker node, the API needs the list of the NFS shared directory. This list is required to check if all directories have been properly mounted.
+	On each worker node, the API needs the list of the NFS shared directores. This list is required to check if all directories have been properly mounted.
 
 :config.json:
 	::
