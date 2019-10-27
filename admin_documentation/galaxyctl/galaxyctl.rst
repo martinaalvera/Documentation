@@ -118,6 +118,9 @@ Galaxyctl needs galaxy.yml to retrieve uWSGI stats server information, through t
 
   galaxy_config_file = '/home/galaxy/galaxy/config/galaxy.yml'
 
+Features
+--------
+
 .. toctree::
    :maxdepth: 2
 
