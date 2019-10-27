@@ -45,9 +45,9 @@ It used to connect the Laniakea Dashboard to the encrypted instances, allowing e
 
 Currently, supported APIs are:
 
-******************
+-----------------
 ``Volume Status``
-******************
+-----------------
 
 A GET request is used to check the status of the encrypted volume and show it in the Dhasboard. If the volume is open and mounted it return ``mounted``, othrewise it return ``umounted``. If the API is not available, an ``unavailable`` status is showed.
 
@@ -65,9 +65,9 @@ Example request:
   
   {"volume_state":"mounted"}
 
-******************
+-----------------
 ``Volume Open``
-******************
+-----------------
 
 A POST request can be used to open and mount the encrypted volume in case of VM reboot. To prevent unwanted restart, the API check if the volume is already mounted. If yes it return ``mounted``, otherwise it run ``luksctl open`` command.
 
