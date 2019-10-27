@@ -76,3 +76,69 @@ Example request:
 ::
 
   curl -k -X POST 'https://<vm_ip_address>:5000/luksctl_api/v1.0/open' -H 'Content-Type: application/json' -d '{ "vault_url": vault_url, "vault_token": wrapping_read_token, "secret_root": vault_secrets_path, "secret_path": secret_path, "secret_key": user_key }'
+
+API configuration
+-----------------
+
+To perform the LUKSctl API, Laniakea creates a ``luksctl_api`` user on the Virtual Machine, and install the LUKSctl on its home directory. This user can only run the LUKS commands as super user, for security reasons. Finally, to sercure API communications, a self signed SSL certificate is created and installed.
+
+The LUSKctl API currently support both single VMs and Cluster. Moreover, if the encrypted volume is used to host the Docker Engine files, it can be configured to correctly manage this scenario. This is managed using a json configuration file ``config.json``.
+
+*************
+``Single VM``
+*************
+
+:Description:
+	This is the default API configuration.
+
+:config.json:
+	::
+
+	  {
+	    "INFRASTRUCTURE_CONFIGURATION": "single_vm"
+	  }
+
+**********
+``Docker``
+**********
+
+:Description: If the Docker engine files are installed on the encrypted storage, it needs to be restarted after LUKS volume mount. If ``VIRTUALIZATION_TYPE`` is set at ``docker`` after LUKS volume mount the Docker daemon is restarted.
+
+:config.json:
+	::
+
+	  {
+	    "INFRASTRUCTURE_CONFIGURATION": "single_vm",
+	    "VIRTUALIZATION_TYPE": "docker"
+	  }
+
+***********
+``Cluster``
+***********
+
+Current cluster configuration foresee NFS between front and worker nodes. If the Front End and/or the Worker Nodes are restarted, once the encrypted volume is opened and mount, the NFS has to be restarted. If the cluster support is enabled in the API configuration file, after LUKS volum mount, the API contacts each worker nodes, via API, and restart the NFS module.
+
+``Front End configuration``
+	
+:Description: 
+	To enable API cluster support the variable ``INFRASTRUCTURE_CONFIGURATION`` has to be set at ``cluster`` on the front end and the worker nodes list has to be provided.
+
+:config.json:
+	::
+
+	  {
+	    "INFRASTRUCTURE_CONFIGURATION": "cluster",
+	    "WN_IPS": ["127.0.0.1"]
+	  }
+
+``Worker Nodes(s) configuration``
+
+:Description:
+	On each worker node, the API needs the list of the NFS shared directory. This list is required to check if all directories have been properly mounted.
+
+:config.json:
+	::
+
+	  {
+	    "NFS_MOUNTPOINT_LIST": ["/home","/export"]
+	  }	
