@@ -1,7 +1,9 @@
 Galaxyctl: APIs
 ===============
 
-A set of RESTFul APIs is distributed with Galaxyctl. It is written using python Flask micro framework and Gunicorn. A systemd unit file is used for start/stop/restart the API.
+A set of RESTFul APIs is distributed with Galaxyctl. It is written using python Flask micro framework and Gunicorn.
+
+A systemd unit file is used for start/stop/restart the API.
 
 =============  =========  ====================
 Moudule        Action     Description
@@ -11,6 +13,10 @@ galaxyctl-api  status     Show status
 |              start      Start the API.
 |              restart    Restart the API.
 =============  =========  ====================
+
+.. note::
+
+   Galaxyct-api is configured to listen on ``5001`` port.
 
 ::
 
