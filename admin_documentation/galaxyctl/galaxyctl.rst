@@ -84,11 +84,10 @@ The command used in ``/usr/local/bin/galaxy-startup`` script, is
 
   galaxyctl startup galaxy -c /home/galaxy/galaxy/galaxy.ini -t 600
 
-Configuration files
+Configuration file
 -------------------
 
-Supervisord and systemd/upstart are supported to start/stop/restart/status Galaxy.
-The init system can be set using the variables ``init_system``: two values are, currently, allowed: ``supervisord`` and ``init``
+Supervisord and systemd/upstart are supported to start/stop/restart/status Galaxy. The init system can be set using the variables ``init_system``: two values are, currently, allowed: ``supervisord`` and ``init``
 
 =============  ===========================================
 init_system    Explanation
