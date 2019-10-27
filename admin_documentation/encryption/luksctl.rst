@@ -1,27 +1,33 @@
 Luksctl: LUKS volumes management
 ================================
-Luksctl is a python script allowing to easily Open/Close and Check LUKS encrypted volumes, parsing dmsetup and cryptsetup commands.
 
-The script requires superuser rights.
+Luksctl is a python script allowing to easily Open/Close and Check LUKS encrypted volumes, parsing dmsetup and cryptsetup commands.  It's source code is located on `Laniakea GitHub <https://github.com/Laniakea-elixir-it/luksctl>`_.
 
-========  ========
-Action    Command
-========  ========
-Open      sudo luksctl open
-Close     sudo luksctl close
-Status    sudo luksctl status
-========  ========
+.. note::
+
+   The script requires superuser rights.
+
+======= ========  ========
+Module  Action    Description
+======= ========  ========
+luksctl open      Open and mount the encrypted storage
+|       close     Umount and close the encrypted storage
+|       status    Show the encrypted storage status
+======= ========  ========
 
 Dependencies
 ------------
-Since the script is going to parse cryptsetup and dmsetup commands, both are required
+
+Since the script is going to parse cryptsetup, dmsetup and mount/umount commands, all of them are required
 
 ::
 
   cryptsetup
+  dmsetup
 
 Open LUKS volumes
 -----------------
+
 To open LUKS volume, call: ``luksctl open``, which will require your LUKS decrypt password:
 
 ::
@@ -43,6 +49,7 @@ To open LUKS volume, call: ``luksctl open``, which will require your LUKS decryp
 
 Close LUKS volumes
 ------------------
+
 To Close LUKS volume, call ``luksctl close``:
 
 ::
@@ -52,6 +59,7 @@ To Close LUKS volume, call ``luksctl close``:
 
 LUKS volumes status
 -------------------
+
 To check if LUKS volume is Open or not call ``luksctl status``
 
 ::

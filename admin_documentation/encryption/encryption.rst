@@ -25,6 +25,7 @@ The encryption layer sits between the physical disk and the file system and Gala
    encryption_test
    fast_luks
    luksctl
+   luksctl_api
    cryptsetup_hints
 
 References
