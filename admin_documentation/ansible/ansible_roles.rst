@@ -103,23 +103,27 @@ Ansible automates Galaxy installation and configuration using Ansible roles. The
 -------------------------
 
 :Description:
+	Ansible role to install CernVM-FS Client.
 
 :Installation:
         ::
 
           ansible-galaxy install indigo-dc.cvmfs-client
 
-:Github:
+:Documentation:
+	https://github.com/indigo-dc/ansible-role-cvmfs-client
 
 -------------------------
 ``indigo-dc.cvmfs-server``
 -------------------------
 
 :Description:
+	Ansible role to install CernVM FS Server.
 
 :Installation:
         ::
 
           ansible-galaxy install indigo-dc.cvmfs-server
 
-:Github:
+:Documentation:
+	https://github.com/indigo-dc/ansible-role-cvmfs-server
