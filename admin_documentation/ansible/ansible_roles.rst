@@ -19,7 +19,7 @@ Ansible automates Galaxy installation and configuration using Ansible roles. The
 
 	  # ansible-galaxy install indigo-dc.galaxycloud 
 
-:Github:
+:Documentation:
 	https://github.com/indigo-dc/ansible-role-galaxycloud
 
 ----------------------------
@@ -34,7 +34,7 @@ Ansible automates Galaxy installation and configuration using Ansible roles. The
 
           ansible-galaxy install indigo-dc.galaxycloud-os
 
-:Github:
+:Documentation:
 	https://github.com/indigo-dc/ansible-role-galaxycloud-os
 
 -------------------------------
@@ -50,7 +50,7 @@ Ansible automates Galaxy installation and configuration using Ansible roles. The
 
           ansible-galaxy install indigo-dc.galaxycloud-tools
 
-:Github:
+:Documentation:
 	https://github.com/indigo-dc/ansible-role-galaxycloud-tools
 
 ----------------------------------
@@ -65,7 +65,7 @@ Ansible automates Galaxy installation and configuration using Ansible roles. The
 
           ansible-galaxy install indigo-dc.galaxycloud-refdata
 
-:Github:
+:Documentation:
 	https://github.com/indigo-dc/ansible-role-galaxycloud-refdata
 
 ------------------------------------
@@ -73,13 +73,15 @@ Ansible automates Galaxy installation and configuration using Ansible roles. The
 ------------------------------------
 
 :Description:
+	Ansible role for Galaxy fast configuration on Virtual Machines with Galaxy and tools already inside, created using indigo.dc-galaxycloud role. The documentation on Galaxy Express services, which explotis this role, is: :doc:`/admin_documentation/indigo_paas_deploy/galaxy_vm`.
 
 :Installation:
         ::
 
           ansible-galaxy install indigo-dc.galaxycloud-fastconfig
 
-:Github:
+:Documentation:
+	https://github.com/indigo-dc/ansible-role-galaxycloud-fastconfig
 
 --------------------------------
 ``indigo-dc.galaxycloud_docker``
