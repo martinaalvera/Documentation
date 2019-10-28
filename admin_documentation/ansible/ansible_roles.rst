@@ -58,6 +58,7 @@ Ansible automates Galaxy installation and configuration using Ansible roles. The
 ----------------------------------
 
 :Description:
+	The role provides reference data using the CernVM File System and the corresponding Galaxy configuration.
 
 :Installation:
         ::
@@ -65,7 +66,7 @@ Ansible automates Galaxy installation and configuration using Ansible roles. The
           ansible-galaxy install indigo-dc.galaxycloud-refdata
 
 :Github:
-
+	https://github.com/indigo-dc/ansible-role-galaxycloud-refdata
 
 ------------------------------------
 ``indigo-dc.galaxycloud-fastconfig``
