@@ -8,8 +8,8 @@ Image creation
 
 Galaxy flavours images can be created using Laniakea ansible roles:
 
-- :doc:`/admin_documentation/ansible/ansible_galaxycloud`
-- :doc:`/admin_documentation/ansible/ansible_galaxycloud-tools`
+- `indigo-dc.galaxycloud <https://github.com/indigo-dc/ansible-role-galaxycloud>`_
+- `indigo-dc.galaxycloud-tools <https://github.com/indigo-dc/ansible-role-galaxycloud-tools>`_
 
 A setup script is available to automate the procedure `here <https://github.com/Laniakea-elixir-it/laniakea-images>`_.
 The setup script can used to create Laniakea cloud images. It is compatible with CentOS 7 and Ubuntu 16.04. CentOS 7 is the recommended OS.
