@@ -42,6 +42,8 @@ Ansible automates Galaxy installation and configuration using Ansible roles. The
 -------------------------------
 
 :Description:
+	Automated installation of tools from a Tool Shed into Galaxy. The role use the path scheme from the `indigo-dc.galaxycloud <https://github.com/indigo-dc/ansible-role-galaxycloud>`_ role. It creates a virtual environment, install ephemeris and invoke the install script to tools into Galaxy. The script stop Galaxy (if running), start a local Galaxy instance on http://localhost:8080 and install tools. The list of tools to install is provided in files/tool_list.yaml file, hosted in the `external repository <https://github.com/indigo-dc/Galaxy-flavors-recipes>`_. Workflows are also installed.
+
 
 :Installation:
         ::
@@ -49,6 +51,7 @@ Ansible automates Galaxy installation and configuration using Ansible roles. The
           ansible-galaxy install indigo-dc.galaxycloud-tools
 
 :Github:
+	https://github.com/indigo-dc/ansible-role-galaxycloud-tools
 
 ----------------------------------
 ``indigo-dc.galaxycloud-refdata``
@@ -74,19 +77,6 @@ Ansible automates Galaxy installation and configuration using Ansible roles. The
         ::
 
           ansible-galaxy install indigo-dc.galaxycloud-fastconfig
-
-:Github:
-
---------------------------------
-``indigo-dc.galaxycloud_docker``
---------------------------------
-
-:Description:
-
-:Installation:
-        ::
-
-          ansible-galaxy install indigo-dc.galaxycloud_docker
 
 :Github:
 
