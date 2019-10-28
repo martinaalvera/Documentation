@@ -4,7 +4,7 @@ Infrastructure Manager (IM)
 The `Infrastructure Manager (IM) <https://www.grycap.upv.es>`_ is used to deploy virtual infrastructures, to deploy virtual infrastructures, e.g. Galaxy and the underlying virtual hardware.
 
 .. note::
-   Current IM version: 1.8.5
+   Current IM version: v1.8.6
 
 VM configuration
 ----------------
@@ -59,7 +59,7 @@ Create the file ``indigopaas-deploy/ansible/inventory/group_vars/im.yaml`` with 
 
 ::
 
- im_image_version: 1.8.5
+ im_image_version: v1.8.6
  im_mysql_root_password: ********
  im_mysql_password: *********
  im_cfg_oidc_issuers: 'https://<iam_address>/'
