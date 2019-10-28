@@ -20,9 +20,7 @@ Ansible roles documentation
    ansible_galaxycloud
    ansible_galaxycloud-os
    ansible_galaxycloud-tools
-   ansible_galaxycloud-tooldeps
    ansible_galaxycloud-refdata
    ansible_galaxycloud-fastconfig
-   ansible_galaxy-tools
    ansible_cvmfs_server
    ansible_cvmfs_client
