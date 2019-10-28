@@ -88,14 +88,15 @@ Ansible automates Galaxy installation and configuration using Ansible roles. The
 --------------------------------
 
 :Description:
+	Run Galaxy Docker containers on a Centos7 (Ubuntu 16.04) virtual machine, creating Galaxy administrator user and mounting specific Cern VM file system. The Docker engine is installed and stored with docker images on the external volume (/export).
 
 :Installation:
         ::
 
           ansible-galaxy install indigo-dc.galaxycloud_docker
 
-:Github:
-
+:Documentation:
+	https://github.com/indigo-dc/ansible-role-galaxycloud-docker
 
 -------------------------
 ``indigo-dc.cvmfs-client``
