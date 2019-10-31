@@ -423,3 +423,10 @@ Here is the list of Galaxy database path directories:
   object_store_cache_path = /export/galaxy/database/object_store_cache
   cluster_file_directory = /export/galaxy/database/pbs"
   ftp_upload_dir = /export/galaxy/database/ftp
+
+Enable Dockerized tools support in job_conf.xml
+-----------------------------------------------
+
+Different job_conf.xml configurations to exploit Dockerized tools can be `here <https://github.com/Laniakea-elixir-it/galaxy-resources/tree/master/job-configurations>`_.
+
+
