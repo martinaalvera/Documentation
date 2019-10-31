@@ -39,7 +39,7 @@ Supported options
 --------
 
 :Documentation:
-	Define de image loaded in the application tile. If no image URL is provided, the Dashboard loads this `icon <https://cdn4.iconfinder.com/data/icons/mosaicon-04/512/websettings-512.png>`_.
+	Define the image/icon loaded in the application tile. If no image URL is provided, the Dashboard loads this `icon <https://cdn4.iconfinder.com/data/icons/mosaicon-04/512/websettings-512.png>`_.
 
 :Example:
 	::
@@ -76,7 +76,7 @@ Supported options
 ----------
 
 :Documentation:
-	Enable the ribbon on top bottom corner of each tile if ``True``.
+	Enable the ribbon on bottom right corner of each tile if ``True``.
 
 :Example:
         ::
