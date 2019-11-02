@@ -33,7 +33,7 @@ Resources con be negotiated trought SLAM dashboard creating new **computing SLA*
 
    .. note::
 
-      For testing purposes, plese, use a broweser hidden session to avoid any cookie and login problem.
+      For testing purposes, plese, use a browser hidden session to avoid any cookie and login problem.
 
    Tap on the **ID** in the Provider tab, which is available only for provider user set in CMDB.
 
