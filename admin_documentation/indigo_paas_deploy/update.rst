@@ -41,7 +41,7 @@ Service                 Version             Docker image
 ======================= =================== ======================================================
 indigopaas-deploy       master              ---
 IAM                     1.5 rc2             indigoiam/iam-login-service:v1.5.0.rc2-SNAPSHOT-latest
-IM                      1.8.5               indigodatacloud/im:1.8.5
+IM                      1.8.8.1             indigodatacloud/im:1.8.6.1
 CMDB                    indigo_2            indigodatacloud/cmdb:indigo_2
 CPR                     indigo_2            indigodatacloud/cloudproviderranker:indigo_2
 SLAM                    v2.0.0              indigodatacloud/slam:v2.0.0
