@@ -1,5 +1,5 @@
-Dashboard configuration
-=======================
+Laniakea Dashboard
+==================
 
 The Laniakea Dashboard is the new, redesigned and reimplemented, user interface of Laniakea, developed using:
 
@@ -33,6 +33,7 @@ Configuration
 .. toctree::
    :maxdepth: 2
 
+   overview
    config_json
    vault_config_json
    apps_config
