@@ -59,7 +59,7 @@ For more information on the Galaxy Project, please visit the https://galaxyproje
    admin_documentation/tosca_templates/tosca_templates
    admin_documentation/cvmfs/build_cvmfs_server
    admin_documentation/vault/vault_config
-   admin_documentation/dashboard/dashboard_config
+   admin_documentation/dashboard/dashboard
    admin_documentation/indigo_paas_deploy/introduction
 
 GitHub repository
