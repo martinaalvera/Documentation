@@ -157,7 +157,7 @@ It is possible to enable mail notification adding the following parameters:
 
 ::
 
-  iam_notification_disable: true
+  iam_notification_disable: false
   iam_notification_from: 'laniakea-alert@example.com'
   iam_notification_admin_address: <valid_email_address>
   iam_mail_host: <mail_server_address>
