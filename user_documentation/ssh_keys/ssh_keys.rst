@@ -46,7 +46,7 @@ If you don't have a public key, it is possible to create a SSH key pair, i.e. a 
 
 .. warning::
 
-   The private key is not exploited by Laniakea. Is only generated and uploaded on Vault for securety. Please download it. The Laniakea team will not be held liable for lost data due to hardware failure, virus, spyware, corruption or any other situation.
+   The private key is not exploited by Laniakea. Is only generated and uploaded on Vault for security. Please download it. The Laniakea team will not be held liable for lost data due to hardware failure, virus, spyware, corruption or any other situation.
 
 .. figure:: img/ssh_create_keypair_render.png
    :scale: 25%
