@@ -18,6 +18,16 @@ During the Galaxy instance configuration procedure a SSH public key has to be ma
    :scale: 25%
    :align: center
 
+.. warning::
+
+   FOR SECURITY REASONS THE SSH KEY OF  A VIRTUAL INSTANCE CANNOT BE CHANGED FROM THE LANIAKEA DASHBOARD AFTER ITS DEPLOYMENT . IF NEEDED, AND IF YOU KNOW WHAT YOU ARE DOING,  IT CAN STILL BE MODIFIED ACCESSING DIRECLY THE INSTANCE VIA SSH.
+
+   **NOTICE THAT IF YOU LOSE THE PRIVATE KEY CORRESPONDING TO THE PUBLIC ONE ON THE VM HOSTING YOUR GALAXY INSTANCE, IT WILL BECOME UNACCESSIBLE FOREVER.**
+
+.. role:: red
+
+An example of using :red:`interpreted text`
+
 For this reason the Laniakea dashboard provides a menu to upload/create the user public (and private) key, in the top left user menu.
 
 .. figure:: img/ssh_menu_render.png
@@ -64,11 +74,18 @@ Once the public SSH key is available on the Dashboard the service will recognize
    :scale: 50%
    :align: center
 
-Finally, it is possible to delete the SSH key (pair) with ``Delete`` button.
+Remove the SSH key from Laniakea
+--------------------------------
+
+It is possible to delete the SSH key (pair) from Laniakea with ``Delete`` button.
 
 .. figure:: img/ssh_delete_key_render.png
    :scale: 50%
    :align: center
+
+.. warning::
+
+   The key will not be removed from the virtual instances where it has been inserted. Once removed, if not saved elsewhere, and and if no different keys were added, you will not be able to access the instances.
 
 
 How to create SSH keys on Linux or macOS
