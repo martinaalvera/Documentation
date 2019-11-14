@@ -11,7 +11,7 @@ Update the dashboard IAM client configuration
 
 To enable Vault integration the **token exchange** is needed. Therefore, edit the IAM client previously created for the dashboard.
 
-Enable **token exchange** accessing to the client configuration page as Administrator user, through the **ADMINISTRATIVE**, **Manage Clients** and check the flag ``token exchange`` in the ``Grany types`` section.
+Enable **token exchange** accessing to the client configuration page as Administrator user, through the **ADMINISTRATIVE**, **Manage Clients** and check the flag ``token exchange`` in the ``Grant types`` section.
 
 .. figure:: _static/dashboard/dashboard_admin_client_access.png
    :scale: 30%
@@ -75,7 +75,8 @@ Create the file ``indigopaas-deploy/ansible/inventory/group_vars/orchestrator-da
   dashboard_tosca_parameters_dir: "/opt/laniakea-dashboard-config/tosca-parameters"
   dashboard_tosca_metadata_dir: "/opt/laniakea-dashboard-config/tosca-metadata"
   dashboard_administrators: "['<valid_email_address>']"
-  
+  dashboard_support_email: "['<valid_email_address>']"
+
   dashboard_letsencrypt_email: "<valid_email_address>"
 
   dashboard_enable_db: True
