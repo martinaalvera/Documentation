@@ -37,7 +37,7 @@ Configuration
 
   ::
 
-    # git clone https://github.com/indigo-dc/indigopaas-deploy.git
+    # git clone -b v1.0 https://github.com/indigo-dc/indigopaas-deploy.git
  
     # cd indigopaas-deploy
 
