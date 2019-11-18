@@ -15,6 +15,21 @@ The implementation on Galaxy performs the following pipeline steps:
 
 #. Variant Annotation
 
+.. warning::
+
+   The GDC Somatic Variant Galaxy pipeline requires at least 7.5 GB of RAM to properly run, due to the large amount of RAM used by BWA and GATK. The recommended configuration is with 16 GB or RAM. 
+   
+   Moreover, if GATK run on a SLURM cluster, it could be necessary to enable GATK computational options, setting the field
+   ``Overwrite Memory in MB (0 = don't overwrite)`` to 7500 (MB).
+   
+   This field corresponds to the GATK_MEM variable in the tools. 
+   By default, GATK check if this variable is set. If not, the SLURM_MEM_PER_NODE variable is checked.
+   This variable, on SLURM, correspods to the --mem options (https://slurm.schedmd.com/sbatch.html), i.e. the RAM associated to each job.
+   If this variable is not defined, a default value of 4096 MB is taken
+   
+   On Laniakea, the --meme options is not enabled by default, since it requires the RealMemory field enabled in the slurm.conf file, therefore it is currently needed to set the ``Overwrite Memory in MB (0 = don't overwrite)`` field to 7500.
+   
+   
 The different steps are performed as follows.
 
 ------------------------------
@@ -133,3 +148,29 @@ GDC somatic variant Galaxy workflow
    :align: center
 
 .. centered:: The Galaxy workflow that connects together all the tool of the GDC-DNA-seq pipeline in order to be automatically performed in a single step.
+
+Troubleshooting
+===============
+
+vep_annotated and vcf2maf exit with the following error:
+
+::
+
+  Can't locate Bio/PrimarySeqI.pm in @INC (you may need to install the Bio::PrimarySeqI module) (@INC contains: /export/tool_deps/_conda/envs/mulled-v1-1cf17a4e29129ede8b208c6c7c927283b476352e9fbed97e30914485f334b89b/share/variant-effect-predictor-86-0 /export/tool_deps/_conda/envs/mulled-v1-1cf17a4e29129ede8b208c6c7c927283b476352e9fbed97e30914485f334b89b/lib/site_perl/5.26.2/x86_64-linux-thread-multi /export/tool_deps/_conda/envs/mulled-v1-1cf17a4e29129ede8b208c6c7c927283b476352e9fbed97e30914485f334b89b/lib/site_perl/5.26.2 /export/tool_deps/_conda/envs/mulled-v1-1cf17a4e29129ede8b208c6c7c927283b476352e9fbed97e30914485f334b89b/lib/5.26.2/x86_64-linux-thread-multi /export/tool_deps/_conda/envs/mulled-v1-1cf17a4e29129ede8b208c6c7c927283b476352e9fbed97e30914485f334b89b/lib/5.26.2 .) at /export/tool_deps/_conda/envs/mulled-v1-1cf17a4e29129ede8b208c6c7c927283b476352e9fbed97e30914485f334b89b/share/variant-effect-predictor-86-0/Bio/EnsEMBL/Slice.pm line 75.
+  BEGIN failed--compilation aborted at /export/tool_deps/_conda/envs/mulled-v1-1cf17a4e29129ede8b208c6c7c927283b476352e9fbed97e30914485f334b89b/share/variant-effect-predictor-86-0/Bio/EnsEMBL/Slice.pm line 75.
+  Compilation failed in require at /export/tool_deps/_conda/envs/mulled-v1-1cf17a4e29129ede8b208c6c7c927283b476352e9fbed97e30914485f334b89b/share/variant-effect-predictor-86-0/Bio/EnsEMBL/Feature.pm line 84.
+  BEGIN failed--compilation aborted at /export/tool_deps/_conda/envs/mulled-v1-1cf17a4e29129ede8b208c6c7c927283b476352e9fbed97e30914485f334b89b/share/variant-effect-predictor-86-0/Bio/EnsEMBL/Feature.pm line 84.
+  Compilation failed in require at /export/tool_deps/_conda/envs/mulled-v1-1cf17a4e29129ede8b208c6c7c927283b476352e9fbed97e30914485f334b89b/share/variant-effect-predictor-86-0/Bio/EnsEMBL/Variation/BaseVariationFeature.pm line 58.
+  BEGIN failed--compilation aborted at /export/tool_deps/_conda/envs/mulled-v1-1cf17a4e29129ede8b208c6c7c927283b476352e9fbed97e30914485f334b89b/share/variant-effect-predictor-86-0/Bio/EnsEMBL/Variation/BaseVariationFeature.pm line 58.
+  Compilation failed in require at /export/tool_deps/_conda/envs/mulled-v1-1cf17a4e29129ede8b208c6c7c927283b476352e9fbed97e30914485f334b89b/share/variant-effect-predictor-86-0/Bio/EnsEMBL/Variation/VariationFeature.pm line 97.
+  BEGIN failed--compilation aborted at /export/tool_deps/_conda/envs/mulled-v1-1cf17a4e29129ede8b208c6c7c927283b476352e9fbed97e30914485f334b89b/share/variant-effect-predictor-86-0/Bio/EnsEMBL/Variation/VariationFeature.pm line 97.
+  Compilation failed in require at /export/tool_deps/_conda/envs/mulled-v1-1cf17a4e29129ede8b208c6c7c927283b476352e9fbed97e30914485f334b89b/share/variant-effect-predictor-86-0/Bio/EnsEMBL/Variation/Utils/VEP.pm line 81.
+  BEGIN failed--compilation aborted at /export/tool_deps/_conda/envs/mulled-v1-1cf17a4e29129ede8b208c6c7c927283b476352e9fbed97e30914485f334b89b/share/variant-effect-predictor-86-0/Bio/EnsEMBL/Variation/Utils/VEP.pm line 81.
+  Compilation failed in require at /export/tool_deps/_conda/envs/mulled-v1-1cf17a4e29129ede8b208c6c7c927283b476352e9fbed97e30914485f334b89b/bin/variant_effect_predictor.pl line 72.
+  BEGIN failed--compilation aborted at /export/tool_deps/_conda/envs/mulled-v1-1cf17a4e29129ede8b208c6c7c927283b476352e9fbed97e30914485f334b89b/bin/variant_effect_predictor.pl line 72.
+
+To fix this, in  the corresponding conda environment:
+
+::
+
+  conda install -c bioconda perl-bioperl
