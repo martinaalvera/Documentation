@@ -12,7 +12,7 @@ Ansible automates Galaxy installation and configuration using Ansible roles. The
 -------------------------
 
 :Description:
-	Install Galaxy Production environment, i.e. Galaxy with all needed softaware, PostgreSQL, NGINX, Proftpd and uWSGI. The role also installs `Galaxyctl and its API <https://github.com/Laniakea-elixir-it/galaxyctl>`_ for Galaxy management.
+	Install Galaxy Production environment, i.e. Galaxy with all needed software, PostgreSQL, NGINX, Proftpd and uWSGI. The role also installs `Galaxyctl and its API <https://github.com/Laniakea-elixir-it/galaxyctl>`_ for Galaxy management.
 
 :Installation:
 	::
