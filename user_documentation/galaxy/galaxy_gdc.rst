@@ -15,14 +15,15 @@ The implementation on Galaxy performs the following pipeline steps:
 
 #. Variant Annotation
 
-.. warning::
+.. note::
 
-   The GDC Somatic Variant Galaxy pipeline requires at least 7.5 GB of RAM to properly run, due to the large amount of RAM used by BWA and GATK. The recommended configuration is with 16 GB or RAM. 
-   
-   Moreover, if GATK run on a SLURM cluster, it could be necessary to enable GATK computational options, setting the field
+   The GDC Somatic Variant Galaxy pipeline requires at least 7.5 GB of RAM to properly run, due to the large amount of RAM used by BWA and GATK. The recommended configuration is with 16 GB or RAM.
+
+.. warning::   
+   On SLURM cluster, it could be necessary to enable GATK computational options, setting the field
    ``Overwrite Memory in MB (0 = don't overwrite)`` to 7500 (MB).
    
-   This field corresponds to the GATK_MEM variable in the tools. 
+   This field corresponds to the GATK_MEM variable in the tool wrapper.
    By default, GATK check if this variable is set. If not, the SLURM_MEM_PER_NODE variable is checked.
    This variable, on SLURM, correspods to the --mem options (https://slurm.schedmd.com/sbatch.html), i.e. the RAM associated to each job.
    If this variable is not defined, a default value of 4096 MB is taken
