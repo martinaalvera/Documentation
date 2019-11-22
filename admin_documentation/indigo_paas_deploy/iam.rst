@@ -50,21 +50,19 @@ Create the file ``indigopaas-deploy/ansible/application-oidc.yml``, copying and 
 ::
 
   oidc:
-  providers:
-  - name: google
-    issuer: https://accounts.google.com
-    client:
-      clientId: <iam_google_client_id>
-      clientSecret: <iam_google_client_secret>
-      redirectUris: https://<iam_url>/openid_connect_login
-      scope: openid,profile,email,address,phone
-    loginButton:
-      text: Google
-      style: btn-social btn-google
-      image:
-        fa-icon: google
-
-
+    providers:
+    - name: google
+      issuer: https://accounts.google.com
+      client:
+        clientId: <iam_google_client_id>
+        clientSecret: <iam_google_client_secret>
+        redirectUris: https://<iam_url>/openid_connect_login
+        scope: openid,profile,email,address,phone
+      loginButton:
+        text: Google
+        style: btn-social btn-google
+        image:
+          fa-icon: google
 
 Enable ELIXIR-AAI Authentication
 --------------------------------
@@ -76,21 +74,20 @@ Then create the file ``indigopaas-deploy/ansible/application-oidc.yml``, copying
 ::
 
   oidc:
-  providers:
-  - name: elixir-aai
-    issuer: https://login.elixir-czech.org/oidc/
-    client:
-      clientId: <iam_elixiraai_client_id>
-      clientSecret: <iam_elixiraai_client_secret>
-      redirectUris: https://<iam_fqdn>/openid_connect_login
-      scope: openid,groupNames,bona_fide_status,forwardedScopedAffiliations,email,profile
-    loginButton:
-      text:
-      style: no-bg
-      image:
-        url: https://raw.githubusercontent.com/Laniakea-elixir-it/ELIXIR-AAI/master/login-button-orange.png
-        size: medium
-
+    providers:
+    - name: elixir-aai
+      issuer: https://login.elixir-czech.org/oidc/
+      client:
+        clientId: <iam_elixiraai_client_id>
+        clientSecret: <iam_elixiraai_client_secret>
+        redirectUris: https://<iam_fqdn>/openid_connect_login
+        scope: openid,groupNames,bona_fide_status,forwardedScopedAffiliations,email,profile
+      loginButton:
+        text:
+        style: no-bg
+        image:
+          url: https://raw.githubusercontent.com/Laniakea-elixir-it/ELIXIR-AAI/master/login-button-orange.png
+          size: medium
 
 Installation
 ------------
@@ -100,33 +97,32 @@ In the following, both Google and ELIXIR-AAI authentication methods will be enab
 ::
 
   oidc:
-  providers:
-  - name: google
-    issuer: https://accounts.google.com
-    client:
-      clientId: <iam_google_client_id>
-      clientSecret: <iam_google_client_secret>
-      redirectUris: https://<iam_fqdn>/openid_connect_login
-      scope: openid,profile,email,address,phone
-    loginButton:
-      text: Google
-      style: btn-social btn-google
-      image:
-        fa-icon: google
-  - name: elixir-aai
-    issuer: https://login.elixir-czech.org/oidc/
-    client:
-      clientId: <iam_elixiraai_client_id>
-      clientSecret: <iam_elixiraai_client_secret>
-      redirectUris: https://<iam_fqdn>/openid_connect_login
-      scope: openid,groupNames,bona_fide_status,forwardedScopedAffiliations,email,profile
-    loginButton:
-      text:
-      style: no-bg
-      image:
-        url: https://raw.githubusercontent.com/Laniakea-elixir-it/ELIXIR-AAI/master/login-button-orange.png
-        size: medium
-
+    providers:
+    - name: google
+      issuer: https://accounts.google.com
+      client:
+        clientId: <iam_google_client_id>
+        clientSecret: <iam_google_client_secret>
+        redirectUris: https://<iam_fqdn>/openid_connect_login
+        scope: openid,profile,email,address,phone
+      loginButton:
+        text: Google
+        style: btn-social btn-google
+        image:
+          fa-icon: google
+    - name: elixir-aai
+      issuer: https://login.elixir-czech.org/oidc/
+      client:
+        clientId: <iam_elixiraai_client_id>
+        clientSecret: <iam_elixiraai_client_secret>
+        redirectUris: https://<iam_fqdn>/openid_connect_login
+        scope: openid,groupNames,bona_fide_status,forwardedScopedAffiliations,email,profile
+      loginButton:
+        text:
+        style: no-bg
+        image:
+          url: https://raw.githubusercontent.com/Laniakea-elixir-it/ELIXIR-AAI/master/login-button-orange.png
+          size: medium
 
 Create the file ``indigopaas-deploy/ansible/inventory/group_vars/iam.yaml`` with the following configured values:
 
