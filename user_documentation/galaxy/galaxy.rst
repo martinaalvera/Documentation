@@ -39,7 +39,7 @@ This version is recommended for those users which want to be sure to have the la
 
 .. Warning::
 
-   In fact, each tool is downloaded from the repositories and configured on the fly. Depending on the number of the tools to be installed the deploument process may take time a variable amount of time.
+   In fact, each tool is downloaded from the repositories and configured on the fly. Depending on the number of the tools to be installed the deployment process may take a variable amount of time.
 
 Instantiate Galaxy
 ------------------
