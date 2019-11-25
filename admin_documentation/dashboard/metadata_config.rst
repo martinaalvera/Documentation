@@ -140,7 +140,7 @@ Supported options
 ----------
 
 :Description:
-	Define the three applications which can be diplayed in the ``Most used`` top row.
+	Define the three applications which can be displayed in the ``Most used`` top row.
 
 :Example:
         ::
