@@ -5,7 +5,7 @@ Vault is exploited as secrets management store, to store and manage encryption p
 
 .. note::
 
-   Current version version: 1.1.2
+   Current version: 1.1.2
 
 VM configuration
 ----------------
@@ -53,7 +53,7 @@ Installation video tutorial
 Vault initialization
 --------------------
 
-The Vault initialization can not be automated. To initialize it and get your root token for the initial configuration 
+The Vault initialization can not be automated. To initialize it and get your root token for the initial configuration: 
 
 
 #. Login on the VM hosting Vault:
@@ -63,7 +63,7 @@ The Vault initialization can not be automated. To initialize it and get your roo
      ssh root@<vault_vm_ip_address>
 
 
-#. Initialize vault
+#. Initialize Vault
 
    ::
 
