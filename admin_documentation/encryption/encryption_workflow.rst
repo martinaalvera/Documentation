@@ -1,7 +1,7 @@
 Storage encryption workflow
 ===========================
 
-When the storage encrpyptions is required by the user the following workflow is triggered:
+When the storage encrpyption is required by the user the following workflow is triggered:
 
 #. All required software are installed, e.g. cryptsetup.
 
